@@ -175,6 +175,14 @@ export const PORTFOLIO_DATA = {
       ],
     },
     {
+      category: "Databases",
+      items: [
+        { name: "MySQL", level: 89 },
+        { name: "MongoDB", level: 83 },
+        { name: "PostgreSQL", level: 86 },
+      ],
+    },
+    {
       category: "Libraries",
       items: [
         { name: "Pandas", level: 90 },
@@ -187,7 +195,8 @@ export const PORTFOLIO_DATA = {
       items: [
         { name: "Power BI", level: 87 },
         { name: "Excel", level: 89 },
-        { name: "Git", level: 76 },
+        { name: "Google Sheets Dashboard", level: 91 },
+        { name: "Git & GitHub", level: 85 },
       ],
     },
     {
@@ -247,10 +256,10 @@ export const PORTFOLIO_DATA = {
 } as const;
 
 export const NAV_LINKS = [
-  { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
-  { name: "Projects", href: "#projects" },
-  { name: "Skills", href: "#skills" },
-  { name: "Certifications", href: "#certifications" },
-  { name: "Contact", href: "#contact" },
+  { name: "About", href: "/#about" },
+  { name: "Experience", href: "/#experience" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Skills", href: "/#skills" },
+  { name: "Freelance", href: "/freelance" },
+  { name: "Contact", href: "/#contact" },
 ] as const;
