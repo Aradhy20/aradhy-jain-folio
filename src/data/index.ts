@@ -1,23 +1,23 @@
 export const PORTFOLIO_DATA = {
   personalInfo: {
     name: "Aradhy Jain",
-    title: "AI Engineer | AI & NLP Enthusiast",
-    tagline: "Turning Data into Actionable Insights",
+    title: "AI Engineer | Data Scientist & ML Enthusiast",
+    tagline: "Specializing in Generative AI, Machine Learning & Data Analytics",
     email: "jainaradhy123@gmail.com",
     phone: "+91-7351522153",
     linkedin: "https://www.linkedin.com/in/aradhyjain",
     github: "https://github.com/Aradhy20",
-    location: "Moradabad, India",
+    location: "Delhi, India",
     profileImage: "/profile.jpeg",
     resume: "/resume.pdf",
   },
   stats: [
-    { label: "Records Analyzed", value: "15K+" },
+    { label: "Records Analyzed", value: "20K+" },
     { label: "Dashboards Delivered", value: "12+" },
-    { label: "Automation Impact", value: "30%" },
+    { label: "Automation Impact", value: "40%" },
   ],
   about:
-    "AI Engineer with hands-on experience in Python, LLMs, Prompt Engineering, and Machine Learning. Skilled in building intelligent systems, NLP, and data-driven AI solutions. Passionate about solving real-world problems using cutting-edge AI technologies.",
+    "AI Engineer & Aspiring Data Scientist with hands-on experience in Python, LLMs, Generative AI, Prompt Engineering, and Machine Learning. Skilled in building intelligent systems, NLP workflows, and data-driven AI solutions that turn complex datasets into actionable business insights.",
   experience: [
     {
       id: 1,
