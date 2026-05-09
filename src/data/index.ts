@@ -207,6 +207,43 @@ export const PORTFOLIO_DATA = {
       ],
     },
   ],
+  certifications: [
+    {
+      id: 1,
+      title: "Data Analytics Job Simulation",
+      issuer: "Deloitte Australia",
+      date: "Completed",
+      skills: ["Data Analytics", "Data Visualization", "Process Improvement"],
+    },
+    {
+      id: 2,
+      title: "Python (Basics)",
+      issuer: "HackerRank",
+      date: "Completed",
+      skills: ["Problem Solving", "Algorithm Design", "Scripting"],
+    },
+    {
+      id: 3,
+      title: "Data Analytics and Reporting",
+      issuer: "Trainity / Oasis",
+      date: "Completed",
+      skills: ["Excel Modeling", "Business Intelligence", "KPI Tracking"],
+    },
+    {
+      id: 4,
+      title: "Statistics using R and Python",
+      issuer: "Cognifyz / TMU",
+      date: "Completed",
+      skills: ["Statistical Modeling", "Hypothesis Testing", "Exploratory Analysis"],
+    },
+    {
+      id: 5,
+      title: "Design Thinking",
+      issuer: "Deloitte",
+      date: "Completed",
+      skills: ["User-Centric Design", "Ideation Workflows", "Problem Refinement"],
+    },
+  ],
 } as const;
 
 export const NAV_LINKS = [
@@ -214,5 +251,6 @@ export const NAV_LINKS = [
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
+  { name: "Certifications", href: "#certifications" },
   { name: "Contact", href: "#contact" },
 ] as const;
