@@ -7,6 +7,7 @@ import { ArrowRight, Download, MapPin } from "lucide-react";
 import { useState, useEffect } from "react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { StatsCounter } from "@/components/StatsCounter";
+import { MagneticButton } from "@/components/ui/MagneticButton";
 
 const ROLES = [
   "Data Analyst Intern",
@@ -87,43 +88,45 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <a
-              href="#projects"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#0891b2,#2563eb)] px-7 py-4 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(37,99,235,0.28)] transition-transform hover:-translate-y-0.5"
-            >
-              View Projects
-              <ArrowRight size={18} />
-            </a>
-            <a
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <MagneticButton href="#projects">
+              <span className="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#0891b2,#2563eb)] px-7 py-4 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(37,99,235,0.28)]">
+                View Projects
+                <ArrowRight size={18} />
+              </span>
+            </MagneticButton>
+
+            <MagneticButton
               href={PORTFOLIO_DATA.personalInfo.resume}
               download={`${PORTFOLIO_DATA.personalInfo.name.replace(/\s+/g, "_")}_Resume.pdf`}
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-border/80 bg-white/55 px-7 py-4 text-sm font-semibold text-foreground shadow-lg backdrop-blur-xl transition-transform hover:-translate-y-0.5 dark:bg-white/5"
             >
-              <Download size={18} />
-              Download Resume
-            </a>
+              <span className="inline-flex items-center justify-center gap-2 rounded-full border border-border/80 bg-white/55 px-7 py-4 text-sm font-semibold text-foreground shadow-lg backdrop-blur-xl dark:bg-white/5">
+                <Download size={18} />
+                Download Resume
+              </span>
+            </MagneticButton>
           </div>
 
           <div className="mt-10 flex items-center gap-4">
-            <a
+            <MagneticButton
               href={PORTFOLIO_DATA.personalInfo.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-border/80 bg-white/50 text-foreground/75 shadow-lg transition-all hover:-translate-y-0.5 hover:text-blue-600 dark:bg-white/5"
             >
-              <FaLinkedinIn size={18} />
-              <span className="sr-only">LinkedIn</span>
-            </a>
-            <a
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-border/80 bg-white/50 text-foreground/75 shadow-lg hover:text-blue-600 dark:bg-white/5">
+                <FaLinkedinIn size={18} />
+              </span>
+            </MagneticButton>
+
+            <MagneticButton
               href={PORTFOLIO_DATA.personalInfo.github}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-border/80 bg-white/50 text-foreground/75 shadow-lg transition-all hover:-translate-y-0.5 hover:text-foreground dark:bg-white/5"
             >
-              <FaGithub size={18} />
-              <span className="sr-only">GitHub</span>
-            </a>
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-border/80 bg-white/50 text-foreground/75 shadow-lg hover:text-foreground dark:bg-white/5">
+                <FaGithub size={18} />
+              </span>
+            </MagneticButton>
           </div>
 
           <div className="mt-12 grid gap-4 sm:grid-cols-3">
