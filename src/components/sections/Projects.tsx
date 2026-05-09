@@ -7,6 +7,17 @@ import { FaGithub } from "react-icons/fa";
 import Image from "next/image";
 
 const getProjectImage = (title: string, techStack: readonly string[]) => {
+  const titleLower = title.toLowerCase();
+  if (titleLower.includes("jambudweep") || titleLower.includes("journal")) {
+    return "/project_digital_journal.png";
+  }
+  if (titleLower.includes("aviation") || titleLower.includes("flight") || titleLower.includes("skypilot")) {
+    return "/project_aviation_academy.png";
+  }
+  if (titleLower.includes("gym") || titleLower.includes("hospital")) {
+    return "/project_health_system.png";
+  }
+
   const stackStr = techStack.join(" ").toLowerCase();
   if (
     stackStr.includes("nlp") ||
