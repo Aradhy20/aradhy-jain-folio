@@ -8,25 +8,25 @@ import Image from "next/image";
 
 const SERVICES = [
   {
-    title: "Futuristic Data Analytics & BI",
-    icon: <LayoutDashboard className="h-6 w-6 text-cyan-500" />,
-    description: "Automated business intelligence pipelines designed to turn raw corporate data into intuitive, high-impact decisions.",
-    tools: ["Power BI Dashboards", "Google Sheets Dashboards", "KPI Trackers", "Excel Automation"],
-    price: "Starting at $350",
+    title: "AI Engineering & Custom LLM Dev",
+    icon: <Sparkles className="h-6 w-6 text-purple-500" />,
+    description: "Harness the power of generative AI. I design custom LLM interfaces, smart agentic RAG workflows, and intelligent NLP solutions tailored to automate enterprise actions.",
+    tools: ["LangChain & RAG Pipelines", "Vector Databases (Pinecone)", "Transformers & Custom NLP", "Custom GPT Integrations"],
+    price: "Starting at $600",
   },
   {
-    title: "Database Modeling & Backend Systems",
-    icon: <Database className="h-6 w-6 text-blue-500" />,
-    description: "Robust data warehousing solutions and structured schemas engineered for speed, scalability, and zero downtime.",
-    tools: ["PostgreSQL", "MySQL Schema Design", "MongoDB Clusters", "ETL Data Pipelines"],
+    title: "Data Engineering & Warehousing",
+    icon: <Database className="h-6 w-6 text-cyan-500" />,
+    description: "Architecting scalable data warehouses, building high-speed ETL pipelines, and designing robust schemas engineered for data consistency and zero latency.",
+    tools: ["ETL Pipelines & Orchestration", "PostgreSQL & MongoDB Clusters", "Apache Spark Big Data", "MySQL Schema Optimization"],
     price: "Starting at $500",
   },
   {
-    title: "AI & Machine Learning Solutions",
-    icon: <Sparkles className="h-6 w-6 text-purple-500" />,
-    description: "Intelligent, high-end NLP models and predictive systems tailored to automate operations and identify text patterns.",
-    tools: ["Python Predictors", "Transformers & NLP", "Prompt Engineering", "Custom Algorithms"],
-    price: "Starting at $750",
+    title: "Fullstack SaaS & Web Development",
+    icon: <LayoutDashboard className="h-6 w-6 text-blue-500" />,
+    description: "Turning ideas into powerful digital solutions. End-to-end custom responsive web application development and rigorous quality software testing for startups.",
+    tools: ["Next.js SaaS Applications", "Interactive Admin Panels", "Quality Software Testing", "Affordable Digital Solutions"],
+    price: "Starting at $450",
   },
 ];
 
@@ -186,10 +186,10 @@ export default function FreelancePage() {
                   id="project-type"
                   className="w-full rounded-2xl border border-white/10 bg-white/30 dark:bg-white/5 p-4 text-sm font-medium text-foreground outline-none transition-all focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/10"
                 >
-                  <option value="analytics" className="dark:bg-slate-950 text-foreground">Data Analytics & Dashboards (Power BI / Sheets)</option>
-                  <option value="database" className="dark:bg-slate-950 text-foreground">Database Schema & Models (MySQL / PostgreSQL / Mongo)</option>
-                  <option value="ai-ml" className="dark:bg-slate-950 text-foreground">Custom AI & Machine Learning Integrations</option>
-                  <option value="other" className="dark:bg-slate-950 text-foreground">Other Custom Automation Strategy</option>
+                  <option value="ai-ml" className="dark:bg-slate-950 text-foreground">AI Engineering & Custom LLM Dev (AI Engineer / Developer)</option>
+                  <option value="data-eng" className="dark:bg-slate-950 text-foreground">Data Engineering & Cloud Warehousing (Data Engineer)</option>
+                  <option value="saas-web" className="dark:bg-slate-950 text-foreground">Fullstack Web & SaaS Development (SaaS Developer)</option>
+                  <option value="other" className="dark:bg-slate-950 text-foreground">Other IT Strategy & Collaboration</option>
                 </select>
               </div>
 
