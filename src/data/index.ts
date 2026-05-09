@@ -82,6 +82,7 @@ export const PORTFOLIO_DATA = {
         "An elegant, high-performance academic publishing platform designed to streamline scholarly article submissions, editorial review workflows, and researcher engagement.",
       techStack: ["HTML", "Next.js", "Tailwind CSS", "Product Design"],
       githubLink: "https://github.com/Aradhy20/sanmati-journal",
+      liveLink: "https://sanmatijournal.in",
     },
     {
       id: 3,
@@ -98,7 +99,7 @@ export const PORTFOLIO_DATA = {
         "A real-time workspace for task coordination and team collaboration, featuring responsive Kanban boards, direct status actions, and Vercel hosting integration.",
       techStack: ["JavaScript", "React", "Node.js", "Tailwind CSS"],
       githubLink: "https://github.com/Aradhy20/Team-Task-Manager-Full-Stack-",
-      liveLink: "https://team-task-manager-full-stack-beryl.vercel.app",
+      liveLink: "https://teamtask-manager-assesment-production.up.railway.app",
     },
     {
       id: 5,
