@@ -9,7 +9,7 @@ export const PORTFOLIO_DATA = {
     github: "https://github.com/Aradhy20",
     location: "Delhi, India",
     profileImage: "/profile.jpeg",
-    resume: "/resume.pdf",
+    resume: "/Aradhy_Jain_Resume.pdf",
   },
   stats: [
     { label: "Records Analyzed", value: "20K+" },

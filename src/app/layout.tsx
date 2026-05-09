@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ParticlesBackground } from "@/components/ParticlesBackground";
 import { Chatbot } from "@/components/Chatbot";
+import { WhatsAppPopup } from "@/components/WhatsAppPopup";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -64,6 +65,7 @@ export default function RootLayout({
           <ParticlesBackground />
           {children}
           <Chatbot />
+          <WhatsAppPopup />
         </ThemeProvider>
       </body>
     </html>
