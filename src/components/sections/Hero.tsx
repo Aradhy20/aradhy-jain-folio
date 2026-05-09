@@ -4,8 +4,44 @@ import { ProfileAvatar } from "@/components/ProfileAvatar";
 import { PORTFOLIO_DATA } from "@/data";
 import { motion } from "framer-motion";
 import { ArrowRight, Download, MapPin } from "lucide-react";
+import { useState, useEffect } from "react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+
+const ROLES = [
+  "Data Analyst Intern",
+  "Machine Learning Enthusiast",
+  "Python Developer",
+  "Power BI Dashboard Creator",
+];
+
 export function Hero() {
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    const activeRole = ROLES[currentRoleIndex];
+    const typingSpeed = isDeleting ? 30 : 60;
+
+    if (!isDeleting && currentText === activeRole) {
+      timer = setTimeout(() => setIsDeleting(true), 2200);
+    } else if (isDeleting && currentText === "") {
+      setIsDeleting(false);
+      setCurrentRoleIndex((prev) => (prev + 1) % ROLES.length);
+    } else {
+      timer = setTimeout(() => {
+        setCurrentText(
+          isDeleting
+            ? activeRole.substring(0, currentText.length - 1)
+            : activeRole.substring(0, currentText.length + 1)
+        );
+      }, typingSpeed);
+    }
+
+    return () => clearTimeout(timer);
+  }, [currentText, isDeleting, currentRoleIndex]);
+
   return (
     <section
       id="hero"
@@ -18,22 +54,26 @@ export function Hero() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="max-w-3xl"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-sm font-medium text-cyan-700 shadow-lg shadow-cyan-500/10 dark:text-cyan-200">
+          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-sm font-medium text-cyan-700 shadow-lg shadow-cyan-500/10 dark:text-cyan-200 animate-pulse">
             <span className="h-2 w-2 rounded-full bg-cyan-400" />
-            Premium AI Engineer Portfolio
+            Premium Portfolio Website
           </div>
 
           <h1 className="mt-8 text-5xl font-semibold tracking-[-0.04em] text-foreground sm:text-6xl lg:text-7xl">
-            Building the bridge between{" "}
+            Hi, I’m{" "}
             <span className="bg-[linear-gradient(120deg,#0891b2,#2563eb,#8b5cf6)] bg-clip-text text-transparent">
-              raw data
-            </span>{" "}
-            and real decisions.
+              Aradhy Jain
+            </span>
           </h1>
 
+          <div className="mt-4 h-10 text-2xl font-semibold text-cyan-600 dark:text-cyan-400 sm:text-3xl">
+            <span>{currentText}</span>
+            <span className="animate-pulse text-cyan-500">|</span>
+          </div>
+
           <p className="mt-6 max-w-2xl text-lg leading-8 text-foreground/68 sm:text-xl">
-            {PORTFOLIO_DATA.personalInfo.title}. I design clean analytics experiences,
-            build useful AI workflows, and turn complex datasets into confident action.
+            Passionate about transforming raw data into actionable insights through analytics,
+            automation, and intelligent solutions.
           </p>
 
           <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-foreground/58">
@@ -127,7 +167,7 @@ export function Hero() {
                 Focus Areas
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
-                {["LLMs", "Prompt Engineering", "NLP", "AI Workflows", "Dashboarding"].map(
+                {["Python", "SQL", "Power BI", "Excel", "Machine Learning", "Data Analytics"].map(
                   (item) => (
                     <span
                       key={item}
