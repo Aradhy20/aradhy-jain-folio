@@ -9,6 +9,7 @@ import { Projects } from "@/components/sections/Projects";
 import { Skills } from "@/components/sections/Skills";
 import { Certifications } from "@/components/sections/Certifications";
 import { DashboardSection } from "@/components/sections/DashboardSection";
+import { Blog } from "@/components/sections/Blog";
 import { ParticlesBackground } from "@/components/ParticlesBackground";
 import { CursorGlow } from "@/components/CursorGlow";
 
@@ -33,6 +34,7 @@ export default function Home() {
         <Projects />
         <Skills />
         <DashboardSection />
+        <Blog />
         <Certifications />
         <Contact />
       </div>
