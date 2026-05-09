@@ -3,6 +3,7 @@ import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ParticlesBackground } from "@/components/ParticlesBackground";
+import { Chatbot } from "@/components/Chatbot";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -62,6 +63,7 @@ export default function RootLayout({
         >
           <ParticlesBackground />
           {children}
+          <Chatbot />
         </ThemeProvider>
       </body>
     </html>
