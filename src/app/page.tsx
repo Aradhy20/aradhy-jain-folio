@@ -8,6 +8,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Projects } from "@/components/sections/Projects";
 import { Skills } from "@/components/sections/Skills";
 import { Certifications } from "@/components/sections/Certifications";
+import { DashboardSection } from "@/components/sections/DashboardSection";
 import { ParticlesBackground } from "@/components/ParticlesBackground";
 import { CursorGlow } from "@/components/CursorGlow";
 
@@ -31,6 +32,7 @@ export default function Home() {
         <Experience />
         <Projects />
         <Skills />
+        <DashboardSection />
         <Certifications />
         <Contact />
       </div>
