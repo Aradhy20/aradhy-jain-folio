@@ -4,6 +4,27 @@ import { PORTFOLIO_DATA } from "@/data";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
+import Image from "next/image";
+
+const getProjectImage = (title: string, techStack: readonly string[]) => {
+  const stackStr = techStack.join(" ").toLowerCase();
+  if (
+    stackStr.includes("nlp") ||
+    stackStr.includes("transformers") ||
+    stackStr.includes("machine learning") ||
+    stackStr.includes("classification")
+  ) {
+    return "/project_ai_network.png";
+  }
+  if (
+    stackStr.includes("analytics") ||
+    stackStr.includes("visualization") ||
+    stackStr.includes("predictive")
+  ) {
+    return "/project_data_analytics.png";
+  }
+  return "/project_saas_dashboard.png";
+};
 
 export function Projects() {
   return (
@@ -51,8 +72,20 @@ export function Projects() {
                   </a>
                 </div>
 
-                <h3 className="mt-8 text-2xl font-semibold tracking-tight">{project.title}</h3>
-                <p className="mt-4 flex-1 text-sm leading-7 text-foreground/68">
+                {/* AI-Generated Project Visual Preview Mockup */}
+                <div className="relative mt-5 aspect-[1.55] overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-950/5 shadow-inner">
+                  <Image
+                    src={getProjectImage(project.title, project.techStack)}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-transparent" />
+                </div>
+
+                <h3 className="mt-6 text-2xl font-semibold tracking-tight">{project.title}</h3>
+                <p className="mt-3 flex-1 text-sm leading-7 text-foreground/68">
                   {project.description}
                 </p>
 
