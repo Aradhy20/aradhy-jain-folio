@@ -9,7 +9,13 @@ import { useState } from "react";
 
 const getProjectImages = (title: string, techStack: readonly string[]): string[] => {
   const titleLower = title.toLowerCase();
-  if (titleLower.includes("jambudweep") || titleLower.includes("journal")) {
+  if (titleLower.includes("jambudweep") || titleLower.includes("jain-mandir") || titleLower.includes("jain mandir")) {
+    return ["/project_heritage_platform.png", "/project_saas_dashboard.png"];
+  }
+  if (titleLower.includes("iris")) {
+    return ["/project_botany_ml.png", "/project_ai_network.png"];
+  }
+  if (titleLower.includes("journal") || titleLower.includes("sanmati")) {
     return ["/project_digital_journal.png", "/project_saas_dashboard.png"];
   }
   if (titleLower.includes("aviation") || titleLower.includes("flight") || titleLower.includes("skypilot")) {
