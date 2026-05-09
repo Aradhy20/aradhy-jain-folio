@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Download, MapPin } from "lucide-react";
 import { useState, useEffect } from "react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { StatsCounter } from "@/components/StatsCounter";
 
 const ROLES = [
   "Data Analyst Intern",
@@ -134,7 +135,15 @@ export function Hero() {
                 transition={{ duration: 0.5, delay: 0.25 + index * 0.1 }}
                 className="rounded-[1.6rem] border border-border/70 bg-white/55 p-5 shadow-xl backdrop-blur-xl dark:bg-white/5"
               >
-                <p className="text-2xl font-semibold tracking-tight text-foreground">{stat.value}</p>
+                <p className="text-2xl font-semibold tracking-tight text-foreground">
+                  {stat.label.includes("Analyzed") ? (
+                    <StatsCounter value={20} suffix="K+" />
+                  ) : stat.label.includes("Delivered") ? (
+                    <StatsCounter value={12} suffix="+" />
+                  ) : (
+                    <StatsCounter value={40} suffix="%" />
+                  )}
+                </p>
                 <p className="mt-1 text-sm text-foreground/60">{stat.label}</p>
               </motion.div>
             ))}

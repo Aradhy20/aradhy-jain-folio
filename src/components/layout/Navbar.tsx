@@ -1,7 +1,7 @@
 "use client";
 
 import { NAV_LINKS, PORTFOLIO_DATA } from "@/data";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
@@ -11,6 +11,13 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   useEffect(() => {
     setMounted(true);
@@ -23,11 +30,16 @@ export function Navbar() {
   }, []);
 
   return (
-    <motion.nav
-      initial={{ y: -24, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      className="fixed inset-x-0 top-0 z-50 px-4 pt-4"
-    >
+    <>
+      <motion.div
+        className="fixed inset-x-0 top-0 z-50 h-[3px] origin-left bg-[linear-gradient(90deg,#06b6d4,#3b82f6,#8b5cf6)]"
+        style={{ scaleX: scaleX }}
+      />
+      <motion.nav
+        initial={{ y: -24, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        className="fixed inset-x-0 top-0 z-40 px-4 pt-4"
+      >
       <div
         className={`mx-auto flex max-w-6xl items-center justify-between rounded-full border px-4 py-3 transition-all md:px-6 ${
           isScrolled
@@ -104,5 +116,6 @@ export function Navbar() {
         ) : null}
       </AnimatePresence>
     </motion.nav>
+    </>
   );
 }
