@@ -8,11 +8,15 @@ import { Hero } from "@/components/sections/Hero";
 import { Projects } from "@/components/sections/Projects";
 import { Skills } from "@/components/sections/Skills";
 import { Certifications } from "@/components/sections/Certifications";
+import { ParticlesBackground } from "@/components/ParticlesBackground";
+import { CursorGlow } from "@/components/CursorGlow";
 
 export default function Home() {
   return (
     <main className="relative min-h-screen overflow-x-clip bg-background text-foreground selection:bg-primary/20 selection:text-foreground">
       <LoadingScreen />
+      <CursorGlow />
+      <ParticlesBackground />
 
       <div className="pointer-events-none fixed inset-0 z-[-1] overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.14),transparent_30%),radial-gradient(circle_at_85%_20%,rgba(37,99,235,0.16),transparent_28%),radial-gradient(circle_at_20%_80%,rgba(14,165,233,0.14),transparent_24%)] dark:bg-[radial-gradient(circle_at_top,rgba(14,165,233,0.18),transparent_30%),radial-gradient(circle_at_85%_20%,rgba(37,99,235,0.18),transparent_28%),radial-gradient(circle_at_20%_80%,rgba(6,182,212,0.16),transparent_24%)]" />
