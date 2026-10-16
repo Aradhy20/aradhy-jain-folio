@@ -6,6 +6,7 @@ import {
   ShoppingBag,
   TrendingUp,
   Megaphone,
+  BarChart3,
   CheckCircle2,
   ArrowRight,
   Sparkles,
@@ -26,84 +27,118 @@ interface CommercialServiceItem {
 
 const SERVICES: CommercialServiceItem[] = [
   {
-    id: "web-dev",
-    title: "Website Design & Development",
-    categoryBadge: "High-Performance Web",
+    id: "website-dev",
+    title: "Website Development",
+    categoryBadge: "Primary Focus",
     targetAudience: "Small businesses, educational institutions, consultants, publishers & startups",
     icon: <Globe className="h-6 w-6 text-cyan-400" />,
-    tagline: "Custom websites built for credibility, high conversion, and sub-second load times.",
+    tagline: "Custom websites built for credibility, fast loading, and clear visitor pathways.",
     description:
-      "Full-cycle web design and development crafted with modern frameworks. From clean business websites and institutional portals to responsive landing pages and ongoing maintenance.",
+      "Developing bespoke business websites, institutional portals, and high-converting landing pages. Built with clean Next.js/React, semantic markup, and mobile-first responsiveness.",
     deliverables: [
-      "Custom business websites & high-converting landing pages",
-      "Institutional and academic web portals with structured information architecture",
-      "Mobile-first responsive layouts tested across all screen viewports",
-      "Fast Core Web Vitals optimization (sub-second LCP)",
-      "Ongoing website maintenance, bug fixes & security updates",
+      "Business and institutional websites",
+      "Responsive UI implementation (Mobile, Tablet, Desktop)",
+      "High-converting landing pages",
+      "Website redesigns and modernizations",
+      "Contact forms and workflow integrations",
+      "Performance and accessibility improvements",
     ],
-    referenceProjects: ["DSR College (dsr.college)", "Sanmati Journal (sanmatijournal.in)", "Jambudweep Portal"],
-    ctaLabel: "Inquire for Web Development",
+    referenceProjects: ["DSR College (dsr.college)", "Sanmati Journal (sanmatijournal.in)"],
+    ctaLabel: "Discuss Website Development",
   },
   {
     id: "ecommerce-marketplaces",
-    title: "E-commerce & Marketplace Operations",
-    categoryBadge: "Multi-Channel Commerce",
+    title: "E-commerce & Marketplace Support",
+    categoryBadge: "Primary Focus",
     targetAudience: "Manufacturers, handicraft sellers, retailers, and online brands",
     icon: <ShoppingBag className="h-6 w-6 text-amber-400" />,
-    tagline: "Amazon, Flipkart, Meesho marketplace setup and direct web storefronts.",
+    tagline: "Amazon, Flipkart, Meesho cataloging and direct web storefronts.",
     description:
-      "End-to-end commerce operations that turn raw inventory into organized, discoverable listings across India's top marketplaces and direct-to-consumer digital storefronts.",
+      "End-to-end commerce catalog operations. Turning raw inventory into structured, discoverable listings across marketplaces and direct-to-consumer digital storefronts.",
     deliverables: [
-      "Amazon, Flipkart & Meesho seller account onboarding & listing workflows",
-      "Product catalog architecture, SKU hierarchies & attribute standardization",
-      "Policy-compliant, keyword-rich product titles & bullet points",
-      "Listing creative sets, zoom-ready image guidelines & infographics",
-      "Direct e-commerce storefront development with category filtering",
+      "Product catalogue organization and categorization",
+      "SKU and product data architecture",
+      "Search-optimized product titles and bullet descriptions",
+      "Listing content and image planning for marketplace readiness",
+      "Amazon Seller Central, Flipkart, and Meesho onboarding support",
+      "Direct product page improvements and checkout flows",
     ],
-    referenceProjects: ["Paras Metal (Amazon, Flipkart, Meesho)", "Artisanal Home Decor Store"],
-    ctaLabel: "Inquire for E-commerce / Catalog",
+    referenceProjects: ["Paras Metal (Amazon, Flipkart, Meesho)"],
+    ctaLabel: "Discuss E-commerce & Marketplaces",
   },
   {
-    id: "seo-speed",
-    title: "SEO & Website Performance Improvement",
-    categoryBadge: "Search & Visibility",
+    id: "seo-growth",
+    title: "SEO & Website Optimization",
+    categoryBadge: "Primary Focus",
     targetAudience: "Businesses with an existing website that needs more organic traffic & speed",
     icon: <TrendingUp className="h-6 w-6 text-purple-400" />,
-    tagline: "Outrank competitors and turn organic search traffic into qualified buyer inquiries.",
+    tagline: "Technical SEO audits, structured data, and search engine discoverability.",
     description:
       "Technical audits, schema markup implementation, and search engine optimization. I diagnose crawl issues, configure Google Search Console, and improve ranking factors.",
     deliverables: [
-      "Comprehensive technical SEO audits with prioritized fix roadmaps",
-      "On-page SEO: title tags, meta descriptions, heading structure & keywords",
-      "Google Search Console & GA4 traffic tracking and indexing verification",
-      "Schema.org structured data (Organization, Product, Educational, Academic)",
-      "Core Web Vitals performance tuning (LCP, CLS, INP)",
+      "Technical SEO audits with prioritized fix roadmaps",
+      "Metadata, Open Graph tags, and structured schema data",
+      "Indexing, sitemap, and crawlability checks",
+      "Core Web Vitals investigation and speed tuning (LCP, CLS, INP)",
+      "Content organization and internal linking structure",
+      "Search visibility improvements and Google Search Console setup",
     ],
     referenceProjects: ["Sanmati Research Journal (ISSN 3108-1819)", "DSR College SEO"],
-    ctaLabel: "Request Website SEO Audit",
+    ctaLabel: "Discuss SEO & Optimization",
   },
   {
     id: "marketing-analytics",
-    title: "Digital Marketing & Analytics Automation",
-    categoryBadge: "Marketing & Automation",
+    title: "Digital Marketing & Analytics",
+    categoryBadge: "Growth Services",
     targetAudience: "Businesses that need consistent online marketing, creatives & executive reporting",
     icon: <Megaphone className="h-6 w-6 text-emerald-400" />,
     tagline: "Consistent social presence, creative assets, and automated executive dashboards.",
     description:
       "Connecting digital presence with practical client acquisition. Social media content strategy, product creatives, automated Power BI/Excel dashboards, and Python scripts.",
     deliverables: [
-      "Social media content calendars, promotional graphics & brand creatives",
-      "E-commerce promotional banners and feature graphics",
-      "Automated Power BI and Google Sheets dashboards tracking key business KPIs",
-      "Python scripts automating repetitive data cleaning and report generation",
-      "Clear monthly performance summaries with actionable growth recommendations",
+      "Social media content support and planning",
+      "Campaign reporting and performance reviews",
+      "Analytics dashboards (Power BI, Google Sheets, Excel)",
+      "Performance reporting on web traffic and user behavior",
+      "Conversion tracking where configured",
+      "E-commerce promotional graphics and creatives",
     ],
-    referenceProjects: ["Paras Metal Creatives", "TMU Departmental KPI Dashboard", "MathesisLabs Automation"],
-    ctaLabel: "Inquire for Marketing & Analytics",
+    referenceProjects: ["Paras Metal Branding", "TMU Departmental KPI Dashboard"],
+    ctaLabel: "Discuss Marketing & Analytics",
+  },
+  {
+    id: "python-data-automation",
+    title: "Python, Data & Automation",
+    categoryBadge: "Supporting Capability",
+    targetAudience: "Businesses that need custom reporting pipelines, data cleaning, or workflow automation",
+    icon: <BarChart3 className="h-6 w-6 text-blue-400" />,
+    tagline: "Custom data pipelines, reporting automation, and practical intelligent workflows.",
+    description:
+      "Supporting capabilities in Python scripting, data cleaning, automated business dashboards, and practical AI/ML prototypes designed to eliminate tedious manual workflows.",
+    deliverables: [
+      "Data cleaning and preprocessing for business datasets (Python, Pandas)",
+      "Interactive business dashboards (Power BI, Google Sheets)",
+      "Workflow automation scripts saving repetitive manual hours",
+      "API data extraction and automated reports",
+      "Practical AI/ML prototypes when suitable (NLP, classification)",
+    ],
+    referenceProjects: ["TMU Departmental Analytics", "MathesisLabs IT Scripts"],
+    ctaLabel: "Discuss Data & Automation",
   },
 ];
 
 export function CommercialServices() {
+  const handleSelectService = (serviceTitle: string) => {
+    const contactElem = document.getElementById("contact");
+    if (contactElem) {
+      contactElem.scrollIntoView({ behavior: "smooth" });
+      const selectElem = document.getElementById("contact-service") as HTMLSelectElement | null;
+      if (selectElem) {
+        selectElem.value = serviceTitle;
+      }
+    }
+  };
+
   return (
     <section id="services" className="py-24 sm:py-32 relative">
       <div className="container">
@@ -120,43 +155,42 @@ export function CommercialServices() {
             Commercial Client Services
           </div>
           <h2 className="section-title">
-            Tailored Solutions to Grow Your Business
+            Defined Services Built for Business Growth
           </h2>
           <p className="section-copy">
-            Clear deliverables, honest scoping, and outcome-oriented execution across web development, marketplace operations, search visibility, and automation.
+            Transparent deliverables, honest scoping, and outcome-oriented execution across web development, e-commerce, search visibility, and automation.
           </p>
         </motion.div>
 
-        {/* 4 Focused Services Grid */}
-        <div className="mt-14 grid gap-8 md:grid-cols-2">
+        {/* 5 Focused Services Grid */}
+        <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service, index) => (
             <motion.article
               key={service.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative flex flex-col justify-between overflow-hidden rounded-[2.5rem] border border-border/70 bg-white/50 p-8 sm:p-10 shadow-xl backdrop-blur-xl dark:bg-slate-900/40 hover:border-cyan-500/40 hover:shadow-2xl transition-all duration-300"
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className={`group relative flex flex-col justify-between overflow-hidden rounded-[2.5rem] border border-border/70 bg-white/50 p-8 shadow-xl backdrop-blur-xl dark:bg-slate-900/40 hover:border-cyan-500/40 hover:shadow-2xl transition-all duration-300 ${
+                index >= 3 ? "lg:col-span-1" : ""
+              }`}
             >
-              {/* Corner Aura */}
-              <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-cyan-500/5 blur-3xl group-hover:bg-cyan-500/15 transition-all duration-500 pointer-events-none" />
-
               <div>
                 {/* Header with Icon and Category */}
                 <div className="flex items-center justify-between gap-3">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/20 bg-white/20 shadow-sm backdrop-blur-md dark:bg-white/5">
+                  <div className="flex h-13 w-13 items-center justify-center rounded-2xl border border-white/20 bg-white/20 shadow-sm backdrop-blur-md dark:bg-white/5">
                     {service.icon}
                   </div>
-                  <span className="rounded-full border border-cyan-500/25 bg-cyan-500/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-cyan-700 dark:text-cyan-300">
+                  <span className="rounded-full border border-cyan-500/25 bg-cyan-500/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-cyan-700 dark:text-cyan-300">
                     {service.categoryBadge}
                   </span>
                 </div>
 
                 {/* Title & Tagline */}
-                <h3 className="mt-6 text-2xl sm:text-3xl font-bold tracking-tight text-foreground group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+                <h3 className="mt-6 text-2xl font-bold tracking-tight text-foreground group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
                   {service.title}
                 </h3>
-                <p className="mt-2 text-xs sm:text-sm font-semibold text-cyan-600 dark:text-cyan-400">
+                <p className="mt-2 text-xs font-semibold text-cyan-600 dark:text-cyan-400">
                   {service.tagline}
                 </p>
 
@@ -166,18 +200,18 @@ export function CommercialServices() {
                   {service.targetAudience}
                 </div>
 
-                <p className="mt-4 text-sm leading-relaxed text-foreground/70">
+                <p className="mt-4 text-xs sm:text-sm leading-relaxed text-foreground/70">
                   {service.description}
                 </p>
 
                 {/* Deliverables Checklist */}
-                <div className="mt-6 pt-5 border-t border-foreground/5 space-y-2.5">
+                <div className="mt-6 pt-5 border-t border-foreground/5 space-y-2">
                   <p className="text-[11px] font-bold uppercase tracking-wider text-foreground/50">
                     What You Receive:
                   </p>
                   {service.deliverables.map((deliv) => (
                     <div key={deliv} className="flex items-start gap-2.5 text-xs text-foreground/80">
-                      <CheckCircle2 size={14} className="text-cyan-500 shrink-0 mt-0.5" />
+                      <CheckCircle2 size={13} className="text-cyan-500 shrink-0 mt-0.5" />
                       <span>{deliv}</span>
                     </div>
                   ))}
@@ -188,7 +222,7 @@ export function CommercialServices() {
                   {service.referenceProjects.map((ref) => (
                     <span
                       key={ref}
-                      className="rounded-md border border-border/60 bg-foreground/[0.03] px-2.5 py-1 text-[11px] font-medium text-foreground/60"
+                      className="rounded-md border border-border/60 bg-foreground/[0.03] px-2 py-0.5 text-[10px] font-medium text-foreground/60"
                     >
                       {ref}
                     </span>
@@ -197,21 +231,16 @@ export function CommercialServices() {
               </div>
 
               {/* Action Button */}
-              <div className="mt-8 pt-6 border-t border-foreground/5 flex items-center justify-between">
-                <a
-                  href="/freelance"
-                  className="text-xs font-medium text-foreground/60 hover:text-foreground transition-colors"
-                >
-                  View Details →
-                </a>
+              <div className="mt-8 pt-5 border-t border-foreground/5 flex items-center justify-between">
+                <span className="text-xs text-foreground/50 font-medium">Request a Quote</span>
 
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-[linear-gradient(135deg,#06b6d4,#2563eb)] px-5 py-2.5 text-xs font-semibold text-white shadow-md hover:scale-[1.02] transition-transform"
+                <button
+                  onClick={() => handleSelectService(service.title)}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-[linear-gradient(135deg,#06b6d4,#2563eb)] px-4 py-2 text-xs font-semibold text-white shadow-md hover:scale-[1.02] transition-transform"
                 >
                   <span>{service.ctaLabel}</span>
                   <ArrowRight size={13} />
-                </a>
+                </button>
               </div>
             </motion.article>
           ))}

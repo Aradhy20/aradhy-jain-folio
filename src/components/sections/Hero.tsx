@@ -71,12 +71,12 @@ export function Hero() {
           {/* Main Name & High-Impact Headline */}
           <div className="mt-5">
             <p className="text-sm sm:text-base font-semibold tracking-wide text-cyan-600 dark:text-cyan-400 uppercase">
-              Web Development, E-commerce & Digital Growth Partner
+              Aradhy Jain — Web Developer, E-commerce & Digital Growth Specialist
             </p>
             <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-foreground sm:text-6xl lg:text-7xl leading-[1.08]">
-              Websites That Convert.{" "}
+              I Build Websites, E-commerce Experiences &{" "}
               <span className="bg-[linear-gradient(120deg,#06b6d4,#3b82f6,#a855f7)] bg-clip-text text-transparent">
-                E-commerce That Sells.
+                Digital Systems That Help Businesses Grow.
               </span>
             </h1>
           </div>
@@ -89,16 +89,16 @@ export function Hero() {
 
           {/* Central Value Proposition */}
           <p className="mt-6 text-base sm:text-lg font-normal leading-relaxed text-foreground/75 max-w-2xl">
-            I help businesses build their online presence, launch and improve e-commerce experiences, optimize marketplace listings (Amazon · Flipkart · Meesho), and strengthen digital visibility through development, SEO, content, and analytics.
+            I help businesses establish a stronger online presence through responsive websites, e-commerce solutions, marketplace catalogue optimization, technical SEO, digital marketing, and data-driven improvements.
           </p>
 
           {/* Core Commercial Pillar Badges */}
           <div className="mt-6 flex flex-wrap items-center gap-2 text-xs font-medium text-foreground/75">
             <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1.5 text-cyan-700 dark:text-cyan-300">
-              Website Development
+              Web Development
             </span>
             <span className="rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1.5 text-blue-700 dark:text-blue-300">
-              E-commerce Storefronts
+              E-commerce & Marketplaces
             </span>
             <span className="rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1.5 text-amber-700 dark:text-amber-300">
               Amazon · Flipkart · Meesho
@@ -110,7 +110,7 @@ export function Hero() {
               Digital Marketing
             </span>
             <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-emerald-700 dark:text-emerald-300">
-              Automation & Analytics
+              Python, Data & Automation
             </span>
           </div>
 
@@ -126,7 +126,7 @@ export function Hero() {
             <MagneticButton href="#projects">
               <span className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-6 py-3.5 text-sm font-semibold text-cyan-700 dark:text-cyan-300 backdrop-blur-xl transition-all hover:bg-cyan-500/20">
                 <Briefcase size={16} />
-                View Case Studies
+                Explore My Work
               </span>
             </MagneticButton>
 

@@ -21,36 +21,53 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Aradhy Jain | Full-Stack Developer & Freelance Digital Solutions",
+  title: "Aradhy Jain | Web Developer, E-commerce & Digital Growth Specialist",
   description:
-    "Full-Stack Web Developer, E-commerce Specialist, and Digital Solutions Provider. I build high-performance websites, online storefronts, SEO strategies, data dashboards, and automated AI systems.",
+    "I help businesses establish a stronger online presence through responsive websites, e-commerce solutions, marketplace catalogue optimization, technical SEO, digital marketing, and data-driven improvements.",
   keywords: [
     "Aradhy Jain",
-    "Full-Stack Developer",
-    "Freelance Web Developer",
-    "E-commerce Developer",
+    "Web Developer",
+    "E-commerce Specialist",
+    "Marketplace Catalogue Optimization",
+    "Technical SEO",
+    "Digital Growth",
     "Next.js Developer",
     "React Developer",
-    "Technical SEO",
-    "Data Analytics",
-    "Power BI",
     "Python Automation",
-    "AI & Machine Learning",
+    "Business Analytics",
+    "Freelance Web Developer India",
   ],
-  metadataBase: process.env.NEXT_PUBLIC_SITE_URL
-    ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
-    : undefined,
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://aradhyjain.vercel.app"
+  ),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Aradhy Jain | Full-Stack Developer & Freelance Digital Solutions",
+    title: "Aradhy Jain | Web Developer, E-commerce & Digital Growth Specialist",
     description:
-      "Turning ideas into high-impact digital experiences. Full-stack websites, e-commerce storefronts, analytics dashboards, and automation systems.",
+      "I Build Websites, E-commerce Experiences & Digital Systems That Help Businesses Grow. Real case studies: Paras Metal, Sanmati Journal, and DSR College.",
+    url: "/",
+    siteName: "Aradhy Jain Portfolio",
+    locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aradhy Jain | Full-Stack Developer & Freelance Digital Solutions",
+    title: "Aradhy Jain | Web Developer, E-commerce & Digital Growth Specialist",
     description:
-      "Turning ideas into high-impact digital experiences. Full-stack websites, e-commerce storefronts, analytics dashboards, and automation systems.",
+      "I Build Websites, E-commerce Experiences & Digital Systems That Help Businesses Grow. Real case studies: Paras Metal, Sanmati Journal, and DSR College.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -59,8 +76,76 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://aradhyjain.vercel.app";
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": `${siteUrl}/#person`,
+        name: "Aradhy Jain",
+        jobTitle: "Web Developer, E-commerce & Digital Growth Specialist",
+        url: siteUrl,
+        email: "jainaradhy01@gmail.com",
+        telephone: "+91-7351522153",
+        sameAs: [
+          "https://github.com/Aradhy20",
+          "https://linkedin.com/in/aradhy-jain",
+        ],
+        knowsAbout: [
+          "Website Development",
+          "E-commerce Operations",
+          "Marketplace Optimization",
+          "Amazon & Flipkart Listing Support",
+          "Technical SEO",
+          "Python Automation",
+          "Business Intelligence Dashboards",
+        ],
+        alumniOf: {
+          "@type": "EducationalOrganization",
+          name: "Computer Science Engineering (Data Science)",
+        },
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": `${siteUrl}/#service`,
+        name: "Aradhy Jain — Digital Growth & Web Development",
+        url: siteUrl,
+        description:
+          "I help businesses establish a stronger online presence through responsive websites, e-commerce solutions, marketplace catalogue optimization, technical SEO, digital marketing, and data-driven improvements.",
+        provider: {
+          "@id": `${siteUrl}/#person`,
+        },
+        areaServed: [
+          {
+            "@type": "Country",
+            name: "India",
+          },
+          {
+            "@type": "AdministrativeArea",
+            name: "Global",
+          },
+        ],
+        serviceType: [
+          "Website Development",
+          "E-commerce & Marketplace Support",
+          "SEO & Website Optimization",
+          "Digital Marketing & Analytics",
+          "Python, Data & Automation",
+        ],
+      },
+    ],
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${outfit.variable} ${inter.variable} min-h-screen bg-background font-sans text-foreground antialiased`}
       >

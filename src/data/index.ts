@@ -59,12 +59,12 @@ export interface SkillGroup {
 export const PORTFOLIO_DATA = {
   personalInfo: {
     name: "Aradhy Jain",
-    positioning: "Web Development, E-commerce & Digital Growth Partner",
-    title: "Web Development, E-commerce & Digital Growth Partner",
-    headline: "Websites That Perform. E-commerce That Sells.",
-    tagline: "Website Development • E-commerce & Marketplaces • SEO • Digital Marketing • Analytics",
+    positioning: "Web Developer, E-commerce & Digital Growth Specialist",
+    title: "Web Developer, E-commerce & Digital Growth Specialist",
+    headline: "I Build Websites, E-commerce Experiences & Digital Systems That Help Businesses Grow.",
+    tagline: "Web Development • E-commerce & Marketplaces • Technical SEO • Digital Marketing • Analytics",
     mission:
-      "I help businesses build their online presence, launch and improve e-commerce experiences, optimize marketplace listings (Amazon · Flipkart · Meesho), and strengthen their digital visibility through development, SEO, content, and analytics.",
+      "I help businesses establish a stronger online presence through responsive websites, e-commerce solutions, marketplace catalogue optimization, technical SEO, digital marketing, and data-driven improvements.",
     email: "jainaradhy123@gmail.com",
     phone: "+91-7351522153",
     whatsapp: "917351522153",
@@ -80,7 +80,7 @@ export const PORTFOLIO_DATA = {
       "Amazon · Flipkart · Meesho",
       "Technical SEO",
       "Digital Marketing",
-      "Automation & Analytics",
+      "Python, Data & Automation",
     ],
   },
   stats: [
@@ -89,51 +89,129 @@ export const PORTFOLIO_DATA = {
     { label: "Production & Open Source Builds", value: "15+" },
   ],
   about:
-    "I partner with business owners, manufacturers, institutions, and founders as an end-to-end digital growth specialist. My work bridges custom website engineering, e-commerce storefronts, marketplace catalog operations (Amazon, Flipkart, Meesho), technical SEO, and automated reporting. By combining technical precision with commercial usability, I help businesses establish an authoritative digital presence, streamline sales operations, and scale reliably.",
+    "I am an IT professional with a B.Tech in Computer Science (Data Science) from Teerthanker Mahaveer University. I work with business owners, manufacturers, institutions, and founders as a Web Developer, E-commerce & Digital Growth Specialist. My practical experience spans custom website engineering, multi-channel marketplace catalog operations (Amazon, Flipkart, Meesho), technical SEO, digital marketing, and data analytics. I combine technical precision with commercial usability to help businesses establish an authoritative digital presence, streamline sales operations, and scale reliably.",
   
+  whyWorkWithMe: [
+    {
+      title: "Technical Implementation + Digital-Business Understanding",
+      description:
+        "I connect technical development to practical business tasks—ensuring your website, e-commerce catalog, or portal genuinely drives inquiries, customer trust, and sales.",
+      icon: "Briefcase",
+    },
+    {
+      title: "Clear Communication & Defined Deliverables",
+      description:
+        "You always know what is being built, why it matters, and when it will be delivered. Clear milestones, prompt updates, and transparent scoping without confusion.",
+      icon: "MessageSquare",
+    },
+    {
+      title: "Responsive, Maintainable Website Development",
+      description:
+        "Clean, modern architecture built with Next.js, React, and semantic HTML/CSS that your team can maintain and scale without fragile workarounds.",
+      icon: "Layout",
+    },
+    {
+      title: "Attention to SEO, Usability & Performance",
+      description:
+        "Every page is structured with mobile-first responsiveness, accessible navigation, schema metadata, and sub-second Core Web Vitals speed from day one.",
+      icon: "Gauge",
+    },
+    {
+      title: "Transparent Workflow with Honest Milestones",
+      description:
+        "Realistic delivery schedules, honest technical scoping, and verified proof points. No inflated claims—just reliable, professional follow-through.",
+      icon: "ShieldCheck",
+    },
+  ],
+
+  workingProcess: [
+    {
+      step: "01",
+      title: "Discovery",
+      tagline: "Understanding the Business & Goals",
+      description:
+        "We discuss your business model, target audience, existing digital presence, and primary objectives to establish a clear foundation.",
+    },
+    {
+      step: "02",
+      title: "Scope",
+      tagline: "Defining Deliverables & Dependencies",
+      description:
+        "I map out the exact deliverables, technical architecture, timeline milestones, and required assets so there are no surprises.",
+    },
+    {
+      step: "03",
+      title: "Design",
+      tagline: "Creating & Reviewing Visual Direction",
+      description:
+        "Wireframing and designing responsive, high-contrast layouts tailored to your brand identity, usability, and conversion goals.",
+    },
+    {
+      step: "04",
+      title: "Development",
+      tagline: "Implementing Approved Scope",
+      description:
+        "Developing the platform using clean Next.js/React, semantic markup, fast database/API integrations, and responsive components.",
+    },
+    {
+      step: "05",
+      title: "Quality Assurance",
+      tagline: "Testing Functionality, SEO Basics & Performance",
+      description:
+        "Rigorous cross-browser, mobile viewport, accessibility (WCAG), Core Web Vitals, and technical SEO verification before going live.",
+    },
+    {
+      step: "06",
+      title: "Launch & Support",
+      tagline: "Deploying & Handing Over Documentation",
+      description:
+        "Deploying to production, verifying domain and SSL settings, setting up Google Search Console, and providing complete handover documentation.",
+    },
+  ],
+
   services: [
     {
       id: "website-dev",
-      title: "Website Design & Development",
-      category: "Web Engineering",
+      title: "Website Development",
+      category: "Web Development",
       targetAudience: "Small businesses, educational institutions, consultants, publishers & startups",
       iconName: "Globe",
       tagline: "High-performance, modern business websites engineered for customer trust & conversions.",
       description:
         "Building tailored business websites, corporate portals, academic platforms, landing pages, and responsive web applications with sub-second speeds and mobile-first design.",
       offerings: [
-        "Custom Business & Corporate Websites",
-        "Institutional & Academic Web Portals",
-        "High-Converting Landing Pages",
-        "Responsive Mobile-First Redesigns",
-        "Ongoing Website Maintenance, Hosting & Security Checks",
-        "Content Management (WordPress / Headless CMS / Next.js)",
+        "Business and institutional websites",
+        "Responsive UI implementation (Mobile, Tablet, Desktop)",
+        "High-converting landing pages",
+        "Website redesigns and modernizations",
+        "Contact forms and workflow integrations",
+        "Performance and accessibility improvements",
       ],
       deliverables: [
-        "100% responsive cross-device layout (Mobile, Tablet, Desktop)",
+        "100% responsive cross-device layout tested across all viewports",
         "Clean, maintainable Next.js/React codebase with sub-second load times",
         "Accessible navigation with clear customer conversion pathways",
         "Complete technical setup, domain linking, and SSL deployment",
       ],
-      representativeProjects: ["DSR College", "Sanmati Journal", "SkyPilot Aviation Academy"],
-      ctaLabel: "Discuss Website Project",
+      representativeProjects: ["DSR College (dsr.college)", "Sanmati Journal (sanmatijournal.in)"],
+      ctaLabel: "Discuss Website Development",
     },
     {
       id: "ecommerce-marketplaces",
-      title: "E-commerce & Marketplace Operations",
-      category: "Digital Commerce",
-      targetAudience: "Manufacturers, handicraft brands, retail businesses & online merchants",
+      title: "E-commerce & Marketplace Support",
+      category: "E-commerce",
+      targetAudience: "Manufacturers, handicraft sellers, retailers, and online brands",
       iconName: "ShoppingBag",
-      tagline: "Turn your product line into an organized, high-selling online catalog across marketplaces.",
+      tagline: "Amazon, Flipkart, Meesho marketplace cataloging and direct web storefronts.",
       description:
-        "End-to-end e-commerce and marketplace catalog operations. From launching custom storefronts to optimizing product listings on Amazon, Flipkart, and Meesho with search-ready descriptions and organized SKU structures.",
+        "End-to-end commerce operations that turn raw inventory into organized, discoverable listings across India's top marketplaces and direct-to-consumer digital storefronts.",
       offerings: [
-        "Amazon, Flipkart & Meesho Listing Creation & Catalog Setup",
-        "High-Converting Product Titles, Bullet Points & SEO Copy",
-        "SKU Architecture, Pricing Strategy & Attribute Standardization",
-        "Listing Photography Guidance, Infographics & Image Creatives",
-        "Custom E-commerce Storefront Development (Shopify / Next.js)",
-        "Cross-Platform Product Inventory & Data Consistency",
+        "Product catalogue organization and categorization",
+        "SKU and product data architecture",
+        "Search-optimized product titles and bullet descriptions",
+        "Listing content and image planning for marketplace readiness",
+        "Amazon Seller Central, Flipkart, and Meesho onboarding support",
+        "Direct product page improvements and checkout flows",
       ],
       deliverables: [
         "Marketplace-ready product spreadsheets and live listings",
@@ -141,25 +219,25 @@ export const PORTFOLIO_DATA = {
         "Faceted catalog navigation and mobile shopping checkout flows",
         "Structured product metadata for Google Shopping discovery",
       ],
-      representativeProjects: ["Paras Metal (Amazon, Flipkart, Meesho)", "Artisanal Home Decor Store"],
-      ctaLabel: "Optimize Store & Listings",
+      representativeProjects: ["Paras Metal (Amazon, Flipkart, Meesho)"],
+      ctaLabel: "Discuss E-commerce & Marketplaces",
     },
     {
       id: "seo-growth",
-      title: "SEO & Website Performance Improvement",
-      category: "Search & Visibility",
-      targetAudience: "Businesses with an existing website that needs more traffic, speed, and better ranking",
+      title: "SEO & Website Optimization",
+      category: "Technical SEO",
+      targetAudience: "Businesses with an existing website that needs more organic traffic, speed, and better ranking",
       iconName: "TrendingUp",
       tagline: "Outrank competitors and turn organic search traffic into qualified buyer inquiries.",
       description:
         "Comprehensive technical and on-page SEO services. I diagnose crawling issues, optimize metadata, implement schema markup, fix Core Web Vitals speed bottlenecks, and establish Google Search Console visibility.",
       offerings: [
-        "Comprehensive Technical SEO Audits & Action Roadmaps",
-        "On-Page SEO, Keyword Research & Title/Meta Optimization",
-        "Google Search Console & Google Analytics 4 Setup & Diagnostics",
-        "Core Web Vitals Speed Optimization (LCP, CLS, INP)",
-        "JSON-LD Schema Markup (Organization, Product, Academic)",
-        "Internal Linking & Site Architecture Refactoring",
+        "Technical SEO audits with prioritized fix roadmaps",
+        "Metadata, Open Graph tags, and structured schema data",
+        "Indexing, sitemap, and crawlability checks",
+        "Core Web Vitals investigation and speed tuning (LCP, CLS, INP)",
+        "Content organization and internal linking structure",
+        "Search visibility improvements and Google Search Console setup",
       ],
       deliverables: [
         "Prioritized audit report detailing technical fixes and growth opportunities",
@@ -167,34 +245,58 @@ export const PORTFOLIO_DATA = {
         "XML sitemaps and indexing coverage verification",
         "Noticeable speed and Core Web Vitals improvements",
       ],
-      representativeProjects: ["Sanmati Research Journal (ISSN 3108-1819)", "DSR College Institutional Portal"],
-      ctaLabel: "Request SEO Audit",
+      representativeProjects: ["Sanmati Research Journal (ISSN 3108-1819)", "DSR College SEO"],
+      ctaLabel: "Discuss SEO & Optimization",
     },
     {
       id: "marketing-analytics",
-      title: "Digital Marketing & Analytics Automation",
-      category: "Growth & Automation",
+      title: "Digital Marketing & Analytics",
+      category: "Digital Marketing",
       targetAudience: "Businesses needing consistent online marketing, creatives, and reporting clarity",
       iconName: "Megaphone",
-      tagline: "Coherent social presence, creative assets, and automated executive dashboards.",
+      tagline: "Consistent social presence, creative assets, and automated executive dashboards.",
       description:
-        "Connecting your online presence with practical customer acquisition. Social media content strategy, product creatives, automated Power BI/Excel dashboards, and Python scripts that eliminate manual reporting.",
+        "Connecting your online presence with practical customer acquisition. Social media content support, promotional creatives, campaign reporting, analytics dashboards, and conversion tracking.",
       offerings: [
-        "Social Media Content Planning & Brand Creatives",
-        "E-commerce Product Promotional Graphics & Creatives",
-        "Interactive Power BI & Google Sheets Dashboards",
-        "Python Workflow Automation Scripts & Web Scraping",
-        "KPI Tracking for Inquiries, Orders, and Website Performance",
-        "Reporting Automation Eliminating Repetitive Manual Work",
+        "Social media content support and planning",
+        "Campaign reporting and performance reviews",
+        "Analytics dashboards (Power BI, Google Sheets, Excel)",
+        "Performance reporting on web traffic and user behavior",
+        "Conversion tracking where configured",
+        "E-commerce promotional graphics and creatives",
       ],
       deliverables: [
         "Monthly content schedules and high-impact social assets",
         "Automated dashboard reports tracking commercial KPIs",
-        "Custom data cleaning scripts saving weekly manual hours",
         "Clear monthly performance summary and actionable recommendations",
       ],
-      representativeProjects: ["Paras Metal Branding", "TMU KPI Dashboard", "MathesisLabs IT Scripts"],
-      ctaLabel: "Automate Marketing & Data",
+      representativeProjects: ["Paras Metal Branding", "TMU KPI Dashboard"],
+      ctaLabel: "Discuss Marketing & Analytics",
+    },
+    {
+      id: "python-data-automation",
+      title: "Python, Data & Automation",
+      category: "Automation & Analytics",
+      targetAudience: "Businesses that need custom reporting pipelines, data cleaning, or workflow automation",
+      iconName: "BarChart3",
+      tagline: "Streamline data processing, automate repetitive tasks, and explore practical AI prototypes.",
+      description:
+        "Supporting capabilities in Python scripting, data cleaning, automated business dashboards, and practical AI/ML prototypes designed to eliminate tedious manual workflows.",
+      offerings: [
+        "Data cleaning and preprocessing for business datasets (Python, Pandas)",
+        "Interactive business dashboards (Power BI, Google Sheets)",
+        "Workflow automation scripts saving repetitive manual hours",
+        "API data extraction and automated reports",
+        "Practical AI/ML prototypes when suitable (NLP, classification)",
+      ],
+      deliverables: [
+        "Custom, documented Python automation scripts",
+        "Clean, deduplicated structured datasets ready for analysis",
+        "Interactive executive dashboard reports",
+        "Direct reduction in recurring manual weekly effort",
+      ],
+      representativeProjects: ["TMU Departmental Analytics", "MathesisLabs IT Scripts"],
+      ctaLabel: "Discuss Data & Automation",
     },
   ] as FreelanceService[],
 
@@ -768,9 +870,9 @@ export const PORTFOLIO_DATA = {
 
 export const NAV_LINKS = [
   { name: "Home", href: "/#hero" },
-  { name: "Projects", href: "/#projects" },
   { name: "Services", href: "/#services" },
-  { name: "Audit Tool", href: "/#audit-tool" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Process", href: "/#process" },
   { name: "About", href: "/#about" },
   { name: "Contact", href: "/#contact" },
 ] as const;

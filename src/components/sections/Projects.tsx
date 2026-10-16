@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useMemo } from "react";
 import { ProjectCaseStudyModal } from "@/components/ProjectCaseStudyModal";
 
@@ -178,13 +179,21 @@ function FlagshipCaseStudyCard({
           ))}
         </div>
 
-        <button
-          onClick={() => onOpenModal(project)}
-          className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-cyan-700 dark:text-cyan-300 hover:text-cyan-900 dark:hover:text-cyan-100 transition-colors"
-        >
-          <span>View Deep Dive</span>
-          <ArrowUpRight size={16} />
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => onOpenModal(project)}
+            className="text-xs font-semibold text-foreground/60 hover:text-foreground transition-colors px-2 py-1"
+          >
+            Quick View
+          </button>
+          <Link
+            href={`/projects/${project.slug}`}
+            className="inline-flex items-center gap-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3.5 py-1.5 text-xs font-semibold text-cyan-700 dark:text-cyan-300 hover:bg-cyan-500/20 transition-colors"
+          >
+            <span>Case Study</span>
+            <ArrowRight size={13} />
+          </Link>
+        </div>
       </div>
     </motion.article>
   );

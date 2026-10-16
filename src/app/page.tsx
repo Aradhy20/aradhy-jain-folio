@@ -2,8 +2,11 @@ import { LoadingScreen } from "@/components/LoadingScreen";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/sections/Hero";
+import { TrustStrip } from "@/components/sections/TrustStrip";
 import { Projects } from "@/components/sections/Projects";
 import { CommercialServices } from "@/components/sections/CommercialServices";
+import { WhyWorkWithMe } from "@/components/sections/WhyWorkWithMe";
+import { WorkingProcess } from "@/components/sections/WorkingProcess";
 import { ClientLeadTools } from "@/components/sections/ClientLeadTools";
 import { About } from "@/components/sections/About";
 import { Experience } from "@/components/sections/Experience";
@@ -31,16 +34,25 @@ export default function Home() {
         {/* 1. Attention: Headline, Positioning, 3D Hero */}
         <Hero />
 
-        {/* 2. Proof: Paras Metal, Sanmati Journal, DSR College & Case Studies */}
+        {/* 2. Trust and Capability Strip: 4 Core Pillars */}
+        <TrustStrip />
+
+        {/* 3. Proof: Paras Metal, Sanmati Journal, DSR College & Case Studies */}
         <Projects />
 
-        {/* 3. Service Selection: Focused Commercial Offerings */}
+        {/* 4. Commercial Services: 5 Focused Deliverables */}
         <CommercialServices />
 
-        {/* 4. AI Lead Generation Tools: Website Audit & Brief Assistant */}
+        {/* 5. Client Partnership Value: Why Work With Me */}
+        <WhyWorkWithMe />
+
+        {/* 6. Execution Methodology: 6-Phase Transparent Process */}
+        <WorkingProcess />
+
+        {/* 7. Lead Generation Tools: Website Audit, Brief Assistant & Listing Generator */}
         <ClientLeadTools />
 
-        {/* 5. Trust & Background */}
+        {/* 8. Trust & Technical Background */}
         <About />
         <Experience />
         <Skills />
@@ -48,7 +60,7 @@ export default function Home() {
         <Certifications />
         <Blog />
 
-        {/* 6. Conversion: Inquiry Form & Direct Channels */}
+        {/* 9. Final CTA & Inquiry Form: Direct Channels & Lead Qualification */}
         <Contact />
       </div>
 

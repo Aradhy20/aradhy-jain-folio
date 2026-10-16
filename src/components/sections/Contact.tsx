@@ -8,7 +8,10 @@ import { FormEvent, useState } from "react";
 type FormState = {
   name: string;
   email: string;
-  category: string;
+  company: string;
+  service: string;
+  budgetRange: string;
+  timeline: string;
   message: string;
   honeypot: string;
 };
@@ -16,7 +19,10 @@ type FormState = {
 const initialState: FormState = {
   name: "",
   email: "",
-  category: "General Inquiry",
+  company: "",
+  service: "Website Development",
+  budgetRange: "Flexible / Discussion",
+  timeline: "Within 1 Month",
   message: "",
   honeypot: "",
 };
@@ -47,7 +53,7 @@ export function Contact() {
       return;
     }
     if (!form.message.trim() || form.message.trim().length < 15) {
-      setErrorMsg("Please add a bit more detail (at least 15 characters) so I can understand your need.");
+      setErrorMsg("Please add a bit more detail (at least 15 characters) so I can understand your project needs.");
       return;
     }
 
@@ -60,7 +66,10 @@ export function Contact() {
         body: JSON.stringify({
           name: form.name,
           email: form.email,
-          serviceCategory: form.category,
+          company: form.company,
+          serviceCategory: form.service,
+          budgetRange: form.budgetRange,
+          timeline: form.timeline,
           message: form.message,
           honeypot: form.honeypot,
         }),
@@ -68,7 +77,7 @@ export function Contact() {
 
       const data = await res.json();
       if (!res.ok) {
-        throw new Error(data.error || "Failed to send message.");
+        throw new Error(data.error || "Failed to submit project inquiry.");
       }
 
       setSubmittedResponse(data);
@@ -84,8 +93,21 @@ export function Contact() {
   return (
     <section id="contact" className="py-24 sm:py-32 relative">
       <div className="container">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-300">
+            Project Inquiry & Contact
+          </span>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
+            Have a Project in Mind?
+          </h2>
+          <p className="mt-3 text-base text-foreground/75 leading-relaxed">
+            Tell me what you are building, improving, or trying to solve. I’ll review your requirements and discuss the next steps.
+          </p>
+        </div>
+
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-          {/* Left Column: Direct Contact Info */}
+          {/* Left Column: Direct Contact Info & Guarantees */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -94,10 +116,12 @@ export function Contact() {
             className="panel flex flex-col justify-between p-8 sm:p-10 rounded-[2.2rem]"
           >
             <div>
-              <p className="section-kicker !text-left">Get In Touch</p>
-              <h2 className="section-title !text-left">Let’s Discuss Your Next Project</h2>
-              <p className="section-copy !mx-0 !text-left mt-4">
-                Open to freelance web development, e-commerce stores, institutional portals, SEO audits, and custom data automation. Let&apos;s build something impactful together.
+              <p className="section-kicker !text-left">Direct Communication</p>
+              <h3 className="text-2xl font-bold text-foreground !text-left mt-1">
+                Reach Out Directly
+              </h3>
+              <p className="section-copy !mx-0 !text-left mt-3">
+                Whether you need a new website, marketplace listing support, technical SEO, or reporting automation, I reply personally within 24 hours.
               </p>
             </div>
 
@@ -110,7 +134,7 @@ export function Contact() {
                   <Mail size={18} />
                 </div>
                 <div>
-                  <p className="text-xs text-foreground/50">Email Directly</p>
+                  <p className="text-xs text-foreground/50">Direct Email</p>
                   <p className="font-semibold text-sm text-foreground">{PORTFOLIO_DATA.personalInfo.email}</p>
                 </div>
               </a>
@@ -123,7 +147,7 @@ export function Contact() {
                   <Phone size={18} />
                 </div>
                 <div>
-                  <p className="text-xs text-foreground/50">Direct Phone / Call</p>
+                  <p className="text-xs text-foreground/50">Phone / Call</p>
                   <p className="font-semibold text-sm text-foreground">{PORTFOLIO_DATA.personalInfo.phone}</p>
                 </div>
               </a>
@@ -138,15 +162,15 @@ export function Contact() {
                   <MessageSquare size={18} />
                 </div>
                 <div>
-                  <p className="text-xs text-emerald-800 dark:text-emerald-300 font-medium">Instant Chat</p>
-                  <p className="font-semibold text-sm text-foreground">Message on WhatsApp</p>
+                  <p className="text-xs text-emerald-800 dark:text-emerald-300 font-medium">Instant WhatsApp</p>
+                  <p className="font-semibold text-sm text-foreground">Message Directly (+91-7351522153)</p>
                 </div>
               </a>
             </div>
 
             <div className="mt-8 flex items-center gap-3 rounded-2xl border border-cyan-500/20 bg-cyan-500/5 p-4 text-xs text-foreground/70">
               <ShieldCheck size={18} className="text-cyan-600 dark:text-cyan-400 shrink-0" />
-              <span>Transparent communication • Direct replies from Aradhy Jain</span>
+              <span>Transparent scoping • Prompt replies directly from Aradhy Jain</span>
             </div>
           </motion.div>
 
@@ -163,7 +187,7 @@ export function Contact() {
                 <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white shadow-lg">
                   <Check size={28} />
                 </div>
-                <h3 className="text-xl font-bold text-foreground">Thank you for your message!</h3>
+                <h3 className="text-xl font-bold text-foreground">Thank you for your inquiry!</h3>
                 <p className="text-sm text-foreground/75 max-w-md mx-auto">
                   {submittedResponse.message}
                 </p>
@@ -200,7 +224,7 @@ export function Contact() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 {/* Honeypot field for bot spam */}
                 <input
                   type="text"
@@ -218,23 +242,23 @@ export function Contact() {
                   </div>
                 )}
 
-                <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-2">
-                    Your Name *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    placeholder="Enter your name"
-                    className="field"
-                  />
-                </div>
-
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-2">
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
+                      Your Name *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={form.name}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      placeholder="e.g. Rahul Sharma"
+                      className="field"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
                       Your Email *
                     </label>
                     <input
@@ -242,40 +266,92 @@ export function Contact() {
                       required
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      placeholder="name@example.com"
+                      placeholder="e.g. rahul@business.com"
+                      className="field"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
+                      Business / Company Name <span className="text-foreground/40 font-normal">(Optional)</span>
+                    </label>
+                    <input
+                      type="text"
+                      value={form.company}
+                      onChange={(e) => setForm({ ...form, company: e.target.value })}
+                      placeholder="e.g. Acme Handicrafts"
                       className="field"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-2">
-                      Topic / Service
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
+                      Service Required *
                     </label>
                     <select
-                      value={form.category}
-                      onChange={(e) => setForm({ ...form, category: e.target.value })}
+                      id="contact-service"
+                      value={form.service}
+                      onChange={(e) => setForm({ ...form, service: e.target.value })}
                       className="field cursor-pointer"
                     >
                       <option value="Website Development">Website Development</option>
-                      <option value="E-commerce Solutions">E-commerce Solutions</option>
-                      <option value="SEO & Performance">SEO & Performance</option>
-                      <option value="Data & Dashboards">Data & Dashboards</option>
-                      <option value="AI / Automation">AI / Automation</option>
-                      <option value="General Inquiry">General Inquiry</option>
+                      <option value="E-commerce & Marketplace Support">E-commerce & Marketplace Support</option>
+                      <option value="SEO & Website Optimization">SEO & Website Optimization</option>
+                      <option value="Digital Marketing & Analytics">Digital Marketing & Analytics</option>
+                      <option value="Python, Data & Automation">Python, Data & Automation</option>
+                      <option value="General Inquiry">General Inquiry / Consultation</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
+                      Approximate Budget <span className="text-foreground/40 font-normal">(Optional)</span>
+                    </label>
+                    <select
+                      value={form.budgetRange}
+                      onChange={(e) => setForm({ ...form, budgetRange: e.target.value })}
+                      className="field cursor-pointer"
+                    >
+                      <option value="Flexible / Discussion">Flexible / Discussion</option>
+                      <option value="Under ₹25,000 / $300">Under ₹25,000 / $300</option>
+                      <option value="₹25,000 – ₹60,000 / $300 – $750">₹25,000 – ₹60,000 / $300 – $750</option>
+                      <option value="₹60,000 – ₹1,20,000 / $750 – $1,500">₹60,000 – ₹1,20,000 / $750 – $1,500</option>
+                      <option value="Custom Enterprise / Retainer">Custom Enterprise / Retainer</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
+                      Target Timeline <span className="text-foreground/40 font-normal">(Optional)</span>
+                    </label>
+                    <select
+                      value={form.timeline}
+                      onChange={(e) => setForm({ ...form, timeline: e.target.value })}
+                      className="field cursor-pointer"
+                    >
+                      <option value="Within 2-3 Weeks (Urgent)">Within 2-3 Weeks (Urgent)</option>
+                      <option value="Within 1 Month (Standard)">Within 1 Month (Standard)</option>
+                      <option value="1-2 Months (Phased)">1-2 Months (Phased)</option>
+                      <option value="Flexible / Exploratory">Flexible / Exploratory</option>
                     </select>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-2">
-                    Message / Project Details *
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
+                    Project Description *
                   </label>
                   <textarea
+                    id="contact-message"
                     required
                     rows={4}
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    placeholder="Tell me about what you're looking to achieve..."
+                    placeholder="Tell me about what you are building, improving, or trying to solve..."
                     className="field resize-none"
                   />
                 </div>
@@ -283,17 +359,17 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#06b6d4,#2563eb)] px-7 py-4 text-sm font-semibold text-white shadow-lg shadow-cyan-500/25 hover:scale-[1.01] disabled:opacity-60 transition-all"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-[linear-gradient(135deg,#06b6d4,#2563eb)] p-4 text-sm font-semibold text-white shadow-lg shadow-cyan-500/25 transition-transform hover:scale-[1.01] disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? (
                     <>
-                      <Loader2 size={16} className="animate-spin" />
-                      <span>Sending Message...</span>
+                      <Loader2 size={18} className="animate-spin" />
+                      Submitting Inquiry...
                     </>
                   ) : (
                     <>
-                      <span>Send Project Message</span>
                       <Send size={16} />
+                      Start a Project / Send Inquiry
                     </>
                   )}
                 </button>

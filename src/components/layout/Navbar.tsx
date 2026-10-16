@@ -69,15 +69,22 @@ export function Navbar() {
           ))}
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
+          <a
+            href="/#contact"
+            className="hidden sm:inline-flex items-center gap-2 rounded-full bg-[linear-gradient(135deg,#06b6d4,#2563eb)] px-4 py-2 text-xs font-semibold text-white shadow-md shadow-cyan-500/20 hover:scale-[1.02] transition-transform"
+          >
+            Discuss Your Project
+          </a>
+
           {mounted ? (
             <button
               type="button"
               aria-label="Toggle theme"
               onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-foreground/80 transition-all hover:scale-[1.03] hover:text-foreground dark:bg-white/5"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/10 text-foreground/80 transition-all hover:scale-[1.03] hover:text-foreground dark:bg-white/5"
             >
-              {resolvedTheme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+              {resolvedTheme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
             </button>
           ) : null}
 
@@ -85,7 +92,7 @@ export function Navbar() {
             type="button"
             aria-label="Open navigation"
             onClick={() => setIsOpen((open) => !open)}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-foreground/80 transition-colors hover:text-foreground md:hidden dark:bg-white/5"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/10 text-foreground/80 transition-colors hover:text-foreground md:hidden dark:bg-white/5"
           >
             {isOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
@@ -98,19 +105,28 @@ export function Navbar() {
             initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
-            className="mx-auto mt-3 max-w-6xl rounded-[2rem] border border-white/15 bg-background/90 p-4 shadow-2xl backdrop-blur-2xl md:hidden dark:bg-slate-950/90"
+            className="mx-auto mt-3 max-w-6xl rounded-[2rem] border border-white/15 bg-background/95 p-5 shadow-2xl backdrop-blur-2xl md:hidden dark:bg-slate-950/95"
           >
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-1.5">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="rounded-2xl px-4 py-3 text-sm font-medium text-foreground/75 transition-colors hover:bg-foreground/5 hover:text-foreground"
+                  className="rounded-xl px-4 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-foreground/5 hover:text-foreground"
                 >
                   {link.name}
                 </a>
               ))}
+              <div className="mt-3 pt-3 border-t border-foreground/10">
+                <a
+                  href="/#contact"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-center w-full rounded-full bg-[linear-gradient(135deg,#06b6d4,#2563eb)] py-3 text-sm font-semibold text-white shadow-md text-center"
+                >
+                  Discuss Your Project
+                </a>
+              </div>
             </div>
           </motion.div>
         ) : null}
