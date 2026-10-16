@@ -47,13 +47,13 @@ export function Navbar() {
             : "border-transparent bg-transparent"
         }`}
       >
-        <a href="#hero" className="flex items-center gap-3">
+        <a href="/" className="flex items-center gap-3">
           <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-sm font-semibold shadow-lg backdrop-blur-xl dark:bg-white/5">
             AJ
           </div>
           <div>
             <p className="text-sm font-semibold tracking-wide">{PORTFOLIO_DATA.personalInfo.name}</p>
-            <p className="text-xs text-foreground/60">AI Engineer Portfolio</p>
+            <p className="text-xs text-foreground/60">Full-Stack & Freelance</p>
           </div>
         </a>
 

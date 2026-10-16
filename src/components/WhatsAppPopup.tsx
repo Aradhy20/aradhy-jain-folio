@@ -6,7 +6,7 @@ import { MessageSquare, X, Send } from "lucide-react";
 
 export function WhatsAppPopup() {
   const [open, setOpen] = useState(false);
-  const [msg, setMsg] = useState("Hi Aradhy, I saw your portfolio and would love to collaborate on a data/analytics project!");
+  const [msg, setMsg] = useState("Hi Aradhy, I saw your portfolio and would love to discuss a web development, e-commerce, or digital solutions project!");
 
   const whatsappUrl = `https://wa.me/917351522153?text=${encodeURIComponent(msg)}`;
 

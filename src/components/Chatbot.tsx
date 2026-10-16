@@ -14,12 +14,13 @@ const SUGGESTED = [
 ];
 
 const BOT_RESPONSES: Record<string, string> = {
-  skills: "Aradhy Jain is a versatile Data Analyst and AI/NLP specialist. His core skillset includes Python, SQL, R, Pandas, NumPy, Scikit-learn, Transformers, and Prompt Engineering. He is also proficient in dashboard design and dashboard automation.",
-  databases: "Aradhy works extensively with modern relational and NoSQL databases, including PostgreSQL, MySQL, and MongoDB. He is skilled in database design, schema optimization, and ETL data pipelines.",
-  freelance: "Yes! Aradhy is available for freelance projects and consultations. He specializes in designing custom Power BI and Google Sheets dashboards, database schema design, and deploying custom AI/ML text classification workflows. You can hire him through the Freelance page or contact him directly!",
-  contact: "You can reach Aradhy Jain directly via email at jainaradhy123@gmail.com, or call him at +91 7351522153. He is also active on LinkedIn at linkedin.com/in/aradhyjain and GitHub at github.com/Aradhy20.",
-  experience: "Aradhy is currently a Data Analyst Intern and B.Tech Computer Science student. He has completed Deloitte Australia's Data Analytics simulation, built automated reports with TCS, and engineered advanced data and ML solutions.",
-  projects: "Aradhy has built several premium data analytics and AI projects, including custom Power BI Business Intelligence suites, Automated NLP pipelines, exploratory data analyzers with Pandas & Seaborn, and fully-featured interactive database models.",
+  skills: "Aradhy Jain is a multidisciplinary Full-Stack Developer & Freelance Digital Solutions Provider. His core competencies span Next.js, React, TypeScript, Tailwind CSS, Python, SQL, PostgreSQL, MySQL, Technical SEO, E-commerce development, Power BI dashboards, and AI/NLP workflows.",
+  services: "Aradhy offers 6 core freelance services: 1) Full-Stack Website Development, 2) E-commerce Storefronts & Catalog UX, 3) Technical SEO & Core Web Vitals Auditing, 4) Digital Marketing & Content Strategy, 5) Power BI & Excel Dashboard Automation, and 6) Applied AI & NLP Consulting.",
+  databases: "Aradhy designs and optimizes relational and NoSQL databases including PostgreSQL, MySQL, and MongoDB. He is skilled in schema modeling, query optimization, and automated ETL pipelines.",
+  freelance: "Yes! Aradhy is actively available for freelance web development, e-commerce stores, SEO audits, and custom data dashboards. You can submit an inquiry through the Services page (/freelance) or message him directly on WhatsApp or Email!",
+  contact: "You can reach Aradhy Jain directly via email at jainaradhy123@gmail.com, or phone/WhatsApp at +91 7351522153. He is also active on LinkedIn at linkedin.com/in/aradhyjain and GitHub at github.com/Aradhy20.",
+  experience: "Aradhy is currently a Web Developer for Sanmati Journal and Data Analyst Intern at Teerthanker Mahaveer University. He previously completed software/data internships at MathesisLabs Technologies and Trainity/Oasis, and completed Deloitte Australia's Data Analytics job simulation.",
+  projects: "Aradhy has delivered commercial e-commerce platforms like Paras Metal, institutional portals like DSR College (dsr.college), academic publishing systems like Sanmati Journal (sanmatijournal.in), the Jambudweep digital platform, real-time Task Managers, and machine learning sentiment classifiers.",
 };
 
 export function Chatbot() {
@@ -29,7 +30,7 @@ export function Chatbot() {
   const [messages, setMessages] = useState<Msg[]>([
     {
       role: "assistant",
-      content: "Hi! I'm AJ Assistant 👋 Ask me anything about Aradhy's skills, databases, freelance services, or projects.",
+      content: "Hi! I'm AJ Assistant 👋 Ask me anything about Aradhy's websites, e-commerce work, freelance services, or technical projects.",
     },
   ]);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -47,25 +48,28 @@ export function Chatbot() {
 
   const getSmartReply = (query: string): string => {
     const text = query.toLowerCase();
-    if (text.includes("skill") || text.includes("language") || text.includes("programming")) {
+    if (text.includes("service") || text.includes("offer") || text.includes("hire") || text.includes("pricing") || text.includes("quote")) {
+      return BOT_RESPONSES.services;
+    }
+    if (text.includes("skill") || text.includes("language") || text.includes("stack") || text.includes("tech")) {
       return BOT_RESPONSES.skills;
     }
-    if (text.includes("database") || text.includes("mysql") || text.includes("mongo") || text.includes("postgres")) {
+    if (text.includes("database") || text.includes("mysql") || text.includes("mongo") || text.includes("postgres") || text.includes("sql")) {
       return BOT_RESPONSES.databases;
     }
-    if (text.includes("freelance") || text.includes("hire") || text.includes("consult")) {
+    if (text.includes("freelance") || text.includes("contract") || text.includes("consult")) {
       return BOT_RESPONSES.freelance;
     }
-    if (text.includes("contact") || text.includes("email") || text.includes("phone") || text.includes("reach")) {
+    if (text.includes("contact") || text.includes("email") || text.includes("phone") || text.includes("whatsapp") || text.includes("reach")) {
       return BOT_RESPONSES.contact;
     }
-    if (text.includes("experience") || text.includes("work") || text.includes("intern")) {
+    if (text.includes("experience") || text.includes("work") || text.includes("intern") || text.includes("background")) {
       return BOT_RESPONSES.experience;
     }
-    if (text.includes("project") || text.includes("portfolio") || text.includes("build")) {
+    if (text.includes("project") || text.includes("portfolio") || text.includes("paras") || text.includes("dsr") || text.includes("sanmati") || text.includes("build")) {
       return BOT_RESPONSES.projects;
     }
-    return "That's a great question! Aradhy is a B.Tech Computer Science student & Data Analyst Intern skilled in Python, SQL, PostgreSQL, MongoDB, Power BI, and Machine Learning. He loves building premium data products and is open to internships and freelance roles. Feel free to ask about his skills, experience, or databases!";
+    return "Thanks for asking! Aradhy Jain is a Full-Stack Developer & Freelance Digital Solutions Provider. He specializes in building fast, responsive websites, e-commerce stores, SEO strategies, and automated data dashboards. Feel free to ask about his projects, services, or contact details!";
   };
 
   const send = async (text?: string) => {

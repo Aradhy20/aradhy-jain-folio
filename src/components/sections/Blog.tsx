@@ -5,6 +5,24 @@ import { ArrowRight, Calendar, Clock } from "lucide-react";
 
 const ARTICLES = [
   {
+    category: "Web & SEO",
+    title: "Optimizing Core Web Vitals for Content-Rich Digital Portals",
+    excerpt:
+      "A deep dive into reducing Largest Contentful Paint (LCP) and Cumulative Layout Shift (CLS) across institutional and academic publishing platforms.",
+    readTime: "5 min read",
+    date: "Feb 2026",
+    url: "https://www.linkedin.com/in/aradhyjain",
+  },
+  {
+    category: "E-commerce UX",
+    title: "Designing Seamless Product Discovery for Artisanal Online Stores",
+    excerpt:
+      "How structured filtering, progressive image loading, and micro-interactions turn casual handicraft browsers into confident buyers.",
+    readTime: "6 min read",
+    date: "Jan 2026",
+    url: "https://www.linkedin.com/in/aradhyjain",
+  },
+  {
     category: "Data Analysis",
     title: "Getting Started with Exploratory Data Analysis in Python",
     excerpt:
@@ -14,30 +32,12 @@ const ARTICLES = [
     url: "https://www.linkedin.com/in/aradhyjain",
   },
   {
-    category: "Career Insights",
-    title: "From Excel to SQL: My Data Analyst Toolkit",
+    category: "Applied AI",
+    title: "Building Applied NLP Sentiment Pipelines with Scikit-learn",
     excerpt:
-      "How I leveled up from spreadsheet wizardry to writing efficient, highly-optimized SQL queries, plus the core schemas that made the jump.",
-    readTime: "5 min read",
-    date: "Feb 2025",
-    url: "https://www.linkedin.com/in/aradhyjain",
-  },
-  {
-    category: "Machine Learning",
-    title: "Building My First Sentiment Analysis Model",
-    excerpt:
-      "An end-to-end walkthrough of building, training, and evaluating an NLP classification pipeline using Python and scikit-learn.",
-    readTime: "8 min read",
-    date: "Jan 2025",
-    url: "https://www.linkedin.com/in/aradhyjain",
-  },
-  {
-    category: "Generative AI",
-    title: "How Generative AI Is Reshaping Data Careers",
-    excerpt:
-      "My take on what every aspiring analyst and engineer should learn about LLMs, prompt engineering, and agent-based workflows.",
+      "An end-to-end walkthrough of building, training, and deploying text classification workflows for real-world user feedback datasets.",
     readTime: "7 min read",
-    date: "Dec 2024",
+    date: "Jan 2025",
     url: "https://www.linkedin.com/in/aradhyjain",
   },
 ];

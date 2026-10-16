@@ -1,64 +1,56 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Play, Database, Sparkles, RefreshCw, Terminal, CheckCircle2 } from "lucide-react";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Play, RefreshCw, Terminal, Info } from "lucide-react";
 
 type ConsoleTab = "sql" | "ml" | "etl";
 
 export function DashboardSection() {
   const [activeTab, setActiveTab] = useState<ConsoleTab>("sql");
   const [isRunning, setIsRunning] = useState(false);
-  const [consoleLines, setConsoleLines] = useState<string[]>([]);
-  const [recordsCount, setRecordsCount] = useState(24850);
-  const [trainingLoss, setTrainingLoss] = useState(0.082);
+  const [consoleLines, setConsoleLines] = useState<string[]>([
+    "Ready for demonstration run.",
+    "Select a tab above and click 'Run Interactive Demo' to trace execution steps.",
+  ]);
 
-  // Live ticking records count to simulate a live data stream
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setRecordsCount((prev) => prev + Math.floor(Math.random() * 3) + 1);
-      setTrainingLoss((prev) => Math.max(0.02, +(prev - (Math.random() * 0.001)).toFixed(4)));
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const runSimulation = () => {
+  const runSimulation = (tabToRun: ConsoleTab) => {
     if (isRunning) return;
     setIsRunning(true);
-    setConsoleLines([]);
+    setConsoleLines(["[INITIALIZING DEMO EXECUTION]..."]);
 
     let lines: string[] = [];
-    if (activeTab === "sql") {
+    if (tabToRun === "sql") {
       lines = [
         "Connecting to PostgreSQL database: aradhy_portfolio...",
-        "STATUS: Connected successfully.",
-        "RUNNING QUERY: SELECT skill, avg(impact) FROM skills_metrics GROUP BY skill ORDER BY avg(impact) DESC LIMIT 4;",
-        "SCANNING: 24,850 data rows analyzed...",
-        "FETCH COMPLETED. Generating bento metric outputs:",
-        "📊 Python Data Processing ----> Avg Impact: 96%",
-        "📊 PostgreSQL Schema Analytics ----> Avg Impact: 92%",
-        "📊 LangChain NLP Pipeline   ----> Avg Impact: 88%",
-        "📊 Power BI Dashboarding    ----> Avg Impact: 91%",
+        "STATUS: Connection established (SSL enabled).",
+        "RUNNING QUERY: SELECT skill, avg(impact_score) FROM platform_metrics GROUP BY skill ORDER BY avg(impact_score) DESC LIMIT 4;",
+        "SCANNING: 25,000+ benchmark record rows analyzed in memory...",
+        "FETCH COMPLETED (24ms). Resulting breakdown:",
+        "  ✦ Full-Stack Web Development  ----> Performance Index: 98%",
+        "  ✦ E-commerce Architecture    ----> Catalog Optimization: 95%",
+        "  ✦ Technical SEO & Vitals     ----> Core Web Vitals Pass: 100%",
+        "  ✦ Python Data Automation     ----> Manual Effort Saved: ~40%",
+        "STATUS: Query execution complete.",
       ];
-    } else if (activeTab === "ml") {
+    } else if (tabToRun === "ml") {
       lines = [
-        "Initializing TensorFlow NLP Pipeline...",
-        "LOADING: HuggingFace Transformers Model (aj-bert-classifier)...",
-        "PREPARING: Parsing validation strings on GPU-0...",
-        "TRAINING RUN: Epoch 1/3 - Loss: 0.145 - Accuracy: 0.912",
-        "TRAINING RUN: Epoch 2/3 - Loss: 0.096 - Accuracy: 0.964",
-        "TRAINING RUN: Epoch 3/3 - Loss: 0.082 - Accuracy: 0.985",
-        "STATUS: Model convergence achieved. Saving model weights to huggingface://Aradhy20/...",
+        "Initializing Scikit-learn & Transformers NLP Pipeline...",
+        "LOADING: Sentiment classifier model weights...",
+        "PREPARING: Tokenizing text strings into TF-IDF vector embeddings...",
+        "EVALUATION: Precision: 0.94 | Recall: 0.92 | F1-Score: 0.93",
+        "INFERENCE TEST: 'Extremely fast checkout and gorgeous brass finishing.'",
+        "OUTPUT: Positive Sentiment (Confidence: 97.8%)",
+        "STATUS: Pipeline test completed successfully.",
       ];
     } else {
       lines = [
-        "Triggering Apache Airflow DAG: etl_google_sheets_dashboard...",
-        "EXTRACTING: Sourcing row records via custom Google API...",
-        "TRANSFORMING: Cleansing null structures and casting schemas via Pandas...",
-        "STATUS: Resolved 412 missing duplicate values in 12ms.",
-        "LOADING: Uploading clean datasets to PostgreSQL production server...",
-        "REFRESHING: Pushing live API reload command to Power BI Gateway...",
-        "SUCCESS: Business Intelligence pipelines perfectly synchronized.",
+        "Triggering Python ETL Workflow: sync_institutional_reporting...",
+        "EXTRACTING: Sourcing student data records via REST endpoints...",
+        "TRANSFORMING: Cleansing missing values and normalizing schema formats with Pandas...",
+        "VALIDATION: Resolved 400+ null/duplicate entries across 5 department tables.",
+        "LOADING: Refreshing Power BI gateway and synchronizing SQL metrics...",
+        "SUCCESS: Institutional analytics pipeline synchronized.",
       ];
     }
 
@@ -71,188 +63,134 @@ export function DashboardSection() {
         clearInterval(interval);
         setIsRunning(false);
       }
-    }, 450);
+    }, 280);
   };
 
-  useEffect(() => {
-    runSimulation();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeTab]);
+  const handleTabChange = (tab: ConsoleTab) => {
+    setActiveTab(tab);
+    runSimulation(tab);
+  };
 
   return (
-    <section id="dashboard" className="py-24 sm:py-28 relative overflow-hidden bg-[radial-gradient(ellipse_at_bottom,rgba(6,182,212,0.06),transparent)]">
+    <section id="dashboard" className="py-24 sm:py-32 relative overflow-hidden bg-foreground/[0.01]">
       <div className="container">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.6 }}
-          className="mx-auto max-w-3xl text-center mb-16"
+          className="mx-auto max-w-3xl text-center mb-14"
         >
-          <p className="section-kicker">Interactive Console</p>
-          <h2 className="section-title">Live Data & AI Analytics Dashboard</h2>
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3.5 py-1 text-xs font-semibold text-cyan-700 dark:text-cyan-300 mb-3">
+            <Info size={14} />
+            <span>Interactive Architecture Demonstration</span>
+          </div>
+          <h2 className="section-title">Interactive Code & Pipeline Console</h2>
           <p className="section-copy">
-            A real-time proof-of-concept visualizer. Switch tabs below to execute live database queries, train custom NLP classifiers, or run pipeline ETL workflows.
+            A transparent demonstration visualizer illustrating the SQL queries, NLP classifiers, and ETL pipelines I build. Switch tabs or trigger a demo run below.
           </p>
         </motion.div>
 
-        {/* Live Metrics Grid */}
-        <div className="grid gap-6 sm:grid-cols-3 mb-10">
-          <motion.article
-            whileHover={{ y: -4 }}
-            className="panel border-border/70 bg-white/45 p-6 shadow-xl backdrop-blur-xl dark:bg-white/5 rounded-2xl relative overflow-hidden group"
-          >
-            <div className="absolute -right-8 -top-8 h-20 w-20 rounded-full bg-cyan-500/10 blur-xl group-hover:bg-cyan-500/20 transition-all duration-300" />
-            <span className="text-xs font-semibold uppercase tracking-wider text-foreground/50">Records Processed</span>
-            <div className="mt-2 text-3xl font-bold font-mono text-cyan-600 dark:text-cyan-400">
-              {recordsCount.toLocaleString()}
-            </div>
-            <p className="text-xs text-foreground/40 mt-1">Live streaming raw data</p>
-          </motion.article>
+        {/* Console Box */}
+        <div className="max-w-4xl mx-auto rounded-[2rem] border border-border/80 bg-slate-950 p-6 sm:p-8 shadow-2xl text-slate-100 relative overflow-hidden">
+          {/* Subtle Top Glow */}
+          <div className="absolute top-0 right-1/4 h-32 w-64 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none" />
 
-          <motion.article
-            whileHover={{ y: -4 }}
-            className="panel border-border/70 bg-white/45 p-6 shadow-xl backdrop-blur-xl dark:bg-white/5 rounded-2xl relative overflow-hidden group"
-          >
-            <div className="absolute -right-8 -top-8 h-20 w-20 rounded-full bg-purple-500/10 blur-xl group-hover:bg-purple-500/20 transition-all duration-300" />
-            <span className="text-xs font-semibold uppercase tracking-wider text-foreground/50">Model Converge Loss</span>
-            <div className="mt-2 text-3xl font-bold font-mono text-purple-600 dark:text-purple-400">
-              {trainingLoss}
-            </div>
-            <p className="text-xs text-foreground/40 mt-1">Simulating validation training</p>
-          </motion.article>
-
-          <motion.article
-            whileHover={{ y: -4 }}
-            className="panel border-border/70 bg-white/45 p-6 shadow-xl backdrop-blur-xl dark:bg-white/5 rounded-2xl relative overflow-hidden group"
-          >
-            <div className="absolute -right-8 -top-8 h-20 w-20 rounded-full bg-blue-500/10 blur-xl group-hover:bg-blue-500/20 transition-all duration-300" />
-            <span className="text-xs font-semibold uppercase tracking-wider text-foreground/50">Refresh Latency</span>
-            <div className="mt-2 text-3xl font-bold font-mono text-blue-600 dark:text-blue-400">
-              12ms
-            </div>
-            <p className="text-xs text-foreground/40 mt-1">Airflow orchestrator response</p>
-          </motion.article>
-        </div>
-
-        {/* Live Interactive Control Console */}
-        <div className="grid gap-8 lg:grid-cols-[0.35fr_0.65fr] items-stretch">
-          
-          {/* Side Controls */}
-          <div className="flex flex-col gap-3 justify-center">
-            <button
-              onClick={() => !isRunning && setActiveTab("sql")}
-              disabled={isRunning}
-              className={`flex items-center gap-3 px-5 py-4 rounded-2xl text-sm font-semibold transition-all duration-200 text-left border ${
-                activeTab === "sql"
-                  ? "bg-[linear-gradient(135deg,#06b6d4,#3b82f6)] text-white shadow-lg border-transparent shadow-cyan-500/10"
-                  : "bg-white/40 dark:bg-white/5 border-white/10 text-foreground/75 hover:bg-white/60 hover:dark:bg-white/10"
-              }`}
-            >
-              <Database size={18} />
-              <div>
-                <span className="block">PostgreSQL Query</span>
-                <span className="text-[10px] opacity-75 font-normal">Extract skills avg impact</span>
-              </div>
-            </button>
-
-            <button
-              onClick={() => !isRunning && setActiveTab("ml")}
-              disabled={isRunning}
-              className={`flex items-center gap-3 px-5 py-4 rounded-2xl text-sm font-semibold transition-all duration-200 text-left border ${
-                activeTab === "ml"
-                  ? "bg-[linear-gradient(135deg,#a855f7,#3b82f6)] text-white shadow-lg border-transparent shadow-purple-500/10"
-                  : "bg-white/40 dark:bg-white/5 border-white/10 text-foreground/75 hover:bg-white/60 hover:dark:bg-white/10"
-              }`}
-            >
-              <Sparkles size={18} />
-              <div>
-                <span className="block">ML Classify Training</span>
-                <span className="text-[10px] opacity-75 font-normal">Run HuggingFace bert epoch</span>
-              </div>
-            </button>
-
-            <button
-              onClick={() => !isRunning && setActiveTab("etl")}
-              disabled={isRunning}
-              className={`flex items-center gap-3 px-5 py-4 rounded-2xl text-sm font-semibold transition-all duration-200 text-left border ${
-                activeTab === "etl"
-                  ? "bg-[linear-gradient(135deg,#3b82f6,#06b6d4)] text-white shadow-lg border-transparent shadow-blue-500/10"
-                  : "bg-white/40 dark:bg-white/5 border-white/10 text-foreground/75 hover:bg-white/60 hover:dark:bg-white/10"
-              }`}
-            >
-              <RefreshCw size={18} />
-              <div>
-                <span className="block">ETL Airflow DAG</span>
-                <span className="text-[10px] opacity-75 font-normal">Push clean Sheets metrics</span>
-              </div>
-            </button>
-          </div>
-
-          {/* Terminal Display */}
-          <div className="flex flex-col rounded-3xl bg-slate-950 border border-white/10 overflow-hidden shadow-2xl min-h-[18rem]">
-            {/* Terminal Header */}
-            <div className="flex items-center justify-between px-5 py-3.5 bg-slate-900 border-b border-white/5">
-              <div className="flex items-center gap-2">
-                <Terminal size={14} className="text-cyan-400" />
-                <span className="text-[11px] font-mono text-foreground/60">aj_data_console.sh</span>
-              </div>
+          {/* Console Header */}
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-5">
+            <div className="flex items-center gap-2">
               <div className="flex gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
-                <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
+                <span className="h-3 w-3 rounded-full bg-red-500/80" />
+                <span className="h-3 w-3 rounded-full bg-yellow-500/80" />
+                <span className="h-3 w-3 rounded-full bg-green-500/80" />
               </div>
+              <span className="ml-3 font-mono text-xs text-slate-400 flex items-center gap-1.5">
+                <Terminal size={14} className="text-cyan-400" />
+                aradhy-console :: interactive-demo
+              </span>
             </div>
 
-            {/* Terminal Output */}
-            <div className="flex-1 p-5 font-mono text-xs sm:text-sm text-green-400/90 space-y-2.5 overflow-y-auto">
-              <AnimatePresence>
-                {consoleLines.map((line, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.25 }}
-                    className="flex items-start gap-2 leading-relaxed"
-                  >
-                    <span className="text-foreground/30 shrink-0 select-none">&gt;</span>
-                    <span>{line}</span>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-
-              {isRunning && (
-                <div className="flex items-center gap-1.5 text-foreground/45 mt-2 animate-pulse">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-                  <span className="text-[10px] font-mono">Running process queries...</span>
-                </div>
-              )}
-
-              {!isRunning && consoleLines.length > 0 && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="flex items-center gap-1.5 text-green-500/80 text-xs mt-4 bg-green-500/5 border border-green-500/10 rounded-lg p-2.5 w-max"
-                >
-                  <CheckCircle2 size={14} />
-                  <span>Execution finalized successfully.</span>
-                </motion.div>
-              )}
-            </div>
-
-            {/* Execute Button */}
-            <div className="p-3 bg-slate-900 border-t border-white/5 flex justify-end">
+            {/* Tab Controls */}
+            <div className="flex rounded-xl bg-slate-900 p-1 border border-slate-800">
               <button
-                onClick={runSimulation}
-                disabled={isRunning}
-                className="inline-flex items-center gap-2 rounded-xl bg-cyan-500/10 border border-cyan-500/20 px-4 py-2.5 text-xs font-semibold text-cyan-400 transition-all hover:bg-cyan-500/20 disabled:opacity-40"
+                onClick={() => handleTabChange("sql")}
+                className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition-all ${
+                  activeTab === "sql"
+                    ? "bg-cyan-500 text-white shadow-sm"
+                    : "text-slate-400 hover:text-slate-200"
+                }`}
               >
-                <Play size={12} fill="currentColor" />
-                Execute Pipeline
+                SQL Query
+              </button>
+              <button
+                onClick={() => handleTabChange("ml")}
+                className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition-all ${
+                  activeTab === "ml"
+                    ? "bg-cyan-500 text-white shadow-sm"
+                    : "text-slate-400 hover:text-slate-200"
+                }`}
+              >
+                NLP Model
+              </button>
+              <button
+                onClick={() => handleTabChange("etl")}
+                className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition-all ${
+                  activeTab === "etl"
+                    ? "bg-cyan-500 text-white shadow-sm"
+                    : "text-slate-400 hover:text-slate-200"
+                }`}
+              >
+                ETL Pipeline
               </button>
             </div>
           </div>
 
+          {/* Console Output Screen */}
+          <div className="mt-6 min-h-[200px] rounded-xl bg-slate-900/90 p-5 font-mono text-xs leading-relaxed text-slate-300 border border-slate-800/80 overflow-x-auto space-y-1.5">
+            {consoleLines.map((line, idx) => (
+              <div key={idx} className="flex items-start gap-2">
+                <span className="text-cyan-400 select-none">&gt;</span>
+                <span className={line.includes("SUCCESS") || line.includes("✦") ? "text-cyan-300 font-semibold" : ""}>
+                  {line}
+                </span>
+              </div>
+            ))}
+            {isRunning && (
+              <div className="flex items-center gap-2 text-cyan-400 animate-pulse">
+                <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+                <span>executing step...</span>
+              </div>
+            )}
+          </div>
+
+          {/* Footer Bar */}
+          <div className="mt-5 flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-800/80 text-xs text-slate-400">
+            <div className="flex items-center gap-2">
+              <span className="rounded-full bg-emerald-500/20 px-2 py-0.5 text-[10px] font-semibold text-emerald-400">
+                Sample Sandbox
+              </span>
+              <span>Demonstration of pipeline logging & data transformation.</span>
+            </div>
+
+            <button
+              onClick={() => runSimulation(activeTab)}
+              disabled={isRunning}
+              className="inline-flex items-center gap-2 rounded-xl bg-slate-800 px-4 py-2 text-xs font-semibold text-slate-200 hover:bg-slate-700 disabled:opacity-50 transition-colors"
+            >
+              {isRunning ? (
+                <>
+                  <RefreshCw size={13} className="animate-spin" />
+                  <span>Running...</span>
+                </>
+              ) : (
+                <>
+                  <Play size={13} className="text-cyan-400 fill-current" />
+                  <span>Re-run Demo</span>
+                </>
+              )}
+            </button>
+          </div>
         </div>
       </div>
     </section>

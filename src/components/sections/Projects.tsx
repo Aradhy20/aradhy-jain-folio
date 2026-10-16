@@ -1,200 +1,167 @@
 "use client";
 
-import { PORTFOLIO_DATA } from "@/data";
+import { PORTFOLIO_DATA, Project } from "@/data";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Sparkles, BookOpen } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useMemo } from "react";
+import { ProjectCaseStudyModal } from "@/components/ProjectCaseStudyModal";
 
-const getProjectImages = (title: string, techStack: readonly string[]): string[] => {
-  const titleLower = title.toLowerCase();
-  if (titleLower.includes("jambudweep") || titleLower.includes("jain-mandir") || titleLower.includes("jain mandir")) {
-    return ["/project_heritage_platform.png", "/project_saas_dashboard.png"];
-  }
-  if (titleLower.includes("iris")) {
-    return ["/project_botany_ml.png", "/project_ai_network.png"];
-  }
-  if (titleLower.includes("journal") || titleLower.includes("sanmati")) {
-    return ["/project_digital_journal.png", "/project_saas_dashboard.png"];
-  }
-  if (titleLower.includes("aviation") || titleLower.includes("flight") || titleLower.includes("skypilot")) {
-    return ["/project_aviation_academy.png", "/project_saas_dashboard.png"];
-  }
-  if (titleLower.includes("gym") || titleLower.includes("hospital")) {
-    return ["/project_health_system.png", "/project_saas_dashboard.png"];
-  }
+const CATEGORIES = [
+  "All Projects",
+  "Websites & Full-Stack",
+  "E-commerce",
+  "Academic & Publishing",
+  "Business Websites",
+  "Data Analytics & Dashboards",
+  "AI & Automation",
+] as const;
 
-  const stackStr = techStack.join(" ").toLowerCase();
-  if (
-    stackStr.includes("nlp") ||
-    stackStr.includes("transformers") ||
-    stackStr.includes("machine learning") ||
-    stackStr.includes("classification")
-  ) {
-    return ["/project_ai_network.png", "/project_data_analytics.png"];
-  }
-  if (
-    stackStr.includes("analytics") ||
-    stackStr.includes("visualization") ||
-    stackStr.includes("predictive")
-  ) {
-    return ["/project_data_analytics.png", "/project_saas_dashboard.png"];
-  }
-  return ["/project_saas_dashboard.png", "/project_data_analytics.png"];
-};
+type FilterCategory = (typeof CATEGORIES)[number];
 
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  techStack: readonly string[];
-  githubLink: string;
-  liveLink?: string;
-}
-
-function ProjectCard({ project, index }: { project: Project; index: number }) {
-  const images = getProjectImages(project.title, project.techStack);
-  const [currentImgIndex, setCurrentImgIndex] = useState(0);
-
-  const nextImage = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setCurrentImgIndex((prev) => (prev + 1) % images.length);
-  };
-
-  const prevImage = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setCurrentImgIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
+function ProjectCard({
+  project,
+  index,
+  onOpenModal,
+}: {
+  project: Project;
+  index: number;
+  onOpenModal: (p: Project) => void;
+}) {
+  const thumbnail = project.images?.[0] || "/project_saas_dashboard.png";
 
   return (
     <motion.article
+      layout
       initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.45, delay: index * 0.08 }}
-      className="group relative card-hover overflow-hidden rounded-[2rem] border border-border/70 bg-white/55 p-6 shadow-xl backdrop-blur-xl dark:bg-white/5 flex flex-col justify-between"
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.3) }}
+      className={`group relative flex flex-col justify-between overflow-hidden rounded-[2.2rem] border transition-all duration-300 ${
+        project.featured
+          ? "border-cyan-500/35 bg-white/60 dark:bg-slate-900/40 shadow-[0_20px_50px_rgba(6,182,212,0.12)]"
+          : "border-border/70 bg-white/45 dark:bg-white/5 shadow-lg"
+      } p-6 backdrop-blur-xl hover:-translate-y-1.5 hover:shadow-2xl`}
     >
-      <div className="absolute inset-x-0 top-0 h-32 bg-[linear-gradient(180deg,rgba(34,211,238,0.16),transparent)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-      
-      <div className="relative flex h-full flex-col justify-between">
-        <div>
-          <div className="flex items-start justify-between gap-4">
-            <div className="rounded-2xl border border-white/10 bg-background/70 px-4 py-3 text-xs font-semibold uppercase tracking-[0.28em] text-cyan-700 dark:bg-slate-950/45 dark:text-cyan-300">
-              Case Study
-            </div>
-            <a
-              href={project.githubLink}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/70 bg-background/70 text-foreground/65 transition-all hover:rotate-6 hover:text-foreground dark:bg-slate-950/45"
-            >
-              <FaGithub size={18} />
-              <span className="sr-only">{project.title} GitHub</span>
-            </a>
-          </div>
+      {/* Top Banner Gradient */}
+      <div className="absolute inset-x-0 top-0 h-32 bg-[linear-gradient(180deg,rgba(6,182,212,0.12),transparent)] opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
 
-          {/* Stateful Multi-Image Sliding Carousel Container */}
-          <div className="relative mt-5 aspect-[1.55] overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-950/5 shadow-inner group/carousel">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentImgIndex}
-                initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.35, ease: "easeInOut" }}
-                className="absolute inset-0 w-full h-full"
-              >
-                <Image
-                  src={images[currentImgIndex]}
-                  alt={`${project.title} Preview ${currentImgIndex + 1}`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                />
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Subtle Gradient Shadow */}
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-transparent pointer-events-none" />
-
-            {/* Left & Right Interactive Control Buttons */}
-            <button
-              onClick={prevImage}
-              className="absolute left-3 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-slate-950/60 border border-white/10 flex items-center justify-center text-white opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 hover:bg-slate-950/80"
-              aria-label="Previous Image"
-            >
-              <ChevronLeft size={16} />
-            </button>
-            <button
-              onClick={nextImage}
-              className="absolute right-3 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-slate-950/60 border border-white/10 flex items-center justify-center text-white opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 hover:bg-slate-950/80"
-              aria-label="Next Image"
-            >
-              <ChevronRight size={16} />
-            </button>
-
-            {/* Micro Slider Dot Indicators */}
-            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
-              {images.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    setCurrentImgIndex(idx);
-                  }}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    idx === currentImgIndex ? "w-4 bg-cyan-400" : "w-1.5 bg-white/50"
-                  }`}
-                  aria-label={`Go to slide ${idx + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-
-          <h3 className="mt-6 text-2xl font-semibold tracking-tight">{project.title}</h3>
-          <p className="mt-3 text-sm leading-7 text-foreground/68">
-            {project.description}
-          </p>
-        </div>
-
-        <div>
-          <div className="mt-6 flex flex-wrap gap-2">
-            {project.techStack.map((tech: string) => (
-              <span
-                key={tech}
-                className="rounded-full border border-border/70 bg-background/70 px-3 py-1.5 text-xs font-medium text-foreground/68 dark:bg-slate-950/45"
-              >
-                {tech}
+      <div>
+        {/* Category & Links Header */}
+        <div className="flex items-center justify-between gap-3 relative z-10">
+          <div className="flex items-center gap-2">
+            <span className="rounded-xl border border-cyan-500/25 bg-cyan-500/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-cyan-700 dark:text-cyan-300">
+              {project.category}
+            </span>
+            {project.featured && (
+              <span className="inline-flex items-center gap-1 rounded-xl border border-purple-500/30 bg-purple-500/10 px-2.5 py-1 text-[11px] font-bold text-purple-600 dark:text-purple-300">
+                <Sparkles size={12} />
+                Featured
               </span>
-            ))}
+            )}
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <a
-              href={project.githubLink}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-cyan-700 transition-colors hover:text-cyan-900 dark:text-cyan-300 dark:hover:text-cyan-100"
-            >
-              View on GitHub
-              <ArrowUpRight size={16} />
-            </a>
-            {"liveLink" in project && project.liveLink && (
+          <div className="flex items-center gap-1.5">
+            {project.githubLink && (
               <a
-                href={project.liveLink as string}
+                href={project.githubLink}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-600 transition-colors hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-200"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/70 bg-background/80 text-foreground/70 transition-all hover:scale-105 hover:text-foreground dark:bg-slate-950/50"
+                aria-label={`${project.title} GitHub repository`}
               >
-                Live Demo
-                <ArrowUpRight size={16} />
+                <FaGithub size={15} />
+              </a>
+            )}
+            {project.liveLink && (
+              <a
+                href={project.liveLink}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 transition-all hover:scale-105 hover:bg-cyan-500/20"
+                aria-label={`${project.title} live website`}
+              >
+                <ExternalLink size={15} />
               </a>
             )}
           </div>
+        </div>
+
+        {/* Thumbnail Image Container */}
+        <div
+          onClick={() => onOpenModal(project)}
+          className="relative mt-5 aspect-[1.6] w-full cursor-pointer overflow-hidden rounded-[1.6rem] border border-white/10 bg-slate-950/20 shadow-inner group/img"
+        >
+          <Image
+            src={thumbnail}
+            alt={`${project.title} preview`}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover transition-transform duration-700 ease-out group-hover/img:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent opacity-80" />
+          
+          {/* Overlay CTA */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 bg-slate-950/40 backdrop-blur-[2px]">
+            <span className="inline-flex items-center gap-2 rounded-full bg-cyan-500 px-4 py-2 text-xs font-bold text-white shadow-lg">
+              <BookOpen size={14} />
+              Read Case Study
+            </span>
+          </div>
+        </div>
+
+        {/* Project Title */}
+        <h3
+          onClick={() => onOpenModal(project)}
+          className="mt-5 text-xl sm:text-2xl font-bold tracking-tight text-foreground cursor-pointer transition-colors group-hover:text-cyan-600 dark:group-hover:text-cyan-400"
+        >
+          {project.title}
+        </h3>
+
+        {/* Short Overview */}
+        <p className="mt-2.5 text-sm leading-relaxed text-foreground/70 line-clamp-3">
+          {project.shortOverview || project.description}
+        </p>
+      </div>
+
+      {/* Tech Stack & Action Footer */}
+      <div className="mt-6 pt-4 border-t border-foreground/5">
+        <div className="flex flex-wrap gap-1.5">
+          {project.techStack.slice(0, 4).map((tech) => (
+            <span
+              key={tech}
+              className="rounded-lg border border-border/60 bg-foreground/[0.03] px-2.5 py-1 text-[11px] font-medium text-foreground/75"
+            >
+              {tech}
+            </span>
+          ))}
+          {project.techStack.length > 4 && (
+            <span className="rounded-lg border border-border/60 bg-foreground/[0.03] px-2 py-1 text-[11px] font-medium text-foreground/50">
+              +{project.techStack.length - 4}
+            </span>
+          )}
+        </div>
+
+        <div className="mt-5 flex items-center justify-between">
+          <button
+            onClick={() => onOpenModal(project)}
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-cyan-700 transition-colors hover:text-cyan-900 dark:text-cyan-300 dark:hover:text-cyan-100"
+          >
+            <span>View Case Study</span>
+            <ArrowUpRight size={15} />
+          </button>
+
+          {project.liveLink && (
+            <a
+              href={project.liveLink}
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline"
+            >
+              Visit Live
+            </a>
+          )}
         </div>
       </div>
     </motion.article>
@@ -202,30 +169,74 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 }
 
 export function Projects() {
+  const [activeCategory, setActiveCategory] = useState<FilterCategory>("All Projects");
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const filteredProjects = useMemo(() => {
+    if (activeCategory === "All Projects") {
+      return PORTFOLIO_DATA.projects;
+    }
+    return PORTFOLIO_DATA.projects.filter((p) => p.category === activeCategory);
+  }, [activeCategory]);
+
   return (
-    <section id="projects" className="py-24 sm:py-28">
+    <section id="projects" className="py-24 sm:py-32 relative">
       <div className="container">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.25 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
           className="mx-auto max-w-3xl text-center"
         >
-          <p className="section-kicker">Projects</p>
-          <h2 className="section-title">Selected builds across AI, analytics, and systems.</h2>
+          <p className="section-kicker">Portfolio & Case Studies</p>
+          <h2 className="section-title">Verified Web, Commerce & Data Systems</h2>
           <p className="section-copy">
-            Each project is presented with a product mindset: clear purpose, measurable
-            utility, and a polished interface that feels intentional.
+            Explore live commercial platforms, institutional portals, and intelligent software delivered with measurable results.
           </p>
         </motion.div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {PORTFOLIO_DATA.projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+        {/* Category Filters */}
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-2 max-w-4xl mx-auto">
+          {CATEGORIES.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`rounded-full px-4 py-2 text-xs sm:text-sm font-medium transition-all duration-200 ${
+                activeCategory === cat
+                  ? "bg-cyan-500 text-white shadow-md shadow-cyan-500/25"
+                  : "border border-border/70 bg-white/40 text-foreground/70 hover:bg-white/80 dark:bg-white/5 dark:hover:bg-white/10"
+              }`}
+            >
+              {cat}
+            </button>
           ))}
         </div>
+
+        {/* Projects Grid */}
+        <motion.div
+          layout
+          className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+        >
+          <AnimatePresence>
+            {filteredProjects.map((project, index) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                index={index}
+                onOpenModal={(p) => setSelectedProject(p)}
+              />
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
+
+      {/* Case Study Modal */}
+      <ProjectCaseStudyModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </section>
   );
 }

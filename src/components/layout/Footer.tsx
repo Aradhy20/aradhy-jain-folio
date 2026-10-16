@@ -13,7 +13,7 @@ export function Footer() {
             {PORTFOLIO_DATA.personalInfo.name}
           </p>
           <p className="text-sm text-foreground/55">
-            © {currentYear} All rights reserved. Designed to impress in under five seconds.
+            © {currentYear} Aradhy Jain. Digital experiences, full-stack websites & intelligent automation.
           </p>
         </div>
 

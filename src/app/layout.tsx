@@ -5,6 +5,8 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { ParticlesBackground } from "@/components/ParticlesBackground";
 import { Chatbot } from "@/components/Chatbot";
 import { WhatsAppPopup } from "@/components/WhatsAppPopup";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -19,30 +21,36 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Aradhy Jain | AI Engineer Portfolio",
+  title: "Aradhy Jain | Full-Stack Developer & Freelance Digital Solutions",
   description:
-    "Premium portfolio of Aradhy Jain, an AI Engineer and NLP Specialist focused on LLMs, prompt engineering, and building intelligent data-driven applications.",
+    "Full-Stack Web Developer, E-commerce Specialist, and Digital Solutions Provider. I build high-performance websites, online storefronts, SEO strategies, data dashboards, and automated AI systems.",
   keywords: [
     "Aradhy Jain",
-    "AI Engineer Portfolio",
-    "Python",
-    "SQL",
+    "Full-Stack Developer",
+    "Freelance Web Developer",
+    "E-commerce Developer",
+    "Next.js Developer",
+    "React Developer",
+    "Technical SEO",
+    "Data Analytics",
     "Power BI",
-    "NLP",
-    "Machine Learning",
+    "Python Automation",
+    "AI & Machine Learning",
   ],
-  metadataBase: new URL("https://portfolio.vercel.app"),
+  metadataBase: process.env.NEXT_PUBLIC_SITE_URL
+    ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
+    : undefined,
   openGraph: {
-    title: "Aradhy Jain | AI Engineer Portfolio",
+    title: "Aradhy Jain | Full-Stack Developer & Freelance Digital Solutions",
     description:
-      "Building intelligent AI systems and NLP solutions with LLMs, prompt engineering, and advanced data analytics.",
+      "Turning ideas into high-impact digital experiences. Full-stack websites, e-commerce storefronts, analytics dashboards, and automation systems.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aradhy Jain | AI Engineer Portfolio",
+    title: "Aradhy Jain | Full-Stack Developer & Freelance Digital Solutions",
     description:
-      "Building intelligent AI systems and NLP solutions with LLMs, prompt engineering, and advanced data analytics.",
+      "Turning ideas into high-impact digital experiences. Full-stack websites, e-commerce storefronts, analytics dashboards, and automation systems.",
   },
 };
 
@@ -66,6 +74,8 @@ export default function RootLayout({
           {children}
           <Chatbot />
           <WhatsAppPopup />
+          <SpeedInsights />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
