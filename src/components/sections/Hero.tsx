@@ -1,6 +1,6 @@
 "use client";
 
-import { ProfileAvatar } from "@/components/ProfileAvatar";
+import { CreatorProfileCard } from "@/components/CreatorProfileCard";
 import { PORTFOLIO_DATA } from "@/data";
 import { motion } from "framer-motion";
 import { ArrowRight, Download, MapPin, Sparkles, Briefcase, ChevronDown } from "lucide-react";
@@ -199,33 +199,20 @@ export function Hero() {
           </div>
         </motion.div>
 
-        {/* Right Column: 3D Interactive Centerpiece & Profile Card */}
+        {/* Right Column: Polished Creator Profile Card with Ambient 3D Backdrop */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative mx-auto w-full max-w-md lg:max-w-none flex flex-col items-center justify-center"
+          className="relative mx-auto w-full max-w-md lg:max-w-none flex flex-col items-center justify-center lg:items-end"
         >
-          {/* Three.js Interactive 3D Centerpiece */}
-          <div className="relative w-full aspect-square max-w-[420px] flex items-center justify-center">
+          {/* Subtle Ambient 3D floating effect behind the card on larger displays */}
+          <div className="absolute -inset-6 sm:-inset-10 z-0 opacity-25 pointer-events-none hidden md:block overflow-hidden">
             <ThreeCanvas />
+          </div>
 
-            {/* Profile Avatar Badge Overlay in bottom-right */}
-            <div className="absolute -bottom-4 -left-2 sm:bottom-0 sm:left-2 flex items-center gap-3 rounded-2xl border border-white/20 bg-background/80 p-2.5 shadow-2xl backdrop-blur-xl dark:bg-slate-900/80 z-20">
-              <div className="h-14 w-14 overflow-hidden rounded-xl border border-white/10 shrink-0">
-                <ProfileAvatar />
-              </div>
-              <div className="pr-3">
-                <p className="text-xs font-bold text-foreground">Aradhy Jain</p>
-                <p className="text-[11px] text-cyan-600 dark:text-cyan-400">Full-Stack & Digital</p>
-              </div>
-            </div>
-
-            {/* Micro Badge for E-commerce & Systems */}
-            <div className="absolute -top-3 -right-2 sm:top-2 sm:right-2 rounded-2xl border border-white/20 bg-background/80 px-3.5 py-2 shadow-2xl backdrop-blur-xl dark:bg-slate-900/80 z-20 flex items-center gap-2">
-              <Sparkles size={14} className="text-cyan-400" />
-              <span className="text-xs font-semibold text-foreground">3D Interactive</span>
-            </div>
+          <div className="relative z-10 w-full flex justify-center lg:justify-end">
+            <CreatorProfileCard />
           </div>
         </motion.div>
       </div>
