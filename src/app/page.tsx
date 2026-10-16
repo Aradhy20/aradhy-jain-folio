@@ -1,15 +1,17 @@
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
-import { About } from "@/components/sections/About";
-import { Contact } from "@/components/sections/Contact";
-import { Experience } from "@/components/sections/Experience";
 import { Hero } from "@/components/sections/Hero";
 import { Projects } from "@/components/sections/Projects";
+import { CommercialServices } from "@/components/sections/CommercialServices";
+import { ClientLeadTools } from "@/components/sections/ClientLeadTools";
+import { About } from "@/components/sections/About";
+import { Experience } from "@/components/sections/Experience";
 import { Skills } from "@/components/sections/Skills";
-import { Certifications } from "@/components/sections/Certifications";
 import { DashboardSection } from "@/components/sections/DashboardSection";
+import { Certifications } from "@/components/sections/Certifications";
 import { Blog } from "@/components/sections/Blog";
+import { Contact } from "@/components/sections/Contact";
 import { CursorGlow } from "@/components/CursorGlow";
 
 export default function Home() {
@@ -26,14 +28,27 @@ export default function Home() {
       <Navbar />
 
       <div className="relative">
+        {/* 1. Attention: Headline, Positioning, 3D Hero */}
         <Hero />
+
+        {/* 2. Proof: Paras Metal, Sanmati Journal, DSR College & Case Studies */}
+        <Projects />
+
+        {/* 3. Service Selection: Focused Commercial Offerings */}
+        <CommercialServices />
+
+        {/* 4. AI Lead Generation Tools: Website Audit & Brief Assistant */}
+        <ClientLeadTools />
+
+        {/* 5. Trust & Background */}
         <About />
         <Experience />
-        <Projects />
         <Skills />
         <DashboardSection />
-        <Blog />
         <Certifications />
+        <Blog />
+
+        {/* 6. Conversion: Inquiry Form & Direct Channels */}
         <Contact />
       </div>
 

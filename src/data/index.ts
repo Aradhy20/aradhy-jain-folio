@@ -2,9 +2,10 @@ export interface Project {
   id: number;
   slug: string;
   title: string;
+  subtitle?: string;
   category:
     | "Websites & Full-Stack"
-    | "E-commerce"
+    | "E-commerce & Marketplaces"
     | "Academic & Publishing"
     | "Business Websites"
     | "SEO & Digital Growth"
@@ -15,6 +16,7 @@ export interface Project {
   problem: string;
   role: string;
   features: string[];
+  marketplaceChannels?: string[];
   techStack: string[];
   images: string[];
   featured: boolean;
@@ -31,6 +33,7 @@ export interface FreelanceService {
   id: string;
   title: string;
   category: string;
+  targetAudience: string;
   iconName: string;
   tagline: string;
   description: string;
@@ -56,11 +59,12 @@ export interface SkillGroup {
 export const PORTFOLIO_DATA = {
   personalInfo: {
     name: "Aradhy Jain",
-    title: "Full-Stack Developer | Freelance Web Developer | Digital Solutions & Growth",
-    headline: "Turning Ideas Into Digital Experiences.",
-    tagline: "Full-Stack • E-commerce • SEO & Growth • Data Analytics • AI",
+    positioning: "Web Development, E-commerce & Digital Growth Partner",
+    title: "Web Development, E-commerce & Digital Growth Partner",
+    headline: "Websites That Perform. E-commerce That Sells.",
+    tagline: "Website Development • E-commerce & Marketplaces • SEO • Digital Marketing • Analytics",
     mission:
-      "I build and improve digital experiences that help businesses establish their online presence, automate workflows, reach customers, and grow.",
+      "I help businesses build their online presence, launch and improve e-commerce experiences, optimize marketplace listings (Amazon · Flipkart · Meesho), and strengthen their digital visibility through development, SEO, content, and analytics.",
     email: "jainaradhy123@gmail.com",
     phone: "+91-7351522153",
     whatsapp: "917351522153",
@@ -69,191 +73,153 @@ export const PORTFOLIO_DATA = {
     location: "Delhi, India",
     profileImage: "/profile.jpeg",
     resume: "/Aradhy_Jain_Resume.pdf",
-    availability: "Available for Freelance & Contract Projects",
+    availability: "Available for Client Projects & Consultations",
+    serviceBadges: [
+      "Website Development",
+      "E-commerce Storefronts",
+      "Amazon · Flipkart · Meesho",
+      "Technical SEO",
+      "Digital Marketing",
+      "Automation & Analytics",
+    ],
   },
   stats: [
-    { label: "Client & Web Platforms", value: "8+" },
+    { label: "Commercial Platforms & Stores", value: "8+" },
+    { label: "Marketplace Listing Catalogues", value: "3 Channels" },
     { label: "Production & Open Source Builds", value: "15+" },
-    { label: "Data Records Processed", value: "25K+" },
   ],
   about:
-    "I am a Computer Science graduate and multidisciplinary digital solutions developer. I design, build, and optimize high-performance web applications, e-commerce stores, responsive institutional websites, data dashboards, and intelligent automated tools. From structuring academic journals and handicraft commerce to deploying machine learning pipelines, my approach combines technical craftsmanship with measurable business growth.",
+    "I partner with business owners, manufacturers, institutions, and founders as an end-to-end digital growth specialist. My work bridges custom website engineering, e-commerce storefronts, marketplace catalog operations (Amazon, Flipkart, Meesho), technical SEO, and automated reporting. By combining technical precision with commercial usability, I help businesses establish an authoritative digital presence, streamline sales operations, and scale reliably.",
   
   services: [
     {
-      id: "web-dev",
-      title: "Website Development",
-      category: "Full-Stack Engineering",
+      id: "website-dev",
+      title: "Website Design & Development",
+      category: "Web Engineering",
+      targetAudience: "Small businesses, educational institutions, consultants, publishers & startups",
       iconName: "Globe",
-      tagline: "High-performance, responsive websites engineered for conversions & brand authority.",
+      tagline: "High-performance, modern business websites engineered for customer trust & conversions.",
       description:
-        "End-to-end development of custom business websites, corporate portals, institutional platforms, landing pages, and full-stack web applications tailored to your exact business goals.",
+        "Building tailored business websites, corporate portals, academic platforms, landing pages, and responsive web applications with sub-second speeds and mobile-first design.",
       offerings: [
         "Custom Business & Corporate Websites",
-        "Institutional & Academic Portals",
+        "Institutional & Academic Web Portals",
         "High-Converting Landing Pages",
-        "Responsive Full-Stack Web Applications",
-        "Frontend Modernization & Complete Redesigns",
-        "API & Headless CMS Architecture",
+        "Responsive Mobile-First Redesigns",
+        "Ongoing Website Maintenance, Hosting & Security Checks",
+        "Content Management (WordPress / Headless CMS / Next.js)",
       ],
       deliverables: [
-        "100% responsive cross-device layouts",
-        "Clean, maintainable Next.js/React codebase",
-        "Sub-second load times & Core Web Vitals optimization",
-        "Interactive UI components with smooth animations",
+        "100% responsive cross-device layout (Mobile, Tablet, Desktop)",
+        "Clean, maintainable Next.js/React codebase with sub-second load times",
+        "Accessible navigation with clear customer conversion pathways",
+        "Complete technical setup, domain linking, and SSL deployment",
       ],
       representativeProjects: ["DSR College", "Sanmati Journal", "SkyPilot Aviation Academy"],
       ctaLabel: "Discuss Website Project",
     },
     {
-      id: "ecommerce",
-      title: "E-commerce Solutions",
+      id: "ecommerce-marketplaces",
+      title: "E-commerce & Marketplace Operations",
       category: "Digital Commerce",
+      targetAudience: "Manufacturers, handicraft brands, retail businesses & online merchants",
       iconName: "ShoppingBag",
-      tagline: "Engaging online shopping experiences with frictionless product catalogs.",
+      tagline: "Turn your product line into an organized, high-selling online catalog across marketplaces.",
       description:
-        "Building, optimizing, and customizing e-commerce storefronts. From handcrafted home decor catalogs to scalable digital product management, I design shopping flows that convert visitors into repeat customers.",
+        "End-to-end e-commerce and marketplace catalog operations. From launching custom storefronts to optimizing product listings on Amazon, Flipkart, and Meesho with search-ready descriptions and organized SKU structures.",
       offerings: [
-        "Custom Online Store Development",
-        "Structured Product Catalog & Category Architecture",
-        "Product Detail Page UX Optimization",
-        "Seamless Cart & Checkout Journeys",
-        "Payment Gateway Integration Support",
-        "Marketplace & Multi-Channel Listing Support",
+        "Amazon, Flipkart & Meesho Listing Creation & Catalog Setup",
+        "High-Converting Product Titles, Bullet Points & SEO Copy",
+        "SKU Architecture, Pricing Strategy & Attribute Standardization",
+        "Listing Photography Guidance, Infographics & Image Creatives",
+        "Custom E-commerce Storefront Development (Shopify / Next.js)",
+        "Cross-Platform Product Inventory & Data Consistency",
       ],
       deliverables: [
-        "Mobile-first shopping cart & product grids",
-        "Faceted search & filter experiences",
-        "Search-engine-friendly product metadata",
-        "Secure checkout workflows & order notifications",
+        "Marketplace-ready product spreadsheets and live listings",
+        "Keyword-rich titles and feature bullets compliant with marketplace policies",
+        "Faceted catalog navigation and mobile shopping checkout flows",
+        "Structured product metadata for Google Shopping discovery",
       ],
-      representativeProjects: ["Paras Metal E-commerce", "Retail Product Catalog"],
-      ctaLabel: "Build Your Store",
+      representativeProjects: ["Paras Metal (Amazon, Flipkart, Meesho)", "Artisanal Home Decor Store"],
+      ctaLabel: "Optimize Store & Listings",
     },
     {
       id: "seo-growth",
-      title: "SEO & Digital Growth",
+      title: "SEO & Website Performance Improvement",
       category: "Search & Visibility",
+      targetAudience: "Businesses with an existing website that needs more traffic, speed, and better ranking",
       iconName: "TrendingUp",
-      tagline: "Drive organic search traffic, increase domain visibility, and outrank competitors.",
+      tagline: "Outrank competitors and turn organic search traffic into qualified buyer inquiries.",
       description:
-        "Comprehensive technical and on-page SEO strategies that ensure your website is discovered, properly indexed by search engines, and ranked for valuable search intent.",
+        "Comprehensive technical and on-page SEO services. I diagnose crawling issues, optimize metadata, implement schema markup, fix Core Web Vitals speed bottlenecks, and establish Google Search Console visibility.",
       offerings: [
-        "Comprehensive Technical SEO Audits",
-        "On-Page SEO & Keyword Intent Mapping",
-        "Google Search Console & Google Analytics 4 Setup",
-        "Semantic Schema Markup (JSON-LD)",
-        "Core Web Vitals & PageSpeed Performance Tuning",
-        "Internal Linking & Information Architecture",
+        "Comprehensive Technical SEO Audits & Action Roadmaps",
+        "On-Page SEO, Keyword Research & Title/Meta Optimization",
+        "Google Search Console & Google Analytics 4 Setup & Diagnostics",
+        "Core Web Vitals Speed Optimization (LCP, CLS, INP)",
+        "JSON-LD Schema Markup (Organization, Product, Academic)",
+        "Internal Linking & Site Architecture Refactoring",
       ],
       deliverables: [
-        "Detailed SEO audit & action roadmap",
-        "Structured metadata & Open Graph optimization",
-        "XML sitemap & robots.txt configuration",
-        "Actionable performance improvement reports",
+        "Prioritized audit report detailing technical fixes and growth opportunities",
+        "Optimized metadata, canonical tags, and Open Graph previews",
+        "XML sitemaps and indexing coverage verification",
+        "Noticeable speed and Core Web Vitals improvements",
       ],
-      representativeProjects: ["Sanmati Research Journal", "DSR College Portal"],
+      representativeProjects: ["Sanmati Research Journal (ISSN 3108-1819)", "DSR College Institutional Portal"],
       ctaLabel: "Request SEO Audit",
     },
     {
-      id: "digital-marketing",
-      title: "Digital Marketing & Content",
-      category: "Brand & Audience",
+      id: "marketing-analytics",
+      title: "Digital Marketing & Analytics Automation",
+      category: "Growth & Automation",
+      targetAudience: "Businesses needing consistent online marketing, creatives, and reporting clarity",
       iconName: "Megaphone",
-      tagline: "Establish a coherent digital presence and engage target customers.",
+      tagline: "Coherent social presence, creative assets, and automated executive dashboards.",
       description:
-        "Strategic digital marketing support combining content calendars, social media visual branding, product descriptions, and organic outreach to elevate your digital footprint.",
+        "Connecting your online presence with practical customer acquisition. Social media content strategy, product creatives, automated Power BI/Excel dashboards, and Python scripts that eliminate manual reporting.",
       offerings: [
-        "Social Media Management & Content Strategy",
-        "Editorial & Campaign Calendar Planning",
-        "Compelling Product Descriptions & Listing Copy",
-        "Digital Brand Presence & Style Consistency",
-        "Visual Assets & Social Media Creatives Support",
-        "Organic Traffic & Engagement Reporting",
+        "Social Media Content Planning & Brand Creatives",
+        "E-commerce Product Promotional Graphics & Creatives",
+        "Interactive Power BI & Google Sheets Dashboards",
+        "Python Workflow Automation Scripts & Web Scraping",
+        "KPI Tracking for Inquiries, Orders, and Website Performance",
+        "Reporting Automation Eliminating Repetitive Manual Work",
       ],
       deliverables: [
-        "Monthly content & publication schedules",
-        "High-converting copy for products and landing pages",
-        "Consistent brand guidelines across digital channels",
-        "Performance review and engagement tracking",
+        "Monthly content schedules and high-impact social assets",
+        "Automated dashboard reports tracking commercial KPIs",
+        "Custom data cleaning scripts saving weekly manual hours",
+        "Clear monthly performance summary and actionable recommendations",
       ],
-      representativeProjects: ["Paras Metal Branding", "Jambudweep Digital Platform"],
-      ctaLabel: "Plan Campaign",
-    },
-    {
-      id: "analytics-automation",
-      title: "Data Analytics & Automation",
-      category: "Business Intelligence",
-      iconName: "BarChart3",
-      tagline: "Turn complex business data into automated workflows and executive insights.",
-      description:
-        "Transforming raw spreadsheets and databases into automated reporting systems, Power BI dashboards, and custom Python automation scripts that eliminate repetitive manual labor.",
-      offerings: [
-        "Interactive Power BI & Excel Dashboards",
-        "Google Sheets Automated Analytics Systems",
-        "Python Workflow Automation Scripts",
-        "Data Extraction, Web Scraping & Cleaning",
-        "KPI Tracking & Operational Metric Systems",
-        "Database Schema Modeling (SQL, PostgreSQL, MySQL)",
-      ],
-      deliverables: [
-        "Automated data refresh pipelines",
-        "Executive KPI reporting dashboards",
-        "Data quality scripts resolving nulls & duplicates",
-        "Technical documentation and handoff training",
-      ],
-      representativeProjects: ["TMU KPI Dashboard", "HR Strategy Analytics", "MathesisLabs IT Scripts"],
-      ctaLabel: "Automate My Data",
-    },
-    {
-      id: "ai-consulting",
-      title: "AI & Technical Consulting",
-      category: "Intelligent Systems",
-      iconName: "Sparkles",
-      tagline: "Practical AI integration, NLP workflows, and robust software quality assurance.",
-      description:
-        "Designing applied AI solutions—such as NLP sentiment analyzers, LLM conversational assistants, intelligent search, and API integrations—with rigorous QA and performance checks.",
-      offerings: [
-        "Custom NLP & Text Classification Pipelines",
-        "LLM & Prompt Engineering Integrations",
-        "Conversational AI & Virtual Assistants",
-        "Third-Party API Integrations & Webhooks",
-        "Cross-Browser QA, Accessibility & Bug Fixing",
-        "Ongoing Technical Maintenance & Monitoring",
-      ],
-      deliverables: [
-        "Production-tested NLP & ML models",
-        "Secure API endpoints with rate-limiting & validation",
-        "Cross-browser and accessibility compliance",
-        "System health and maintenance documentation",
-      ],
-      representativeProjects: ["Mental Health AI", "University Virtual Counselor", "Full-Stack Task Manager"],
-      ctaLabel: "Consult on AI / QA",
+      representativeProjects: ["Paras Metal Branding", "TMU KPI Dashboard", "MathesisLabs IT Scripts"],
+      ctaLabel: "Automate Marketing & Data",
     },
   ] as FreelanceService[],
 
   experience: [
     {
       id: 1,
-      title: "Data Analyst Intern",
-      company: "Teerthanker Mahaveer University",
-      period: "Jan 2026 – Present",
-      responsibilities: [
-        "Conducted exploratory data analysis on institutional datasets using Python (Pandas, Matplotlib), surfacing 8+ actionable insights that supported faculty and administrative decision-making.",
-        "Built interactive Power BI dashboards tracking student performance KPIs across 5 departments, reducing manual reporting effort by ~35%.",
-        "Cleaned and preprocessed 20,000+ records, identifying and resolving 400+ null/duplicate entries to improve data pipeline consistency.",
-        "Collaborated with cross-functional administrative teams to define data requirements and deliver structured weekly analytics reports.",
-      ],
-    },
-    {
-      id: 2,
       title: "Web Developer & Platform Manager",
       company: "Sanmati Journal",
       period: "Jan 2026 – Present",
       responsibilities: [
-        "Developed and actively managed sanmatijournal.in, an academic publishing platform for peer-reviewed research papers.",
-        "Structured journal information architecture, editorial board profiles, and article publication repositories for scholars.",
-        "Implemented technical SEO, structured academic metadata, and responsive interfaces to enhance platform discoverability and reader experience.",
+        "Developed and actively managed sanmatijournal.in, an academic research publishing platform registered with ISSN 3108-1819.",
+        "Structured journal information architecture, editorial board profiles, and article publication archives for scholars.",
+        "Implemented technical SEO, structured academic citation metadata (Google Scholar), and responsive reader-friendly interfaces.",
+      ],
+    },
+    {
+      id: 2,
+      title: "Data Analyst Intern",
+      company: "Teerthanker Mahaveer University",
+      period: "Jan 2026 – Present",
+      responsibilities: [
+        "Conducted exploratory data analysis on institutional datasets using Python (Pandas, Matplotlib), surfacing 8+ actionable insights.",
+        "Built interactive Power BI dashboards tracking student performance KPIs across 5 departments, reducing manual reporting effort by ~35%.",
+        "Cleaned and preprocessed 20,000+ records, resolving 400+ null/duplicate entries to improve reporting consistency.",
+        "Collaborated with cross-functional administrative teams to deliver structured weekly analytics reports.",
       ],
     },
     {
@@ -263,7 +229,7 @@ export const PORTFOLIO_DATA = {
       period: "Jun 2025 – Dec 2025",
       responsibilities: [
         "Designed and deployed 5+ Python automation scripts that eliminated repetitive IT workflows, saving ~6 hours of manual effort per week (~40% reduction).",
-        "Built backend data processing tools using Python (Requests, BeautifulSoup, Pandas) integrated with REST APIs for live data retrieval and transformation.",
+        "Built backend data processing tools using Python (Requests, BeautifulSoup, Pandas) integrated with REST APIs for live data retrieval.",
         "Contributed to internal analytics pipeline improvements, achieving a ~20% faster data ingestion cycle for reporting systems.",
         "Documented all automation workflows and maintained a technical knowledge base used by 10+ team members.",
       ],
@@ -285,87 +251,58 @@ export const PORTFOLIO_DATA = {
     {
       id: 1,
       slug: "paras-metal",
-      title: "Paras Metal E-commerce Platform",
-      category: "E-commerce",
+      title: "Paras Metal — E-commerce & Marketplace Operations",
+      subtitle: "Multi-Channel Retail: Direct Web Storefront, Amazon, Flipkart & Meesho Catalog Management",
+      category: "E-commerce & Marketplaces",
       shortOverview:
-        "An artisanal metal handicraft and brass home decor digital commerce platform featuring curated product catalogs and modern shopping journeys.",
+        "Full-spectrum e-commerce solution for an artisanal brass and copper handicraft manufacturer, encompassing product catalog architecture, marketplace listing workflows (Amazon, Flipkart, Meesho), and optimized product content.",
       description:
-        "Designed and developed a digital commerce experience for Paras Metal, an artisanal manufacturer of handcrafted brass decor, planters, and geometric metal lanterns. The platform elevates traditional craftsmanship through a refined, responsive web storefront, structured catalog filtering, and marketplace-ready listing architecture.",
+        "Paras Metal manufactures handcrafted brass vases, copper planters, and geometric metal home decor. As their digital growth partner, I developed their digital storefront and structured their marketplace operations across Amazon, Flipkart, and Meesho. The project involved cataloging raw inventory, writing search-optimized product titles and bullet points, organizing SKU hierarchies, creating compliant listing image sets, and standardizing product attributes across all sales channels.",
       problem:
-        "Traditional metal handicraft businesses frequently struggle to convey artisanal quality and detailed product specifications through generic social media posts, resulting in high inquiry friction and lost sales.",
+        "The manufacturer operated strictly offline and through casual social media inquiries without organized product listings, SKU codes, or structured marketplace presence, missing out on retail demand and wholesale buyers nationwide.",
       role:
-        "E-commerce Web Developer & Digital Solutions Specialist: Designed catalog navigation, product detail layout, responsive mobile shopping flows, and search-optimized product metadata.",
+        "E-commerce Web Developer & Marketplace Operations Lead: Built the digital catalog interface, organized SKU structures, wrote keyword-optimized product copy, and executed multi-channel listing setup across Amazon, Flipkart, and Meesho.",
       features: [
-        "Structured handicraft catalog with category and material filters (Brass, Copper, Iron)",
-        "High-resolution product detail view with material specifications & dimensions",
-        "Mobile-first shopping cart drawer and intuitive inquiry / order flows",
-        "Search-engine-friendly schema markup for product discoverability",
-        "Optimized product listing architecture for marketplace synchronization",
+        "Multi-channel catalog setup for Amazon, Flipkart, and Meesho marketplaces",
+        "Keyword-rich, policy-compliant product titles, feature bullets, and descriptions",
+        "Standardized SKU coding, product attributes (dimensions, material, finish, care instructions)",
+        "Curated product photography sets with zoom views and material callouts",
+        "Direct-to-consumer responsive web storefront with category and material filtering",
+        "Cross-platform inventory and pricing synchronization guidelines",
       ],
-      techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "E-commerce UX", "SEO"],
+      marketplaceChannels: ["Amazon India", "Flipkart", "Meesho", "Direct Web Store"],
+      techStack: ["E-commerce UX", "Amazon Seller Central", "Flipkart Marketplace", "Meesho Supplier", "Next.js", "Tailwind CSS", "SEO"],
       images: ["/project_paras_metal.jpg", "/project_saas_dashboard.png"],
       featured: true,
       challengesSolutions: {
         challenge:
-          "Balancing high-resolution artisanal imagery of reflective metal finishes with fast initial page load speeds on mobile networks.",
+          "Marketplaces have strict, differing image dimension, title length, and attribute requirements, making bulk cataloging error-prone.",
         solution:
-          "Implemented progressive Next.js image loading, responsive source sets, and lightweight CSS glassmorphism cards that keep load times under 1.2s.",
+          "Created a centralized master product data sheet with automated validation rules that exported channel-specific listing formats for Amazon, Flipkart, and Meesho.",
       },
       verifiedOutcome:
-        "Established a clean, digital brand presence allowing customers and wholesale buyers to explore the complete metalcraft catalog seamlessly.",
+        "Transformed unorganized handicraft inventory into a structured commercial product line with active listings on Amazon, Flipkart, and Meesho, establishing a credible digital brand.",
     },
     {
       id: 2,
-      slug: "dsr-college",
-      title: "Dr. Sarvepalli Radhakrishnan College | Teacher Education",
-      category: "Business Websites",
-      shortOverview:
-        "Dedicated teacher education institutional portal in Nalanda, Bihar for B.Ed., D.El.Ed., and Four-Year ITEP programmes with admissions and circulars.",
-      description:
-        "Built the official institutional website for Dr. Sarvepalli Radhakrishnan College (dsr.college). The web portal organizes teacher education programmes (B.Ed, D.El.Ed, and Four-Year ITEP), faculty directories, student circulars, and transparent admissions criteria within an accessible, responsive layout.",
-      problem:
-        "Prospective students and regulatory visitors previously lacked a centralized, mobile-responsive repository for academic prospectuses, faculty details, and mandatory institutional disclosures.",
-      role:
-        "Lead Web Developer: Planned information architecture, designed mobile-friendly layouts, implemented notice boards, and optimized site speed and accessibility.",
-      features: [
-        "Presentation of Teacher Education Programmes: B.Ed. (1 & 2 Year), D.El.Ed., and Four-Year ITEP",
-        "Dedicated Admissions Portal with prospectus download, eligibility guides, and contact helpline",
-        "EducationalOrganization Schema.org structured data for authoritative search ranking",
-        "High-priority hero LCP image preloading for sub-second mobile rendering",
-        "NCTE & institutional transparency disclosures, faculty directory, and student notices",
-      ],
-      techStack: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "Technical SEO", "Accessibility"],
-      images: ["/project_dsr_college.jpg", "/project_saas_dashboard.png"],
-      featured: true,
-      liveLink: "https://dsr.college/",
-      challengesSolutions: {
-        challenge:
-          "Ensuring rapid load speeds for rural and mobile students accessing admission guidelines on low-bandwidth connections.",
-        solution:
-          "Streamlined DOM architecture, eliminated heavy runtime scripts, and optimized assets to achieve fast render times across all mobile browsers.",
-      },
-      verifiedOutcome:
-        "Operating live at dsr.college, providing prospective students and regulatory visitors accessible, fast-loading institutional information.",
-    },
-    {
-      id: 3,
       slug: "sanmati-journal",
-      title: "Sanmati Spectrum of Knowledge & Emerging Discourse (ISSN 3108-1819)",
+      title: "Sanmati Spectrum of Knowledge — Academic Publishing Portal",
+      subtitle: "Peer-Reviewed Multidisciplinary Research Journal (ISSN 3108-1819 & CrossRef DOI)",
       category: "Academic & Publishing",
       shortOverview:
-        "International peer-reviewed multidisciplinary academic research journal (ISSN 3108-1819) indexed with CrossRef DOI, open access, and COPE publication ethics.",
+        "Scholarly publication platform streamlining research paper discovery, CrossRef DOI indexing, editorial review documentation, and Google Scholar citations.",
       description:
-        "Engineered and maintained sanmatijournal.in, an international peer-reviewed multidisciplinary research journal (ISSN 3108-1819). The platform presents structured journal volumes, research abstracts, author submission guidelines, CrossRef DOI indexing, and editorial oversight.",
+        "Developed and actively manage sanmatijournal.in, the digital publishing platform for an international peer-reviewed multidisciplinary research journal (ISSN 3108-1819). The platform presents structured journal volumes, research abstracts, author submission guidelines, CrossRef DOI indexing, and editorial oversight.",
       problem:
-        "Scholarly journals require rigorous metadata structures, clear archiving by volume/issue, and strict search visibility so indexed papers can be located by academic search engines.",
+        "Academic journals require strict metadata standards, clear issue-by-issue archiving, and precise bibliographic indexing so published papers are discovered and cited in academic search engines.",
       role:
-        "Platform Web Developer & Manager: Built the digital journal platform, structured publishing archives, and implemented academic metadata and SEO best practices.",
+        "Web Developer & Platform Manager: Architected the digital journal platform, structured paper archives, and implemented academic metadata schemas (Google Scholar) and technical SEO.",
       features: [
-        "CrossRef DOI indexing and official ISSN 3108-1819 registration",
+        "CrossRef DOI indexing and official ISSN 3108-1819 accreditation integration",
         "COPE publication ethics compliant editorial and peer-review workflows",
-        "Google Scholar academic citation schema metadata (high-discovery indexing)",
-        "Structured archive for research papers, volume issues, and author submission guidelines",
-        "Fast, responsive academic reading typography with light/dark reader accessibility",
+        "Google Scholar citation schema metadata for academic search visibility",
+        "Volume and issue archives with downloadable research abstracts and author guidelines",
+        "Fast-loading, distraction-free reading typography with light/dark theme support",
       ],
       techStack: ["Next.js", "React", "Tailwind CSS", "Academic SEO", "Information Architecture"],
       images: ["/project_digital_journal.png", "/project_saas_dashboard.png"],
@@ -374,12 +311,47 @@ export const PORTFOLIO_DATA = {
       githubLink: "https://github.com/Aradhy20/sanmati-journal",
       challengesSolutions: {
         challenge:
-          "Structuring multi-author academic entries with varying citation formats without cluttering the user interface.",
+          "Structuring multi-author academic entries with varying citation formats without creating visual clutter.",
         solution:
-          "Engineered a modular metadata card layout separating abstracts, citation details, and author notes with expandable reading panels.",
+          "Engineered modular metadata cards separating abstracts, author affiliations, and citation strings with expandable reading panels.",
       },
       verifiedOutcome:
-        "Indexed with CrossRef DOI & ISSN 3108-1819, serving scholars with active research publication indexing at sanmatijournal.in.",
+        "Actively operating as the official publishing portal for Sanmati Journal, indexed with ISSN 3108-1819 and CrossRef DOI, supporting researchers globally.",
+    },
+    {
+      id: 3,
+      slug: "dsr-college",
+      title: "Dr. Sarvepalli Radhakrishnan College — Institutional Portal",
+      subtitle: "Authoritative Academic & Teacher Education Web Portal (dsr.college)",
+      category: "Business Websites",
+      shortOverview:
+        "High-trust institutional web platform for a recognized teacher education college in Nalanda, Bihar, featuring academic programme details, admissions workflows, and regulatory disclosures.",
+      description:
+        "Designed and built the official institutional website for Dr. Sarvepalli Radhakrishnan College (dsr.college). The web portal organizes teacher education programmes (B.Ed., D.El.Ed., and Four-Year ITEP), student admissions guidelines, prospectus downloads, faculty directories, and mandatory institutional disclosures within a high-contrast, accessible layout.",
+      problem:
+        "Prospective applicants and regulatory accreditation teams lacked a central, mobile-responsive source of truth for admission criteria, fee structures, faculty credentials, and NCTE compliance notifications.",
+      role:
+        "Lead Web Developer & UI Architect: Structured site information architecture, built mobile-first responsive layouts, integrated prospectus download pipelines, and achieved sub-second Core Web Vitals speeds.",
+      features: [
+        "Comprehensive teacher education curriculum guides (B.Ed., D.El.Ed., Four-Year ITEP)",
+        "Admissions Portal with prospectus downloads, eligibility self-check, and helpline",
+        "Institutional EducationalOrganization Schema.org structured data for Google ranking",
+        "High-priority hero LCP image preloading ensuring fast mobile rendering on rural networks",
+        "Dynamic notices and circulars bulletin board for administrative announcements",
+        "WCAG-aligned contrast, clear typography hierarchy, and accessible navigation",
+      ],
+      techStack: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "Technical SEO", "Accessibility"],
+      images: ["/project_dsr_college.jpg", "/project_saas_dashboard.png"],
+      featured: true,
+      liveLink: "https://dsr.college/",
+      challengesSolutions: {
+        challenge:
+          "Ensuring instant load times for prospective rural students accessing admission prospectuses on limited mobile bandwidth.",
+        solution:
+          "Implemented lightweight vanilla DOM components, optimized WebP graphics, and preloaded critical LCP assets, achieving sub-second load times.",
+      },
+      verifiedOutcome:
+        "Operating live at dsr.college, serving thousands of prospective students and meeting all institutional transparency requirements.",
     },
     {
       id: 4,
@@ -412,11 +384,11 @@ export const PORTFOLIO_DATA = {
       title: "SkyPilot Aviation Academy",
       category: "Websites & Full-Stack",
       shortOverview:
-        "A flight training academy website featuring an interactive Pilot Eligibility Quiz, flight hour calculator, and course portal.",
+        "An educational portal featuring an interactive Cadet Pilot Eligibility Quiz, flight hour calculator, and course guides.",
       description:
         "Developed an engaging educational portal for an aviation training academy, integrating prospective student quizzes, interactive cost estimation tools, and structured course overviews.",
       problem:
-        "Aviation training is complex with strict age, medical, and educational prerequisites that often overwhelm prospective cadets.",
+        "Aviation training has strict age, medical, and educational prerequisites that often confuse prospective cadets.",
       role: "Web Developer & UI Designer: Implemented interactive qualification quizzes, fee calculators, and course guides.",
       features: [
         "Step-by-step Cadet Pilot Eligibility Quiz",
@@ -441,7 +413,7 @@ export const PORTFOLIO_DATA = {
       description:
         "Full-stack team productivity application built with React and Node.js. Features responsive Kanban task boards, priority filtering, status transitions, and user task assignments.",
       problem:
-        "Small teams often require a lightweight, no-clutter task management system without the bloat and pricing of enterprise Jira setups.",
+        "Small teams often require a lightweight, no-clutter task management system without enterprise bloat.",
       role: "Full-Stack Developer: Built the complete frontend UI, backend REST APIs, data schema, and cloud deployment.",
       features: [
         "Interactive Kanban board with status drag/move workflows",
@@ -467,11 +439,11 @@ export const PORTFOLIO_DATA = {
       description:
         "Engineered an applied NLP classification pipeline analyzing natural language statements to identify sentiment severity, emotional markers, and early support triggers using Scikit-learn and Pandas.",
       problem:
-        "Understanding emotional sentiment in community discussions and student feedback requires nuanced NLP beyond simple binary positive/negative scoring.",
+        "Understanding emotional sentiment in community discussions and student feedback requires nuanced NLP beyond simple binary scoring.",
       role: "AI & NLP Developer: Data preprocessing, TF-IDF vectorization, model training, and evaluation.",
       features: [
         "Multi-class emotional sentiment classification",
-        "Custom text cleaning pipeline removing noise, stop-words, and tokenizing phrases",
+        "Custom text cleaning pipeline removing noise and tokenizing phrases",
         "Confusion matrix and precision-recall performance analysis",
         "Exportable Python inference script for batch analysis",
       ],
@@ -490,14 +462,14 @@ export const PORTFOLIO_DATA = {
       shortOverview:
         "A conversational AI assistant providing empathetic student onboarding support, course advice, and university guidance.",
       description:
-        "An automated conversational counselor prototype utilizing transformer models and structured prompt frameworks to answer common university queries, admission questions, and student stress points.",
+        "An automated conversational counselor prototype utilizing transformer models and structured prompt frameworks to answer common university queries and student FAQs.",
       problem:
-        "University support desks face repetitive high-volume queries during admissions seasons, delaying assistance to distressed students.",
+        "University support desks face repetitive high-volume queries during admissions seasons, delaying assistance to students.",
       role: "Developer: Implemented conversational dialogue trees, prompt templates, and response validation.",
       features: [
         "Contextual responses for academic queries and campus policies",
         "Empathetic tone conditioning via structured prompt engineering",
-        "Fallback routing to human counselors when queries exceed confidence threshold",
+        "Fallback routing to human staff when queries exceed confidence threshold",
       ],
       techStack: ["Python", "Transformers", "NLP", "Prompt Engineering"],
       images: ["/project_ai_network.png", "/project_saas_dashboard.png"],
@@ -538,9 +510,9 @@ export const PORTFOLIO_DATA = {
       shortOverview:
         "A talent engagement and workforce retention analysis for geographically dispersed remote and hybrid teams.",
       description:
-        "Data-driven exploratory study analyzing employee survey responses and productivity metrics across distributed teams, identifying drivers of engagement, turnover risk, and collaborative health.",
+        "Data-driven exploratory study analyzing employee survey responses and productivity metrics across distributed teams, identifying drivers of engagement and collaborative health.",
       problem:
-        "Remote and hybrid organizations often suffer from unseen employee burnout and disengagement without warning.",
+        "Remote and hybrid organizations often suffer from unseen employee turnover risks without actionable data.",
       role: "Data Analyst: Conducted statistical testing, factor correlation, and deployed the interactive web report.",
       features: [
         "Correlation analysis between geographical dispersion and project cycle times",
@@ -565,7 +537,7 @@ export const PORTFOLIO_DATA = {
       description:
         "A full-stack fitness club administration console managing client memberships, personal training schedules, and subscription renewals with clean UI states.",
       problem:
-        "Local fitness centers struggle with manual pen-and-paper or fragmented spreadsheet records for active memberships and trainer shifts.",
+        "Local fitness centers struggle with manual or fragmented spreadsheet records for active memberships and trainer shifts.",
       role: "Full-Stack Developer: Designed relational tables, CRUD operations, and responsive dashboard interface.",
       features: [
         "Member profile creation and subscription status tracking",
@@ -634,7 +606,7 @@ export const PORTFOLIO_DATA = {
       shortOverview:
         "A foundational supervised machine learning model classifying plant species using multivariate floral features.",
       description:
-        "A classic machine learning classification benchmark implementing multiple supervised algorithms (Decision Trees, KNN, SVM) to predict iris species based on petal and sepal measurements.",
+        "A classic machine learning classification benchmark implementing multiple supervised algorithms to predict iris species based on petal and sepal measurements.",
       problem: "Evaluating classifier precision, recall, and decision boundaries on multivariate feature spaces.",
       role: "ML Developer: Feature exploration, model training, cross-validation, and metrics comparison.",
       features: [
@@ -665,6 +637,17 @@ export const PORTFOLIO_DATA = {
       ],
     },
     {
+      category: "E-commerce & Marketplaces",
+      description: "Storefronts, marketplace operations on Amazon, Flipkart & Meesho, and catalog management.",
+      items: [
+        { name: "Amazon Seller Central", level: 90, proficiency: "Advanced", focus: "Listing creation, bulk templates, bullet copy" },
+        { name: "Flipkart Marketplace", level: 88, proficiency: "Advanced", focus: "Cataloging, SKU attributes, image compliance" },
+        { name: "Meesho Supplier Panel", level: 88, proficiency: "Advanced", focus: "Product uploads, pricing slabs, descriptions" },
+        { name: "Catalog Architecture", level: 92, proficiency: "Advanced", focus: "SKU hierarchy, attribute standardization" },
+        { name: "Product Listing SEO", level: 94, proficiency: "Advanced", focus: "Keyword-rich titles, search terms, bullet points" },
+      ],
+    },
+    {
       category: "Backend Development",
       description: "Server-side architectures, RESTful APIs, and secure application backends.",
       items: [
@@ -685,16 +668,6 @@ export const PORTFOLIO_DATA = {
       ],
     },
     {
-      category: "E-commerce & CMS",
-      description: "Digital commerce storefronts, catalog architecture, and content management.",
-      items: [
-        { name: "E-commerce Architecture", level: 88, proficiency: "Advanced", focus: "Product catalogs, cart, checkout" },
-        { name: "Product Listing Optimization", level: 90, proficiency: "Advanced", focus: "Copy, attributes, discoverability" },
-        { name: "Payment Gateway Integration", level: 82, proficiency: "Proficient", focus: "Stripe / Razorpay workflows" },
-        { name: "WordPress & Headless CMS", level: 84, proficiency: "Proficient", focus: "Custom templates, publishing" },
-      ],
-    },
-    {
       category: "SEO & Digital Marketing",
       description: "Search engine visibility, performance optimization, and audience growth.",
       items: [
@@ -702,7 +675,7 @@ export const PORTFOLIO_DATA = {
         { name: "On-Page SEO Optimization", level: 94, proficiency: "Advanced", focus: "Metadata, heading hierarchy, keywords" },
         { name: "Google Search Console & GA4", level: 88, proficiency: "Advanced", focus: "Traffic tracking, index coverage" },
         { name: "Core Web Vitals Tuning", level: 90, proficiency: "Advanced", focus: "LCP, CLS, INP speed optimization" },
-        { name: "Social Media Strategy", level: 85, proficiency: "Proficient", focus: "Content calendars, visual branding" },
+        { name: "Social Media Creatives", level: 85, proficiency: "Proficient", focus: "Content calendars, visual branding" },
       ],
     },
     {
@@ -794,10 +767,10 @@ export const PORTFOLIO_DATA = {
 } as const;
 
 export const NAV_LINKS = [
-  { name: "About", href: "/#about" },
-  { name: "Services", href: "/freelance" },
+  { name: "Home", href: "/#hero" },
   { name: "Projects", href: "/#projects" },
-  { name: "Skills", href: "/#skills" },
-  { name: "Experience", href: "/#experience" },
+  { name: "Services", href: "/#services" },
+  { name: "Audit Tool", href: "/#audit-tool" },
+  { name: "About", href: "/#about" },
   { name: "Contact", href: "/#contact" },
 ] as const;

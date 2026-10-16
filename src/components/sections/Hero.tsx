@@ -10,12 +10,12 @@ import { MagneticButton } from "@/components/ui/MagneticButton";
 import { ThreeCanvas } from "@/components/ThreeCanvas";
 
 const ROLES = [
-  "Full-Stack Web Developer",
-  "Freelance Digital Solutions Provider",
-  "E-commerce Store Developer",
-  "SEO & Performance Specialist",
-  "Data Analytics & Automation Engineer",
-  "Applied AI & NLP Developer",
+  "Web Development, E-commerce & Digital Growth Partner",
+  "Amazon · Flipkart · Meesho Marketplace Specialist",
+  "Full-Stack Web & Storefront Developer",
+  "Technical SEO & Speed Optimization Lead",
+  "Digital Marketing & Analytics Automation",
+  "Applied AI & Custom Business Tools",
 ];
 
 export function Hero() {
@@ -26,10 +26,10 @@ export function Hero() {
   useEffect(() => {
     let timer: NodeJS.Timeout;
     const activeRole = ROLES[currentRoleIndex];
-    const typingSpeed = isDeleting ? 25 : 50;
+    const typingSpeed = isDeleting ? 20 : 45;
 
     if (!isDeleting && currentText === activeRole) {
-      timer = setTimeout(() => setIsDeleting(true), 2400);
+      timer = setTimeout(() => setIsDeleting(true), 2500);
     } else if (isDeleting && currentText === "") {
       setIsDeleting(false);
       setCurrentRoleIndex((prev) => (prev + 1) % ROLES.length);
@@ -51,7 +51,7 @@ export function Hero() {
       id="hero"
       className="relative flex min-h-screen items-center overflow-hidden pt-28 pb-16"
     >
-      <div className="container relative z-10 grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
+      <div className="container relative z-10 grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-8">
         {/* Left Column: Copy, Typing Headline, CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 32 }}
@@ -65,89 +65,119 @@ export function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
             </span>
-            <span>{PORTFOLIO_DATA.personalInfo.availability}</span>
+            <span>Available for Freelance & Digital Growth Projects</span>
           </div>
 
-          {/* Main Name & Title */}
-          <h1 className="mt-6 text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-            Hi, I’m{" "}
-            <span className="bg-[linear-gradient(120deg,#06b6d4,#3b82f6,#a855f7)] bg-clip-text text-transparent">
-              {PORTFOLIO_DATA.personalInfo.name}
-            </span>
-          </h1>
+          {/* Main Name & High-Impact Headline */}
+          <div className="mt-5">
+            <p className="text-sm sm:text-base font-semibold tracking-wide text-cyan-600 dark:text-cyan-400 uppercase">
+              Web Development, E-commerce & Digital Growth Partner
+            </p>
+            <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-foreground sm:text-6xl lg:text-7xl leading-[1.08]">
+              Websites That Convert.{" "}
+              <span className="bg-[linear-gradient(120deg,#06b6d4,#3b82f6,#a855f7)] bg-clip-text text-transparent">
+                E-commerce That Sells.
+              </span>
+            </h1>
+          </div>
 
-          {/* Dynamic Animated Role */}
-          <div className="mt-3 flex items-center gap-2 text-xl font-semibold text-cyan-600 dark:text-cyan-400 sm:text-2xl min-h-[36px]">
-            <span>{currentText}</span>
+          {/* Dynamic Animated Subtext */}
+          <div className="mt-3.5 flex items-center gap-2 text-lg font-semibold text-foreground/80 sm:text-2xl min-h-[36px]">
+            <span className="text-cyan-600 dark:text-cyan-400">{currentText}</span>
             <span className="animate-pulse text-cyan-500">|</span>
           </div>
 
           {/* Central Value Proposition */}
-          <p className="mt-6 text-lg sm:text-xl font-normal leading-relaxed text-foreground/75 max-w-2xl">
-            I design, develop, optimize, and grow digital experiences—from e-commerce platforms and institutional business websites to automation, analytics, and intelligent applications.
+          <p className="mt-6 text-base sm:text-lg font-normal leading-relaxed text-foreground/75 max-w-2xl">
+            I help businesses build their online presence, launch and improve e-commerce experiences, optimize marketplace listings (Amazon · Flipkart · Meesho), and strengthen digital visibility through development, SEO, content, and analytics.
           </p>
 
-          {/* Badges / Meta info */}
-          <div className="mt-6 flex flex-wrap items-center gap-3 text-xs sm:text-sm text-foreground/60">
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-white/40 px-3.5 py-1.5 dark:bg-white/5">
-              <MapPin size={14} className="text-cyan-500" />
-              {PORTFOLIO_DATA.personalInfo.location}
-            </div>
-            <div className="rounded-full border border-border/70 bg-white/40 px-3.5 py-1.5 dark:bg-white/5">
-              Full-Stack • E-commerce • SEO • Analytics
-            </div>
+          {/* Core Commercial Pillar Badges */}
+          <div className="mt-6 flex flex-wrap items-center gap-2 text-xs font-medium text-foreground/75">
+            <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1.5 text-cyan-700 dark:text-cyan-300">
+              Website Development
+            </span>
+            <span className="rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1.5 text-blue-700 dark:text-blue-300">
+              E-commerce Storefronts
+            </span>
+            <span className="rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1.5 text-amber-700 dark:text-amber-300">
+              Amazon · Flipkart · Meesho
+            </span>
+            <span className="rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-1.5 text-purple-700 dark:text-purple-300">
+              Technical SEO
+            </span>
+            <span className="rounded-full border border-pink-500/30 bg-pink-500/10 px-3 py-1.5 text-pink-700 dark:text-pink-300">
+              Digital Marketing
+            </span>
+            <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-emerald-700 dark:text-emerald-300">
+              Automation & Analytics
+            </span>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <MagneticButton href="#projects">
+          {/* Conversion Action Buttons */}
+          <div className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
+            <MagneticButton href="#contact">
               <span className="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#06b6d4,#2563eb)] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-cyan-500/25 transition-transform hover:scale-[1.02]">
-                Explore My Work
+                Start a Project
                 <ArrowRight size={18} />
               </span>
             </MagneticButton>
 
-            <MagneticButton href="/freelance">
+            <MagneticButton href="#projects">
               <span className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-6 py-3.5 text-sm font-semibold text-cyan-700 dark:text-cyan-300 backdrop-blur-xl transition-all hover:bg-cyan-500/20">
                 <Briefcase size={16} />
-                Hire Me / Services
+                View Case Studies
               </span>
             </MagneticButton>
 
-            <MagneticButton
-              href={PORTFOLIO_DATA.personalInfo.resume}
-              download="Aradhy_Jain_Resume.pdf"
-            >
-              <span className="inline-flex items-center justify-center gap-2 rounded-full border border-border/80 bg-white/50 px-6 py-3.5 text-sm font-semibold text-foreground shadow-md backdrop-blur-xl hover:bg-white/80 dark:bg-white/5 dark:hover:bg-white/10">
-                <Download size={16} />
-                Download Resume
+            <MagneticButton href="#audit-tool">
+              <span className="inline-flex items-center justify-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-5 py-3.5 text-sm font-semibold text-purple-700 dark:text-purple-300 backdrop-blur-xl hover:bg-purple-500/20 transition-all">
+                <Sparkles size={16} />
+                Free Website Audit
               </span>
             </MagneticButton>
           </div>
 
-          {/* Social Links */}
-          <div className="mt-8 flex items-center gap-3">
-            <MagneticButton
-              href={PORTFOLIO_DATA.personalInfo.linkedin}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/80 bg-white/50 text-foreground/75 shadow-md hover:text-blue-600 dark:bg-white/5 transition-colors">
-                <FaLinkedinIn size={16} />
-                <span className="sr-only">LinkedIn</span>
-              </span>
-            </MagneticButton>
+          {/* Social Links & Location */}
+          <div className="mt-8 flex items-center gap-4">
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-white/40 px-3.5 py-1.5 text-xs text-foreground/60 dark:bg-white/5">
+              <MapPin size={13} className="text-cyan-500" />
+              {PORTFOLIO_DATA.personalInfo.location}
+            </div>
 
-            <MagneticButton
-              href={PORTFOLIO_DATA.personalInfo.github}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/80 bg-white/50 text-foreground/75 shadow-md hover:text-foreground dark:bg-white/5 transition-colors">
-                <FaGithub size={16} />
-                <span className="sr-only">GitHub</span>
-              </span>
-            </MagneticButton>
+            <div className="flex items-center gap-2.5">
+              <MagneticButton
+                href={PORTFOLIO_DATA.personalInfo.linkedin}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/80 bg-white/50 text-foreground/75 shadow-sm hover:text-blue-600 dark:bg-white/5 transition-colors">
+                  <FaLinkedinIn size={14} />
+                  <span className="sr-only">LinkedIn</span>
+                </span>
+              </MagneticButton>
+
+              <MagneticButton
+                href={PORTFOLIO_DATA.personalInfo.github}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/80 bg-white/50 text-foreground/75 shadow-sm hover:text-foreground dark:bg-white/5 transition-colors">
+                  <FaGithub size={14} />
+                  <span className="sr-only">GitHub</span>
+                </span>
+              </MagneticButton>
+
+              <MagneticButton
+                href={PORTFOLIO_DATA.personalInfo.resume}
+                download="Aradhy_Jain_Resume.pdf"
+              >
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-white/40 px-3 py-1.5 text-xs font-medium text-foreground/70 hover:text-foreground dark:bg-white/5 transition-colors">
+                  <Download size={13} />
+                  Resume
+                </span>
+              </MagneticButton>
+            </div>
           </div>
 
           {/* Stats Bar */}

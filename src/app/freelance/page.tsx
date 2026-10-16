@@ -141,16 +141,16 @@ export default function FreelancePage() {
             >
               <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/25 bg-cyan-500/10 px-4 py-2 text-xs sm:text-sm font-semibold text-cyan-700 dark:text-cyan-300 shadow-md mb-6">
                 <Sparkles size={15} className="text-cyan-400" />
-                Freelance & Digital Solutions
+                Freelance Client Acquisition & Services
               </div>
               <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-                Turning Ideas Into{" "}
+                Web Development, E-commerce &{" "}
                 <span className="bg-[linear-gradient(120deg,#06b6d4,#3b82f6,#a855f7)] bg-clip-text text-transparent">
-                  High-Impact Digital Solutions
+                  Digital Growth Partner
                 </span>
               </h1>
               <p className="mt-6 text-base sm:text-lg leading-relaxed text-foreground/75 max-w-xl">
-                I partner with business owners, agencies, and startups to build responsive websites, launch e-commerce storefronts, improve search visibility, and automate reporting pipelines.
+                I help businesses build their online presence, launch and improve e-commerce experiences, optimize marketplace listings (Amazon · Flipkart · Meesho), and strengthen digital visibility through development, SEO, content, and analytics.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-4">
