@@ -60,7 +60,7 @@ export function CreatorProfileCard({ className = "" }: CreatorProfileCardProps) 
 
   return (
     <div
-      className={`relative w-full max-w-[320px] sm:max-w-[340px] md:max-w-[360px] mx-auto select-none ${className}`}
+      className={`relative w-full max-w-[290px] sm:max-w-[315px] lg:max-w-[330px] mx-auto select-none ${className}`}
     >
       {/* Outer Card Glow Halo */}
       <div className="absolute -inset-1 rounded-[36px] bg-[radial-gradient(ellipse_at_top,_rgba(6,182,212,0.35),_transparent_70%)] opacity-70 blur-xl pointer-events-none" />
@@ -71,17 +71,17 @@ export function CreatorProfileCard({ className = "" }: CreatorProfileCardProps) 
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         whileHover={{ y: -4 }}
-        className="relative rounded-[32px] border border-cyan-500/25 bg-[#060913] p-2.5 sm:p-3 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),0_0_35px_rgba(6,182,212,0.12)] backdrop-blur-2xl overflow-hidden group transition-all duration-300"
+        className="relative rounded-[30px] border border-cyan-500/25 bg-[#060913] p-2.5 sm:p-3 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),0_0_35px_rgba(6,182,212,0.12)] backdrop-blur-2xl overflow-hidden group transition-all duration-300"
       >
         {/* Subtle Ambient Radial Lighting */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_15%,_rgba(6,182,212,0.14),_transparent_55%)]" />
 
         {/* Top Header Bar */}
-        <div className="relative z-30 flex items-center justify-between px-3.5 pt-2 pb-2">
+        <div className="relative z-30 flex items-center justify-between px-3 pt-1.5 pb-1.5">
           {/* Top-Left: "Contact" Link */}
           <a
             href="#contact"
-            className="group/contact inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-medium tracking-wide text-slate-300 backdrop-blur-md transition-all hover:border-cyan-500/40 hover:bg-cyan-500/10 hover:text-cyan-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+            className="group/contact inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium tracking-wide text-slate-300 backdrop-blur-md transition-all hover:border-cyan-500/40 hover:bg-cyan-500/10 hover:text-cyan-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
           >
             <span>Contact</span>
             <span className="text-[10px] text-cyan-400 transition-transform group-hover/contact:translate-x-0.5">
@@ -102,13 +102,13 @@ export function CreatorProfileCard({ className = "" }: CreatorProfileCardProps) 
         </div>
 
         {/* Portrait & Interaction Canvas */}
-        <div className="relative mt-1 aspect-[1/1.28] w-full overflow-hidden rounded-[24px] bg-[#03060f]">
+        <div className="relative mt-1 aspect-[1/1.2] w-full overflow-hidden rounded-[22px] bg-[#03060f]">
           {/* Creator Portrait Image */}
           <Image
             src="/creator_card_portrait.jpg"
             alt="Aradhy Jain — Web Developer, E-commerce & Digital Growth Specialist"
             fill
-            sizes="(max-width: 640px) 300px, (max-width: 768px) 340px, 360px"
+            sizes="(max-width: 640px) 290px, 330px"
             priority
             className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
           />

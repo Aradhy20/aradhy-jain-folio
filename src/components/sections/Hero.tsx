@@ -49,9 +49,9 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen items-center overflow-hidden pt-28 pb-16"
+      className="relative flex min-h-screen items-start overflow-hidden pt-24 pb-14 sm:pt-28 sm:pb-16"
     >
-      <div className="container relative z-10 grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-8">
+      <div className="container relative z-10 grid items-start gap-10 lg:grid-cols-[1.18fr_0.82fr] lg:gap-8">
         {/* Left Column: Copy, Typing Headline, CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 32 }}
@@ -204,7 +204,7 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative mx-auto w-full max-w-md lg:max-w-none flex flex-col items-center justify-center lg:items-end"
+          className="relative mx-auto w-full max-w-sm lg:max-w-none flex flex-col items-center justify-start lg:items-end lg:pt-1"
         >
           {/* Subtle Ambient 3D floating effect behind the card on larger displays */}
           <div className="absolute -inset-6 sm:-inset-10 z-0 opacity-25 pointer-events-none hidden md:block overflow-hidden">
