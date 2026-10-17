@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 
 export async function POST(request: Request) {
   try {
@@ -59,10 +60,77 @@ export async function POST(request: Request) {
     // 3. Log inquiry safely on server
     console.log("[INQUIRY_RECEIVED]", JSON.stringify(cleanData, null, 2));
 
-    // 4. Check for configured automated email delivery service
-    const hasEmailConfig = !!process.env.RESEND_API_KEY;
+    // 4. Send email via Gmail SMTP (Nodemailer)
+    const gmailUser = process.env.GMAIL_USER || process.env.SMTP_USER;
+    const gmailPass = process.env.GMAIL_APP_PASSWORD || process.env.SMTP_PASS;
+    const recipientEmail = process.env.CONTACT_RECEIVER_EMAIL || "jainaradhy123@gmail.com";
 
-    if (hasEmailConfig) {
+    if (gmailUser && gmailPass) {
+      try {
+        const transporter = nodemailer.createTransport({
+          service: "gmail",
+          auth: {
+            user: gmailUser,
+            pass: gmailPass,
+          },
+        });
+
+        const mailOptions = {
+          from: `"Portfolio Inquiry" <${gmailUser}>`,
+          to: recipientEmail,
+          replyTo: cleanData.email,
+          subject: `New Client Inquiry: ${cleanData.serviceCategory} from ${cleanData.name}`,
+          text: `
+New Client Project Inquiry:
+
+Name: ${cleanData.name}
+Email: ${cleanData.email}
+Company: ${cleanData.company}
+Service: ${cleanData.serviceCategory}
+Budget: ${cleanData.budgetRange}
+Timeline: ${cleanData.timeline}
+
+Project Scope:
+${cleanData.message}
+          `.trim(),
+          html: `
+            <div style="font-family: Arial, sans-serif; max-width: 600px; padding: 24px; background-color: #0b1120; color: #f8fafc; border-radius: 16px;">
+              <h2 style="color: #22d3ee; margin-top: 0;">New Client Project Inquiry</h2>
+              <p style="color: #94a3b8; font-size: 14px;">Received via portfolio inquiry form.</p>
+              <hr style="border-color: #1e293b; margin: 16px 0;" />
+              <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                <tr><td style="padding: 8px 0; color: #94a3b8; width: 140px;"><strong>Client Name:</strong></td><td style="color: #f8fafc;">${cleanData.name}</td></tr>
+                <tr><td style="padding: 8px 0; color: #94a3b8;"><strong>Email Address:</strong></td><td style="color: #22d3ee;"><a href="mailto:${cleanData.email}" style="color: #22d3ee;">${cleanData.email}</a></td></tr>
+                <tr><td style="padding: 8px 0; color: #94a3b8;"><strong>Company:</strong></td><td style="color: #f8fafc;">${cleanData.company}</td></tr>
+                <tr><td style="padding: 8px 0; color: #94a3b8;"><strong>Service Required:</strong></td><td style="color: #38bdf8; font-weight: bold;">${cleanData.serviceCategory}</td></tr>
+                <tr><td style="padding: 8px 0; color: #94a3b8;"><strong>Budget Range:</strong></td><td style="color: #f8fafc;">${cleanData.budgetRange}</td></tr>
+                <tr><td style="padding: 8px 0; color: #94a3b8;"><strong>Target Timeline:</strong></td><td style="color: #f8fafc;">${cleanData.timeline}</td></tr>
+              </table>
+              <div style="margin-top: 20px; padding: 16px; background-color: #1e293b; border-radius: 8px;">
+                <strong style="color: #94a3b8; display: block; margin-bottom: 8px;">Project Scope & Description:</strong>
+                <p style="color: #f8fafc; line-height: 1.6; margin: 0; white-space: pre-wrap;">${cleanData.message}</p>
+              </div>
+              <p style="font-size: 12px; color: #64748b; margin-top: 24px; text-align: center;">Click reply in your email client to directly reply to ${cleanData.name}.</p>
+            </div>
+          `,
+        };
+
+        await transporter.sendMail(mailOptions);
+
+        return NextResponse.json({
+          success: true,
+          delivered: true,
+          message: "Inquiry successfully sent! Aradhy Jain has received your email and will respond within 24 hours.",
+        });
+      } catch (gmailErr) {
+        console.error("Gmail SMTP dispatch error:", gmailErr);
+      }
+    }
+
+    // 5. Secondary fallback: Resend API if configured
+    const hasResendConfig = !!process.env.RESEND_API_KEY;
+
+    if (hasResendConfig) {
       try {
         const res = await fetch("https://api.resend.com/emails", {
           method: "POST",
@@ -72,7 +140,7 @@ export async function POST(request: Request) {
           },
           body: JSON.stringify({
             from: "Portfolio Inquiry <onboarding@resend.dev>",
-            to: process.env.CONTACT_RECEIVER_EMAIL || "jainaradhy123@gmail.com",
+            to: recipientEmail,
             subject: `New Freelance Inquiry: ${cleanData.serviceCategory} from ${cleanData.name}`,
             text: `
 Name: ${cleanData.name}
@@ -92,11 +160,11 @@ ${cleanData.message}
           return NextResponse.json({
             success: true,
             delivered: true,
-            message: "Inquiry successfully sent. Aradhy Jain has received your project details.",
+            message: "Inquiry successfully sent! Aradhy Jain has received your email.",
           });
         }
       } catch (err) {
-        console.error("Automated email dispatch error:", err);
+        console.error("Resend email dispatch error:", err);
       }
     }
 
