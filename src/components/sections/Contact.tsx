@@ -3,6 +3,7 @@
 import { PORTFOLIO_DATA } from "@/data";
 import { motion } from "framer-motion";
 import { Mail, Phone, Send, ShieldCheck, Check, Loader2, MessageSquare } from "lucide-react";
+import Link from "next/link";
 import { FormEvent, useState } from "react";
 
 type FormState = {
@@ -20,7 +21,7 @@ const initialState: FormState = {
   name: "",
   email: "",
   company: "",
-  service: "Website Development",
+  service: "Starter Business Website",
   budgetRange: "Flexible / Discussion",
   timeline: "Within 1 Month",
   message: "",
@@ -296,12 +297,12 @@ export function Contact() {
                       onChange={(e) => setForm({ ...form, service: e.target.value })}
                       className="field cursor-pointer"
                     >
-                      <option value="Website Development">Website Development</option>
-                      <option value="E-commerce & Marketplace Support">E-commerce & Marketplace Support</option>
-                      <option value="SEO & Website Optimization">SEO & Website Optimization</option>
-                      <option value="Digital Marketing & Analytics">Digital Marketing & Analytics</option>
-                      <option value="Python, Data & Automation">Python, Data & Automation</option>
-                      <option value="General Inquiry">General Inquiry / Consultation</option>
+                      <option value="Starter Business Website">Starter Business Website (₹18k–₹28k)</option>
+                      <option value="Custom Business Website & Portal">Custom Business Website & Portal (₹38k–₹75k)</option>
+                      <option value="E-commerce & Marketplace Storefront">E-commerce & Marketplace Storefront (₹32k–₹65k)</option>
+                      <option value="Technical SEO & Website Optimization">Technical SEO & Website Optimization (₹16k–₹32k)</option>
+                      <option value="Monthly Website Maintenance & Analytics">Monthly Website Maintenance & Analytics (₹8k–₹18k/mo)</option>
+                      <option value="General Inquiry / Custom Consultation">General Inquiry / Custom Consultation</option>
                     </select>
                   </div>
                 </div>
@@ -317,9 +318,9 @@ export function Contact() {
                       className="field cursor-pointer"
                     >
                       <option value="Flexible / Discussion">Flexible / Discussion</option>
-                      <option value="Under ₹25,000 / $300">Under ₹25,000 / $300</option>
-                      <option value="₹25,000 – ₹60,000 / $300 – $750">₹25,000 – ₹60,000 / $300 – $750</option>
-                      <option value="₹60,000 – ₹1,20,000 / $750 – $1,500">₹60,000 – ₹1,20,000 / $750 – $1,500</option>
+                      <option value="₹18,000 – ₹30,000 / $220 – $360">₹18,000 – ₹30,000 ($220 – $360)</option>
+                      <option value="₹30,000 – ₹60,000 / $360 – $720">₹30,000 – ₹60,000 ($360 – $720)</option>
+                      <option value="₹60,000 – ₹1,20,000 / $720 – $1,450">₹60,000 – ₹1,20,000 ($720 – $1,450)</option>
                       <option value="Custom Enterprise / Retainer">Custom Enterprise / Retainer</option>
                     </select>
                   </div>
@@ -354,6 +355,23 @@ export function Contact() {
                     placeholder="Tell me about what you are building, improving, or trying to solve..."
                     className="field resize-none"
                   />
+                </div>
+
+                {/* Privacy Consent Checkbox */}
+                <div className="flex items-start gap-3 rounded-xl border border-foreground/10 bg-foreground/[0.02] p-3.5 text-xs text-foreground/75">
+                  <input
+                    type="checkbox"
+                    id="contact-privacy-consent"
+                    required
+                    className="mt-0.5 h-4 w-4 rounded border-border text-cyan-600 focus:ring-cyan-500 cursor-pointer"
+                  />
+                  <label htmlFor="contact-privacy-consent" className="cursor-pointer leading-relaxed">
+                    I agree that my information may be used to review and respond to this project inquiry in accordance with the{" "}
+                    <Link href="/privacy" className="text-cyan-600 dark:text-cyan-400 font-semibold underline hover:text-cyan-500">
+                      Privacy Policy
+                    </Link>
+                    . No spam, no marketing distribution, no data sales.
+                  </label>
                 </div>
 
                 <button

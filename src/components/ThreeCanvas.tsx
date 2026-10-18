@@ -164,11 +164,13 @@ export function ThreeCanvas() {
 
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
 
-    // 7. Animation Loop
+    // 7. Animation Loop with IntersectionObserver to conserve CPU/GPU when offscreen
     let animationFrameId: number;
+    let isVisible = true;
     const clock = new THREE.Clock();
 
     const animate = () => {
+      if (!isVisible) return;
       animationFrameId = requestAnimationFrame(animate);
 
       const elapsedTime = clock.getElapsedTime();
@@ -200,6 +202,22 @@ export function ThreeCanvas() {
       renderer.render(scene, camera);
     };
 
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const wasVisible = isVisible;
+        isVisible = entry.isIntersecting;
+        if (isVisible && !wasVisible) {
+          clock.start();
+          animate();
+        } else if (!isVisible && wasVisible) {
+          cancelAnimationFrame(animationFrameId);
+        }
+      },
+      { threshold: 0.05 }
+    );
+
+    observer.observe(container);
+
     animate();
 
     // 8. Resize Handler
@@ -216,6 +234,7 @@ export function ThreeCanvas() {
 
     // Cleanup
     return () => {
+      observer.disconnect();
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationFrameId);

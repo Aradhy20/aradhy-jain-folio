@@ -121,6 +121,20 @@ export default function ProjectCaseStudyPage({ params }: PageProps) {
                 Case Study
               </span>
 
+              {/* Explicit Work Type Badge */}
+              <span className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1 text-xs font-bold ${
+                project.workType === "Commercial Client Work"
+                  ? "border border-emerald-500/40 bg-emerald-500/15 text-emerald-700 dark:text-emerald-300"
+                  : project.workType === "Academic Platform"
+                  ? "border border-purple-500/40 bg-purple-500/15 text-purple-700 dark:text-purple-300"
+                  : project.workType === "Independent Client Work"
+                  ? "border border-blue-500/40 bg-blue-500/15 text-blue-700 dark:text-blue-300"
+                  : "border border-cyan-500/30 bg-cyan-500/10 text-cyan-700 dark:text-cyan-300"
+              }`}>
+                <ShieldCheck size={13} />
+                {project.workType}
+              </span>
+
               {isParas && (
                 <span className="rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-xs font-bold text-amber-700 dark:text-amber-300">
                   Amazon · Flipkart · Meesho
@@ -158,8 +172,8 @@ export default function ProjectCaseStudyPage({ params }: PageProps) {
                 <p className="mt-1 font-semibold text-foreground">{project.category}</p>
               </div>
               <div>
-                <p className="text-foreground/50 uppercase font-bold tracking-wider text-[10px]">Role</p>
-                <p className="mt-1 font-semibold text-foreground">{project.role.split(":")[0]}</p>
+                <p className="text-foreground/50 uppercase font-bold tracking-wider text-[10px]">Classification</p>
+                <p className="mt-1 font-semibold text-foreground">{project.workType}</p>
               </div>
               <div>
                 <p className="text-foreground/50 uppercase font-bold tracking-wider text-[10px]">Verified Status</p>
@@ -169,7 +183,7 @@ export default function ProjectCaseStudyPage({ params }: PageProps) {
               </div>
               <div>
                 <p className="text-foreground/50 uppercase font-bold tracking-wider text-[10px]">Core Stack</p>
-                <p className="mt-1 font-semibold text-foreground">{project.techStack.slice(0, 2).join(", ")}</p>
+                <p className="mt-1 font-semibold text-foreground">{project.techStack.slice(0, 3).join(", ")}</p>
               </div>
             </div>
           </div>

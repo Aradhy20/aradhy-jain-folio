@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ExternalLink, CheckCircle2, AlertCircle, Wrench, ArrowRight } from "lucide-react";
+import { X, ExternalLink, CheckCircle2, AlertCircle, Wrench, ArrowRight, ShieldCheck } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import Image from "next/image";
 import { Project } from "@/data";
@@ -57,9 +57,19 @@ export function ProjectCaseStudyModal({ project, onClose }: ProjectCaseStudyModa
         >
           {/* Top Bar */}
           <div className="flex items-center justify-between border-b border-foreground/10 pb-5">
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-2.5">
               <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
                 {project.category}
+              </span>
+              <span className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold ${
+                project.workType === "Commercial Client Work"
+                  ? "border border-emerald-500/40 bg-emerald-500/15 text-emerald-700 dark:text-emerald-300"
+                  : project.workType === "Academic Platform"
+                  ? "border border-purple-500/40 bg-purple-500/15 text-purple-700 dark:text-purple-300"
+                  : "border border-border/80 bg-foreground/5 text-foreground/80"
+              }`}>
+                <ShieldCheck size={13} />
+                {project.workType}
               </span>
               {project.featured && (
                 <span className="rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-1 text-xs font-semibold text-purple-600 dark:text-purple-300">

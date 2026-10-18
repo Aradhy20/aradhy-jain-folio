@@ -10,12 +10,10 @@ import { MagneticButton } from "@/components/ui/MagneticButton";
 import { ThreeCanvas } from "@/components/ThreeCanvas";
 
 const ROLES = [
-  "Web Development, E-commerce & Digital Growth Partner",
-  "Amazon · Flipkart · Meesho Marketplace Specialist",
-  "Full-Stack Web & Storefront Developer",
-  "Technical SEO & Speed Optimization Lead",
-  "Digital Marketing & Analytics Automation",
-  "Applied AI & Custom Business Tools",
+  "1. Website Development (Corporate & Institutional Portals)",
+  "2. E-commerce & Marketplaces (Amazon · Flipkart · Meesho)",
+  "3. Technical SEO, Speed Tuning & Search Visibility",
+  "Automated Reporting Dashboards & Python ETL",
 ];
 
 export function Hero() {
@@ -92,29 +90,20 @@ export function Hero() {
             I help businesses establish a stronger online presence through responsive websites, e-commerce solutions, marketplace catalogue optimization, technical SEO, digital marketing, and data-driven improvements.
           </p>
 
-          {/* Core Commercial Pillar Badges */}
-          <div className="mt-6 flex flex-wrap items-center gap-2 text-xs font-medium text-foreground/75">
-            <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1.5 text-cyan-700 dark:text-cyan-300">
-              Web Development
+          {/* Core Commercial Pillar Badges - Prioritized 3 Pillars */}
+          <div className="mt-6 flex flex-wrap items-center gap-2.5 text-xs font-semibold">
+            <span className="rounded-full border border-cyan-500/35 bg-cyan-500/10 px-3.5 py-1.5 text-cyan-800 dark:text-cyan-200">
+              1. Website Development
             </span>
-            <span className="rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1.5 text-blue-700 dark:text-blue-300">
-              E-commerce & Marketplaces
+            <span className="rounded-full border border-amber-500/35 bg-amber-500/10 px-3.5 py-1.5 text-amber-800 dark:text-amber-200">
+              2. E-commerce & Marketplaces (Amazon · Flipkart · Meesho)
             </span>
-            <span className="rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1.5 text-amber-700 dark:text-amber-300">
-              Amazon · Flipkart · Meesho
-            </span>
-            <span className="rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-1.5 text-purple-700 dark:text-purple-300">
-              Technical SEO
-            </span>
-            <span className="rounded-full border border-pink-500/30 bg-pink-500/10 px-3 py-1.5 text-pink-700 dark:text-pink-300">
-              Digital Marketing
-            </span>
-            <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-emerald-700 dark:text-emerald-300">
-              Python, Data & Automation
+            <span className="rounded-full border border-purple-500/35 bg-purple-500/10 px-3.5 py-1.5 text-purple-800 dark:text-purple-200">
+              3. SEO, Analytics & Automation
             </span>
           </div>
 
-          {/* Conversion Action Buttons */}
+          {/* Primary Action Buttons */}
           <div className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
             <MagneticButton href="#contact">
               <span className="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#06b6d4,#2563eb)] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-cyan-500/25 transition-transform hover:scale-[1.02]">
@@ -126,7 +115,7 @@ export function Hero() {
             <MagneticButton href="#projects">
               <span className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-6 py-3.5 text-sm font-semibold text-cyan-700 dark:text-cyan-300 backdrop-blur-xl transition-all hover:bg-cyan-500/20">
                 <Briefcase size={16} />
-                Explore My Work
+                View My Work
               </span>
             </MagneticButton>
 

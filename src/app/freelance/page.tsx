@@ -22,6 +22,7 @@ import {
   Check,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, FormEvent } from "react";
 
 const ICON_MAP: Record<string, React.ReactNode> = {
@@ -230,7 +231,7 @@ export default function FreelancePage() {
                         {ICON_MAP[service.iconName] || <Sparkles className="h-6 w-6 text-cyan-400" />}
                       </div>
                       <span className="text-[11px] font-semibold uppercase tracking-wider text-cyan-700 dark:text-cyan-300 rounded-full border border-cyan-500/20 bg-cyan-500/10 px-2.5 py-1">
-                        {service.category}
+                        {service.categoryBadge}
                       </span>
                     </div>
 
@@ -240,19 +241,31 @@ export default function FreelancePage() {
                     <p className="mt-2 text-xs font-medium text-cyan-600 dark:text-cyan-400">
                       {service.tagline}
                     </p>
+
+                    {/* Indicative Pricing & Timeline Badges */}
+                    <div className="mt-4 flex flex-wrap items-baseline gap-2">
+                      <span className="text-xl font-extrabold text-foreground">{service.indicativePriceINR}</span>
+                      <span className="text-xs text-foreground/50">({service.indicativePriceUSD})</span>
+                    </div>
+                    <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-foreground/60">
+                      <span className="font-medium text-cyan-600 dark:text-cyan-400">{service.estimatedTimeline}</span>
+                      <span>•</span>
+                      <span>{service.revisionLimit}</span>
+                    </div>
+
                     <p className="mt-4 text-sm leading-relaxed text-foreground/70">
                       {service.description}
                     </p>
 
-                    {/* Offerings list */}
+                    {/* Deliverables list */}
                     <div className="mt-6 pt-5 border-t border-foreground/5 space-y-2">
                       <p className="text-xs font-bold uppercase tracking-wider text-foreground/50 mb-3">
-                        What I Deliver
+                        Included Deliverables
                       </p>
-                      {service.offerings.slice(0, 4).map((offering) => (
-                        <div key={offering} className="flex items-start gap-2.5 text-xs text-foreground/80">
+                      {service.deliverables.slice(0, 4).map((deliv) => (
+                        <div key={deliv} className="flex items-start gap-2.5 text-xs text-foreground/80">
                           <CheckCircle2 size={14} className="text-cyan-500 shrink-0 mt-0.5" />
-                          <span>{offering}</span>
+                          <span>{deliv}</span>
                         </div>
                       ))}
                     </div>
@@ -274,7 +287,7 @@ export default function FreelancePage() {
 
                   {/* CTA Footer */}
                   <div className="mt-8 pt-5 border-t border-foreground/5 flex items-center justify-between">
-                    <span className="text-xs font-medium text-foreground/50">Custom Scope</span>
+                    <span className="text-xs font-medium text-foreground/50">Indicative Scope</span>
                     <a
                       href="#inquiry-form"
                       onClick={() => setForm((prev) => ({ ...prev, serviceCategory: service.title }))}
@@ -407,36 +420,35 @@ export default function FreelancePage() {
                     </div>
                   </div>
 
-                  <div className="grid gap-6 sm:grid-cols-3">
+                  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                     <div>
                       <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-2">
-                        Company / Organization (Optional)
+                        Company / Org (Optional)
                       </label>
                       <input
                         type="text"
                         value={form.company}
                         onChange={(e) => setForm({ ...form, company: e.target.value })}
-                        placeholder="Company or personal brand"
+                        placeholder="Company or brand"
                         className="field"
                       />
                     </div>
 
                     <div>
                       <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-2">
-                        Service Category *
+                        Service Package *
                       </label>
                       <select
                         value={form.serviceCategory}
                         onChange={(e) => setForm({ ...form, serviceCategory: e.target.value })}
                         className="field cursor-pointer"
                       >
-                        <option value="Website Development">Website Development</option>
-                        <option value="E-commerce Solutions">E-commerce Solutions</option>
-                        <option value="SEO & Digital Growth">SEO & Digital Growth</option>
-                        <option value="Digital Marketing & Content">Digital Marketing & Content</option>
-                        <option value="Data Analytics & Automation">Data Analytics & Automation</option>
-                        <option value="AI & Technical Consulting">AI & Technical Consulting</option>
-                        <option value="Other / Multi-discipline">Other / Multi-discipline</option>
+                        <option value="Starter Business Website">Starter Business Website (₹18k–₹28k)</option>
+                        <option value="Custom Business Website & Portal">Custom Business Website & Portal (₹38k–₹75k)</option>
+                        <option value="E-commerce & Marketplace Storefront">E-commerce & Marketplace Storefront (₹32k–₹65k)</option>
+                        <option value="Technical SEO & Website Optimization">Technical SEO & Website Optimization (₹16k–₹32k)</option>
+                        <option value="Monthly Website Maintenance & Analytics">Monthly Website Maintenance & Analytics (₹8k–₹18k/mo)</option>
+                        <option value="General Inquiry / Custom Consultation">General Inquiry / Custom Consultation</option>
                       </select>
                     </div>
 
@@ -449,10 +461,27 @@ export default function FreelancePage() {
                         onChange={(e) => setForm({ ...form, timeline: e.target.value })}
                         className="field cursor-pointer"
                       >
-                        <option value="Within 2 Weeks">Within 2 Weeks</option>
-                        <option value="Within 1 Month">Within 1 Month</option>
-                        <option value="1-3 Months">1-3 Months</option>
+                        <option value="Within 2-3 Weeks (Urgent)">Within 2-3 Weeks (Urgent)</option>
+                        <option value="Within 1 Month (Standard)">Within 1 Month (Standard)</option>
+                        <option value="1-2 Months (Phased)">1-2 Months (Phased)</option>
                         <option value="Flexible / Discussion">Flexible / Discussion</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-2">
+                        Budget Range (Indicative)
+                      </label>
+                      <select
+                        value={form.budgetRange}
+                        onChange={(e) => setForm({ ...form, budgetRange: e.target.value })}
+                        className="field cursor-pointer"
+                      >
+                        <option value="Flexible / Discussion">Flexible / Discussion</option>
+                        <option value="₹18,000 – ₹30,000 / $220 – $360">₹18,000 – ₹30,000 ($220 – $360)</option>
+                        <option value="₹30,000 – ₹60,000 / $360 – $720">₹30,000 – ₹60,000 ($360 – $720)</option>
+                        <option value="₹60,000 – ₹1,20,000 / $720 – $1,450">₹60,000 – ₹1,20,000 ($720 – $1,450)</option>
+                        <option value="Custom Enterprise / Retainer">Custom Enterprise / Retainer</option>
                       </select>
                     </div>
                   </div>
@@ -469,6 +498,23 @@ export default function FreelancePage() {
                       placeholder="Briefly describe what you're looking to build, optimize, or automate (e.g. e-commerce storefront, institutional portal, SEO audit, or custom dashboard)..."
                       className="field resize-none"
                     />
+                  </div>
+
+                  {/* Privacy Consent Checkbox */}
+                  <div className="flex items-start gap-3 rounded-xl border border-foreground/10 bg-foreground/[0.02] p-4 text-xs text-foreground/75">
+                    <input
+                      type="checkbox"
+                      id="freelance-privacy-consent"
+                      required
+                      className="mt-0.5 h-4 w-4 rounded border-border text-cyan-600 focus:ring-cyan-500 cursor-pointer"
+                    />
+                    <label htmlFor="freelance-privacy-consent" className="cursor-pointer leading-relaxed">
+                      I agree that my information may be used solely to review and respond to this project inquiry in accordance with the{" "}
+                      <Link href="/privacy" className="text-cyan-600 dark:text-cyan-400 font-semibold underline hover:text-cyan-500">
+                        Privacy Policy
+                      </Link>
+                      . No spam, no marketing distribution, no data sales.
+                    </label>
                   </div>
 
                   <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-foreground/5">

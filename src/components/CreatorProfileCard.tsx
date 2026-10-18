@@ -38,7 +38,7 @@ export function CreatorProfileCard({ className = "" }: CreatorProfileCardProps) 
     }
 
     // Copy contact link or details to clipboard as a helpful utility
-    const profileUrl = typeof window !== "undefined" ? window.location.origin : "https://aradhyjain.vercel.app";
+    const profileUrl = typeof window !== "undefined" ? window.location.origin : "https://aradhy-jain-folio.vercel.app";
     const shareText = `Aradhy Jain — Web Developer, E-commerce & Digital Growth Specialist\nEmail: ${PORTFOLIO_DATA.personalInfo.email}\nPortfolio: ${profileUrl}`;
 
     try {

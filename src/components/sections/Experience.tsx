@@ -61,13 +61,28 @@ export function Experience() {
                   <div className="pl-16 md:pl-0">
                     <div className="panel border-border/70 bg-white/45 p-6 shadow-xl backdrop-blur-xl dark:bg-white/5 transition-all duration-300 sm:p-8 hover:shadow-[0_20px_40px_rgba(6,182,212,0.12)] hover:border-cyan-500/40 relative overflow-hidden group">
                       <div className="absolute -right-16 -top-16 h-32 w-32 rounded-full bg-cyan-500/5 blur-2xl group-hover:bg-cyan-500/15 transition-all duration-500" />
-                      <p className="text-sm font-semibold text-cyan-700 dark:text-cyan-300 tracking-wider">
-                        {role.period}
-                      </p>
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <p className="text-sm font-semibold text-cyan-700 dark:text-cyan-300 tracking-wider">
+                          {role.period}
+                        </p>
+                        {"type" in role && role.type && (
+                          <span className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
+                            role.type === "Formal Employment"
+                              ? "border border-purple-500/30 bg-purple-500/10 text-purple-700 dark:text-purple-300"
+                              : role.type === "Independent Freelance Practice"
+                              ? "border border-cyan-500/30 bg-cyan-500/10 text-cyan-700 dark:text-cyan-300"
+                              : role.type === "University Internship"
+                              ? "border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300"
+                              : "border border-border/80 bg-foreground/5 text-foreground/70"
+                          }`}>
+                            {role.type}
+                          </span>
+                        )}
+                      </div>
                       <h3 className="mt-3 text-2xl font-semibold tracking-tight group-hover:text-cyan-400 transition-colors duration-300">
                         {role.title}
                       </h3>
-                      <p className="mt-1 text-base text-foreground/62">{role.company}</p>
+                      <p className="mt-1 text-base font-medium text-foreground/75">{role.company}</p>
                       <div className="mt-6 space-y-3">
                         {role.responsibilities.map((item) => (
                           <div
