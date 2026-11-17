@@ -7,7 +7,12 @@ import { ArrowRight, Download, MapPin, Sparkles, Briefcase, ChevronDown } from "
 import { useState, useEffect } from "react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { MagneticButton } from "@/components/ui/MagneticButton";
-import { ThreeCanvas } from "@/components/ThreeCanvas";
+import dynamic from "next/dynamic";
+
+const ThreeCanvas = dynamic(
+  () => import("@/components/ThreeCanvas").then((mod) => mod.ThreeCanvas),
+  { ssr: false }
+);
 
 const ROLES = [
   "1. Website Development (Corporate & Institutional Portals)",

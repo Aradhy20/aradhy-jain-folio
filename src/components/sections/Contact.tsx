@@ -245,10 +245,11 @@ export function Contact() {
 
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
+                    <label htmlFor="contact-name" className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
                       Your Name *
                     </label>
                     <input
+                      id="contact-name"
                       type="text"
                       required
                       value={form.name}
@@ -259,10 +260,11 @@ export function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
+                    <label htmlFor="contact-email" className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
                       Your Email *
                     </label>
                     <input
+                      id="contact-email"
                       type="email"
                       required
                       value={form.email}
@@ -275,10 +277,11 @@ export function Contact() {
 
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
+                    <label htmlFor="contact-company" className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
                       Business / Company Name <span className="text-foreground/40 font-normal">(Optional)</span>
                     </label>
                     <input
+                      id="contact-company"
                       type="text"
                       value={form.company}
                       onChange={(e) => setForm({ ...form, company: e.target.value })}
@@ -288,7 +291,7 @@ export function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
+                    <label htmlFor="contact-service" className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
                       Service Required *
                     </label>
                     <select
@@ -309,10 +312,11 @@ export function Contact() {
 
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
+                    <label htmlFor="contact-budget" className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
                       Approximate Budget <span className="text-foreground/40 font-normal">(Optional)</span>
                     </label>
                     <select
+                      id="contact-budget"
                       value={form.budgetRange}
                       onChange={(e) => setForm({ ...form, budgetRange: e.target.value })}
                       className="field cursor-pointer"
@@ -326,10 +330,11 @@ export function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
+                    <label htmlFor="contact-timeline" className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
                       Target Timeline <span className="text-foreground/40 font-normal">(Optional)</span>
                     </label>
                     <select
+                      id="contact-timeline"
                       value={form.timeline}
                       onChange={(e) => setForm({ ...form, timeline: e.target.value })}
                       className="field cursor-pointer"
@@ -343,7 +348,7 @@ export function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
+                  <label htmlFor="contact-message" className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
                     Project Description *
                   </label>
                   <textarea

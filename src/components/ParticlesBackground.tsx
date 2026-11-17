@@ -8,6 +8,11 @@ export function ParticlesBackground() {
   const { resolvedTheme } = useTheme();
 
   useEffect(() => {
+    // Skip particles on mobile and reduced-motion to ensure sub-second LCP and low TBT
+    if (typeof window !== "undefined" && (window.innerWidth < 768 || window.matchMedia("(prefers-reduced-motion: reduce)").matches)) {
+      return;
+    }
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 

@@ -555,10 +555,11 @@ Website: https://aradhy-jain-portfolio.vercel.app/
                 {/* Configuration Grid */}
                 <div className="mt-8 grid gap-6 sm:grid-cols-2">
                   <div>
-                    <label className="text-xs font-bold text-foreground/70 uppercase">
+                    <label htmlFor="brief-service-package" className="text-xs font-bold text-foreground/70 uppercase">
                       1. Select Service Package
                     </label>
                     <select
+                      id="brief-service-package"
                       value={selectedPackageId}
                       onChange={(e) => setSelectedPackageId(e.target.value)}
                       className="mt-2 w-full rounded-2xl border border-border/80 bg-background/80 p-3.5 text-xs sm:text-sm text-foreground shadow-sm focus:border-cyan-500 focus:outline-none"
@@ -572,10 +573,11 @@ Website: https://aradhy-jain-portfolio.vercel.app/
                   </div>
 
                   <div>
-                    <label className="text-xs font-bold text-foreground/70 uppercase">
+                    <label htmlFor="brief-business-name" className="text-xs font-bold text-foreground/70 uppercase">
                       2. Business / Client Name
                     </label>
                     <input
+                      id="brief-business-name"
                       type="text"
                       value={businessName}
                       onChange={(e) => setBusinessName(e.target.value)}
@@ -585,10 +587,11 @@ Website: https://aradhy-jain-portfolio.vercel.app/
                   </div>
 
                   <div>
-                    <label className="text-xs font-bold text-foreground/70 uppercase">
+                    <label htmlFor="brief-industry" className="text-xs font-bold text-foreground/70 uppercase">
                       3. Business Industry / Sector
                     </label>
                     <select
+                      id="brief-industry"
                       value={businessIndustry}
                       onChange={(e) => setBusinessIndustry(e.target.value)}
                       className="mt-2 w-full rounded-2xl border border-border/80 bg-background/80 p-3.5 text-xs sm:text-sm text-foreground shadow-sm focus:border-cyan-500 focus:outline-none"
@@ -604,10 +607,11 @@ Website: https://aradhy-jain-portfolio.vercel.app/
                   </div>
 
                   <div>
-                    <label className="text-xs font-bold text-foreground/70 uppercase">
+                    <label htmlFor="brief-timeline" className="text-xs font-bold text-foreground/70 uppercase">
                       4. Target Timeline
                     </label>
                     <select
+                      id="brief-timeline"
                       value={timelinePreference}
                       onChange={(e) => setTimelinePreference(e.target.value)}
                       className="mt-2 w-full rounded-2xl border border-border/80 bg-background/80 p-3.5 text-xs sm:text-sm text-foreground shadow-sm focus:border-cyan-500 focus:outline-none"
@@ -620,10 +624,11 @@ Website: https://aradhy-jain-portfolio.vercel.app/
                   </div>
 
                   <div className="sm:col-span-2">
-                    <label className="text-xs font-bold text-foreground/70 uppercase">
+                    <label htmlFor="brief-requirements" className="text-xs font-bold text-foreground/70 uppercase">
                       5. Specific Features or Goals
                     </label>
                     <input
+                      id="brief-requirements"
                       type="text"
                       value={specialRequirements}
                       onChange={(e) => setSpecialRequirements(e.target.value)}
@@ -755,10 +760,11 @@ Website: https://aradhy-jain-portfolio.vercel.app/
                 {/* Input Fields */}
                 <div className="mt-6 grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label className="text-xs font-bold text-foreground/70 uppercase">
+                    <label htmlFor="gen-product-name" className="text-xs font-bold text-foreground/70 uppercase">
                       Product Name
                     </label>
                     <input
+                      id="gen-product-name"
                       type="text"
                       value={productName}
                       onChange={(e) => setProductName(e.target.value)}
@@ -767,10 +773,11 @@ Website: https://aradhy-jain-portfolio.vercel.app/
                   </div>
 
                   <div>
-                    <label className="text-xs font-bold text-foreground/70 uppercase">
+                    <label htmlFor="gen-material" className="text-xs font-bold text-foreground/70 uppercase">
                       Primary Material / Craft
                     </label>
                     <input
+                      id="gen-material"
                       type="text"
                       value={productMaterial}
                       onChange={(e) => setProductMaterial(e.target.value)}
@@ -779,10 +786,11 @@ Website: https://aradhy-jain-portfolio.vercel.app/
                   </div>
 
                   <div>
-                    <label className="text-xs font-bold text-foreground/70 uppercase">
+                    <label htmlFor="gen-dimensions" className="text-xs font-bold text-foreground/70 uppercase">
                       Dimensions / Capacity / Weight
                     </label>
                     <input
+                      id="gen-dimensions"
                       type="text"
                       value={productDimensions}
                       onChange={(e) => setProductDimensions(e.target.value)}
@@ -791,10 +799,11 @@ Website: https://aradhy-jain-portfolio.vercel.app/
                   </div>
 
                   <div>
-                    <label className="text-xs font-bold text-foreground/70 uppercase">
+                    <label htmlFor="gen-features" className="text-xs font-bold text-foreground/70 uppercase">
                       Key Distinguishing Features
                     </label>
                     <input
+                      id="gen-features"
                       type="text"
                       value={productFeatures}
                       onChange={(e) => setProductFeatures(e.target.value)}

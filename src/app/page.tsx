@@ -1,4 +1,3 @@
-import { LoadingScreen } from "@/components/LoadingScreen";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/sections/Hero";
@@ -20,7 +19,6 @@ import { CursorGlow } from "@/components/CursorGlow";
 export default function Home() {
   return (
     <main className="relative min-h-screen overflow-x-clip bg-background text-foreground selection:bg-primary/20 selection:text-foreground">
-      <LoadingScreen />
       <CursorGlow />
 
       <div className="pointer-events-none fixed inset-0 z-[-1] overflow-hidden">
