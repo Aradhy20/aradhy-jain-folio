@@ -56,7 +56,7 @@ export default function PrivacyPolicyPage() {
               </h2>
               <p className="mt-4 text-sm sm:text-base leading-relaxed text-foreground/80">
                 This Privacy Policy applies to personal data collected through the portfolio website{" "}
-                <strong className="text-foreground">https://aradhy-jain-folio.vercel.app</strong> and direct client communications managed by:
+                <strong className="text-foreground">https://aradhy-jain-portfolio.vercel.app</strong> and direct client communications managed by:
               </p>
               <div className="mt-4 rounded-2xl border border-cyan-500/20 bg-cyan-500/5 p-5 text-sm text-foreground/80 space-y-1">
                 <p><strong className="text-foreground">Individual Freelance Practitioner:</strong> Aradhy Jain</p>

@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     "Freelance Web Developer India",
   ],
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://aradhy-jain-folio.vercel.app"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://aradhy-jain-portfolio.vercel.app"
   ),
   alternates: {
     canonical: "/",
@@ -79,7 +79,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://aradhy-jain-folio.vercel.app";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://aradhy-jain-portfolio.vercel.app";
 
   const jsonLd = {
     "@context": "https://schema.org",

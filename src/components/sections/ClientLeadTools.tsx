@@ -173,7 +173,7 @@ ${specialRequirements}
 7. PREPARED BY:
 Aradhy Jain — Web Developer, E-commerce & Digital Growth Specialist
 Email: ${PORTFOLIO_DATA.personalInfo.email} | WhatsApp: +${PORTFOLIO_DATA.personalInfo.whatsapp}
-Website: https://aradhy-jain-folio.vercel.app/
+Website: https://aradhy-jain-portfolio.vercel.app/
 =====================================================`;
 
   const handleCopyProposal = () => {

@@ -227,7 +227,7 @@ export async function POST(request: Request) {
         redirect: "follow",
         headers: {
           "User-Agent":
-            "Mozilla/5.0 (compatible; AradhyJainPortfolioAuditBot/1.0; +https://aradhy-jain-folio.vercel.app)",
+            "Mozilla/5.0 (compatible; AradhyJainPortfolioAuditBot/1.0; +https://aradhy-jain-portfolio.vercel.app)",
           Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
           "Accept-Language": "en-US,en;q=0.5",
         },
