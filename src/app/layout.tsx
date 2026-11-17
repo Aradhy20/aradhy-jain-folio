@@ -90,11 +90,11 @@ export default function RootLayout({
         name: "Aradhy Jain",
         jobTitle: "Web Developer, E-commerce & Digital Growth Specialist",
         url: siteUrl,
-        email: "jainaradhy01@gmail.com",
+        email: "jainaradhy123@gmail.com",
         telephone: "+91-7351522153",
         sameAs: [
           "https://github.com/Aradhy20",
-          "https://linkedin.com/in/aradhy-jain",
+          "https://www.linkedin.com/in/aradhyjain",
         ],
         knowsAbout: [
           "Website Development",

@@ -1,5 +1,5 @@
 import { PORTFOLIO_DATA } from "@/data";
-import { Mail, MessageSquare } from "lucide-react";
+import { FileText, Mail, MessageSquare } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import Link from "next/link";
 
@@ -125,6 +125,16 @@ export function Footer() {
                 >
                   <Mail size={13} className="text-cyan-500" />
                   <span>{PORTFOLIO_DATA.personalInfo.email}</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={PORTFOLIO_DATA.personalInfo.resume}
+                  download="Aradhy_Jain_Resume.pdf"
+                  className="hover:text-cyan-500 transition-colors flex items-center gap-1.5"
+                >
+                  <FileText size={13} className="text-cyan-500" />
+                  <span>Download Resume (PDF)</span>
                 </a>
               </li>
             </ul>

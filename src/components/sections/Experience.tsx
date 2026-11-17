@@ -2,7 +2,7 @@
 
 import { PORTFOLIO_DATA } from "@/data";
 import { motion, useScroll } from "framer-motion";
-import { BriefcaseBusiness } from "lucide-react";
+import { BriefcaseBusiness, GraduationCap } from "lucide-react";
 import { useRef } from "react";
 
 export function Experience() {
@@ -100,6 +100,61 @@ export function Experience() {
               ))}
             </div>
           </div>
+
+          {/* Academic Background / Education */}
+          {"education" in PORTFOLIO_DATA && PORTFOLIO_DATA.education && (
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.6 }}
+              className="mt-20 pt-16 border-t border-border/60"
+            >
+              <div className="text-center">
+                <p className="section-kicker">Education</p>
+                <h3 className="section-title text-3xl">Academic Foundation</h3>
+                <p className="section-copy mx-auto max-w-2xl">
+                  Formal education in Data Science, Computer Science, and Mathematics.
+                </p>
+              </div>
+
+              <div className="mt-10 grid gap-6 sm:grid-cols-2 max-w-4xl mx-auto">
+                {PORTFOLIO_DATA.education.map((edu, idx) => (
+                  <div
+                    key={idx}
+                    className="panel card-hover p-6 sm:p-8 rounded-[2rem] border-border/70 bg-white/45 dark:bg-white/5 relative overflow-hidden"
+                  >
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-xs font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
+                        {edu.period}
+                      </span>
+                      <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                        Verified
+                      </span>
+                    </div>
+                    <div className="mt-4 flex items-start gap-3.5">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-300">
+                        <GraduationCap size={20} />
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-bold text-foreground">
+                          {edu.degree}
+                        </h4>
+                        <p className="mt-0.5 text-sm font-medium text-foreground/75">
+                          {edu.institution}
+                        </p>
+                      </div>
+                    </div>
+                    {edu.details && (
+                      <p className="mt-4 text-xs leading-relaxed text-foreground/65 border-t border-border/40 pt-3">
+                        {edu.details}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
         </div>
       </div>
     </section>

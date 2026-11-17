@@ -77,6 +77,13 @@ export interface SkillItem {
   focus?: string;
 }
 
+export interface EducationItem {
+  degree: string;
+  institution: string;
+  period: string;
+  details?: string;
+}
+
 export interface SkillGroup {
   category: string;
   description: string;
@@ -92,7 +99,7 @@ export const PORTFOLIO_DATA = {
     tagline: "Web Development • E-commerce & Marketplaces • Technical SEO • Digital Marketing • Analytics",
     mission:
       "I help businesses establish a stronger online presence through responsive websites, e-commerce solutions, marketplace catalogue optimization, technical SEO, digital marketing, and data-driven improvements.",
-    email: "jainaradhy01@gmail.com",
+    email: "jainaradhy123@gmail.com",
     phone: "+91-7351522153",
     whatsapp: "917351522153",
     linkedin: "https://www.linkedin.com/in/aradhyjain",
@@ -116,7 +123,7 @@ export const PORTFOLIO_DATA = {
     { label: "Production & Open Source Builds", value: "15+" },
   ],
   about:
-    "I am an IT professional with a B.Tech in Computer Science (Data Science) from Teerthanker Mahaveer University. I work with business owners, manufacturers, institutions, and founders as a Web Developer, E-commerce & Digital Growth Specialist. My practical experience spans custom website engineering, multi-channel marketplace catalog operations (Amazon, Flipkart, Meesho), technical SEO, digital marketing, and data analytics. I combine technical precision with commercial usability to help businesses establish an authoritative digital presence, streamline sales operations, and scale reliably.",
+    "I am an IT professional with a B.Tech in Data Science from Teerthanker Mahaveer University. I work with business owners, manufacturers, institutions, and founders as a Web Developer, E-commerce & Digital Growth Specialist. My practical experience spans custom website engineering, multi-channel marketplace catalog operations (Amazon, Flipkart, Meesho), technical SEO, digital marketing, and data analytics. I combine technical precision with commercial usability to help businesses establish an authoritative digital presence, streamline sales operations, and scale reliably.",
   
   whyWorkWithMe: [
     {
@@ -378,18 +385,6 @@ export const PORTFOLIO_DATA = {
     },
     {
       id: 3,
-      title: "Web Developer & Digital Growth Partner",
-      company: "Freelance Practice",
-      period: "2025 – Present",
-      type: "Independent Freelance Practice",
-      responsibilities: [
-        "Engineered full-stack academic web platform sanmatijournal.in (ISSN 3108-1819) with responsive UI, article archives, and Google Scholar citation schemas.",
-        "Built institutional web portal for DSR College (dsr.college) featuring teacher education programmes (B.Ed., D.El.Ed., ITEP) with measured fast server response (~457ms TTFB).",
-        "Structured multi-channel e-commerce operations, SKU architecture, and listing workflows for Paras Metal across Meesho, Amazon, and Flipkart.",
-      ],
-    },
-    {
-      id: 4,
       title: "IT Developer Intern",
       company: "MathesisLabs Technologies Pvt Ltd",
       period: "June 2025 – December 2025",
@@ -398,6 +393,18 @@ export const PORTFOLIO_DATA = {
         "Built Python automation scripts reducing manual processing time by 30%.",
         "Designed ETL pipelines for efficient data integration.",
         "Improved backend performance and scalability.",
+      ],
+    },
+    {
+      id: 4,
+      title: "Web Developer & Digital Growth Partner",
+      company: "Freelance Practice",
+      period: "2025 – Present",
+      type: "Independent Freelance Practice",
+      responsibilities: [
+        "Engineered full-stack academic web platform sanmatijournal.in (ISSN 3108-1819) with responsive UI, article archives, and Google Scholar citation schemas.",
+        "Built institutional web portal for DSR College (dsr.college) featuring teacher education programmes (B.Ed., D.El.Ed., ITEP) with measured fast server response (~457ms TTFB).",
+        "Structured multi-channel e-commerce operations, SKU architecture, and listing workflows for Paras Metal across Meesho, Amazon, and Flipkart.",
       ],
     },
     {
@@ -413,6 +420,21 @@ export const PORTFOLIO_DATA = {
       ],
     },
   ] as ExperienceItem[],
+
+  education: [
+    {
+      degree: "B.Tech in Data Science",
+      institution: "Teerthanker Mahaveer University",
+      period: "2022 – 2026",
+      details: "Computer Science & Engineering specialization in Data Science, Machine Learning, Python, and SQL Analytics.",
+    },
+    {
+      degree: "Class XII (PCM)",
+      institution: "Christian Inter College",
+      period: "2021 – 2022",
+      details: "Senior Secondary Education in Physics, Chemistry, and Mathematics.",
+    },
+  ] as EducationItem[],
 
   projects: [
     {
@@ -459,7 +481,7 @@ export const PORTFOLIO_DATA = {
       workType: "Commercial Client Work",
       category: "Academic & Publishing",
       shortOverview:
-        "Scholarly publication platform streamlining research paper discovery, CrossRef DOI indexing, editorial review documentation, and Google Scholar citations.",
+        "Developed a full-stack platform for academic publishing with responsive UI and backend workflows. Improved user experience and content management efficiency.",
       description:
         "Developed and actively manage sanmatijournal.in, the digital publishing platform for an international peer-reviewed multidisciplinary research journal (ISSN 3108-1819). The platform presents structured journal volumes, research abstracts, author submission guidelines, CrossRef DOI indexing, and editorial oversight.",
       problem:
@@ -605,11 +627,11 @@ export const PORTFOLIO_DATA = {
     {
       id: 7,
       slug: "mental-health-ai",
-      title: "Mental Health AI & Sentiment Analysis",
+      title: "Mental Health Analysis System (NLP)",
       workType: "Academic Research Prototype",
       category: "AI & Automation",
       shortOverview:
-        "An NLP-driven analytical framework identifying emotional nuances, sentiment signals, and support indicators in text data.",
+        "Developed an NLP system for sentiment analysis and emotional pattern detection using machine learning techniques.",
       description:
         "Engineered an applied NLP classification pipeline analyzing natural language statements to identify sentiment severity, emotional markers, and early support triggers using Scikit-learn and Pandas.",
       problem:
@@ -631,11 +653,11 @@ export const PORTFOLIO_DATA = {
     {
       id: 8,
       slug: "virtual-counselor",
-      title: "University Virtual Counselor",
+      title: "AI Chatbot — NLP Based Counselor",
       workType: "Engineering Demonstration",
       category: "AI & Automation",
       shortOverview:
-        "A conversational AI assistant providing empathetic student onboarding support, course advice, and university guidance.",
+        "Built a chatbot using NLP and transformer concepts to improve response accuracy and user interaction.",
       description:
         "An automated conversational counselor prototype utilizing transformer models and structured prompt frameworks to answer common university queries and student FAQs.",
       problem:
@@ -736,7 +758,7 @@ export const PORTFOLIO_DATA = {
       workType: "Engineering Demonstration",
       category: "Websites & Full-Stack",
       shortOverview:
-        "A patient intake, treatment scheduling, and operational administration console featuring structured clinical models.",
+        "Built a system for managing patient records and appointments, reducing manual workload. Tech Stack: Python, SQL.",
       description:
         "An administrative healthcare management portal managing patient registration, doctor appointments, and department allocation with strict data integrity.",
       problem:
@@ -747,7 +769,7 @@ export const PORTFOLIO_DATA = {
         "Doctor appointment scheduling by department",
         "Billing and prescription record management",
       ],
-      techStack: ["HTML5", "CSS3", "JavaScript", "Database Modeling"],
+      techStack: ["Python", "SQL", "Database Modeling", "HTML5", "CSS3"],
       images: ["/project_health_system.png", "/project_saas_dashboard.png"],
       featured: false,
       githubLink: "https://github.com/Aradhy20/Hospital-management-system",
@@ -801,6 +823,32 @@ export const PORTFOLIO_DATA = {
       githubLink: "https://github.com/Aradhy20/Iris-Flower-Classification",
       verifiedOutcome:
         "Established core machine learning foundations with high cross-validated test accuracy.",
+    },
+    {
+      id: 15,
+      slug: "social-media-analytics",
+      title: "Social Media Analytics Platform",
+      workType: "Academic Research Prototype",
+      category: "Data Analytics & Dashboards",
+      shortOverview:
+        "Analyzed 10000+ records using Python and NLP. Built dashboards to track KPIs and engagement metrics.",
+      description:
+        "Large-scale sentiment and engagement analytics engine processing over 10,000 real-world social media interaction records using Python, Pandas, and natural language processing pipelines.",
+      problem:
+        "Extracting actionable sentiment indicators, audience trends, and KPI patterns from voluminous, unstructured social discussions.",
+      role: "Data Analyst & NLP Developer: Structured data pipelines, performed sentiment classification, and created executive KPI tracking dashboards.",
+      features: [
+        "Analyzed 10,000+ social and sentiment records using Python and NLP",
+        "Built interactive visual dashboards to track KPIs and engagement trends",
+        "Applied tokenization, stop-word filtering, and sentiment polarity classification",
+        "Generated comparative engagement charts with Seaborn and Matplotlib",
+      ],
+      techStack: ["Python", "NLP", "Pandas", "Matplotlib", "Seaborn", "Data Analytics"],
+      images: ["/project_data_analytics.png", "/project_ai_network.png"],
+      featured: false,
+      githubLink: "https://github.com/Aradhy20/mental-heath-ai",
+      verifiedOutcome:
+        "Processed and visualized 10,000+ social records with reproducible statistical dashboards and clear KPI insights.",
     },
   ] as Project[],
 
@@ -865,6 +913,8 @@ export const PORTFOLIO_DATA = {
       items: [
         { name: "Power BI", level: 88, proficiency: "Advanced", focus: "DAX formulas, KPI cards, visual reports" },
         { name: "Advanced Excel", level: 92, proficiency: "Advanced", focus: "Pivot tables, VLOOKUP/XLOOKUP, macros" },
+        { name: "Data Cleaning & EDA", level: 94, proficiency: "Advanced", focus: "Data cleaning, statistical analysis, outlier filtering" },
+        { name: "Data Visualization", level: 92, proficiency: "Advanced", focus: "Matplotlib, Seaborn, Power BI, KPI tracking" },
         { name: "Google Sheets Dashboards", level: 90, proficiency: "Advanced", focus: "Automated queries, live syncing" },
         { name: "KPI & Metric Design", level: 88, proficiency: "Advanced", focus: "Operational efficiency, conversion rates" },
       ],
@@ -874,7 +924,8 @@ export const PORTFOLIO_DATA = {
       description: "Workflow automation, web scraping, and high-speed data cleaning pipelines.",
       items: [
         { name: "Python", level: 92, proficiency: "Advanced", focus: "Object-oriented scripting, automation" },
-        { name: "Pandas & NumPy", level: 90, proficiency: "Advanced", focus: "Data wrangling, cleaning, transformation" },
+        { name: "Pandas & NumPy", level: 92, proficiency: "Advanced", focus: "Data wrangling, cleaning, transformation" },
+        { name: "Data Engineering & ETL", level: 89, proficiency: "Advanced", focus: "ETL pipelines, data modeling, data warehousing" },
         { name: "BeautifulSoup & Requests", level: 88, proficiency: "Advanced", focus: "Web scraping, data extraction" },
         { name: "Workflow Automation Scripts", level: 91, proficiency: "Advanced", focus: "Scheduled tasks, file processing" },
       ],
@@ -883,17 +934,18 @@ export const PORTFOLIO_DATA = {
       category: "AI & Machine Learning",
       description: "Applied natural language processing, transformer pipelines, and generative workflows.",
       items: [
-        { name: "Scikit-learn", level: 82, proficiency: "Proficient", focus: "Classification, regression, clustering" },
-        { name: "NLP & Sentiment Analysis", level: 86, proficiency: "Advanced", focus: "TF-IDF, tokenization, text mining" },
-        { name: "Transformers (HuggingFace)", level: 83, proficiency: "Proficient", focus: "Pretrained models, text inference" },
-        { name: "Prompt Engineering & LLMs", level: 92, proficiency: "Advanced", focus: "System prompts, structured outputs" },
+        { name: "Machine Learning (Scikit-learn)", level: 86, proficiency: "Advanced", focus: "Regression, classification, clustering, model evaluation" },
+        { name: "NLP & Sentiment Analysis", level: 88, proficiency: "Advanced", focus: "Tokenization, emotional pattern detection, text mining" },
+        { name: "Transformers & LLMs", level: 85, proficiency: "Advanced", focus: "Pretrained models, conversational counselors, inference" },
+        { name: "Prompt Engineering", level: 92, proficiency: "Advanced", focus: "System prompts, structured outputs, agents" },
       ],
     },
     {
       category: "Tools & Deployment",
       description: "Version control, modern developer tooling, and cloud deployment platforms.",
       items: [
-        { name: "Git & GitHub", level: 90, proficiency: "Advanced", focus: "Branching, PRs, version control" },
+        { name: "Git & GitHub", level: 92, proficiency: "Advanced", focus: "Branching, PRs, version control" },
+        { name: "Jupyter Notebook", level: 92, proficiency: "Advanced", focus: "Interactive data analysis, reproducible workflows" },
         { name: "Vercel & Railway", level: 88, proficiency: "Advanced", focus: "Continuous deployment, environments" },
         { name: "Postman", level: 86, proficiency: "Proficient", focus: "API endpoint testing, collections" },
         { name: "Figma (UI/UX)", level: 82, proficiency: "Proficient", focus: "Wireframing, design specs, tokens" },

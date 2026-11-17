@@ -61,7 +61,7 @@ export default function PrivacyPolicyPage() {
               <div className="mt-4 rounded-2xl border border-cyan-500/20 bg-cyan-500/5 p-5 text-sm text-foreground/80 space-y-1">
                 <p><strong className="text-foreground">Individual Freelance Practitioner:</strong> Aradhy Jain</p>
                 <p><strong className="text-foreground">Location:</strong> Delhi NCR, India</p>
-                <p><strong className="text-foreground">Direct Contact:</strong> jainaradhy01@gmail.com · +91-7351522153</p>
+                <p><strong className="text-foreground">Direct Contact:</strong> jainaradhy123@gmail.com · +91-7351522153</p>
               </div>
             </section>
 
@@ -140,11 +140,11 @@ export default function PrivacyPolicyPage() {
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-4">
                 <a
-                  href="mailto:jainaradhy01@gmail.com?subject=Data%20Privacy%20Request"
+                  href="mailto:jainaradhy123@gmail.com?subject=Data%20Privacy%20Request"
                   className="inline-flex items-center gap-2 rounded-full bg-[linear-gradient(135deg,#06b6d4,#2563eb)] px-6 py-3 text-xs sm:text-sm font-semibold text-white shadow-md hover:scale-[1.02] transition-transform"
                 >
                   <Mail size={15} />
-                  Email Privacy Request (jainaradhy01@gmail.com)
+                  Email Privacy Request (jainaradhy123@gmail.com)
                 </a>
               </div>
             </section>
