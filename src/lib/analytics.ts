@@ -1,9 +1,11 @@
 export const GA_MEASUREMENT_ID = "G-QDMZLRNP6B";
+export const CLARITY_PROJECT_ID = "zfwie8vxkv";
 
 declare global {
   interface Window {
     dataLayer?: unknown[];
     gtag?: (...args: unknown[]) => void;
+    clarity?: (...args: unknown[]) => void;
   }
 }
 

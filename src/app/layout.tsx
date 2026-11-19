@@ -5,7 +5,8 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { GA_MEASUREMENT_ID } from "@/lib/analytics";
+import { GA_MEASUREMENT_ID, CLARITY_PROJECT_ID } from "@/lib/analytics";
+import Script from "next/script";
 import { SectionViewTracker } from "@/components/SectionViewTracker";
 import { AnalyticsNavigationTracker } from "@/components/AnalyticsNavigationTracker";
 import { Suspense } from "react";
@@ -318,6 +319,19 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
       <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
+      <Script
+        id="microsoft-clarity"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "${CLARITY_PROJECT_ID}");
+          `,
+        }}
+      />
     </html>
   );
 }
