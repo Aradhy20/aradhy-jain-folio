@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { serializeJsonLd } from "@/lib/jsonLd";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -162,6 +163,7 @@ export default function RootLayout({
             {
               "@type": "Offer",
               "@id": `${siteUrl}/#offer-website-development`,
+              url: `${siteUrl}/services/website-development`,
               itemOffered: {
                 "@type": "Service",
                 "@id": `${siteUrl}/#service-website-development`,
@@ -169,24 +171,23 @@ export default function RootLayout({
                 description:
                   "Custom corporate websites, institutional portals, and high-performance web applications built with Next.js, React, and TypeScript.",
                 serviceType: "Website Development",
+                url: `${siteUrl}/services/website-development`,
                 provider: {
                   "@id": `${siteUrl}/#person`,
                 },
                 areaServed: [
-                  {
-                    "@type": "Country",
-                    name: "India",
-                  },
-                  {
-                    "@type": "AdministrativeArea",
-                    name: "Global",
-                  },
+                  { "@type": "Country", "name": "India" },
+                  { "@type": "Country", "name": "United States" },
+                  { "@type": "Country", "name": "United Kingdom" },
+                  { "@type": "Country", "name": "United Arab Emirates" },
+                  { "@type": "AdministrativeArea", "name": "Global" },
                 ],
               },
             },
             {
               "@type": "Offer",
               "@id": `${siteUrl}/#offer-ecommerce-marketplace`,
+              url: `${siteUrl}/services/ecommerce-development`,
               itemOffered: {
                 "@type": "Service",
                 "@id": `${siteUrl}/#service-ecommerce-marketplace`,
@@ -194,24 +195,23 @@ export default function RootLayout({
                 description:
                   "End-to-end e-commerce solutions, marketplace cataloging, and listing operations across Amazon, Flipkart, and Meesho.",
                 serviceType: "E-commerce & Marketplace Operations",
+                url: `${siteUrl}/services/ecommerce-development`,
                 provider: {
                   "@id": `${siteUrl}/#person`,
                 },
                 areaServed: [
-                  {
-                    "@type": "Country",
-                    name: "India",
-                  },
-                  {
-                    "@type": "AdministrativeArea",
-                    name: "Global",
-                  },
+                  { "@type": "Country", "name": "India" },
+                  { "@type": "Country", "name": "United States" },
+                  { "@type": "Country", "name": "United Kingdom" },
+                  { "@type": "Country", "name": "United Arab Emirates" },
+                  { "@type": "AdministrativeArea", "name": "Global" },
                 ],
               },
             },
             {
               "@type": "Offer",
               "@id": `${siteUrl}/#offer-technical-seo`,
+              url: `${siteUrl}/services/technical-seo`,
               itemOffered: {
                 "@type": "Service",
                 "@id": `${siteUrl}/#service-technical-seo`,
@@ -219,68 +219,85 @@ export default function RootLayout({
                 description:
                   "Core Web Vitals speed tuning, structured data JSON-LD implementation, crawl error remediation, and search visibility optimization.",
                 serviceType: "Technical SEO & Website Optimization",
+                url: `${siteUrl}/services/technical-seo`,
                 provider: {
                   "@id": `${siteUrl}/#person`,
                 },
                 areaServed: [
-                  {
-                    "@type": "Country",
-                    name: "India",
-                  },
-                  {
-                    "@type": "AdministrativeArea",
-                    name: "Global",
-                  },
+                  { "@type": "Country", "name": "India" },
+                  { "@type": "Country", "name": "United States" },
+                  { "@type": "Country", "name": "United Kingdom" },
+                  { "@type": "Country", "name": "United Arab Emirates" },
+                  { "@type": "AdministrativeArea", "name": "Global" },
                 ],
               },
             },
             {
               "@type": "Offer",
-              "@id": `${siteUrl}/#offer-digital-marketing`,
+              "@id": `${siteUrl}/#offer-ai-automation`,
+              url: `${siteUrl}/services/ai-automation`,
               itemOffered: {
                 "@type": "Service",
-                "@id": `${siteUrl}/#service-digital-marketing`,
-                name: "Digital Marketing & Analytics",
+                "@id": `${siteUrl}/#service-ai-automation`,
+                name: "AI & Python Automation",
                 description:
-                  "Digital growth strategy, conversion tracking, Google Analytics 4 implementation, and performance optimization.",
-                serviceType: "Digital Marketing & Analytics",
+                  "Automated ETL pipelines, web scraping, API workflows, and LLM integrations designed to eliminate operational overhead.",
+                serviceType: "AI & Python Automation",
+                url: `${siteUrl}/services/ai-automation`,
                 provider: {
                   "@id": `${siteUrl}/#person`,
                 },
                 areaServed: [
-                  {
-                    "@type": "Country",
-                    name: "India",
-                  },
-                  {
-                    "@type": "AdministrativeArea",
-                    name: "Global",
-                  },
+                  { "@type": "Country", "name": "India" },
+                  { "@type": "Country", "name": "United States" },
+                  { "@type": "Country", "name": "United Kingdom" },
+                  { "@type": "Country", "name": "United Arab Emirates" },
+                  { "@type": "AdministrativeArea", "name": "Global" },
                 ],
               },
             },
             {
               "@type": "Offer",
-              "@id": `${siteUrl}/#offer-python-automation`,
+              "@id": `${siteUrl}/#offer-data-analytics`,
+              url: `${siteUrl}/services/data-analytics`,
               itemOffered: {
                 "@type": "Service",
-                "@id": `${siteUrl}/#service-python-automation`,
-                name: "Python, Data & Automation",
+                "@id": `${siteUrl}/#service-data-analytics`,
+                name: "Power BI & Data Analytics",
                 description:
-                  "Automated ETL pipelines, reporting workflows, data cleaning, and business intelligence dashboards using Python and SQL.",
-                serviceType: "Python, Data & Automation",
+                  "Interactive executive KPI dashboards, star-schema data modeling, DAX measures, and automated reporting systems.",
+                serviceType: "Power BI & Data Analytics",
+                url: `${siteUrl}/services/data-analytics`,
                 provider: {
                   "@id": `${siteUrl}/#person`,
                 },
                 areaServed: [
-                  {
-                    "@type": "Country",
-                    name: "India",
-                  },
-                  {
-                    "@type": "AdministrativeArea",
-                    name: "Global",
-                  },
+                  { "@type": "Country", "name": "India" },
+                  { "@type": "Country", "name": "United States" },
+                  { "@type": "Country", "name": "United Kingdom" },
+                  { "@type": "Country", "name": "United Arab Emirates" },
+                  { "@type": "AdministrativeArea", "name": "Global" },
+                ],
+              },
+            },
+            {
+              "@type": "Offer",
+              "@id": `${siteUrl}/#offer-institutional-websites`,
+              url: `${siteUrl}/services/institutional-websites`,
+              itemOffered: {
+                "@type": "Service",
+                "@id": `${siteUrl}/#service-institutional-websites`,
+                name: "Institutional & College Website Development",
+                description:
+                  "Mandatory regulatory compliance disclosures (NCTE/UGC), academic prospectus portals, and student admission workflows.",
+                serviceType: "Institutional & College Website Development",
+                url: `${siteUrl}/services/institutional-websites`,
+                provider: {
+                  "@id": `${siteUrl}/#person`,
+                },
+                areaServed: [
+                  { "@type": "Country", "name": "India" },
+                  { "@type": "AdministrativeArea", "name": "Global" },
                 ],
               },
             },
@@ -295,7 +312,7 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
         />
       </head>
       <body

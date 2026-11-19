@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SERVICES_DATA } from "@/data/servicesData";
+import { serializeJsonLd } from "@/lib/jsonLd";
 import {
   ArrowRight,
   Sparkles,
@@ -60,49 +61,47 @@ const ICON_MAP: Record<string, React.ReactNode> = {
 export default function ServicesDirectoryPage() {
   const servicesList = Object.values(SERVICES_DATA);
 
-  const breadcrumbJsonLd = {
+  const servicesDirectoryJsonLd = {
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "@id": `${siteUrl}/services/#breadcrumb`,
-    "itemListElement": [
+    "@graph": [
       {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": siteUrl,
+        "@type": "BreadcrumbList",
+        "@id": `${siteUrl}/services/#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: siteUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Services",
+            item: `${siteUrl}/services`,
+          },
+        ],
       },
       {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Services",
-        "item": `${siteUrl}/services`,
+        "@type": "ItemList",
+        "@id": `${siteUrl}/services/#itemlist`,
+        name: "Digital Growth & Engineering Services by Aradhy Jain",
+        description: "Six specialized services for businesses, manufacturers, and institutions.",
+        itemListElement: servicesList.map((service, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: service.h1,
+          url: `${siteUrl}/services/${service.slug}`,
+        })),
       },
     ],
-  };
-
-  const collectionJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "@id": `${siteUrl}/services/#itemlist`,
-    "name": "Digital Growth & Engineering Services by Aradhy Jain",
-    "description": "Six specialized services for businesses, manufacturers, and institutions.",
-    "itemListElement": servicesList.map((service, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "name": service.h1,
-      "url": `${siteUrl}/services/${service.slug}`,
-    })),
   };
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(servicesDirectoryJsonLd) }}
       />
       <Navbar />
 

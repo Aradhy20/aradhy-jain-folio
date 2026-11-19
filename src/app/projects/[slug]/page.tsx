@@ -17,6 +17,7 @@ import {
 import { FaGithub } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
+import { serializeJsonLd } from "@/lib/jsonLd";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
@@ -128,12 +129,13 @@ export default function ProjectCaseStudyPage({ params }: PageProps) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "TechArticle",
-        "@id": `${siteUrl}/projects/${project.slug}/#article`,
+        "@type": ["CreativeWork", "TechArticle"],
+        "@id": `${siteUrl}/projects/${project.slug}/#project`,
         isPartOf: {
           "@id": `${siteUrl}/#website`,
         },
         mainEntityOfPage: `${siteUrl}/projects/${project.slug}`,
+        name: project.title,
         headline: project.title,
         description: project.shortOverview || project.description,
         url: `${siteUrl}/projects/${project.slug}`,
@@ -144,6 +146,9 @@ export default function ProjectCaseStudyPage({ params }: PageProps) {
         author: {
           "@id": `${siteUrl}/#person`,
         },
+        creator: {
+          "@id": `${siteUrl}/#person`,
+        },
         publisher: {
           "@id": `${siteUrl}/#person`,
         },
@@ -151,6 +156,8 @@ export default function ProjectCaseStudyPage({ params }: PageProps) {
           "@type": "Thing",
           name: project.category,
         },
+        genre: project.category,
+        ...(project.liveLink ? { sameAs: project.liveLink } : {}),
       },
       {
         "@type": "BreadcrumbList",
@@ -183,7 +190,7 @@ export default function ProjectCaseStudyPage({ params }: PageProps) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(articleJsonLd) }}
       />
       <Navbar />
       <main className="min-h-screen bg-background pt-32 pb-24 overflow-hidden relative">
