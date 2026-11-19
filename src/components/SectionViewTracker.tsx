@@ -19,7 +19,7 @@ export function SectionViewTracker() {
             const id = entry.target.id;
             if (id && !viewedSections.has(id)) {
               viewedSections.add(id);
-              analytics.trackSectionView(id);
+              analytics.trackScroll(id);
             }
           }
         });

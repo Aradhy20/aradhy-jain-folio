@@ -1,15 +1,15 @@
-export const GTM_ID = "GTM-57JWHC7B";
+export const GA_MEASUREMENT_ID = "G-QDMZLRNP6B";
 
 declare global {
   interface Window {
-    dataLayer?: Record<string, unknown>[];
+    dataLayer?: unknown[];
     gtag?: (...args: unknown[]) => void;
   }
 }
 
 /**
- * Dispatches an event to Google Tag Manager dataLayer and gtag.js if available.
- * Strips any potential PII (emails, names, phone numbers, message bodies).
+ * Dispatches an event to Google Analytics 4 (gtag.js).
+ * Strictly filters out any potential Personally Identifiable Information (PII).
  */
 export function trackEvent(
   eventName: string,
@@ -42,32 +42,51 @@ export function trackEvent(
     }
   }
 
-  // Push to GTM dataLayer
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    event: eventName,
-    ...safeParams,
-  });
-
-  // Call gtag if initialized
   if (typeof window.gtag === "function") {
     try {
       window.gtag("event", eventName, safeParams);
     } catch {
-      // Ignore if gtag is not ready
+      // Fallback
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: eventName, ...safeParams });
     }
+  } else {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: eventName, ...safeParams });
   }
 }
 
 export const analytics = {
-  // Page / Section Impression Tracking
-  trackSectionView: (sectionName: string) => {
-    trackEvent("section_view", {
+  // 1. Page View (for client-side App Router transitions)
+  trackPageView: (url: string, title?: string) => {
+    trackEvent("page_view", {
+      page_location: url,
+      page_title: title || (typeof document !== "undefined" ? document.title : undefined),
+    });
+  },
+
+  // 2. Scroll (section visibility)
+  trackScroll: (sectionName: string) => {
+    trackEvent("scroll", {
       section_name: sectionName,
     });
   },
 
-  // Conversions
+  // 3. Click Email
+  trackEmailClick: (location: string) => {
+    trackEvent("click_email", {
+      click_location: location,
+    });
+  },
+
+  // 4. Click WhatsApp
+  trackWhatsAppClick: (location: string) => {
+    trackEvent("click_whatsapp", {
+      click_location: location,
+    });
+  },
+
+  // 5. Contact Form Submit (success only)
   trackContactFormSubmit: (metadata?: {
     serviceCategory?: string;
     budgetRange?: string;
@@ -81,18 +100,7 @@ export const analytics = {
     });
   },
 
-  trackEmailClick: (location: string) => {
-    trackEvent("email_click", {
-      click_location: location,
-    });
-  },
-
-  trackWhatsAppClick: (location: string) => {
-    trackEvent("whatsapp_click", {
-      click_location: location,
-    });
-  },
-
+  // 6. Resume Download
   trackResumeDownload: (location: string) => {
     trackEvent("resume_download", {
       file_name: "Aradhy_Jain_Resume.pdf",
@@ -100,20 +108,22 @@ export const analytics = {
     });
   },
 
-  trackProjectClick: (
+  // 7. Project View
+  trackProjectView: (
     projectTitle: string,
     projectSlug: string,
-    action: "view_case_study" | "quick_view" | "live_site" | "github"
+    action: "case_study_page" | "modal_view" | "live_site"
   ) => {
-    trackEvent("project_case_study_click", {
+    trackEvent("project_view", {
       project_title: projectTitle,
       project_slug: projectSlug,
       action_type: action,
     });
   },
 
-  trackCtaClick: (ctaLabel: string, ctaLocation: string) => {
-    trackEvent("portfolio_cta_click", {
+  // 8. Contact CTA Click
+  trackContactCtaClick: (ctaLabel: string, ctaLocation: string) => {
+    trackEvent("contact_cta_click", {
       cta_label: ctaLabel,
       cta_location: ctaLocation,
     });

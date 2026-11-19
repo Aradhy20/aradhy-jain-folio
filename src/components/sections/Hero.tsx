@@ -113,7 +113,7 @@ export function Hero() {
           <div className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
             <MagneticButton
               href="#contact"
-              onClick={() => analytics.trackCtaClick("Start a Project", "hero")}
+              onClick={() => analytics.trackContactCtaClick("Start a Project", "hero")}
             >
               <span className="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#06b6d4,#2563eb)] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-cyan-500/25 transition-transform hover:scale-[1.02]">
                 Start a Project
@@ -123,7 +123,7 @@ export function Hero() {
 
             <MagneticButton
               href="#projects"
-              onClick={() => analytics.trackCtaClick("View My Work", "hero")}
+              onClick={() => analytics.trackContactCtaClick("View My Work", "hero")}
             >
               <span className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-6 py-3.5 text-sm font-semibold text-cyan-700 dark:text-cyan-300 backdrop-blur-xl transition-all hover:bg-cyan-500/20">
                 <Briefcase size={16} />
@@ -133,7 +133,7 @@ export function Hero() {
 
             <MagneticButton
               href="#audit-tool"
-              onClick={() => analytics.trackCtaClick("Free Website Audit", "hero")}
+              onClick={() => analytics.trackContactCtaClick("Free Website Audit", "hero")}
             >
               <span className="inline-flex items-center justify-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-5 py-3.5 text-sm font-semibold text-purple-700 dark:text-purple-300 backdrop-blur-xl hover:bg-purple-500/20 transition-all">
                 <Sparkles size={16} />

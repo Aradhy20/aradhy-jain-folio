@@ -270,7 +270,7 @@ export function CommercialServices() {
             <div className="flex flex-col sm:flex-row md:flex-col gap-3 justify-center">
               <a
                 href="#audit-tool"
-                onClick={() => analytics.trackCtaClick("Open Interactive Proposal Builder", "services_cta")}
+                onClick={() => analytics.trackContactCtaClick("Open Interactive Proposal Builder", "services_cta")}
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-5 py-3 text-xs font-bold text-purple-700 dark:text-purple-300 hover:bg-purple-500/20 transition-colors text-center"
               >
                 <FileSpreadsheet size={15} />
@@ -278,7 +278,7 @@ export function CommercialServices() {
               </a>
               <a
                 href="#contact"
-                onClick={() => analytics.trackCtaClick("Request Custom Scoped Proposal", "services_cta")}
+                onClick={() => analytics.trackContactCtaClick("Request Custom Scoped Proposal", "services_cta")}
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#06b6d4,#2563eb)] px-5 py-3 text-xs font-bold text-white shadow-md hover:scale-[1.01] transition-transform text-center"
               >
                 <span>Request Custom Scoped Proposal</span>
