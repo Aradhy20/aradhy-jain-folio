@@ -5,8 +5,8 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { serializeJsonLd } from "@/lib/jsonLd";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import { GA_MEASUREMENT_ID, CLARITY_PROJECT_ID } from "@/lib/analytics";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { GA_MEASUREMENT_ID, CLARITY_PROJECT_ID, GTM_CONTAINER_ID } from "@/lib/analytics";
 import Script from "next/script";
 import { SectionViewTracker } from "@/components/SectionViewTracker";
 import { AnalyticsNavigationTracker } from "@/components/AnalyticsNavigationTracker";
@@ -335,6 +335,7 @@ export default function RootLayout({
           <Analytics />
         </ThemeProvider>
       </body>
+      <GoogleTagManager gtmId={GTM_CONTAINER_ID} />
       <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
       <Script
         id="microsoft-clarity"

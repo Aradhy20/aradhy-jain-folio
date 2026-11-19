@@ -1,4 +1,5 @@
 export const GA_MEASUREMENT_ID = "G-QDMZLRNP6B";
+export const GTM_CONTAINER_ID = "GTM-57JWHC7B";
 export const CLARITY_PROJECT_ID = "zfwie8vxkv";
 
 declare global {
