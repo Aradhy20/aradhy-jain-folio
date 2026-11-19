@@ -41,20 +41,35 @@ export function generateMetadata({ params }: PageProps): Metadata {
     };
   }
 
+  const imageUrl = project.images[0] || "/project_saas_dashboard.png";
+  const canonicalPath = `/projects/${project.slug}`;
+
   return {
     title: `${project.title} | Case Study by Aradhy Jain`,
     description: project.shortOverview || project.description,
+    alternates: {
+      canonical: canonicalPath,
+    },
     openGraph: {
-      title: `${project.title} — Case Study`,
+      title: `${project.title} — Case Study | Aradhy Jain`,
       description: project.shortOverview || project.description,
+      url: canonicalPath,
+      type: "article",
+      siteName: "Aradhy Jain Portfolio",
       images: [
         {
-          url: project.images[0] || "/project_saas_dashboard.png",
+          url: imageUrl,
           width: 1200,
           height: 630,
           alt: `${project.title} Preview`,
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} — Case Study | Aradhy Jain`,
+      description: project.shortOverview || project.description,
+      images: [imageUrl],
     },
   };
 }
@@ -70,8 +85,70 @@ export default function ProjectCaseStudyPage({ params }: PageProps) {
   const isSanmati = project.slug === "sanmati-journal";
   const isDsr = project.slug === "dsr-college";
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://aradhy-jain-portfolio.vercel.app";
+
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": `${siteUrl}/projects/${project.slug}/#article`,
+        headline: project.title,
+        description: project.shortOverview || project.description,
+        url: `${siteUrl}/projects/${project.slug}`,
+        image: `${siteUrl}${project.images[0] || "/project_saas_dashboard.png"}`,
+        datePublished: "2026-01-01T00:00:00.000Z",
+        dateModified: project.lastModified
+          ? `${project.lastModified}T00:00:00.000Z`
+          : "2026-11-19T00:00:00.000Z",
+        author: {
+          "@type": "Person",
+          name: "Aradhy Jain",
+          url: siteUrl,
+        },
+        publisher: {
+          "@type": "Person",
+          name: "Aradhy Jain",
+          url: siteUrl,
+        },
+        about: {
+          "@type": "Thing",
+          name: project.category,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${siteUrl}/projects/${project.slug}/#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: siteUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Case Studies",
+            item: `${siteUrl}/#projects`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: project.title,
+            item: `${siteUrl}/projects/${project.slug}`,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <Navbar />
       <main className="min-h-screen bg-background pt-32 pb-24 overflow-hidden relative">
         <div className="container relative z-10 max-w-5xl">
@@ -355,6 +432,13 @@ export default function ProjectCaseStudyPage({ params }: PageProps) {
                   >
                     Discuss Your Project
                     <ArrowRight size={16} />
+                  </Link>
+
+                  <Link
+                    href="/freelance"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
+                  >
+                    Commercial Services & Pricing
                   </Link>
 
                   <a

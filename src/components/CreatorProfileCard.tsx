@@ -66,12 +66,8 @@ export function CreatorProfileCard({ className = "" }: CreatorProfileCardProps) 
       <div className="absolute -inset-1 rounded-[36px] bg-[radial-gradient(ellipse_at_top,_rgba(6,182,212,0.35),_transparent_70%)] opacity-70 blur-xl pointer-events-none" />
 
       {/* Main Card Surface */}
-      <motion.div
-        initial={{ opacity: 0, y: 20, scale: 0.98 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        whileHover={{ y: -4 }}
-        className="relative rounded-[30px] border border-cyan-500/25 bg-[#060913] p-2.5 sm:p-3 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),0_0_35px_rgba(6,182,212,0.12)] backdrop-blur-2xl overflow-hidden group transition-all duration-300"
+      <div
+        className="relative rounded-[30px] border border-cyan-500/25 bg-[#060913] p-2.5 sm:p-3 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),0_0_35px_rgba(6,182,212,0.12)] backdrop-blur-2xl overflow-hidden group transition-all duration-300 hover:-translate-y-1"
       >
         {/* Subtle Ambient Radial Lighting */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_15%,_rgba(6,182,212,0.14),_transparent_55%)]" />
@@ -151,9 +147,9 @@ export function CreatorProfileCard({ className = "" }: CreatorProfileCardProps) 
                 <p className="text-[11px] font-bold uppercase tracking-widest text-cyan-400 drop-shadow-[0_2px_8px_rgba(6,182,212,0.8)]">
                   Aradhy Jain
                 </p>
-                <h3 className="mt-0.5 text-sm sm:text-base font-bold text-white tracking-tight leading-tight">
+                <h2 className="mt-0.5 text-sm sm:text-base font-bold text-white tracking-tight leading-tight">
                   Web Developer
-                </h3>
+                </h2>
                 <p className="text-[11px] text-slate-300/85 leading-tight mt-0.5">
                   E-commerce & Digital Growth Specialist
                 </p>
@@ -175,7 +171,7 @@ export function CreatorProfileCard({ className = "" }: CreatorProfileCardProps) 
         <div className="mt-2 flex items-center justify-center px-4 py-1">
           <div className="h-[2px] w-20 rounded-full bg-gradient-to-r from-transparent via-cyan-500/60 to-transparent transition-all duration-500 group-hover:w-36 group-hover:via-cyan-400" />
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

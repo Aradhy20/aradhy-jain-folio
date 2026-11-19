@@ -3,8 +3,6 @@ import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ParticlesBackground } from "@/components/ParticlesBackground";
-import { Chatbot } from "@/components/Chatbot";
-import { WhatsAppPopup } from "@/components/WhatsAppPopup";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -12,6 +10,17 @@ import { GA_MEASUREMENT_ID } from "@/lib/analytics";
 import { SectionViewTracker } from "@/components/SectionViewTracker";
 import { AnalyticsNavigationTracker } from "@/components/AnalyticsNavigationTracker";
 import { Suspense } from "react";
+import dynamic from "next/dynamic";
+
+const Chatbot = dynamic(
+  () => import("@/components/Chatbot").then((mod) => mod.Chatbot),
+  { ssr: false }
+);
+
+const WhatsAppPopup = dynamic(
+  () => import("@/components/WhatsAppPopup").then((mod) => mod.WhatsAppPopup),
+  { ssr: false }
+);
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -26,22 +35,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Aradhy Jain | Web Developer, E-commerce & Digital Growth Specialist",
+  title: {
+    default: "Aradhy Jain | Web Developer, E-commerce & Digital Growth Specialist",
+    template: "%s | Aradhy Jain",
+  },
   description:
-    "I help businesses establish a stronger online presence through responsive websites, e-commerce solutions, marketplace catalogue optimization, technical SEO, digital marketing, and data-driven improvements.",
-  keywords: [
-    "Aradhy Jain",
-    "Web Developer",
-    "E-commerce Specialist",
-    "Marketplace Catalogue Optimization",
-    "Technical SEO",
-    "Digital Growth",
-    "Next.js Developer",
-    "React Developer",
-    "Python Automation",
-    "Business Analytics",
-    "Freelance Web Developer India",
-  ],
+    "Portfolio and verified engineering case studies of Aradhy Jain — Web Developer, E-commerce Specialist, and Digital Systems Consultant based in India. Engineering high-performance Next.js websites, multi-channel marketplace operations (Amazon, Flipkart, Meesho), technical SEO, and automation.",
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "https://aradhy-jain-portfolio.vercel.app"
   ),
@@ -51,17 +50,26 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Aradhy Jain | Web Developer, E-commerce & Digital Growth Specialist",
     description:
-      "I Build Websites, E-commerce Experiences & Digital Systems That Help Businesses Grow. Real case studies: Paras Metal, Sanmati Journal, and DSR College.",
+      "Engineering Websites, E-commerce Experiences & Digital Systems That Help Businesses Grow. Verified case studies: Paras Metal, Sanmati Journal, DSR College, and Pravaah UPSC.",
     url: "/",
     siteName: "Aradhy Jain Portfolio",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/creator_card_portrait.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Aradhy Jain — Web Developer & Digital Growth Specialist",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Aradhy Jain | Web Developer, E-commerce & Digital Growth Specialist",
     description:
-      "I Build Websites, E-commerce Experiences & Digital Systems That Help Businesses Grow. Real case studies: Paras Metal, Sanmati Journal, and DSR College.",
+      "Engineering Websites, E-commerce Experiences & Digital Systems That Help Businesses Grow. Verified case studies: Paras Metal, Sanmati Journal, DSR College, and Pravaah UPSC.",
+    images: ["/creator_card_portrait.jpg"],
   },
   robots: {
     index: true,
@@ -75,7 +83,11 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "dGd6wgpc-PRWKzlt6iIg4Vx-XctikxGPd_6Q8-qoiIc",
+    google: [
+      "dGd6wgpc-PRWKzlt6iIg4Vx-XctikxGPd_6Q8-qoiIc",
+      "google80fa28b362283c56",
+      "80fa28b362283c56",
+    ],
   },
 };
 
@@ -90,11 +102,36 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
+        name: "Aradhy Jain Portfolio",
+        description:
+          "Official portfolio, technical engineering case studies, and digital services of Aradhy Jain.",
+        publisher: {
+          "@id": `${siteUrl}/#person`,
+        },
+        inLanguage: "en-US",
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": `${siteUrl}/#profilepage`,
+        url: siteUrl,
+        name: "Aradhy Jain — Professional Profile & Case Studies",
+        isPartOf: {
+          "@id": `${siteUrl}/#website`,
+        },
+        mainEntity: {
+          "@id": `${siteUrl}/#person`,
+        },
+      },
+      {
         "@type": "Person",
         "@id": `${siteUrl}/#person`,
         name: "Aradhy Jain",
         jobTitle: "Web Developer, E-commerce & Digital Growth Specialist",
         url: siteUrl,
+        image: `${siteUrl}/creator_card_portrait.jpg`,
         email: "jainaradhy123@gmail.com",
         telephone: "+91-7351522153",
         sameAs: [
@@ -103,11 +140,17 @@ export default function RootLayout({
         ],
         knowsAbout: [
           "Website Development",
+          "Next.js Development",
+          "React.js",
+          "TypeScript",
+          "Tailwind CSS",
           "E-commerce Operations",
-          "Marketplace Optimization",
-          "Amazon & Flipkart Listing Support",
+          "Marketplace Catalogue Optimization",
+          "Amazon Seller Central",
+          "Flipkart Marketplace",
+          "Meesho Supplier Operations",
           "Technical SEO",
-          "AI & Robotics Data Annotation",
+          "Core Web Vitals Optimization",
           "Python Automation",
           "Business Intelligence Dashboards",
         ],
@@ -115,12 +158,17 @@ export default function RootLayout({
           "@type": "EducationalOrganization",
           name: "Teerthanker Mahaveer University",
         },
+        address: {
+          "@type": "PostalAddress",
+          addressCountry: "India",
+        },
       },
       {
         "@type": "ProfessionalService",
         "@id": `${siteUrl}/#service`,
         name: "Aradhy Jain — Digital Growth & Web Development",
         url: siteUrl,
+        image: `${siteUrl}/creator_card_portrait.jpg`,
         description:
           "I help businesses establish a stronger online presence through responsive websites, e-commerce solutions, marketplace catalogue optimization, technical SEO, digital marketing, and data-driven improvements.",
         provider: {

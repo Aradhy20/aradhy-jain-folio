@@ -228,6 +228,8 @@ export function CommercialServices() {
                 {/* Card CTA Buttons */}
                 <div className="mt-6 pt-4 border-t border-foreground/10 flex flex-col gap-2">
                   <button
+                    type="button"
+                    aria-label={`${service.ctaLabel} for ${service.title}`}
                     onClick={() => handleSelectService(service)}
                     className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[linear-gradient(135deg,#06b6d4,#2563eb)] py-2.5 text-xs font-bold text-white shadow-md hover:scale-[1.01] transition-transform"
                   >
@@ -236,6 +238,8 @@ export function CommercialServices() {
                   </button>
 
                   <button
+                    type="button"
+                    aria-label={`Configure ${service.title} in Proposal Builder`}
                     onClick={() => handleOpenBriefBuilder()}
                     className="inline-flex w-full items-center justify-center gap-1.5 rounded-xl border border-border/70 bg-white/40 py-2 text-[11px] font-semibold text-foreground/70 hover:bg-white/80 dark:bg-white/5 dark:hover:bg-white/10 transition-colors"
                   >

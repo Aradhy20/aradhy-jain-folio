@@ -24,7 +24,7 @@ const ROLES = [
 
 export function Hero() {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const [currentText, setCurrentText] = useState("");
+  const [currentText, setCurrentText] = useState(ROLES[0]);
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export function Hero() {
     const typingSpeed = isDeleting ? 20 : 45;
 
     if (!isDeleting && currentText === activeRole) {
-      timer = setTimeout(() => setIsDeleting(true), 2500);
+      timer = setTimeout(() => setIsDeleting(true), 3500);
     } else if (isDeleting && currentText === "") {
       setIsDeleting(false);
       setCurrentRoleIndex((prev) => (prev + 1) % ROLES.length);
@@ -57,12 +57,7 @@ export function Hero() {
     >
       <div className="container relative z-10 grid items-start gap-10 lg:grid-cols-[1.18fr_0.82fr] lg:gap-8">
         {/* Left Column: Copy, Typing Headline, CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="max-w-3xl"
-        >
+        <div className="max-w-3xl">
           {/* Availability Badge */}
           <div className="inline-flex items-center gap-2.5 rounded-full border border-cyan-500/25 bg-cyan-500/10 px-4 py-2 text-xs sm:text-sm font-medium text-cyan-700 shadow-md backdrop-blur-md dark:text-cyan-300">
             <span className="relative flex h-2 w-2">
@@ -202,15 +197,10 @@ export function Hero() {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Right Column: Polished Creator Profile Card with Ambient 3D Backdrop */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative mx-auto w-full max-w-sm lg:max-w-none flex flex-col items-center justify-start lg:items-end lg:pt-1"
-        >
+        <div className="relative mx-auto w-full max-w-sm lg:max-w-none flex flex-col items-center justify-start lg:items-end lg:pt-1">
           {/* Subtle Ambient 3D floating effect behind the card on larger displays */}
           <div className="absolute -inset-6 sm:-inset-10 z-0 opacity-25 pointer-events-none hidden md:block overflow-hidden">
             <ThreeCanvas />
@@ -219,7 +209,7 @@ export function Hero() {
           <div className="relative z-10 w-full flex justify-center lg:justify-end">
             <CreatorProfileCard />
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Subtle Scroll Down Indicator */}

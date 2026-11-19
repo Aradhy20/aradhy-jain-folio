@@ -244,8 +244,12 @@ Website: https://aradhy-jain-portfolio.vercel.app/
         </motion.div>
 
         {/* Navigation Tabs */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-2 max-w-xl mx-auto">
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-2 max-w-xl mx-auto" role="tablist" aria-label="Interactive client tools">
           <button
+            type="button"
+            role="tab"
+            aria-selected={activeTab === "audit"}
+            aria-label="Live Website Audit Diagnostic tool"
             onClick={() => setActiveTab("audit")}
             data-tool-tab="audit"
             className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all ${
@@ -259,6 +263,10 @@ Website: https://aradhy-jain-portfolio.vercel.app/
           </button>
 
           <button
+            type="button"
+            role="tab"
+            aria-selected={activeTab === "brief"}
+            aria-label="Proposal and Brief Builder tool"
             onClick={() => setActiveTab("brief")}
             data-tool-tab="brief"
             className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all ${
@@ -272,6 +280,10 @@ Website: https://aradhy-jain-portfolio.vercel.app/
           </button>
 
           <button
+            type="button"
+            role="tab"
+            aria-selected={activeTab === "listing"}
+            aria-label="Marketplace Listing Generator tool"
             onClick={() => setActiveTab("listing")}
             data-tool-tab="listing"
             className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all ${
@@ -326,6 +338,7 @@ Website: https://aradhy-jain-portfolio.vercel.app/
                       <input
                         type="url"
                         required
+                        aria-label="Website URL to audit"
                         value={auditUrl}
                         onChange={(e) => setAuditUrl(e.target.value)}
                         placeholder="https://yourwebsite.com"
@@ -334,6 +347,7 @@ Website: https://aradhy-jain-portfolio.vercel.app/
                     </div>
                     <button
                       type="submit"
+                      aria-label="Run diagnostic scan"
                       disabled={isAuditing || !auditConsent}
                       className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[linear-gradient(135deg,#06b6d4,#2563eb)] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-cyan-500/25 transition-all hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
                     >
@@ -358,6 +372,7 @@ Website: https://aradhy-jain-portfolio.vercel.app/
                       <button
                         key={u}
                         type="button"
+                        aria-label={`Audit sample URL ${u}`}
                         onClick={() => {
                           setAuditUrl(u);
                           setAuditConsent(true);
@@ -508,6 +523,8 @@ Website: https://aradhy-jain-portfolio.vercel.app/
                       </p>
 
                       <button
+                        type="button"
+                        aria-label="Request remediation plan for audit results"
                         onClick={() =>
                           handleTransferToContact(
                             `Hi Aradhy, I ran the diagnostic scan on ${auditResult.finalUrl} (Score: ${auditResult.heuristicScore}/100, Latency: ${auditResult.verifiedMeasurements.responseTimeMs}ms) and would like your help implementing the recommendations:\n- ${auditResult.recommendations.join("\n- ")}`,
@@ -819,6 +836,7 @@ Website: https://aradhy-jain-portfolio.vercel.app/
                     <button
                       key={prod.name}
                       type="button"
+                      aria-label={`Select sample product ${prod.name}`}
                       onClick={() => {
                         setProductName(prod.name);
                         setProductMaterial(prod.material);
@@ -839,6 +857,8 @@ Website: https://aradhy-jain-portfolio.vercel.app/
                       Marketplace Compliant Draft (Amazon / Flipkart / Meesho)
                     </span>
                     <button
+                      type="button"
+                      aria-label="Copy generated marketplace listing set"
                       onClick={handleCopyListing}
                       className="inline-flex items-center gap-1.5 text-xs text-amber-600 dark:text-amber-300 hover:underline"
                     >

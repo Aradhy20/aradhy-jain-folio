@@ -92,7 +92,8 @@ export function Navbar() {
 
           <button
             type="button"
-            aria-label="Open navigation"
+            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isOpen}
             onClick={() => setIsOpen((open) => !open)}
             className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/10 text-foreground/80 transition-colors hover:text-foreground md:hidden dark:bg-white/5"
           >

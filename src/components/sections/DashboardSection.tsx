@@ -112,8 +112,12 @@ export function DashboardSection() {
             </div>
 
             {/* Tab Controls */}
-            <div className="flex rounded-xl bg-slate-900 p-1 border border-slate-800">
+            <div className="flex rounded-xl bg-slate-900 p-1 border border-slate-800" role="tablist" aria-label="Interactive demo consoles">
               <button
+                type="button"
+                role="tab"
+                aria-selected={activeTab === "sql"}
+                aria-label="SQL Query Console"
                 onClick={() => handleTabChange("sql")}
                 className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition-all ${
                   activeTab === "sql"
@@ -124,6 +128,10 @@ export function DashboardSection() {
                 SQL Query
               </button>
               <button
+                type="button"
+                role="tab"
+                aria-selected={activeTab === "ml"}
+                aria-label="NLP Model Console"
                 onClick={() => handleTabChange("ml")}
                 className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition-all ${
                   activeTab === "ml"
@@ -134,6 +142,10 @@ export function DashboardSection() {
                 NLP Model
               </button>
               <button
+                type="button"
+                role="tab"
+                aria-selected={activeTab === "etl"}
+                aria-label="ETL Pipeline Console"
                 onClick={() => handleTabChange("etl")}
                 className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition-all ${
                   activeTab === "etl"
@@ -174,6 +186,8 @@ export function DashboardSection() {
             </div>
 
             <button
+              type="button"
+              aria-label="Run sandbox code simulation"
               onClick={() => runSimulation(activeTab)}
               disabled={isRunning}
               className="inline-flex items-center gap-2 rounded-xl bg-slate-800 px-4 py-2 text-xs font-semibold text-slate-200 hover:bg-slate-700 disabled:opacity-50 transition-colors"

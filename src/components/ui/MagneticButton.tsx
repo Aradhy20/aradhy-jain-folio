@@ -71,7 +71,7 @@ export function MagneticButton({
           {content}
         </a>
       ) : (
-        <button onClick={onClick} className="block h-full w-full">
+        <button type="button" onClick={onClick} className="block h-full w-full">
           {content}
         </button>
       )}

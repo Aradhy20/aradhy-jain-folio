@@ -186,6 +186,8 @@ function FlagshipCaseStudyCard({
 
         <div className="flex items-center gap-2">
           <button
+            type="button"
+            aria-label={`Quick View ${project.title}`}
             onClick={() => {
               analytics.trackProjectView(project.title, project.slug, "modal_view");
               onOpenModal(project);
@@ -293,6 +295,8 @@ function TechnicalProjectCard({
         </div>
 
         <button
+          type="button"
+          aria-label={`View details for ${project.title}`}
           onClick={() => {
             analytics.trackProjectView(project.title, project.slug, "modal_view");
             onOpenModal(project);
@@ -416,10 +420,14 @@ export function Projects() {
           </div>
 
           {/* Technical Categories Filter */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-10" role="tablist" aria-label="Project category filters">
             {TECHNICAL_CATEGORIES.map((cat) => (
               <button
                 key={cat}
+                type="button"
+                role="tab"
+                aria-selected={activeTechCategory === cat}
+                aria-label={`Filter projects by ${cat}`}
                 onClick={() => setActiveTechCategory(cat)}
                 className={`rounded-full px-4 py-2 text-xs sm:text-sm font-medium transition-all duration-200 ${
                   activeTechCategory === cat

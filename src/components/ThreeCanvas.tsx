@@ -8,32 +8,48 @@ export function ThreeCanvas() {
   const [hasWebGL, setHasWebGL] = useState(true);
 
   useEffect(() => {
-    const container = mountRef.current;
-    if (!container) return;
-
-    // Check prefers-reduced-motion
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    // Check WebGL availability
-    const checkWebGL = () => {
-      try {
-        const canvas = document.createElement("canvas");
-        return !!(window.WebGLRenderingContext && (canvas.getContext("webgl") || canvas.getContext("experimental-webgl")));
-      } catch {
-        return false;
-      }
-    };
-
-    if (!checkWebGL()) {
+    // Skip entirely on mobile, small screens, and reduced motion to preserve sub-second LCP and low TBT
+    if (
+      typeof window !== "undefined" &&
+      (window.innerWidth < 1024 ||
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+    ) {
       setHasWebGL(false);
       return;
     }
 
-    const width = container.clientWidth || 400;
-    const height = container.clientHeight || 400;
+    const container = mountRef.current;
+    if (!container) return;
 
-    // 1. Scene setup
-    const scene = new THREE.Scene();
+    let cleanupFn: (() => void) | undefined;
+    let idleId: number | NodeJS.Timeout;
+
+    const startThree = () => {
+      // Check WebGL availability
+      const checkWebGL = () => {
+        try {
+          const canvas = document.createElement("canvas");
+          return !!(
+            window.WebGLRenderingContext &&
+            (canvas.getContext("webgl") ||
+              canvas.getContext("experimental-webgl"))
+          );
+        } catch {
+          return false;
+        }
+      };
+
+      if (!checkWebGL()) {
+        setHasWebGL(false);
+        return;
+      }
+
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const width = container.clientWidth || 400;
+      const height = container.clientHeight || 400;
+
+      // 1. Scene setup
+      const scene = new THREE.Scene();
 
     // 2. Camera setup
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
@@ -232,21 +248,39 @@ export function ThreeCanvas() {
 
     window.addEventListener("resize", handleResize);
 
-    // Cleanup
+      cleanupFn = () => {
+        observer.disconnect();
+        window.removeEventListener("mousemove", handleMouseMove);
+        window.removeEventListener("resize", handleResize);
+        cancelAnimationFrame(animationFrameId);
+        if (renderer.domElement && container.contains(renderer.domElement)) {
+          container.removeChild(renderer.domElement);
+        }
+        renderer.dispose();
+        coreGeometry.dispose();
+        cageGeometry.dispose();
+        ringGeometry1.dispose();
+        ringGeometry2.dispose();
+        nodeGeometry.dispose();
+      };
+    };
+
+    if ("requestIdleCallback" in window) {
+      idleId = (window as unknown as { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback(
+        startThree,
+        { timeout: 2000 }
+      );
+    } else {
+      idleId = setTimeout(startThree, 1200);
+    }
+
     return () => {
-      observer.disconnect();
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("resize", handleResize);
-      cancelAnimationFrame(animationFrameId);
-      if (renderer.domElement && container.contains(renderer.domElement)) {
-        container.removeChild(renderer.domElement);
+      if (typeof idleId === "number" && "cancelIdleCallback" in window) {
+        (window as unknown as { cancelIdleCallback: (id: number) => void }).cancelIdleCallback(idleId);
+      } else {
+        clearTimeout(idleId as NodeJS.Timeout);
       }
-      renderer.dispose();
-      coreGeometry.dispose();
-      cageGeometry.dispose();
-      ringGeometry1.dispose();
-      ringGeometry2.dispose();
-      nodeGeometry.dispose();
+      if (cleanupFn) cleanupFn();
     };
   }, []);
 

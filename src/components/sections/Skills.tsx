@@ -46,10 +46,14 @@ export function Skills() {
         </motion.div>
 
         {/* Category Pills Filter */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-2 max-w-4xl mx-auto">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-2 max-w-4xl mx-auto" role="tablist" aria-label="Skills categories">
           {categories.map((cat) => (
             <button
               key={cat}
+              type="button"
+              role="tab"
+              aria-selected={selectedCategory === cat}
+              aria-label={`Filter skills by ${cat}`}
               onClick={() => setSelectedCategory(cat)}
               className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all duration-200 ${
                 selectedCategory === cat

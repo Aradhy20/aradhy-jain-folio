@@ -6,15 +6,36 @@ import { Projects } from "@/components/sections/Projects";
 import { CommercialServices } from "@/components/sections/CommercialServices";
 import { WhyWorkWithMe } from "@/components/sections/WhyWorkWithMe";
 import { WorkingProcess } from "@/components/sections/WorkingProcess";
-import { ClientLeadTools } from "@/components/sections/ClientLeadTools";
 import { About } from "@/components/sections/About";
 import { Experience } from "@/components/sections/Experience";
 import { Skills } from "@/components/sections/Skills";
-import { DashboardSection } from "@/components/sections/DashboardSection";
-import { Certifications } from "@/components/sections/Certifications";
-import { Blog } from "@/components/sections/Blog";
 import { Contact } from "@/components/sections/Contact";
-import { CursorGlow } from "@/components/CursorGlow";
+import dynamic from "next/dynamic";
+
+const ClientLeadTools = dynamic(
+  () => import("@/components/sections/ClientLeadTools").then((mod) => mod.ClientLeadTools),
+  { ssr: true }
+);
+
+const DashboardSection = dynamic(
+  () => import("@/components/sections/DashboardSection").then((mod) => mod.DashboardSection),
+  { ssr: true }
+);
+
+const Certifications = dynamic(
+  () => import("@/components/sections/Certifications").then((mod) => mod.Certifications),
+  { ssr: true }
+);
+
+const Blog = dynamic(
+  () => import("@/components/sections/Blog").then((mod) => mod.Blog),
+  { ssr: true }
+);
+
+const CursorGlow = dynamic(
+  () => import("@/components/CursorGlow").then((mod) => mod.CursorGlow),
+  { ssr: false }
+);
 
 export default function Home() {
   return (

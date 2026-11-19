@@ -38,6 +38,7 @@ export interface Project {
     solution: string;
   };
   verifiedOutcome?: string;
+  lastModified?: string;
 }
 
 export interface ServicePackage {
@@ -472,6 +473,7 @@ export const PORTFOLIO_DATA = {
       },
       verifiedOutcome:
         "Transformed unorganized handicraft inventory into a structured commercial product line with active listings on Amazon, Flipkart, and Meesho, establishing a credible digital brand.",
+      lastModified: "2026-11-19",
     },
     {
       id: 2,
@@ -508,6 +510,7 @@ export const PORTFOLIO_DATA = {
       },
       verifiedOutcome:
         "Actively operating as the official publishing portal for Sanmati Journal, indexed with ISSN 3108-1819 and CrossRef DOI, supporting researchers globally.",
+      lastModified: "2026-11-19",
     },
     {
       id: 3,
@@ -544,32 +547,42 @@ export const PORTFOLIO_DATA = {
       },
       verifiedOutcome:
         "Operating live at dsr.college, serving thousands of prospective students and meeting all institutional transparency requirements.",
+      lastModified: "2026-11-19",
     },
     {
       id: 4,
       slug: "jambudweep",
-      title: "Jambudweep Digital Platform",
+      title: "Jambudweep Digital Platform — Jain Mandir & Heritage Center",
+      subtitle: "Cultural Heritage, Visitor Guidance & Historical Architecture Portal (Hastinapur Tirth)",
       workType: "Independent Client Work",
       category: "Websites & Full-Stack",
       shortOverview:
-        "A cultural and spiritual heritage platform featuring interactive visitor sections, historical archives, and event updates.",
+        "A cultural and spiritual heritage platform for the renowned Hastinapur Jambudweep center, featuring interactive visitor sections, architectural archives, and pilgrim facilities guidance.",
       description:
-        "A comprehensive digital presence developed for the historical and spiritual center Jambudweep, featuring custom landing layouts, leadership profiles, photo galleries, and visitor guidance.",
+        "A comprehensive digital presence developed for the historical and spiritual center Jambudweep in Hastinapur, Uttar Pradesh. Features custom responsive landing layouts, architectural and cosmological models documentation, photo archives, and practical pilgrim guidance.",
       problem:
-        "Heritage centers need to welcome thousands of visitors with accurate visiting hours, historical context, and facility details in an approachable mobile format.",
-      role: "Frontend Developer: Engineered responsive layouts, navigation systems, and interactive media showcases.",
+        "Heritage centers welcome tens of thousands of pilgrims and tourists requiring accurate visiting hours, historical context, travel routes, and facility details in a lightweight, mobile-accessible format.",
+      role: "Frontend Developer: Engineered responsive layouts, mobile-first navigation systems, accessible typography, and interactive media showcases.",
       features: [
-        "Interactive visitor guide and facility navigation",
-        "Leadership and scholar profile showcase",
-        "High-performance media gallery with responsive image grids",
-        "Event notifications and visiting guidelines",
+        "Interactive visitor guide and temple complex facility navigation",
+        "Cosmological and architectural model educational documentation",
+        "High-performance media gallery with responsive image grids and WebP compression",
+        "Event calendars, daily darshan timings, and visiting guidelines",
+        "Direct inquiry channel for group travel and accommodation guidance",
       ],
-      techStack: ["JavaScript", "Tailwind CSS", "Node.js", "Responsive UI"],
+      techStack: ["JavaScript", "Tailwind CSS", "Node.js", "Responsive UI", "WebP"],
       images: ["/project_heritage_platform.png", "/project_saas_dashboard.png"],
       featured: false,
       githubLink: "https://github.com/Aradhy20/jain-mandir-website",
+      challengesSolutions: {
+        challenge:
+          "Presenting extensive cultural photography and complex temple architectural details without causing high latency or data consumption for visitors on mobile networks.",
+        solution:
+          "Implemented progressive image rendering, optimized responsive picture elements, and streamlined CSS, ensuring rapid initial rendering and smooth mobile interaction.",
+      },
       verifiedOutcome:
-        "Delivered a polished digital presence that simplifies visitor planning and celebrates cultural heritage.",
+        "Delivered a polished, accessible digital platform that simplifies travel planning for pilgrims and documents unique architectural heritage for a global audience.",
+      lastModified: "2026-11-19",
     },
     {
       id: 5,
@@ -849,6 +862,42 @@ export const PORTFOLIO_DATA = {
       githubLink: "https://github.com/Aradhy20/mental-heath-ai",
       verifiedOutcome:
         "Processed and visualized 10,000+ social records with reproducible statistical dashboards and clear KPI insights.",
+      lastModified: "2026-11-19",
+    },
+    {
+      id: 16,
+      slug: "pravaah-upsc",
+      title: "Pravaah UPSC — Civil Services Preparation Platform",
+      subtitle: "Structured Knowledge, Daily Editorial Analysis & Mentorship Architecture for Aspirants",
+      workType: "Independent Client Work",
+      category: "Websites & Full-Stack",
+      shortOverview:
+        "An educational and mentorship web platform engineered for civil services aspirants, featuring structured syllabus roadmaps, editorial summaries, and interactive preparation resources.",
+      description:
+        "Designed and built the digital platform for Pravaah UPSC, dedicated to helping Union Public Service Commission (UPSC) candidates navigate complex preparation curricula. The platform organizes daily current affairs, GS subject modules, and study schedules into an intuitive, distraction-free digital learning hub.",
+      problem:
+        "UPSC civil services preparation requires managing vast amounts of dynamic content (current affairs, syllabus modules, NCERT compilations) across multiple stages (Prelims, Mains, Interview). Aspirants frequently face information overload, fragmented resources, and poor mobile readability on traditional coaching websites.",
+      role: "Lead Full-Stack Developer: Built responsive page templates, categorization taxonomies, fast content delivery pipelines, and interactive reading layouts optimized for long study sessions.",
+      features: [
+        "Structured GS Paper I–IV and Optional subject study roadmaps",
+        "Distraction-free editorial reader with typography optimized for long study hours",
+        "Searchable archive of topic-wise previous years' questions (PYQs)",
+        "Direct mentor contact integration via WhatsApp and email inquiry channels",
+        "Fast-loading mobile layout designed for reading on smartphones and tablets",
+      ],
+      techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
+      images: ["/project_saas_dashboard.png", "/project_ai_network.png"],
+      featured: false,
+      githubLink: "https://github.com/Aradhy20",
+      challengesSolutions: {
+        challenge:
+          "Organizing vast amounts of study notes and subject modules without overwhelming first-time visitors or causing slow mobile load times.",
+        solution:
+          "Engineered a modular, tabbed curriculum navigator with static pre-rendering, reducing initial client payload and enabling near-instantaneous page transitions.",
+      },
+      verifiedOutcome:
+        "Engineered an authoritative, clutter-free digital preparation hub that enables candidates to access study materials, track syllabus progress, and connect directly with mentors.",
+      lastModified: "2026-11-19",
     },
   ] as Project[],
 

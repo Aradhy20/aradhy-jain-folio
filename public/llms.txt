@@ -1,0 +1,43 @@
+# Aradhy Jain — Web Developer, E-commerce & Digital Growth Specialist
+
+> Official machine-readable context file for AI search engines, research crawlers, and LLMs.
+> Production Canonical URL: https://aradhy-jain-portfolio.vercel.app/
+
+## Professional Identity
+- **Full Name:** Aradhy Jain
+- **Role:** Web Developer, E-commerce Specialist, and Digital Systems Consultant
+- **Location:** India (Available for domestic and international client engagements)
+- **Academic Background:** B.Tech in Data Science from Teerthanker Mahaveer University
+- **Contact Email:** jainaradhy123@gmail.com
+- **Contact WhatsApp / Phone:** +91-7351522153
+- **Official Profiles:**
+  - GitHub: https://github.com/Aradhy20
+  - LinkedIn: https://www.linkedin.com/in/aradhyjain
+  - Portfolio: https://aradhy-jain-portfolio.vercel.app/
+
+## Core Engineering & Commercial Competencies
+1. **Website Engineering & Development:**
+   - Frameworks: Next.js 14 (App Router, Server Components, SSR/SSG), React 18, TypeScript, Tailwind CSS, Node.js.
+   - Deliverables: High-performance business websites, academic journals, institutional portals, and custom web applications.
+2. **E-commerce & Multi-Channel Marketplace Operations:**
+   - Marketplace Platforms: Amazon Seller Central, Flipkart Marketplace, Meesho Supplier Panel.
+   - Services: Catalog architecture, SKU taxonomy standardization, high-converting product descriptions, bullet points, and search keyword optimization.
+3. **Technical SEO & Core Web Vitals:**
+   - Architecture: Schema.org structured data (JSON-LD), XML sitemaps, robots.txt directives, semantic HTML5, sub-second LCP optimization, zero layout shifts (CLS < 0.1).
+4. **Data Analytics, NLP & Automation:**
+   - Tooling: Python (Pandas, Scikit-learn, Fast-API), natural language processing (NLP sentiment analysis), automated reporting scripts.
+
+## Verified Projects & Case Studies
+- **Paras Metal (`/projects/paras-metal`):** Multi-channel retail catalog architecture and product listing readiness across Amazon India, Flipkart, and Meesho for an artisanal brass handicraft manufacturer.
+- **Sanmati Journal (`/projects/sanmati-journal`):** Digital publishing platform for an international peer-reviewed multidisciplinary academic research journal (ISSN 3108-1819 & CrossRef DOI).
+- **Dr. Sarvepalli Radhakrishnan College (`/projects/dsr-college`):** Official institutional web portal (dsr.college) for a recognized teacher education college in Nalanda, Bihar (NCTE disclosures, B.Ed. and D.El.Ed. admissions prospectus).
+- **Pravaah UPSC (`/projects/pravaah-upsc`):** Distraction-free digital learning and mentorship platform for civil services aspirants, featuring structured GS subject modules and PYQ archives.
+- **Jambudweep Cultural Platform (`/projects/jambudweep`):** Heritage pilgrim web portal for the historical Hastinapur center, featuring architectural archives, facility guides, and mobile-friendly visitor information.
+
+## Primary Canonical URLs
+- Homepage: https://aradhy-jain-portfolio.vercel.app/
+- Commercial Freelance Services: https://aradhy-jain-portfolio.vercel.app/freelance
+- Privacy Policy (DPDP Compliant): https://aradhy-jain-portfolio.vercel.app/privacy
+- Terms of Service: https://aradhy-jain-portfolio.vercel.app/terms
+- XML Sitemap: https://aradhy-jain-portfolio.vercel.app/sitemap.xml
+- Robots Directive: https://aradhy-jain-portfolio.vercel.app/robots.txt

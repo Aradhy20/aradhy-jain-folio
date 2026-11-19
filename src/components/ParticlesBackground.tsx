@@ -98,7 +98,7 @@ export function ParticlesBackground() {
 
     const init = () => {
       particles = [];
-      const count = Math.min(Math.floor(window.innerWidth / 12), 120);
+      const count = Math.min(Math.floor(window.innerWidth / 35), 38);
       for (let i = 0; i < count; i++) {
         particles.push(new Particle());
       }
@@ -112,9 +112,9 @@ export function ParticlesBackground() {
           const dy = particles[i].y - particles[j].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 130) {
+          if (distance < 90) {
             ctx.beginPath();
-            const opacity = (1 - distance / 130) * 0.18;
+            const opacity = (1 - distance / 90) * 0.16;
             ctx.strokeStyle = `rgba(${particles[i].color}, ${opacity})`;
             ctx.lineWidth = 0.55;
             ctx.moveTo(particles[i].x, particles[i].y);
@@ -129,9 +129,9 @@ export function ParticlesBackground() {
         const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
         if (distMouse < mouse.radius) {
           ctx.beginPath();
-          const opacity = (1 - distMouse / mouse.radius) * 0.35;
+          const opacity = (1 - distMouse / mouse.radius) * 0.28;
           ctx.strokeStyle = `rgba(${particles[i].color}, ${opacity})`;
-          ctx.lineWidth = 0.85;
+          ctx.lineWidth = 0.75;
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(mouse.x, mouse.y);
           ctx.stroke();
@@ -140,6 +140,10 @@ export function ParticlesBackground() {
     };
 
     const animate = () => {
+      if (document.hidden) {
+        animationFrameId = requestAnimationFrame(animate);
+        return;
+      }
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particles.forEach((p) => {
         p.update();
@@ -155,9 +159,24 @@ export function ParticlesBackground() {
     
     resize();
     init();
-    animate();
+
+    // Defer animation startup to avoid blocking initial TBT / FCP
+    let idleTimeout: NodeJS.Timeout;
+    if ("requestIdleCallback" in window) {
+      (window as unknown as { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback(
+        () => {
+          animationFrameId = requestAnimationFrame(animate);
+        },
+        { timeout: 1500 }
+      );
+    } else {
+      idleTimeout = setTimeout(() => {
+        animationFrameId = requestAnimationFrame(animate);
+      }, 800);
+    }
 
     return () => {
+      clearTimeout(idleTimeout);
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseleave", handleMouseLeave);

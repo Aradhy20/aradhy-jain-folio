@@ -207,6 +207,7 @@ export function Chatbot() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Type a profile query..."
+                aria-label="Type a profile query"
                 disabled={loading}
                 className="flex-1 px-4 py-3 rounded-xl bg-white/30 dark:bg-white/5 border border-white/10 text-sm focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/10 text-foreground placeholder-foreground/30"
               />

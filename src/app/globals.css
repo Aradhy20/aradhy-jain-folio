@@ -97,7 +97,7 @@
   }
 
   .section-copy {
-    @apply mt-5 text-center text-lg leading-8 text-foreground/60;
+    @apply mt-5 text-center text-lg leading-8 text-foreground/75 dark:text-foreground/70;
   }
 
   /* AOS-like Hover Effects */
