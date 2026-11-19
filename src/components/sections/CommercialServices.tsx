@@ -187,6 +187,8 @@ export function CommercialServices() {
                   <div className="mt-4 pt-3 border-t border-foreground/10">
                     <button
                       type="button"
+                      aria-expanded={isExclusionOpen}
+                      aria-label={isExclusionOpen ? `Hide exclusions for ${service.title}` : `Show exclusions for ${service.title}`}
                       onClick={() => setExpandedExclusionId(isExclusionOpen ? null : service.id)}
                       className="inline-flex items-center justify-between w-full text-[11px] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400 hover:underline"
                     >

@@ -125,7 +125,7 @@ export default function FreelancePage() {
             transition={{ duration: 0.5 }}
             className="mb-8"
           >
-            <MagneticButton href="/">
+            <MagneticButton href="/" ariaLabel="Return to Portfolio Homepage">
               <span className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-white/40 px-5 py-2.5 text-sm font-semibold text-foreground backdrop-blur-xl dark:bg-white/5 shadow-md hover:bg-white/70 dark:hover:bg-white/10 transition-colors">
                 <ArrowLeft size={16} />
                 Return to Portfolio

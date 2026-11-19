@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { ParticlesBackground } from "@/components/ParticlesBackground";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -11,14 +10,10 @@ import { SectionViewTracker } from "@/components/SectionViewTracker";
 import { AnalyticsNavigationTracker } from "@/components/AnalyticsNavigationTracker";
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
+import { DeferredInteractiveWidgets } from "@/components/DeferredInteractiveWidgets";
 
-const Chatbot = dynamic(
-  () => import("@/components/Chatbot").then((mod) => mod.Chatbot),
-  { ssr: false }
-);
-
-const WhatsAppPopup = dynamic(
-  () => import("@/components/WhatsAppPopup").then((mod) => mod.WhatsAppPopup),
+const ParticlesBackground = dynamic(
+  () => import("@/components/ParticlesBackground").then((mod) => mod.ParticlesBackground),
   { ssr: false }
 );
 
@@ -158,35 +153,138 @@ export default function RootLayout({
           "@type": "PostalAddress",
           addressCountry: "India",
         },
-      },
-      {
-        "@type": "ProfessionalService",
-        "@id": `${siteUrl}/#service`,
-        name: "Aradhy Jain — Digital Growth & Web Development",
-        url: siteUrl,
-        image: `${siteUrl}/creator_card_portrait.jpg`,
-        description:
-          "I help businesses establish a stronger online presence through responsive websites, e-commerce solutions, marketplace catalogue optimization, technical SEO, digital marketing, and data-driven improvements.",
-        provider: {
-          "@id": `${siteUrl}/#person`,
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          "@id": `${siteUrl}/#offercatalog`,
+          name: "Freelance Digital Services & Engineering Catalog",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              "@id": `${siteUrl}/#offer-website-development`,
+              itemOffered: {
+                "@type": "Service",
+                "@id": `${siteUrl}/#service-website-development`,
+                name: "Website Development",
+                description:
+                  "Custom corporate websites, institutional portals, and high-performance web applications built with Next.js, React, and TypeScript.",
+                serviceType: "Website Development",
+                provider: {
+                  "@id": `${siteUrl}/#person`,
+                },
+                areaServed: [
+                  {
+                    "@type": "Country",
+                    name: "India",
+                  },
+                  {
+                    "@type": "AdministrativeArea",
+                    name: "Global",
+                  },
+                ],
+              },
+            },
+            {
+              "@type": "Offer",
+              "@id": `${siteUrl}/#offer-ecommerce-marketplace`,
+              itemOffered: {
+                "@type": "Service",
+                "@id": `${siteUrl}/#service-ecommerce-marketplace`,
+                name: "E-commerce & Marketplace Support",
+                description:
+                  "End-to-end e-commerce solutions, marketplace cataloging, and listing operations across Amazon, Flipkart, and Meesho.",
+                serviceType: "E-commerce & Marketplace Operations",
+                provider: {
+                  "@id": `${siteUrl}/#person`,
+                },
+                areaServed: [
+                  {
+                    "@type": "Country",
+                    name: "India",
+                  },
+                  {
+                    "@type": "AdministrativeArea",
+                    name: "Global",
+                  },
+                ],
+              },
+            },
+            {
+              "@type": "Offer",
+              "@id": `${siteUrl}/#offer-technical-seo`,
+              itemOffered: {
+                "@type": "Service",
+                "@id": `${siteUrl}/#service-technical-seo`,
+                name: "Technical SEO & Website Optimization",
+                description:
+                  "Core Web Vitals speed tuning, structured data JSON-LD implementation, crawl error remediation, and search visibility optimization.",
+                serviceType: "Technical SEO & Website Optimization",
+                provider: {
+                  "@id": `${siteUrl}/#person`,
+                },
+                areaServed: [
+                  {
+                    "@type": "Country",
+                    name: "India",
+                  },
+                  {
+                    "@type": "AdministrativeArea",
+                    name: "Global",
+                  },
+                ],
+              },
+            },
+            {
+              "@type": "Offer",
+              "@id": `${siteUrl}/#offer-digital-marketing`,
+              itemOffered: {
+                "@type": "Service",
+                "@id": `${siteUrl}/#service-digital-marketing`,
+                name: "Digital Marketing & Analytics",
+                description:
+                  "Digital growth strategy, conversion tracking, Google Analytics 4 implementation, and performance optimization.",
+                serviceType: "Digital Marketing & Analytics",
+                provider: {
+                  "@id": `${siteUrl}/#person`,
+                },
+                areaServed: [
+                  {
+                    "@type": "Country",
+                    name: "India",
+                  },
+                  {
+                    "@type": "AdministrativeArea",
+                    name: "Global",
+                  },
+                ],
+              },
+            },
+            {
+              "@type": "Offer",
+              "@id": `${siteUrl}/#offer-python-automation`,
+              itemOffered: {
+                "@type": "Service",
+                "@id": `${siteUrl}/#service-python-automation`,
+                name: "Python, Data & Automation",
+                description:
+                  "Automated ETL pipelines, reporting workflows, data cleaning, and business intelligence dashboards using Python and SQL.",
+                serviceType: "Python, Data & Automation",
+                provider: {
+                  "@id": `${siteUrl}/#person`,
+                },
+                areaServed: [
+                  {
+                    "@type": "Country",
+                    name: "India",
+                  },
+                  {
+                    "@type": "AdministrativeArea",
+                    name: "Global",
+                  },
+                ],
+              },
+            },
+          ],
         },
-        areaServed: [
-          {
-            "@type": "Country",
-            name: "India",
-          },
-          {
-            "@type": "AdministrativeArea",
-            name: "Global",
-          },
-        ],
-        serviceType: [
-          "Website Development",
-          "E-commerce & Marketplace Support",
-          "SEO & Website Optimization",
-          "Digital Marketing & Analytics",
-          "Python, Data & Automation",
-        ],
       },
     ],
   };
@@ -214,8 +312,7 @@ export default function RootLayout({
           <SectionViewTracker />
           <ParticlesBackground />
           {children}
-          <Chatbot />
-          <WhatsAppPopup />
+          <DeferredInteractiveWidgets />
           <SpeedInsights />
           <Analytics />
         </ThemeProvider>

@@ -106,7 +106,6 @@ export function ProjectCaseStudyModal({ project, onClose }: ProjectCaseStudyModa
                 fill
                 sizes="(max-width: 1024px) 100vw, 850px"
                 className="object-cover"
-                priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
             </div>

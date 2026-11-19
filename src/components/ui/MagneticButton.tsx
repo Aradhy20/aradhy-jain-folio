@@ -11,6 +11,7 @@ interface MagneticButtonProps {
   download?: string;
   target?: string;
   rel?: string;
+  ariaLabel?: string;
 }
 
 export function MagneticButton({
@@ -21,6 +22,7 @@ export function MagneticButton({
   download,
   target,
   rel,
+  ariaLabel,
 }: MagneticButtonProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -66,12 +68,18 @@ export function MagneticButton({
           target={target}
           rel={rel}
           onClick={onClick}
+          aria-label={ariaLabel}
           className="block h-full w-full"
         >
           {content}
         </a>
       ) : (
-        <button type="button" onClick={onClick} className="block h-full w-full">
+        <button
+          type="button"
+          onClick={onClick}
+          aria-label={ariaLabel}
+          className="block h-full w-full"
+        >
           {content}
         </button>
       )}

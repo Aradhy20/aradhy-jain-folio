@@ -41,6 +41,7 @@ export default function FreelanceLayout({
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": `${siteUrl}/freelance/#breadcrumb`,
     "itemListElement": [
       {
         "@type": "ListItem",

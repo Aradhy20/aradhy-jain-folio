@@ -108,6 +108,7 @@ export function Hero() {
           <div className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
             <MagneticButton
               href="#contact"
+              ariaLabel="Start a Project with Aradhy Jain"
               onClick={() => analytics.trackContactCtaClick("Start a Project", "hero")}
             >
               <span className="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#06b6d4,#2563eb)] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-cyan-500/25 transition-transform hover:scale-[1.02]">
@@ -118,6 +119,7 @@ export function Hero() {
 
             <MagneticButton
               href="#projects"
+              ariaLabel="View Selected Case Studies and Work"
               onClick={() => analytics.trackContactCtaClick("View My Work", "hero")}
             >
               <span className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-6 py-3.5 text-sm font-semibold text-cyan-700 dark:text-cyan-300 backdrop-blur-xl transition-all hover:bg-cyan-500/20">
@@ -128,6 +130,7 @@ export function Hero() {
 
             <MagneticButton
               href="#audit-tool"
+              ariaLabel="Free Website Audit Diagnostic Tool"
               onClick={() => analytics.trackContactCtaClick("Free Website Audit", "hero")}
             >
               <span className="inline-flex items-center justify-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-5 py-3.5 text-sm font-semibold text-purple-700 dark:text-purple-300 backdrop-blur-xl hover:bg-purple-500/20 transition-all">
@@ -139,7 +142,7 @@ export function Hero() {
 
           {/* Social Links & Location */}
           <div className="mt-8 flex items-center gap-4">
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-white/40 px-3.5 py-1.5 text-xs text-foreground/60 dark:bg-white/5">
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-white/40 px-3.5 py-1.5 text-xs text-foreground/75 dark:bg-white/5">
               <MapPin size={13} className="text-cyan-500" />
               {PORTFOLIO_DATA.personalInfo.location}
             </div>
@@ -148,7 +151,8 @@ export function Hero() {
               <MagneticButton
                 href={PORTFOLIO_DATA.personalInfo.linkedin}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
+                ariaLabel="Aradhy Jain LinkedIn Profile"
               >
                 <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/80 bg-white/50 text-foreground/75 shadow-sm hover:text-blue-600 dark:bg-white/5 transition-colors">
                   <FaLinkedinIn size={14} />
@@ -159,7 +163,8 @@ export function Hero() {
               <MagneticButton
                 href={PORTFOLIO_DATA.personalInfo.github}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
+                ariaLabel="Aradhy Jain GitHub Profile"
               >
                 <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/80 bg-white/50 text-foreground/75 shadow-sm hover:text-foreground dark:bg-white/5 transition-colors">
                   <FaGithub size={14} />
@@ -170,9 +175,10 @@ export function Hero() {
               <MagneticButton
                 href={PORTFOLIO_DATA.personalInfo.resume}
                 download="Aradhy_Jain_Resume.pdf"
+                ariaLabel="Download Aradhy Jain Resume PDF"
                 onClick={() => analytics.trackResumeDownload("hero")}
               >
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-white/40 px-3 py-1.5 text-xs font-medium text-foreground/70 hover:text-foreground dark:bg-white/5 transition-colors">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-white/40 px-3 py-1.5 text-xs font-medium text-foreground/75 hover:text-foreground dark:bg-white/5 transition-colors">
                   <Download size={13} />
                   Resume
                 </span>
@@ -213,7 +219,7 @@ export function Hero() {
       </div>
 
       {/* Subtle Scroll Down Indicator */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-foreground/40 pointer-events-none">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-foreground/60 pointer-events-none">
         <span className="text-[10px] uppercase tracking-widest font-mono">Scroll</span>
         <ChevronDown size={14} className="animate-bounce" />
       </div>

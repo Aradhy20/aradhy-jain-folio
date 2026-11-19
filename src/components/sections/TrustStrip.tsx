@@ -46,9 +46,9 @@ export function TrustStrip() {
               <p className="text-xs font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
                 Verified Core Capabilities
               </p>
-              <h3 className="mt-1 text-lg sm:text-xl font-bold text-foreground">
+              <h2 className="mt-1 text-lg sm:text-xl font-bold text-foreground">
                 Delivering High-Impact Digital Growth Across 4 Pillars
-              </h3>
+              </h2>
             </div>
             <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1.5 text-xs font-semibold text-emerald-700 dark:text-emerald-300">
               <CheckCircle2 size={14} className="text-emerald-500" />
@@ -73,9 +73,9 @@ export function TrustStrip() {
                     </span>
                   </div>
 
-                  <h4 className="mt-4 text-base font-bold text-foreground">
+                  <h3 className="mt-4 text-base font-bold text-foreground">
                     {cap.title}
-                  </h4>
+                  </h3>
                   <p className="mt-1.5 text-xs leading-relaxed text-foreground/70">
                     {cap.description}
                   </p>

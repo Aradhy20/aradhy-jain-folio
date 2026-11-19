@@ -153,30 +153,42 @@ export function ParticlesBackground() {
       animationFrameId = requestAnimationFrame(animate);
     };
 
-    window.addEventListener("resize", resize);
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseleave", handleMouseLeave);
+    window.addEventListener("resize", resize, { passive: true });
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    window.addEventListener("mouseleave", handleMouseLeave, { passive: true });
     
     resize();
     init();
 
     // Defer animation startup to avoid blocking initial TBT / FCP
-    let idleTimeout: NodeJS.Timeout;
+    let idleTimeout: NodeJS.Timeout | number;
+    let started = false;
+
+    const startAnimation = () => {
+      if (started) return;
+      started = true;
+      window.removeEventListener("scroll", startAnimation);
+      window.removeEventListener("mousemove", startAnimation);
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    window.addEventListener("scroll", startAnimation, { passive: true, once: true });
+    window.addEventListener("mousemove", startAnimation, { passive: true, once: true });
+
     if ("requestIdleCallback" in window) {
-      (window as unknown as { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback(
-        () => {
-          animationFrameId = requestAnimationFrame(animate);
-        },
-        { timeout: 1500 }
-      );
+      idleTimeout = (window as unknown as { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback(startAnimation, { timeout: 3000 });
     } else {
-      idleTimeout = setTimeout(() => {
-        animationFrameId = requestAnimationFrame(animate);
-      }, 800);
+      idleTimeout = setTimeout(startAnimation, 2500);
     }
 
     return () => {
-      clearTimeout(idleTimeout);
+      window.removeEventListener("scroll", startAnimation);
+      window.removeEventListener("mousemove", startAnimation);
+      if (typeof idleTimeout === "number" && "cancelIdleCallback" in window) {
+        (window as unknown as { cancelIdleCallback: (id: number) => void }).cancelIdleCallback(idleTimeout);
+      } else {
+        clearTimeout(idleTimeout as NodeJS.Timeout);
+      }
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseleave", handleMouseLeave);

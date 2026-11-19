@@ -93,6 +93,10 @@ export default function ProjectCaseStudyPage({ params }: PageProps) {
       {
         "@type": "TechArticle",
         "@id": `${siteUrl}/projects/${project.slug}/#article`,
+        isPartOf: {
+          "@id": `${siteUrl}/#website`,
+        },
+        mainEntityOfPage: `${siteUrl}/projects/${project.slug}`,
         headline: project.title,
         description: project.shortOverview || project.description,
         url: `${siteUrl}/projects/${project.slug}`,
@@ -101,14 +105,10 @@ export default function ProjectCaseStudyPage({ params }: PageProps) {
           ? { dateModified: `${project.lastModified}T00:00:00.000Z` }
           : {}),
         author: {
-          "@type": "Person",
-          name: "Aradhy Jain",
-          url: siteUrl,
+          "@id": `${siteUrl}/#person`,
         },
         publisher: {
-          "@type": "Person",
-          name: "Aradhy Jain",
-          url: siteUrl,
+          "@id": `${siteUrl}/#person`,
         },
         about: {
           "@type": "Thing",
