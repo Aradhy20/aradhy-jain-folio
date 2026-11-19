@@ -5,26 +5,26 @@ import { Globe, ShoppingBag, TrendingUp, BarChart3, CheckCircle2 } from "lucide-
 
 const CAPABILITIES = [
   {
-    title: "Web Development",
+    title: "Web & Portal Development",
     description: "Custom business websites & institutional web portals with sub-second LCP.",
     icon: Globe,
-    proofTag: "Live: dsr.college & sanmatijournal.in",
+    proofTag: "Live: dsrcollege.ac.in",
   },
   {
     title: "E-commerce & Marketplaces",
-    description: "Catalog architecture, SKU management, and listing workflows across channels.",
+    description: "Multi-channel catalog architecture and listing workflows across retail channels.",
     icon: ShoppingBag,
     proofTag: "Amazon · Flipkart · Meesho",
   },
   {
-    title: "Technical SEO",
-    description: "Structured data schemas, Core Web Vitals, and Google Search Console indexing.",
+    title: "Technical SEO & Speed",
+    description: "Structured Schema.org entity graphs, Core Web Vitals, and indexing optimization.",
     icon: TrendingUp,
-    proofTag: "Schema.org & Google Scholar",
+    proofTag: "sanmati.org.in · CrossRef",
   },
   {
-    title: "Analytics & Automation",
-    description: "Python data cleaning, workflow automation, and executive BI dashboards.",
+    title: "AI, Python & Power BI",
+    description: "Automated ETL pipelines, custom scrapers, and executive business intelligence dashboards.",
     icon: BarChart3,
     proofTag: "Python & Power BI",
   },

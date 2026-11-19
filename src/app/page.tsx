@@ -10,6 +10,7 @@ import { About } from "@/components/sections/About";
 import { Experience } from "@/components/sections/Experience";
 import { Skills } from "@/components/sections/Skills";
 import { Contact } from "@/components/sections/Contact";
+import { MobileQuickContactBar } from "@/components/MobileQuickContactBar";
 import dynamic from "next/dynamic";
 
 const ClientLeadTools = dynamic(
@@ -84,6 +85,7 @@ export default function Home() {
       </div>
 
       <Footer />
+      <MobileQuickContactBar />
     </main>
   );
 }

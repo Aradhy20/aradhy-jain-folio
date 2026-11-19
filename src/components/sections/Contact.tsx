@@ -32,6 +32,7 @@ const initialState: FormState = {
 export function Contact() {
   const [form, setForm] = useState<FormState>(initialState);
   const [loading, setLoading] = useState(false);
+  const [hasStartedForm, setHasStartedForm] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [submittedResponse, setSubmittedResponse] = useState<{
     message: string;
@@ -41,6 +42,13 @@ export function Contact() {
       whatsappUrl: string;
     };
   } | null>(null);
+
+  const handleInputInteraction = () => {
+    if (!hasStartedForm) {
+      setHasStartedForm(true);
+      analytics.trackFormStart("homepage_contact");
+    }
+  };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -60,6 +68,7 @@ export function Contact() {
     }
 
     setLoading(true);
+    analytics.trackFormSubmit("homepage_contact", form.service);
 
     try {
       const res = await fetch("/api/inquiry", {
@@ -83,10 +92,11 @@ export function Contact() {
       }
 
       setSubmittedResponse(data);
-      analytics.trackContactFormSubmit({
+      analytics.trackGenerateLead({
         serviceCategory: form.service,
         budgetRange: form.budgetRange,
         timeline: form.timeline,
+        formSource: "homepage_contact",
       });
     } catch (err: unknown) {
       setErrorMsg(
@@ -128,7 +138,7 @@ export function Contact() {
                 Reach Out Directly
               </h3>
               <p className="section-copy !mx-0 !text-left mt-3">
-                Whether you need a new website, marketplace listing support, technical SEO, or reporting automation, I reply personally within 24 hours.
+                Whether you need a new Next.js website, marketplace onboarding, technical SEO, or automated analytics, I reply personally within 24 hours (typically under 2 hours during IST business hours).
               </p>
             </div>
 
@@ -263,6 +273,7 @@ export function Contact() {
                       type="text"
                       required
                       value={form.name}
+                      onFocus={handleInputInteraction}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                       placeholder="e.g. Rahul Sharma"
                       className="field"
@@ -278,6 +289,7 @@ export function Contact() {
                       type="email"
                       required
                       value={form.email}
+                      onFocus={handleInputInteraction}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       placeholder="e.g. rahul@business.com"
                       className="field"
@@ -294,28 +306,32 @@ export function Contact() {
                       id="contact-company"
                       type="text"
                       value={form.company}
+                      onFocus={handleInputInteraction}
                       onChange={(e) => setForm({ ...form, company: e.target.value })}
-                      placeholder="e.g. Acme Handicrafts"
+                      placeholder="e.g. Acme Enterprises"
                       className="field"
                     />
                   </div>
 
                   <div>
                     <label htmlFor="contact-service" className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
-                      Service Required *
+                      Service / Project Type *
                     </label>
                     <select
                       id="contact-service"
                       value={form.service}
+                      onFocus={handleInputInteraction}
                       onChange={(e) => setForm({ ...form, service: e.target.value })}
                       className="field cursor-pointer"
                     >
-                      <option value="Starter Business Website">Starter Business Website (₹18k–₹28k)</option>
-                      <option value="Custom Business Website & Portal">Custom Business Website & Portal (₹38k–₹75k)</option>
-                      <option value="E-commerce & Marketplace Storefront">E-commerce & Marketplace Storefront (₹32k–₹65k)</option>
-                      <option value="Technical SEO & Website Optimization">Technical SEO & Website Optimization (₹16k–₹32k)</option>
-                      <option value="Monthly Website Maintenance & Analytics">Monthly Website Maintenance & Analytics (₹8k–₹18k/mo)</option>
-                      <option value="General Inquiry / Custom Consultation">General Inquiry / Custom Consultation</option>
+                      <option value="Website Development (Next.js / Corporate Portal)">Website Development (Next.js / Corporate Portal)</option>
+                      <option value="E-commerce & Marketplace Storefront (Amazon/Flipkart/Meesho)">E-commerce &amp; Marketplace Storefront (Amazon/Flipkart/Meesho)</option>
+                      <option value="Technical SEO & Website Optimization">Technical SEO &amp; Website Optimization</option>
+                      <option value="AI Automation & Custom Python Workflows">AI Automation &amp; Custom Python Workflows</option>
+                      <option value="Power BI & Business Intelligence Dashboards">Power BI &amp; Business Intelligence Dashboards</option>
+                      <option value="Institutional & College Web Portals">Institutional &amp; College Web Portals</option>
+                      <option value="Free 20-Min Project Consultation">Free 20-Min Project Consultation</option>
+                      <option value="Monthly Retainer & Ongoing Support">Monthly Retainer &amp; Ongoing Support</option>
                     </select>
                   </div>
                 </div>
@@ -323,35 +339,37 @@ export function Contact() {
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
                     <label htmlFor="contact-budget" className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
-                      Approximate Budget <span className="text-foreground/40 font-normal">(Optional)</span>
+                      Approximate Budget Scope <span className="text-foreground/40 font-normal">(Optional)</span>
                     </label>
                     <select
                       id="contact-budget"
                       value={form.budgetRange}
+                      onFocus={handleInputInteraction}
                       onChange={(e) => setForm({ ...form, budgetRange: e.target.value })}
                       className="field cursor-pointer"
                     >
-                      <option value="Flexible / Discussion">Flexible / Discussion</option>
-                      <option value="₹18,000 – ₹30,000 / $220 – $360">₹18,000 – ₹30,000 ($220 – $360)</option>
-                      <option value="₹30,000 – ₹60,000 / $360 – $720">₹30,000 – ₹60,000 ($360 – $720)</option>
-                      <option value="₹60,000 – ₹1,20,000 / $720 – $1,450">₹60,000 – ₹1,20,000 ($720 – $1,450)</option>
-                      <option value="Custom Enterprise / Retainer">Custom Enterprise / Retainer</option>
+                      <option value="Flexible / Discussion">Flexible / Open for Discussion</option>
+                      <option value="₹15,000 – ₹30,000 (~$200 – $360 USD / €190 – €340)">₹15,000 – ₹30,000 (~$200 – $360 USD)</option>
+                      <option value="₹30,000 – ₹60,000 (~$360 – $720 USD / €340 – €680)">₹30,000 – ₹60,000 (~$360 – $720 USD)</option>
+                      <option value="₹60,000 – ₹1,20,000 (~$720 – $1,450 USD / €680 – €1,380)">₹60,000 – ₹1,20,000 (~$720 – $1,450 USD)</option>
+                      <option value="₹1,20,000+ ($1,450+ USD / Custom Retainer)">₹1,20,000+ ($1,450+ USD / Custom Retainer)</option>
                     </select>
                   </div>
 
                   <div>
                     <label htmlFor="contact-timeline" className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
-                      Target Timeline <span className="text-foreground/40 font-normal">(Optional)</span>
+                      Target Delivery Timeline <span className="text-foreground/40 font-normal">(Optional)</span>
                     </label>
                     <select
                       id="contact-timeline"
                       value={form.timeline}
+                      onFocus={handleInputInteraction}
                       onChange={(e) => setForm({ ...form, timeline: e.target.value })}
                       className="field cursor-pointer"
                     >
-                      <option value="Within 2-3 Weeks (Urgent)">Within 2-3 Weeks (Urgent)</option>
-                      <option value="Within 1 Month (Standard)">Within 1 Month (Standard)</option>
-                      <option value="1-2 Months (Phased)">1-2 Months (Phased)</option>
+                      <option value="Urgent (< 2 Weeks)">Urgent / Within 2 Weeks</option>
+                      <option value="Standard (2 to 4 Weeks)">Standard (2 to 4 Weeks)</option>
+                      <option value="Phased Roadmap (1 to 2 Months)">Phased Roadmap (1 to 2 Months)</option>
                       <option value="Flexible / Exploratory">Flexible / Exploratory</option>
                     </select>
                   </div>
@@ -359,13 +377,14 @@ export function Contact() {
 
                 <div>
                   <label htmlFor="contact-message" className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-1.5">
-                    Project Description *
+                    Project Description &amp; Scope *
                   </label>
                   <textarea
                     id="contact-message"
                     required
                     rows={4}
                     value={form.message}
+                    onFocus={handleInputInteraction}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     placeholder="Tell me about what you are building, improving, or trying to solve..."
                     className="field resize-none"

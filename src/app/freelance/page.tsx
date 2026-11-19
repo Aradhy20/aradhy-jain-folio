@@ -2,9 +2,11 @@
 
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { MobileQuickContactBar } from "@/components/MobileQuickContactBar";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { PORTFOLIO_DATA } from "@/data";
 import { motion } from "framer-motion";
+import { analytics } from "@/lib/analytics";
 import {
   ArrowLeft,
   CheckCircle2,
@@ -20,6 +22,7 @@ import {
   Mail,
   ShieldCheck,
   Check,
+  Calendar,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -59,6 +62,7 @@ const initialForm: FormState = {
 export default function FreelancePage() {
   const [form, setForm] = useState<FormState>(initialForm);
   const [loading, setLoading] = useState(false);
+  const [hasStartedForm, setHasStartedForm] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [submittedData, setSubmittedData] = useState<{
     success: boolean;
@@ -70,6 +74,13 @@ export default function FreelancePage() {
       whatsappUrl: string;
     };
   } | null>(null);
+
+  const handleInputInteraction = () => {
+    if (!hasStartedForm) {
+      setHasStartedForm(true);
+      analytics.trackFormStart("freelance_page");
+    }
+  };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -89,6 +100,7 @@ export default function FreelancePage() {
     }
 
     setLoading(true);
+    analytics.trackFormSubmit("freelance_page", form.serviceCategory);
 
     try {
       const res = await fetch("/api/inquiry", {
@@ -104,6 +116,12 @@ export default function FreelancePage() {
       }
 
       setSubmittedData(data);
+      analytics.trackGenerateLead({
+        serviceCategory: form.serviceCategory,
+        budgetRange: form.budgetRange,
+        timeline: form.timeline,
+        formSource: "freelance_page",
+      });
     } catch (err: unknown) {
       setErrorMessage(
         err instanceof Error ? err.message : "An error occurred while submitting. Please try reaching out directly."
@@ -154,23 +172,47 @@ export default function FreelancePage() {
                 I help businesses build their online presence, launch and improve e-commerce experiences, optimize marketplace listings (Amazon · Flipkart · Meesho), and strengthen digital visibility through development, SEO, content, and analytics.
               </p>
 
-              <div className="mt-8 flex flex-wrap items-center gap-4">
+              <div className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
                 <a
                   href="#inquiry-form"
+                  onClick={() => analytics.trackContactCtaClick("Start a Project", "freelance_hero")}
                   className="inline-flex items-center gap-2 rounded-full bg-[linear-gradient(135deg,#06b6d4,#2563eb)] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-cyan-500/25 transition-transform hover:scale-[1.02]"
                 >
                   Start a Project
                   <Send size={15} />
                 </a>
                 <a
-                  href={`https://wa.me/${PORTFOLIO_DATA.personalInfo.whatsapp}`}
+                  href="#inquiry-form"
+                  onClick={() => {
+                    analytics.trackConsultationClick("freelance_hero", "Book a Free Consultation");
+                    setForm((prev) => ({ ...prev, serviceCategory: "Free 20-Min Project Consultation" }));
+                  }}
+                  className="inline-flex items-center gap-2 rounded-full border border-cyan-500/40 bg-cyan-500/10 px-6 py-3.5 text-sm font-semibold text-cyan-700 dark:text-cyan-300 hover:bg-cyan-500/20 transition-colors"
+                >
+                  <Calendar size={16} />
+                  Book Free Consultation
+                </a>
+                <a
+                  href={`https://wa.me/${PORTFOLIO_DATA.personalInfo.whatsapp}?text=${encodeURIComponent("Hi Aradhy, I would like to discuss a freelance project for my business.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-6 py-3.5 text-sm font-semibold text-emerald-700 dark:text-emerald-300 hover:bg-emerald-500/20 transition-colors"
+                  onClick={() => analytics.trackWhatsAppClick("freelance_hero")}
+                  className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-5 py-3.5 text-sm font-semibold text-emerald-700 dark:text-emerald-300 hover:bg-emerald-500/20 transition-colors"
                 >
                   <MessageSquare size={16} />
                   WhatsApp Direct
                 </a>
+              </div>
+
+              <div className="mt-6 flex flex-wrap items-center gap-y-2 gap-x-4 text-xs text-foreground/70">
+                <span className="inline-flex items-center gap-1.5 font-medium text-emerald-600 dark:text-emerald-400">
+                  <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                  Guaranteed response within 24 hours (avg. &lt;2 hrs)
+                </span>
+                <span className="hidden sm:inline text-foreground/30">•</span>
+                <span>Transparent milestone billing</span>
+                <span className="hidden sm:inline text-foreground/30">•</span>
+                <span>Serving India, USA, UK &amp; Germany</span>
               </div>
             </motion.div>
 
@@ -420,6 +462,7 @@ export default function FreelancePage() {
                         type="text"
                         required
                         value={form.name}
+                        onFocus={handleInputInteraction}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
                         placeholder="e.g. John Doe"
                         className="field"
@@ -434,6 +477,7 @@ export default function FreelancePage() {
                         type="email"
                         required
                         value={form.email}
+                        onFocus={handleInputInteraction}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
                         placeholder="john@example.com"
                         className="field"
@@ -449,6 +493,7 @@ export default function FreelancePage() {
                       <input
                         type="text"
                         value={form.company}
+                        onFocus={handleInputInteraction}
                         onChange={(e) => setForm({ ...form, company: e.target.value })}
                         placeholder="Company or brand"
                         className="field"
@@ -457,19 +502,21 @@ export default function FreelancePage() {
 
                     <div>
                       <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-2">
-                        Service Package *
+                        Service Category *
                       </label>
                       <select
                         value={form.serviceCategory}
+                        onFocus={handleInputInteraction}
                         onChange={(e) => setForm({ ...form, serviceCategory: e.target.value })}
                         className="field cursor-pointer"
                       >
-                        <option value="Starter Business Website">Starter Business Website (₹18k–₹28k)</option>
-                        <option value="Custom Business Website & Portal">Custom Business Website & Portal (₹38k–₹75k)</option>
-                        <option value="E-commerce & Marketplace Storefront">E-commerce & Marketplace Storefront (₹32k–₹65k)</option>
-                        <option value="Technical SEO & Website Optimization">Technical SEO & Website Optimization (₹16k–₹32k)</option>
-                        <option value="Monthly Website Maintenance & Analytics">Monthly Website Maintenance & Analytics (₹8k–₹18k/mo)</option>
-                        <option value="General Inquiry / Custom Consultation">General Inquiry / Custom Consultation</option>
+                        <option value="Website Development (Next.js / Corporate Portal)">Website Development (Next.js / Corporate Portal)</option>
+                        <option value="E-commerce & Marketplace Storefront (Amazon/Flipkart/Meesho)">E-commerce &amp; Marketplace Storefront (Amazon/Flipkart/Meesho)</option>
+                        <option value="Technical SEO & Website Optimization">Technical SEO &amp; Website Optimization</option>
+                        <option value="AI Automation & Custom Python Workflows">AI Automation &amp; Custom Python Workflows</option>
+                        <option value="Power BI & Business Intelligence Dashboards">Power BI &amp; Business Intelligence Dashboards</option>
+                        <option value="Institutional & College Web Portals">Institutional &amp; College Web Portals</option>
+                        <option value="Free 20-Min Project Consultation">Free 20-Min Project Consultation</option>
                       </select>
                     </div>
 
@@ -479,42 +526,45 @@ export default function FreelancePage() {
                       </label>
                       <select
                         value={form.timeline}
+                        onFocus={handleInputInteraction}
                         onChange={(e) => setForm({ ...form, timeline: e.target.value })}
                         className="field cursor-pointer"
                       >
-                        <option value="Within 2-3 Weeks (Urgent)">Within 2-3 Weeks (Urgent)</option>
-                        <option value="Within 1 Month (Standard)">Within 1 Month (Standard)</option>
-                        <option value="1-2 Months (Phased)">1-2 Months (Phased)</option>
+                        <option value="Urgent (< 2 Weeks)">Urgent / Within 2 Weeks</option>
+                        <option value="Standard (2 to 4 Weeks)">Standard (2 to 4 Weeks)</option>
+                        <option value="Phased Roadmap (1 to 2 Months)">Phased Roadmap (1 to 2 Months)</option>
                         <option value="Flexible / Discussion">Flexible / Discussion</option>
                       </select>
                     </div>
 
                     <div>
                       <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-2">
-                        Budget Range (Indicative)
+                        Budget Scope (Indicative)
                       </label>
                       <select
                         value={form.budgetRange}
+                        onFocus={handleInputInteraction}
                         onChange={(e) => setForm({ ...form, budgetRange: e.target.value })}
                         className="field cursor-pointer"
                       >
                         <option value="Flexible / Discussion">Flexible / Discussion</option>
-                        <option value="₹18,000 – ₹30,000 / $220 – $360">₹18,000 – ₹30,000 ($220 – $360)</option>
-                        <option value="₹30,000 – ₹60,000 / $360 – $720">₹30,000 – ₹60,000 ($360 – $720)</option>
-                        <option value="₹60,000 – ₹1,20,000 / $720 – $1,450">₹60,000 – ₹1,20,000 ($720 – $1,450)</option>
-                        <option value="Custom Enterprise / Retainer">Custom Enterprise / Retainer</option>
+                        <option value="₹15,000 – ₹30,000 (~$200 – $360 USD)">₹15,000 – ₹30,000 (~$200 – $360 USD)</option>
+                        <option value="₹30,000 – ₹60,000 (~$360 – $720 USD)">₹30,000 – ₹60,000 (~$360 – $720 USD)</option>
+                        <option value="₹60,000 – ₹1,20,000 (~$720 – $1,450 USD)">₹60,000 – ₹1,20,000 (~$720 – $1,450 USD)</option>
+                        <option value="₹1,20,000+ ($1,450+ USD / Retainer)">₹1,20,000+ ($1,450+ USD / Retainer)</option>
                       </select>
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-xs font-semibold uppercase tracking-wider text-foreground/70 mb-2">
-                      Project Scope & Goals *
+                      Project Scope &amp; Goals *
                     </label>
                     <textarea
                       required
                       rows={5}
                       value={form.message}
+                      onFocus={handleInputInteraction}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
                       placeholder="Briefly describe what you're looking to build, optimize, or automate (e.g. e-commerce storefront, institutional portal, SEO audit, or custom dashboard)..."
                       className="field resize-none"
@@ -569,6 +619,7 @@ export default function FreelancePage() {
         </div>
       </main>
       <Footer />
+      <MobileQuickContactBar />
     </>
   );
 }

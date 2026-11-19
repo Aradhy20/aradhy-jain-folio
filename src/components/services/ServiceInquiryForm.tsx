@@ -2,7 +2,8 @@
 
 import { useState, FormEvent } from "react";
 import { Send, Loader2, CheckCircle2, MessageSquare, Mail } from "lucide-react";
-import { analytics, trackEvent } from "@/lib/analytics";
+import { analytics } from "@/lib/analytics";
+import Link from "next/link";
 
 interface ServiceInquiryFormProps {
   defaultCategory: string;
@@ -25,6 +26,7 @@ export function ServiceInquiryForm({
   });
 
   const [loading, setLoading] = useState(false);
+  const [hasStartedForm, setHasStartedForm] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [submittedData, setSubmittedData] = useState<{
     success: boolean;
@@ -36,6 +38,13 @@ export function ServiceInquiryForm({
       whatsappUrl: string;
     };
   } | null>(null);
+
+  const handleInputInteraction = () => {
+    if (!hasStartedForm) {
+      setHasStartedForm(true);
+      analytics.trackFormStart(`service_page_${defaultCategory.toLowerCase().replace(/\s+/g, "_")}`);
+    }
+  };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -55,13 +64,9 @@ export function ServiceInquiryForm({
     }
 
     setLoading(true);
+    analytics.trackFormSubmit(`service_page_${defaultCategory.toLowerCase().replace(/\s+/g, "_")}`, form.serviceCategory);
 
     try {
-      trackEvent("service_inquiry_attempt", {
-        category: form.serviceCategory,
-        budget: form.budgetRange,
-      });
-
       const response = await fetch("/api/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -75,10 +80,11 @@ export function ServiceInquiryForm({
       }
 
       setSubmittedData(data);
-      analytics.trackContactFormSubmit({
+      analytics.trackGenerateLead({
         serviceCategory: form.serviceCategory,
         budgetRange: form.budgetRange,
         timeline: form.timeline,
+        formSource: `service_page_${defaultCategory.toLowerCase().replace(/\s+/g, "_")}`,
       });
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Something went wrong. Please reach out directly.";
@@ -155,6 +161,7 @@ export function ServiceInquiryForm({
                 type="text"
                 required
                 value={form.name}
+                onFocus={handleInputInteraction}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 placeholder="e.g. Ramesh Sharma"
                 className="w-full rounded-xl border border-border/80 bg-background/50 px-4 py-2.5 text-sm text-foreground placeholder:text-foreground/40 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500 transition-colors"
@@ -168,6 +175,7 @@ export function ServiceInquiryForm({
                 type="email"
                 required
                 value={form.email}
+                onFocus={handleInputInteraction}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 placeholder="name@company.com"
                 className="w-full rounded-xl border border-border/80 bg-background/50 px-4 py-2.5 text-sm text-foreground placeholder:text-foreground/40 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500 transition-colors"
@@ -183,6 +191,7 @@ export function ServiceInquiryForm({
               <input
                 type="text"
                 value={form.company}
+                onFocus={handleInputInteraction}
                 onChange={(e) => setForm({ ...form, company: e.target.value })}
                 placeholder="e.g. Acme Enterprises"
                 className="w-full rounded-xl border border-border/80 bg-background/50 px-4 py-2.5 text-sm text-foreground placeholder:text-foreground/40 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500 transition-colors"
@@ -204,17 +213,19 @@ export function ServiceInquiryForm({
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
               <label className="block text-xs font-medium text-foreground/80 mb-1">
-                Budget Expectations
+                Budget Scope (Indicative)
               </label>
               <select
                 value={form.budgetRange}
+                onFocus={handleInputInteraction}
                 onChange={(e) => setForm({ ...form, budgetRange: e.target.value })}
                 className="w-full rounded-xl border border-border/80 bg-background/50 px-4 py-2.5 text-sm text-foreground focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500 transition-colors"
               >
                 <option value="Flexible / Discussion">Flexible / Open for discussion</option>
-                <option value="₹15,000 – ₹30,000 (~$200 – $360)">₹15,000 – ₹30,000 (~$200 – $360)</option>
-                <option value="₹30,000 – ₹60,000 (~$360 – $720)">₹30,000 – ₹60,000 (~$360 – $720)</option>
-                <option value="₹60,000+ (~$720+)">₹60,000+ (~$720+)</option>
+                <option value="₹15,000 – ₹30,000 (~$200 – $360 USD)">₹15,000 – ₹30,000 (~$200 – $360 USD)</option>
+                <option value="₹30,000 – ₹60,000 (~$360 – $720 USD)">₹30,000 – ₹60,000 (~$360 – $720 USD)</option>
+                <option value="₹60,000 – ₹1,20,000 (~$720 – $1,450 USD)">₹60,000 – ₹1,20,000 (~$720 – $1,450 USD)</option>
+                <option value="₹1,20,000+ ($1,450+ USD / Retainer)">₹1,20,000+ ($1,450+ USD / Retainer)</option>
               </select>
             </div>
             <div>
@@ -223,11 +234,12 @@ export function ServiceInquiryForm({
               </label>
               <select
                 value={form.timeline}
+                onFocus={handleInputInteraction}
                 onChange={(e) => setForm({ ...form, timeline: e.target.value })}
                 className="w-full rounded-xl border border-border/80 bg-background/50 px-4 py-2.5 text-sm text-foreground focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500 transition-colors"
               >
-                <option value="Immediate (< 1 Week)">Urgent / Within 1 Week</option>
-                <option value="Within 2-3 Weeks">Standard (2 to 3 Weeks)</option>
+                <option value="Urgent (< 2 Weeks)">Urgent / Within 2 Weeks</option>
+                <option value="Within 2-3 Weeks (Standard)">Standard (2 to 3 Weeks)</option>
                 <option value="Within 1 Month">Within 1 Month</option>
                 <option value="Planning Phase">Planning / Future Quarter</option>
               </select>
@@ -242,10 +254,28 @@ export function ServiceInquiryForm({
               required
               rows={4}
               value={form.message}
+              onFocus={handleInputInteraction}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
               placeholder="Tell me about your current website or workflow, target goals, and any specific requirements..."
               className="w-full rounded-xl border border-border/80 bg-background/50 px-4 py-2.5 text-sm text-foreground placeholder:text-foreground/40 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500 transition-colors"
             />
+          </div>
+
+          {/* Privacy Consent Checkbox */}
+          <div className="flex items-start gap-3 rounded-xl border border-foreground/10 bg-foreground/[0.02] p-3.5 text-xs text-foreground/75">
+            <input
+              type="checkbox"
+              id="service-privacy-consent"
+              required
+              className="mt-0.5 h-4 w-4 rounded border-border text-cyan-600 focus:ring-cyan-500 cursor-pointer"
+            />
+            <label htmlFor="service-privacy-consent" className="cursor-pointer leading-relaxed">
+              I agree that my information may be used to review and respond to this project inquiry in accordance with the{" "}
+              <Link href="/privacy" className="text-cyan-600 dark:text-cyan-400 font-semibold underline hover:text-cyan-500">
+                Privacy Policy
+              </Link>
+              . No spam, no marketing distribution, no data sales.
+            </label>
           </div>
 
           {errorMessage && (
@@ -277,6 +307,7 @@ export function ServiceInquiryForm({
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => analytics.trackWhatsAppClick("service_page_inquiry")}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-6 py-3 text-sm font-semibold text-emerald-400 hover:bg-emerald-500/20 transition-colors"
             >
               <MessageSquare className="h-4 w-4" />

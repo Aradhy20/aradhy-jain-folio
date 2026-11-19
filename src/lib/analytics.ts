@@ -10,8 +10,9 @@ declare global {
 }
 
 /**
- * Dispatches an event to Google Analytics 4 (gtag.js).
- * Strictly filters out any potential Personally Identifiable Information (PII).
+ * Dispatches an event to Google Analytics 4 (gtag.js) and dataLayer.
+ * Strictly filters out any potential Personally Identifiable Information (PII)
+ * such as names, emails, phone numbers, passwords, and message contents.
  */
 export function trackEvent(
   eventName: string,
@@ -32,6 +33,9 @@ export function trackEvent(
       "address",
       "password",
       "token",
+      "clientname",
+      "user_name",
+      "user_email",
     ];
     for (const [key, value] of Object.entries(params)) {
       if (
@@ -44,11 +48,15 @@ export function trackEvent(
     }
   }
 
+  // Safe developer inspection log
+  if (process.env.NODE_ENV !== "production") {
+    console.log(`[GA4 Event] ${eventName}`, safeParams);
+  }
+
   if (typeof window.gtag === "function") {
     try {
       window.gtag("event", eventName, safeParams);
     } catch {
-      // Fallback
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event: eventName, ...safeParams });
     }
@@ -74,26 +82,84 @@ export const analytics = {
     });
   },
 
-  // 3. Click Email
+  // 3. Email Click (GA4 standard click event)
   trackEmailClick: (location: string) => {
-    trackEvent("click_email", {
+    trackEvent("email_click", {
       click_location: location,
     });
   },
 
-  // 4. Click WhatsApp
+  // 4. WhatsApp Click (High-intent conversion event)
   trackWhatsAppClick: (location: string) => {
-    trackEvent("click_whatsapp", {
+    trackEvent("whatsapp_click", {
       click_location: location,
     });
   },
 
-  // 5. Contact Form Submit (success only)
+  // 5. Consultation Click (Free 20-min consultation CTA)
+  trackConsultationClick: (location: string, label: string = "Book a Free Consultation") => {
+    trackEvent("consultation_click", {
+      click_location: location,
+      cta_label: label,
+    });
+  },
+
+  // 6. Form Start (Fires when user begins typing or focuses in inquiry form)
+  trackFormStart: (formName: string) => {
+    trackEvent("form_start", {
+      form_name: formName,
+    });
+  },
+
+  // 7. Form Submit (Fires when user attempts to submit the inquiry form)
+  trackFormSubmit: (formName: string, serviceCategory?: string) => {
+    trackEvent("form_submit", {
+      form_name: formName,
+      service_category: serviceCategory,
+    });
+  },
+
+  // 8. Generate Lead (Primary conversion event upon successful inquiry response)
+  trackGenerateLead: (metadata?: {
+    serviceCategory?: string;
+    budgetRange?: string;
+    timeline?: string;
+    formSource?: string;
+  }) => {
+    trackEvent("generate_lead", {
+      service_category: metadata?.serviceCategory,
+      budget_range: metadata?.budgetRange,
+      timeline: metadata?.timeline,
+      form_source: metadata?.formSource || "website_inquiry",
+      currency: "INR",
+    });
+  },
+
+  // 9. Case Study / Project Click
+  trackProjectCaseStudyClick: (
+    projectTitle: string,
+    projectSlug: string,
+    clickType: "case_study" | "live_site" | "github" = "case_study"
+  ) => {
+    trackEvent("project_case_study_click", {
+      project_title: projectTitle,
+      project_slug: projectSlug,
+      click_type: clickType,
+    });
+  },
+
+  // Backward compatibility alias methods
   trackContactFormSubmit: (metadata?: {
     serviceCategory?: string;
     budgetRange?: string;
     timeline?: string;
   }) => {
+    trackEvent("generate_lead", {
+      service_category: metadata?.serviceCategory,
+      budget_range: metadata?.budgetRange,
+      timeline: metadata?.timeline,
+      status: "success",
+    });
     trackEvent("contact_form_submit", {
       service_category: metadata?.serviceCategory,
       budget_range: metadata?.budgetRange,
@@ -102,7 +168,6 @@ export const analytics = {
     });
   },
 
-  // 6. Resume Download
   trackResumeDownload: (location: string) => {
     trackEvent("resume_download", {
       file_name: "Aradhy_Jain_Resume.pdf",
@@ -110,12 +175,16 @@ export const analytics = {
     });
   },
 
-  // 7. Project View
   trackProjectView: (
     projectTitle: string,
     projectSlug: string,
     action: "case_study_page" | "modal_view" | "live_site"
   ) => {
+    trackEvent("project_case_study_click", {
+      project_title: projectTitle,
+      project_slug: projectSlug,
+      click_type: action,
+    });
     trackEvent("project_view", {
       project_title: projectTitle,
       project_slug: projectSlug,
@@ -123,11 +192,16 @@ export const analytics = {
     });
   },
 
-  // 8. Contact CTA Click
   trackContactCtaClick: (ctaLabel: string, ctaLocation: string) => {
     trackEvent("contact_cta_click", {
       cta_label: ctaLabel,
       cta_location: ctaLocation,
     });
+    if (ctaLabel.toLowerCase().includes("consultation")) {
+      trackEvent("consultation_click", {
+        click_location: ctaLocation,
+        cta_label: ctaLabel,
+      });
+    }
   },
 };

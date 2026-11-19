@@ -3,7 +3,7 @@
 import { CreatorProfileCard } from "@/components/CreatorProfileCard";
 import { PORTFOLIO_DATA } from "@/data";
 import { motion } from "framer-motion";
-import { ArrowRight, Download, MapPin, Sparkles, Briefcase, ChevronDown } from "lucide-react";
+import { ArrowRight, Download, MapPin, ChevronDown, Calendar, MessageSquare } from "lucide-react";
 import { useState, useEffect } from "react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { MagneticButton } from "@/components/ui/MagneticButton";
@@ -88,19 +88,19 @@ export function Hero() {
 
           {/* Central Value Proposition */}
           <p className="mt-6 text-base sm:text-lg font-normal leading-relaxed text-foreground/75 max-w-2xl">
-            I help businesses establish a stronger online presence through responsive websites, e-commerce solutions, marketplace catalogue optimization, technical SEO, digital marketing, and data-driven improvements.
+            Engineering high-performance Next.js websites, multi-channel e-commerce storefronts, and automated data systems. Trusted by small &amp; medium businesses, educational institutions, and scaling startups across India, the USA, UK, and Germany.
           </p>
 
           {/* Core Commercial Pillar Badges - Prioritized 3 Pillars */}
           <div className="mt-6 flex flex-wrap items-center gap-2.5 text-xs font-semibold">
             <span className="rounded-full border border-cyan-500/35 bg-cyan-500/10 px-3.5 py-1.5 text-cyan-800 dark:text-cyan-200">
-              1. Website Development
+              1. Website &amp; Portal Engineering
             </span>
             <span className="rounded-full border border-amber-500/35 bg-amber-500/10 px-3.5 py-1.5 text-amber-800 dark:text-amber-200">
-              2. E-commerce & Marketplaces (Amazon · Flipkart · Meesho)
+              2. E-commerce &amp; Marketplaces (Amazon · Flipkart · Meesho)
             </span>
             <span className="rounded-full border border-purple-500/35 bg-purple-500/10 px-3.5 py-1.5 text-purple-800 dark:text-purple-200">
-              3. SEO, Analytics & Automation
+              3. SEO, AI &amp; Power BI Analytics
             </span>
           </div>
 
@@ -118,26 +118,44 @@ export function Hero() {
             </MagneticButton>
 
             <MagneticButton
-              href="#projects"
-              ariaLabel="View Selected Case Studies and Work"
-              onClick={() => analytics.trackContactCtaClick("View My Work", "hero")}
+              href="#contact"
+              ariaLabel="Book a Free 20-Min Project Consultation"
+              onClick={() => {
+                analytics.trackConsultationClick("hero", "Book a Free Consultation");
+                const selectElement = document.getElementById("contact-service") as HTMLSelectElement | null;
+                if (selectElement) selectElement.value = "Free 20-Min Project Consultation";
+              }}
             >
-              <span className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-6 py-3.5 text-sm font-semibold text-cyan-700 dark:text-cyan-300 backdrop-blur-xl transition-all hover:bg-cyan-500/20">
-                <Briefcase size={16} />
-                View My Work
+              <span className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-500/40 bg-cyan-500/15 px-6 py-3.5 text-sm font-semibold text-cyan-700 dark:text-cyan-300 backdrop-blur-xl transition-all hover:bg-cyan-500/25">
+                <Calendar size={16} />
+                Book a Free Consultation
               </span>
             </MagneticButton>
 
             <MagneticButton
-              href="#audit-tool"
-              ariaLabel="Free Website Audit Diagnostic Tool"
-              onClick={() => analytics.trackContactCtaClick("Free Website Audit", "hero")}
+              href={`https://wa.me/${PORTFOLIO_DATA.personalInfo.whatsapp}?text=${encodeURIComponent("Hi Aradhy, I'd like to discuss a project for my business.")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              ariaLabel="Direct WhatsApp Chat with Aradhy Jain"
+              onClick={() => analytics.trackWhatsAppClick("hero")}
             >
-              <span className="inline-flex items-center justify-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-5 py-3.5 text-sm font-semibold text-purple-700 dark:text-purple-300 backdrop-blur-xl hover:bg-purple-500/20 transition-all">
-                <Sparkles size={16} />
-                Free Website Audit
+              <span className="inline-flex items-center justify-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/15 px-5 py-3.5 text-sm font-semibold text-emerald-700 dark:text-emerald-300 backdrop-blur-xl hover:bg-emerald-500/25 transition-all">
+                <MessageSquare size={16} />
+                WhatsApp Direct
               </span>
             </MagneticButton>
+          </div>
+
+          {/* Trust Indicators & Response Expectation */}
+          <div className="mt-5 flex flex-wrap items-center gap-y-2 gap-x-4 text-xs text-foreground/70">
+            <span className="inline-flex items-center gap-1.5 font-medium text-emerald-600 dark:text-emerald-400">
+              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+              Guaranteed response within 24h (avg. &lt;2 hrs)
+            </span>
+            <span className="hidden sm:inline text-foreground/30">•</span>
+            <span>100% Milestone-based billing</span>
+            <span className="hidden sm:inline text-foreground/30">•</span>
+            <span>Sub-2s load speed guaranteed</span>
           </div>
 
           {/* Social Links & Location */}
