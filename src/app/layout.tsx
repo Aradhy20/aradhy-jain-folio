@@ -289,7 +289,7 @@ export default function RootLayout({
                 "@id": `${siteUrl}/#service-institutional-websites`,
                 name: "Institutional & College Website Development",
                 description:
-                  "Mandatory regulatory compliance disclosures (NCTE/UGC), academic prospectus portals, and student admission workflows.",
+                  "Public disclosure archives, academic prospectus portals, course guides, and student admission inquiry workflows for colleges and institutions.",
                 serviceType: "Institutional & College Website Development",
                 url: `${siteUrl}/services/institutional-websites`,
                 provider: {

@@ -39,7 +39,7 @@ const PROJECT_META_DESCRIPTIONS: Record<string, string> = {
   "sanmati-journal":
     "International peer-reviewed open-access academic publishing platform featuring automated manuscript indexing and CrossRef DOI integration.",
   "dsr-college":
-    "Institutional web portal for DSR College of Education in Bihar, featuring NCTE regulatory disclosures, academic prospectus, and student inquiry workflows.",
+    "Institutional web portal for DSR College of Education in Bihar, featuring course curricula, academic prospectus downloads, admission enquiry capture, and statutory disclosure archives.",
   "pravaah-upsc":
     "Educational and mentorship platform for civil services aspirants, engineered with Next.js, structured syllabus roadmaps, and daily editorial study modules.",
   jambudweep:

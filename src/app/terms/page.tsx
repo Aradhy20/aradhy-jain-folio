@@ -78,8 +78,8 @@ export default function TermsOfServicePage() {
                   <p className="font-bold text-foreground">Standard 3-Stage Milestone Payment Schedule:</p>
                   <ul className="list-disc pl-5 space-y-1.5 text-foreground/75 text-xs sm:text-sm">
                     <li><strong className="text-foreground">Deposit Milestone (40%):</strong> Due upon proposal sign-off to initiate discovery, wireframing, and development environment setup.</li>
-                    <li><strong className="text-foreground">Staging Review Milestone (40%):</strong> Due upon completion of primary pages and deployment to a private, interactive staging preview.</li>
-                    <li><strong className="text-foreground">Final Launch & Handover (20%):</strong> Due upon final QA approval, custom domain point, Google Search Console connection, and admin handover.</li>
+                    <li><strong className="text-foreground">Staging Review Milestone (30%):</strong> Due upon completion of primary pages and deployment to a private, interactive staging preview.</li>
+                    <li><strong className="text-foreground">Final Launch & Handover (30%):</strong> Due upon final QA approval, custom domain point, Google Search Console connection, and admin handover.</li>
                   </ul>
                 </div>
               </div>

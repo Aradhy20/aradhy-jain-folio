@@ -25,7 +25,7 @@
 * **XML Sitemap (`src/app/sitemap.ts`):**
   * Eliminated fluctuating dynamic `new Date()` calls.
   * Replaced with deterministic, genuine last-modified ISO timestamps.
-  * Dynamically maps all static public routes (`/`, `/freelance`, `/privacy`, `/terms`) plus all 16 project case studies.
+  * Dynamically maps all static public routes (`/`, `/services`, `/blog`, `/freelance`, `/freelance-web-developer-noida`, `/privacy`, `/terms`), all 6 service routes, the 2 published blog articles, and all 16 project case studies (31 canonical URLs total).
 * **Google Search Console Verification:**
   * Static file at `/google80fa28b362283c56.html` verified (`HTTP/2 200 OK`).
   * Backup meta tag verified in root layout.
@@ -82,13 +82,20 @@
 * **Content Calendar Expansion:** Structured the 4 requested content calendar topics in `src/data/blogData.ts` for small business web development, e-commerce pre-launch, Next.js technical SEO, and college website portal compliance.
 * **Master Keyword Intent Map:** Authored [`SEO_KEYWORD_INTENT_MAP.md`](file:///Volumes/DevDrive/aradhy%20portfolio/SEO_KEYWORD_INTENT_MAP.md) detailing target URLs, primary/secondary keywords, search intents, H1s, and Google Search Console validation benchmarks.
 
+### Phase 13: Content Trust, Factuality & Regulatory Remediation
+* **Disclaimed Regulatory Compliance Guarantee:** Removed any claims implying developer certification or guarantee of statutory audit outcomes (NCTE/UGC/NAAC). Clarified that institutions remain solely responsible for providing and approving official compliance records.
+* **Qualified Metrics & Outcomes:** Removed unverified statistics including "40% admission enquiry surge", "zero inspection flags", "100% citation eligibility", "zero crawl errors across hundreds of papers", "thousands of visitors served monthly", and unqualified sub-second speed assertions. Replaced with verifiable technical deliverable descriptions.
+* **Fixed Canonical Project URLs:** Corrected all mismatching external project links (`https://dsr.college/`, `https://sanmatijournal.in`, `https://jambudweephastinapur.com/`). Removed broken/placeholder domain `pravaahupsc.com`.
+* **Standardized Commercial & Milestone Terms:** Synchronized milestone payment schedules across `/terms`, `/freelance`, `/freelance-web-developer-noida`, and blog guides to the consistent standard: 40% advance deposit, 30% interactive staging approval, 30% final go-live and handover.
+* **Sitemap Count Correction:** Updated documentation to reflect the verified production count of 31 indexed canonical URLs.
+
 ---
 
 ## 2. Implementation Status Classification
 
 ### A. Completed (100% Implemented & Verified in Production)
 - **Robots Directives (`src/app/robots.ts`):** Explicit allow rules for Googlebot, Bingbot, OAI-SearchBot, PerplexityBot, and ClaudeBot; `/api/` disallowed.
-- **XML Sitemap (`src/app/sitemap.ts`):** Deterministic, genuine ISO timestamps for all 20 canonical URLs.
+- **XML Sitemap (`src/app/sitemap.ts`):** Deterministic, genuine ISO timestamps for all 31 canonical URLs (7 static + 6 services + 2 published blog articles + 16 project case studies).
 - **Root Entity Schemas (`src/app/layout.tsx`):** Connected `@graph` with `WebSite`, `ProfilePage`, `Person`, and `ProfessionalService`.
 - **Project Case Studies:** All 16 projects statically compiled (29/29 routes), with rich schema and verified deliverables.
 - **Machine-Readable LLM Context (`public/llms.txt`):** Standard factual documentation endpoint live.

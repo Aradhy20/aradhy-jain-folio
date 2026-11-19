@@ -148,7 +148,7 @@ export const PORTFOLIO_DATA = {
     {
       title: "Attention to SEO, Usability & Performance",
       description:
-        "Every page is structured with mobile-first responsiveness, accessible navigation, schema metadata, and sub-second Core Web Vitals speed from day one.",
+        "Every page is structured with mobile-first responsiveness, accessible navigation, schema metadata, and optimized Core Web Vitals speed from day one.",
       icon: "Gauge",
     },
     {
@@ -243,9 +243,9 @@ export const PORTFOLIO_DATA = {
       categoryBadge: "Bespoke Architecture",
       targetAudience: "Growing enterprises, educational institutions, research publishers, and professional firms",
       iconName: "Layers",
-      tagline: "Bespoke digital architecture tailored to conversions, institutional compliance & speed.",
+      tagline: "Bespoke digital architecture tailored to conversions, institutional transparency & speed.",
       description:
-        "Full-stack custom platform engineered with Next.js/React. Designed for complex content structures, academic/compliance workflows, and sub-second Core Web Vitals speeds.",
+        "Full-stack custom platform engineered with Next.js/React. Designed for complex content structures, academic disclosure workflows, and fast Core Web Vitals performance.",
       indicativePriceINR: "₹38,000 – ₹75,000",
       indicativePriceUSD: "$460 – $920",
       estimatedTimeline: "3 – 4 Weeks",
@@ -254,7 +254,7 @@ export const PORTFOLIO_DATA = {
         "Up to 10–15 bespoke responsive pages with custom UI component architecture",
         "Dynamic content sections (Notices, Announcements, Course Catalogs, or Archives)",
         "Comprehensive Technical SEO: Schema.org JSON-LD (Organization, EducationalOrganization, Article)",
-        "Preloaded hero assets and speed optimization achieving sub-second mobile LCP",
+        "Preloaded hero assets and speed optimization for fast mobile loading",
         "Prospectus downloads, multi-step inquiry forms, or payment gateway integration",
         "Staging preview environment, deployment walkthrough, and 30-day post-launch warranty",
       ],
@@ -524,13 +524,13 @@ export const PORTFOLIO_DATA = {
       description:
         "Designed and built the official institutional website for Dr. Sarvepalli Radhakrishnan College (dsr.college). The web portal organizes teacher education programmes (B.Ed., D.El.Ed., and Four-Year ITEP), student admissions guidelines, prospectus downloads, faculty directories, and mandatory institutional disclosures within a high-contrast, accessible layout.",
       problem:
-        "Prospective applicants and regulatory accreditation teams lacked a central, mobile-responsive source of truth for admission criteria, fee structures, faculty credentials, and NCTE compliance notifications.",
+        "Prospective applicants and visitors lacked a central, mobile-responsive source of truth for admission criteria, fee structures, faculty credentials, and mandatory institutional disclosures.",
       role:
-        "Lead Web Developer & UI Architect: Structured site information architecture, built mobile-first responsive layouts, integrated prospectus download pipelines, and achieved sub-second Core Web Vitals speeds.",
+        "Lead Web Developer & UI Architect: Structured site information architecture, built mobile-first responsive layouts, integrated prospectus download pipelines, and optimized Core Web Vitals for mobile users.",
       features: [
         "Comprehensive teacher education curriculum guides (B.Ed., D.El.Ed., Four-Year ITEP)",
         "Admissions Portal with prospectus downloads, eligibility self-check, and helpline",
-        "Institutional EducationalOrganization Schema.org structured data for Google ranking",
+        "Institutional EducationalOrganization Schema.org structured data for search engine visibility",
         "High-priority hero LCP image preloading ensuring fast mobile rendering on rural networks",
         "Dynamic notices and circulars bulletin board for administrative announcements",
         "WCAG-aligned contrast, clear typography hierarchy, and accessible navigation",
@@ -541,12 +541,12 @@ export const PORTFOLIO_DATA = {
       liveLink: "https://dsr.college/",
       challengesSolutions: {
         challenge:
-          "Ensuring instant load times for prospective rural students accessing admission prospectuses on limited mobile bandwidth.",
+          "Ensuring reliable load times for prospective students accessing admission prospectuses on limited mobile bandwidth in regional areas.",
         solution:
-          "Implemented lightweight vanilla DOM components, optimized WebP graphics, and preloaded critical LCP assets, achieving sub-second load times.",
+          "Implemented lightweight semantic markup, compressed WebP graphics, and preloaded critical hero assets to deliver fast mobile page rendering.",
       },
       verifiedOutcome:
-        "Operating live at dsr.college, serving thousands of prospective students and meeting all institutional transparency requirements.",
+        "Operating live at dsr.college, providing prospective students and parents with centralized course details, prospectus downloads, and institutional disclosure records.",
       lastModified: "2026-11-19",
     },
     {
@@ -561,7 +561,7 @@ export const PORTFOLIO_DATA = {
       description:
         "A comprehensive digital presence developed for the historical and spiritual center Jambudweep in Hastinapur, Uttar Pradesh. Features custom responsive landing layouts, architectural and cosmological models documentation, photo archives, and practical pilgrim guidance.",
       problem:
-        "Heritage centers welcome tens of thousands of pilgrims and tourists requiring accurate visiting hours, historical context, travel routes, and facility details in a lightweight, mobile-accessible format.",
+        "Heritage centers receive substantial in-person footfall and inquiries requiring accurate visiting hours, historical context, travel routes, and facility details in a lightweight, mobile-accessible format.",
       role: "Frontend Developer: Engineered responsive layouts, mobile-first navigation systems, accessible typography, and interactive media showcases.",
       features: [
         "Interactive visitor guide and temple complex facility navigation",
@@ -1087,7 +1087,7 @@ export const PORTFOLIO_DATA = {
       title: "Clean Next.js/React Development & Catalog Setup",
       duration: "Weeks 2–3",
       description:
-        "Developing the platform using clean Next.js/React, semantic HTML5, high-contrast accessible UI, and sub-second asset pipelines. For e-commerce, master SKU templates are formatted.",
+        "Developing the platform using clean Next.js/React, semantic HTML5, high-contrast accessible UI, and optimized asset delivery pipelines. For e-commerce, master SKU templates are formatted.",
       deliverable: "Working Staging Platform & Marketplace Product Catalogs for Client Review",
     },
     {

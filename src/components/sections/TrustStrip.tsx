@@ -6,9 +6,9 @@ import { Globe, ShoppingBag, TrendingUp, BarChart3, CheckCircle2 } from "lucide-
 const CAPABILITIES = [
   {
     title: "Web & Portal Development",
-    description: "Custom business websites & institutional web portals with sub-second LCP.",
+    description: "Custom business websites & institutional web portals engineered for speed and search indexing.",
     icon: Globe,
-    proofTag: "Live: dsrcollege.ac.in",
+    proofTag: "Live: dsr.college",
   },
   {
     title: "E-commerce & Marketplaces",
@@ -20,7 +20,7 @@ const CAPABILITIES = [
     title: "Technical SEO & Speed",
     description: "Structured Schema.org entity graphs, Core Web Vitals, and indexing optimization.",
     icon: TrendingUp,
-    proofTag: "sanmati.org.in · CrossRef",
+    proofTag: "sanmatijournal.in · CrossRef",
   },
   {
     title: "AI, Python & Power BI",

@@ -137,7 +137,7 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
         description:
           "Designed and built the official institutional web portal for an accredited teacher education college, structuring academic programs, admission workflows, and mandatory regulatory disclosures.",
         verifiedOutcome:
-          "Operating live at dsr.college with sub-second mobile page loads, serving prospective students and regulatory compliance needs.",
+          "Operating live at dsr.college with responsive mobile page delivery, structuring course information, prospectus downloads, and institutional disclosure archives.",
         liveUrl: "https://dsr.college/",
         caseStudyUrl: "/projects/dsr-college",
         techStack: ["Next.js", "React", "Tailwind CSS", "Technical SEO", "Accessibility"],
@@ -151,7 +151,7 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
         description:
           "Architected the digital publishing platform for an international peer-reviewed multidisciplinary research journal (ISSN 3108-1819) with CrossRef DOI integration and academic SEO schemas.",
         verifiedOutcome:
-          "Actively indexed in Google Scholar with automated volume archiving and distraction-free mobile reading typography.",
+          "Operating live at sanmatijournal.in with CrossRef DOI metadata, volume archives, and bibliographic metadata structured for academic search discovery.",
         liveUrl: "https://sanmatijournal.in",
         caseStudyUrl: "/projects/sanmati-journal",
         techStack: ["Next.js", "React", "Tailwind CSS", "Academic SEO", "Information Architecture"],
@@ -178,8 +178,7 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
         description:
           "Architected an authoritative learning hub for civil services candidates featuring structured syllabus roadmaps, editorial study modules, and mentor connect channels.",
         verifiedOutcome:
-          "Sub-second static route delivery with zero layout shifts, enabling thousands of mobile candidates to browse syllabus materials effortlessly.",
-        liveUrl: "https://pravaahupsc.com/",
+          "Delivered a structured static curriculum navigator with clean typography and fast page transitions for long study sessions.",
         caseStudyUrl: "/projects/pravaah-upsc",
         techStack: ["Next.js 14", "TypeScript", "Tailwind CSS", "Vercel"],
       },
@@ -509,15 +508,15 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
     caseStudies: [
       {
         slug: "sanmati-journal",
-        title: "Sanmati Research Journal — Academic Indexing & CrossRef Integration",
-        client: "Sanmati Journal",
+        title: "Sanmati Journal — Academic Metadata & CrossRef DOI Integration",
+        client: "Sanmati Research Foundation",
         role: "Technical SEO Architect & Web Developer",
         image: "/project_digital_journal.png",
         description:
-          "Engineered an automated academic publishing platform with structured Highwire Press and Dublin Core meta tags, enabling immediate automated indexing across Google Scholar and CrossRef DOI registers.",
+          "Engineered an academic publishing platform with structured Highwire Press and Dublin Core meta tags, establishing standardized bibliographic metadata for Google Scholar discovery and CrossRef DOI integration.",
         verifiedOutcome:
-          "Zero crawl errors across hundreds of archived research papers with 100% Google Scholar citation eligibility.",
-        liveUrl: "https://sanmati.org.in/",
+          "Structured research papers with validated bibliographic metadata, clean canonical tags, and DOI linking on sanmatijournal.in.",
+        liveUrl: "https://sanmatijournal.in",
         caseStudyUrl: "/projects/sanmati-journal",
         techStack: ["Technical SEO", "Highwire Press Meta", "Dublin Core", "Next.js", "CrossRef DOI"],
       },
@@ -1015,21 +1014,21 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
     badge: "Institutional & Academic Portals",
     h1: "College & Institutional Website Development in India",
     tagline:
-      "Build authoritative, accessible institutional portals engineered for regulatory compliance (NCTE/UGC), seamless student admissions, and academic research dissemination.",
+      "Build authoritative, accessible institutional web portals with organized disclosure archives, student admission enquiry workflows, and academic research publishing.",
     heroSummary:
-      "Colleges, higher education institutes, training academies, and academic research bodies face unique technical challenges: mandatory statutory disclosures, seasonal admission traffic surges, complex curriculum displays, and peer-reviewed research publishing. I engineer custom institutional web portals that ensure flawless regulatory compliance, mobile accessibility for students and parents, and automated admission lead capture.",
+      "Colleges, higher education institutes, training academies, and academic research bodies face unique digital challenges: organizing statutory disclosure documents, handling admission enquiry periods, displaying multi-stream course prospectuses, and publishing research papers. I develop structured institutional web portals that make public disclosures easily accessible, provide mobile-friendly navigation for students and parents, and route admission enquiries directly to campus teams. Note: While I structure and publish disclosure sections to reflect regulatory guidelines, each institution remains responsible for supplying and approving its official documents and statutory submissions.",
     targetAudience: {
       heading: "Who Benefits Most from This Service",
       description:
         "Specifically crafted for college principals, institutional chairmen, academic journal editors, university deans, and training academy directors.",
       whoIsItFor: [
-        "Degree colleges and teacher education institutions (B.Ed / D.El.Ed) requiring mandatory NCTE public disclosures.",
+        "Degree colleges and teacher education institutions (B.Ed / D.El.Ed) requiring structured public disclosure sections.",
         "Private educational institutions wanting to increase student inquiries and streamline admission workflows.",
         "Academic research trusts and open-access publishing boards needing CrossRef DOI integration and journal indexing.",
         "Cultural foundations, spiritual trusts, and non-profits seeking an authoritative public-facing digital archive.",
       ],
       typicalProblems: [
-        "Outdated, broken college websites that fail statutory NCTE, UGC, or NAAC inspection audits.",
+        "Disorganized college websites where mandatory disclosure orders, faculty lists, or affiliation documents are difficult for visitors and evaluation committees to locate.",
         "Confusing mobile navigation that causes prospective students and parents to miss admission deadlines.",
         "Admission inquiry forms that drop leads or fail to alert campus counselors in real time.",
         "Academic journal websites where research papers cannot be discovered by Google Scholar or international indexing bodies.",
@@ -1037,12 +1036,12 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
     },
     deliverables: [
       {
-        category: "Regulatory Compliance & Institutional Transparency",
+        category: "Institutional Transparency & Mandatory Disclosures",
         items: [
-          "Mandatory regulatory disclosure modules (NCTE recognition orders, affiliating university orders, land/building specs)",
-          "Faculty and staff directory with qualifications, designations, and mandatory photos",
+          "Structured public disclosure sections for affiliation orders, recognition notifications, and administrative records",
+          "Faculty and staff directory with qualifications, designations, and administrative contact details",
           "Publicly accessible fee structures, student intake capacities, and grievance redressal committee details",
-          "Institutional audit report archiving and NAAC/NIRF accreditation documentation sections",
+          "Document archives for institutional audit reports, accreditation certificates, and annual reports",
         ],
       },
       {
@@ -1067,29 +1066,29 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
     caseStudies: [
       {
         slug: "dsr-college",
-        title: "DSR College of Education — Institutional Portal & NCTE Compliance",
-        client: "DSR College of Education",
+        title: "DSR College — Institutional Web Portal & Public Disclosures",
+        client: "Dr. Sarvepalli Radhakrishnan College",
         role: "Institutional Web Developer",
         image: "/project_dsr_college.jpg",
         description:
-          "Engineered the complete institutional web portal for a premier teacher education college in Bihar, building dedicated NCTE regulatory disclosure modules, academic prospectus showcases, and student admission inquiry capture.",
+          "Engineered the institutional web portal for an accredited teacher education college in Nalanda, Bihar, structuring course curriculum guides (B.Ed, D.El.Ed, ITEP), student prospectus downloads, admission enquiry capture, and statutory disclosure archives.",
         verifiedOutcome:
-          "Full statutory NCTE compliance achieved with zero inspection flags, alongside a 40% increase in qualified digital admission inquiries.",
-        liveUrl: "https://dsrcollege.ac.in/",
+          "Operating live at dsr.college with responsive mobile navigation, student inquiry routing, and organized institutional disclosure repositories.",
+        liveUrl: "https://dsr.college/",
         caseStudyUrl: "/projects/dsr-college",
-        techStack: ["Next.js", "Regulatory Compliance", "Tailwind CSS", "Student Admissions"],
+        techStack: ["Next.js", "Institutional Web Design", "Tailwind CSS", "Student Admissions"],
       },
       {
         slug: "sanmati-journal",
-        title: "Sanmati Research Journal — International Academic Publishing Platform",
-        client: "Sanmati Research Journal",
+        title: "Sanmati Journal — Academic Publishing Portal",
+        client: "Sanmati Research Foundation",
         role: "Lead Publishing Architect",
         image: "/project_digital_journal.png",
         description:
-          "Architected an international peer-reviewed academic journal platform with automated manuscript indexing, volume/issue navigation, and CrossRef DOI integration.",
+          "Architected an international peer-reviewed academic journal platform with manuscript guidelines, volume/issue navigation, and CrossRef DOI integration.",
         verifiedOutcome:
-          "Established automated indexing across Google Scholar, CrossRef, and international academic aggregators with zero downtime.",
-        liveUrl: "https://sanmati.org.in/",
+          "Established structured publishing workflow with CrossRef DOI integration, volume archiving, and bibliographic metadata for academic search discovery.",
+        liveUrl: "https://sanmatijournal.in",
         caseStudyUrl: "/projects/sanmati-journal",
         techStack: ["Academic Publishing", "CrossRef DOI", "Google Scholar Metadata", "Next.js"],
       },
@@ -1102,7 +1101,7 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
         description:
           "Engineered an expansive cultural visitor portal featuring architectural archives, visitor guides, interactive temple sections, and institutional news.",
         verifiedOutcome:
-          "Built a durable, mobile-responsive online archive serving thousands of devotees, tourists, and academic researchers monthly.",
+          "Built a mobile-responsive online platform providing temple information, visitor guidance, and cultural archives.",
         liveUrl: "https://jambudweephastinapur.com/",
         caseStudyUrl: "/projects/jambudweep",
         techStack: ["Next.js", "Heritage Archives", "Mobile UX", "Tailwind CSS"],
@@ -1143,14 +1142,14 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
     ],
     pricingTiers: [
       {
-        name: "Institutional Portal (NCTE/Regulatory Compliant)",
+        name: "Institutional Portal & Disclosure Architecture",
         indicativeINR: "₹24,000 – ₹42,000",
         indicativeUSD: "$290 – $510",
         turnaround: "10 – 14 Business Days",
-        summary: "For degree colleges, B.Ed/D.El.Ed institutes, and training academies needing regulatory compliance and admission leads.",
+        summary: "For degree colleges, teacher education institutes, and academies needing organized disclosure sections and student admission lead capture.",
         deliverables: [
-          "Comprehensive 6 to 10 page institutional website covering all statutory disclosure requirements",
-          "Mandatory NCTE/UGC public disclosure sections with downloadable PDF affiliation orders",
+          "Comprehensive 6 to 10 page institutional website with structured navigation and mobile accessibility",
+          "Dedicated public disclosure repository for affiliation orders, faculty lists, and institutional notifications",
           "Online admission inquiry form with automated email and WhatsApp counselor alerts",
           "Courses prospectus, fee structures, faculty profiles, and facilities gallery",
           "Mobile-first design tested across low-end mobile devices and tablets",
@@ -1183,9 +1182,9 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
     ],
     faqs: [
       {
-        question: "How do you ensure our college website passes NCTE and university inspection audits?",
+        question: "How do you structure mandatory disclosures for college websites?",
         answer:
-          "The National Council for Teacher Education (NCTE) and state affiliating universities mandate specific public disclosures: recognition orders, staff lists with biometric IDs and qualifications, audited financial balance sheets, land/building particulars, fee structures, and instructional facilities. I structure these into dedicated, permanently accessible compliance sections that inspection committees can easily verify, preventing adverse audit notices.",
+          "Affiliating universities and regulatory authorities (such as NCTE for teacher education or state directorates) require specific public disclosures, including recognition orders, faculty credentials, fee structures, land/building particulars, and grievance contacts. I organize these into a dedicated, permanently accessible disclosure section with downloadable PDFs and clear navigation. Important note: As a developer, I assist with the technical layout and publishing architecture, but the college administration is solely responsible for ensuring the accuracy, completeness, and legal compliance of all uploaded documents.",
       },
       {
         question: "Can our administrative staff easily upload new student notices, circulars, and fee updates?",

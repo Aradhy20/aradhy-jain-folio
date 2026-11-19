@@ -21,12 +21,25 @@
 | `/services/technical-seo` | Commercial / Technical Service | `technical SEO services India` | `Next.js technical SEO India`, `Core Web Vitals optimization service`, `Google Search Console indexing fix India`, `schema markup developer` | `Technical SEO, Core Web Vitals & Indexing Services for Next.js` | `Technical SEO Services India` | Businesses with slow websites, low organic visibility, crawl errors, or poor Core Web Vitals scores | Commercial / Target |
 | `/services/ai-automation` | Commercial / Technical Service | `AI automation services for business` | `Python business automation India`, `workflow automation developer`, `OpenAI Gemini API integration developer` | `Practical AI & Python Automation Services for Business` | `AI Automation Services for Business` | Operations managers and founders looking to automate repetitive business tasks and data extraction | Commercial / Target |
 | `/services/data-analytics` | Commercial / Technical Service | `Power BI dashboard developer India` | `business intelligence consultant India`, `Excel to Power BI automation`, `sales analytics dashboard developer` | `Executive Power BI Dashboards & Decision Analytics` | `Power BI Dashboard Developer India` | Retail, manufacturing, and finance managers wanting executive KPI dashboards | Commercial / Target |
-| `/services/institutional-websites` | Commercial / Solution Specific | `college website development India` | `institutional web portal developer`, `UGC NAAC compliant college website`, `academic journal website developer`, `school website developer India` | `UGC & NAAC Compliant Institutional Website Development` | `College Website Development India` | University deans, degree colleges, educational trusts, research journal editors | Commercial / Target |
-| `/blog/business-website-cost-india` | Informational / Commercial Investigation | `business website cost in India` | `website development cost India`, `custom website price India`, `Next.js website cost India`, `small business website pricing` | `How Much Does a Business Website Cost in India? (2025–2026 Practical Guide)` | `How Much Does a Business Website Cost in India? (2025–2026)` | SMB owners, startup founders, budgeting teams comparing quotes | High Informational |
-| `/blog/nextjs-vs-wordpress-for-business` | Informational / Comparative | `Next.js vs WordPress for business` | `Next.js vs WordPress SEO`, `Next.js performance vs WordPress`, `headless CMS vs WordPress`, `why switch to Next.js` | `Next.js vs WordPress: Which Is Better for Business Websites, E-Commerce & SEO?` | `Next.js vs WordPress for Business (2025–2026 Comparison)` | CTOs, technical founders, and marketing directors planning website rebuilds | High Comparative |
+| `/services/institutional-websites` | Commercial / Solution Specific | `college website development India` | `institutional web portal developer`, `educational website development`, `college admission enquiry portal`, `school website developer India` | `College & Institutional Website Development in India` | `College Website Development India` | University deans, degree colleges, educational trusts, research journal editors | Commercial / Target |
+| `/blog/business-website-cost-india` | Informational / Commercial Investigation (Published) | `business website cost in India` | `website development cost India`, `custom website price India`, `Next.js website cost India`, `small business website pricing` | `How Much Does a Business Website Cost in India? (2025–2026 Practical Guide)` | `How Much Does a Business Website Cost in India? (2025–2026)` | SMB owners, startup founders, budgeting teams comparing quotes | High Informational |
+| `/blog/nextjs-vs-wordpress-for-business` | Informational / Comparative (Published) | `Next.js vs WordPress for business` | `Next.js vs WordPress SEO`, `Next.js performance vs WordPress`, `headless CMS vs WordPress`, `why switch to Next.js` | `Next.js vs WordPress: Which Is Better for Business Websites, E-Commerce & SEO?` | `Next.js vs WordPress for Business (2025–2026 Comparison)` | CTOs, technical founders, and marketing directors planning website rebuilds | High Comparative |
 | `/projects/paras-metal` | Commercial Proof / Case Study | `Paras Metal ecommerce case study` | `Amazon Flipkart catalog management case study`, `brass handicraft ecommerce website` | `Paras Metal — E-commerce & Marketplace Operations` | `Paras Metal — E-commerce & Marketplace Operations \| Case Study` | D2C brands & handicraft manufacturers evaluating marketplace & store work | Evidence / Proof |
-| `/projects/dsr-college` | Commercial Proof / Case Study | `DSR College institutional portal case study` | `teacher training college website Bihar`, `UGC NAAC compliant portal case study` | `Dr. Sarvepalli Radhakrishnan College — Institutional Portal` | `Dr. Sarvepalli Radhakrishnan College — Institutional Portal \| Case Study` | College principals and institutional administrators evaluating web portal expertise | Evidence / Proof |
+| `/projects/dsr-college` | Commercial Proof / Case Study | `DSR College institutional portal case study` | `teacher training college website Bihar`, `college website disclosure portal` | `Dr. Sarvepalli Radhakrishnan College — Institutional Portal` | `Dr. Sarvepalli Radhakrishnan College — Institutional Portal \| Case Study` | College principals and institutional administrators evaluating web portal expertise | Evidence / Proof |
 | `/projects/sanmati-journal` | Commercial Proof / Case Study | `Sanmati Journal publishing portal case study` | `academic journal website ISSN CrossRef DOI case study` | `Sanmati Spectrum of Knowledge — Academic Publishing Portal` | `Sanmati Spectrum of Knowledge — Academic Publishing Portal \| Case Study` | Academic editors, research institutions evaluating scientific publishing platforms | Evidence / Proof |
+
+---
+
+## 2. Planned Editorial Content Topics (Not Yet Published)
+
+The following topics are structured in the content calendar (`src/data/blogData.ts`) and will be published sequentially. They are currently excluded from `sitemap.xml` until content authoring and editorial review are finalized:
+
+| Planned Topic Title | Planned Slug | Cluster | Primary Target Keyword | Search Intent | Target Word Count | Linked Service |
+|:---|:---|:---|:---|:---|:---|:---|
+| How to Choose a Website Developer for a Small Business in India | `/blog/choose-website-developer-small-business-india` | Website Development | `how to choose a website developer for small business in India` | Commercial Investigation | 2,200 words | `/services/website-development` |
+| What Should an E-Commerce Website Include Before Launch? | `/blog/ecommerce-website-checklist-before-launch` | E-commerce | `what should an ecommerce website include before launch` | Informational | 2,400 words | `/services/ecommerce-development` |
+| Next.js Technical SEO Checklist for Business Websites | `/blog/nextjs-technical-seo-checklist-business-websites` | Technical SEO | `Next.js technical SEO checklist for business websites` | Informational | 2,500 words | `/services/technical-seo` |
+| How a College Website Should Handle Courses, Notices and Admission Enquiries | `/blog/college-website-courses-notices-admission-enquiries-guide` | Institutional Platforms | `how a college website should handle courses notices admission enquiries` | Informational | 2,300 words | `/services/institutional-websites` |
 
 ---
 
@@ -83,13 +96,12 @@
 
 ## 4. Search Engine Crawlability & Verification Plan
 
-### Sitemap Distribution
-All URLs are declared in `src/app/sitemap.ts` with explicit frequencies and priorities:
-- `/` — Priority 1.0 (Weekly)
-- `/services` & `/services/*` — Priority 0.95–0.9 (Weekly)
-- `/freelance` & `/freelance-web-developer-noida` — Priority 0.9 (Weekly)
-- `/blog` & `/blog/*` — Priority 0.9–0.85 (Weekly)
-- `/projects/*` — Priority 0.85–0.75 (Monthly)
+### Sitemap Distribution (31 Canonical URLs Total)
+All 31 indexable URLs are declared in `src/app/sitemap.ts` with explicit frequencies and priorities:
+- 7 Static Core Routes (`/`, `/services`, `/blog`, `/freelance`, `/freelance-web-developer-noida`, `/privacy`, `/terms`) — Priority 1.0–0.9 (Weekly) / 0.3 (Monthly)
+- 6 Commercial Service Routes (`/services/*`) — Priority 0.9 (Weekly)
+- 2 Published Blog Articles (`/blog/business-website-cost-india`, `/blog/nextjs-vs-wordpress-for-business`) — Priority 0.85 (Weekly)
+- 16 Project Case Study Routes (`/projects/*`) — Priority 0.85–0.75 (Monthly)
 
 ### Structured Data Verification (Schema.org)
 - Root Layout / Home: `WebSite`, `Person`, `ProfilePage`

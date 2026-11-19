@@ -222,13 +222,13 @@ export const CONTENT_CALENDAR: ContentCalendarItem[] = [
   },
   {
     id: 9,
-    title: "Essential Features of a College Website: UGC, NAAC, Compliance & Student Portals",
+    title: "Essential Features of a College Website: Mandatory Disclosures, Prospectuses & Student Portals",
     slug: "essential-features-college-website",
     cluster: "Institutional Platforms",
     targetAudience: "Principals, University Deans, College Administrators, Trust Boards",
     searchIntent: "Informational",
     primaryKeyword: "essential features of a college website",
-    secondaryKeywords: ["UGC compliant college portal", "NAAC mandatory disclosures website", "college portal development India"],
+    secondaryKeywords: ["college portal development India", "college website mandatory disclosures", "student admission enquiry portal"],
     targetPublishDate: "2026-12-17",
     status: "Planned",
     priority: "High",
@@ -308,7 +308,7 @@ export const CONTENT_CALENDAR: ContentCalendarItem[] = [
     targetAudience: "College Directors, Admissions Deans, Academic Administrators",
     searchIntent: "Informational",
     primaryKeyword: "how a college website should handle courses notices admission enquiries",
-    secondaryKeywords: ["college admissions web portal guide", "UGC NAAC compliance college website", "student prospectus download portal"],
+    secondaryKeywords: ["college admissions web portal guide", "college website mandatory disclosures", "student prospectus download portal"],
     targetPublishDate: "2027-01-08",
     status: "Planned",
     priority: "High",
@@ -414,9 +414,9 @@ export const BLOG_POSTS: Record<string, BlogPost> = {
         },
         keyPoints: [
           "Tier 1 (Starter): Focuses on clean responsive layouts, verified contact touchpoints, fast loading times, and Google Search Console registration. Completed typically in 7–10 days.",
-          "Tier 2 (Growth): Features custom UX design, conversion-focused copywriting, structured Schema.org entity markup, automated email/WhatsApp leads, and sub-second Core Web Vitals. Completed in 2–3 weeks.",
+          "Tier 2 (Growth): Features custom UX design, conversion-focused copywriting, structured Schema.org entity markup, automated email/WhatsApp leads, and optimized Core Web Vitals. Completed in 2–3 weeks.",
           "Tier 3 (E-commerce): Integrates Indian payment gateways (Razorpay, Cashfree, UPI), inventory syncing, automated shipping rate calculation, and multi-channel marketplace exports.",
-          "Tier 4 (Institutional): Built for complex governance requirements such as UGC/NAAC mandatory public disclosures, paper review workflows, or university faculty portals (e.g., our work on DSR College and Sanmati Journal).",
+          "Tier 4 (Institutional): Built for complex governance requirements such as mandatory public disclosures, paper review workflows, or university faculty portals (e.g., our work on DSR College and Sanmati Journal).",
         ],
       },
       {
@@ -477,7 +477,7 @@ export const BLOG_POSTS: Record<string, BlogPost> = {
         ],
         checklist: [
           "100% full ownership of source code, Git repository, and domain registrar access.",
-          "Sub-second load times and passing Core Web Vitals on mobile devices.",
+          "Fast loading times and passing Core Web Vitals on mobile devices.",
           "Semantic Schema.org structured data (Organization, LocalBusiness, Service, Breadcrumbs).",
           "Automated lead capture with instant email or WhatsApp notification routing.",
           "Google Search Console registration with verified XML sitemap and robots.txt.",
@@ -495,7 +495,7 @@ export const BLOG_POSTS: Record<string, BlogPost> = {
       {
         title: "Institutional Website Development",
         href: "/services/institutional-websites",
-        description: "Official, compliant institutional portals for colleges, universities, and research publications.",
+        description: "Accessible institutional portals for colleges, universities, and research publications.",
       },
       {
         title: "Technical SEO & Speed Optimization",
@@ -507,14 +507,14 @@ export const BLOG_POSTS: Record<string, BlogPost> = {
       {
         title: "DSR College Institutional Portal",
         slug: "dsr-college",
-        client: "DSR Modern Degree College",
-        outcome: "Sub-second LCP, zero ongoing database vulnerability, full NAAC/UGC disclosure compliance.",
+        client: "Dr. Sarvepalli Radhakrishnan College",
+        outcome: "Fast mobile page delivery, zero database maintenance overhead, and organized statutory disclosure archives.",
       },
       {
         title: "Sanmati Journal Research Platform",
         slug: "sanmati-journal",
         client: "Sanmati Research Foundation",
-        outcome: "Crossref DOI automation, Google Scholar indexing compliance, zero-downtime publishing.",
+        outcome: "CrossRef DOI integration, bibliographic metadata for academic search discovery, and zero-downtime publishing.",
       },
     ],
     externalReferences: [
@@ -634,7 +634,7 @@ export const BLOG_POSTS: Record<string, BlogPost> = {
         table: {
           headers: ["Feature / Metric", "Next.js (App Router)", "WordPress (Standard CMS)"],
           rows: [
-            ["Page Speed & Core Web Vitals", "Exceptional (Sub-second, 90+ Lighthouse)", "Moderate to Slow (Requires heavy caching)"],
+            ["Page Speed & Core Web Vitals", "Fast & Optimized (Typically < 1s LCP on Edge)", "Moderate to Slow (Requires heavy caching)"],
             ["Security & Attack Surface", "Virtually zero (Static / Serverless Edge)", "High (Plugins & DB injection vulnerabilities)"],
             ["Code Ownership & Portability", "100% clean Git repository, no vendor lock-in", "Tied to WordPress database & plugin dependencies"],
             ["Technical SEO Precision", "Code-level control, zero duplicate tags", "Plugin-dependent (risk of schema conflicts)"],
@@ -654,7 +654,7 @@ export const BLOG_POSTS: Record<string, BlogPost> = {
         ],
         checklist: [
           "Choose Next.js for high-converting B2B, SaaS, and professional service websites.",
-          "Choose Next.js when sub-second Core Web Vitals are critical to your organic SEO strategy.",
+          "Choose Next.js when fast mobile load times and Core Web Vitals are critical to your organic SEO strategy.",
           "Choose Next.js when you want a website that never breaks after automated background updates.",
           "Consider a Hybrid Headless setup (WordPress API backend + Next.js frontend) if non-technical editors must keep their familiar editing dashboard.",
         ],
@@ -664,7 +664,7 @@ export const BLOG_POSTS: Record<string, BlogPost> = {
       {
         title: "Technical SEO & Speed Optimization",
         href: "/services/technical-seo",
-        description: "Transform slow page speeds into sub-second Core Web Vitals that rank higher in Google Search.",
+        description: "Transform slow page speeds into optimized Core Web Vitals that rank higher in Google Search.",
       },
       {
         title: "Custom Website Development",
@@ -682,8 +682,8 @@ export const BLOG_POSTS: Record<string, BlogPost> = {
       {
         title: "DSR College Institutional Website",
         slug: "dsr-college",
-        client: "DSR Modern Degree College",
-        outcome: "Migrated from vulnerable PHP scripts to a secure, blazing-fast Next.js institutional platform.",
+        client: "Dr. Sarvepalli Radhakrishnan College",
+        outcome: "Engineered a secure, fast Next.js institutional portal organizing academic prospectuses and public disclosures.",
       },
     ],
     externalReferences: [
