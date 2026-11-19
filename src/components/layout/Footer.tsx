@@ -73,9 +73,24 @@ export function Footer() {
           {/* Column 3: Client Tools & Case Studies */}
           <div className="space-y-2.5">
             <p className="text-xs font-bold uppercase tracking-wider text-foreground/50">
-              Work & Tools
+              Work & Guides
             </p>
             <ul className="space-y-2 text-foreground/75">
+              <li>
+                <Link href="/blog" className="hover:text-cyan-500 transition-colors font-semibold text-cyan-600 dark:text-cyan-400">
+                  Engineering Blog & Guides →
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/business-website-cost-india" className="hover:text-cyan-500 transition-colors">
+                  Website Cost in India (Guide)
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/nextjs-vs-wordpress-for-business" className="hover:text-cyan-500 transition-colors">
+                  Next.js vs WordPress Analysis
+                </Link>
+              </li>
               <li>
                 <Link href="/projects/paras-metal" className="hover:text-cyan-500 transition-colors">
                   Paras Metal (Marketplace Catalog)
@@ -89,11 +104,6 @@ export function Footer() {
               <li>
                 <Link href="/projects/dsr-college" className="hover:text-cyan-500 transition-colors">
                   DSR College (Institutional Website)
-                </Link>
-              </li>
-              <li>
-                <Link href="/#brief-builder" className="hover:text-cyan-500 transition-colors">
-                  Project Brief & Proposal Generator
                 </Link>
               </li>
               <li>

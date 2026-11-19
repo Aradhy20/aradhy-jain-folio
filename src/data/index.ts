@@ -1117,10 +1117,9 @@ export const PORTFOLIO_DATA = {
 
 export const NAV_LINKS = [
   { name: "Home", href: "/#hero" },
-  { name: "Services & Pricing", href: "/#services" },
+  { name: "Services", href: "/services" },
+  { name: "Pricing", href: "/freelance" },
   { name: "Case Studies", href: "/#projects" },
-  { name: "Audit & Brief", href: "/#audit-tool" },
-  { name: "Process", href: "/#process" },
-  { name: "About", href: "/#about" },
+  { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/#contact" },
 ] as const;

@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { PORTFOLIO_DATA } from "@/data";
 import { SERVICES_DATA } from "@/data/servicesData";
+import { BLOG_POSTS } from "@/data/blogData";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://aradhy-jain-portfolio.vercel.app";
@@ -17,6 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: "2026-11-19T00:00:00.000Z",
       changeFrequency: "weekly",
       priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: "2026-11-19T00:00:00.000Z",
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/freelance`,
@@ -45,6 +52,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
+  const blogRoutes: MetadataRoute.Sitemap = Object.values(BLOG_POSTS).map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: post.updatedAt,
+    changeFrequency: "weekly",
+    priority: 0.85,
+  }));
+
   const projectRoutes: MetadataRoute.Sitemap = PORTFOLIO_DATA.projects.map((project) => ({
     url: `${baseUrl}/projects/${project.slug}`,
     lastModified: project.lastModified
@@ -54,5 +68,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: project.featured ? 0.85 : 0.75,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...projectRoutes];
+  return [...staticRoutes, ...serviceRoutes, ...blogRoutes, ...projectRoutes];
 }
