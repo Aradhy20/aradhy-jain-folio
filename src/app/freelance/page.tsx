@@ -273,14 +273,35 @@ export default function FreelancePage() {
                     {/* Representative Projects */}
                     {service.representativeProjects && (
                       <div className="mt-6 flex flex-wrap gap-1.5">
-                        {service.representativeProjects.map((p) => (
-                          <span
-                            key={p}
-                            className="rounded-md bg-foreground/5 px-2 py-0.5 text-[10px] font-medium text-foreground/60 border border-foreground/5"
-                          >
-                            Ref: {p}
-                          </span>
-                        ))}
+                        {service.representativeProjects.map((p) => {
+                          const lower = p.toLowerCase();
+                          const href = lower.includes("paras")
+                            ? "/projects/paras-metal"
+                            : lower.includes("sanmati")
+                            ? "/projects/sanmati-journal"
+                            : lower.includes("dsr")
+                            ? "/projects/dsr-college"
+                            : lower.includes("jambu")
+                            ? "/projects/jambudweep"
+                            : null;
+
+                          return href ? (
+                            <Link
+                              key={p}
+                              href={href}
+                              className="rounded-md border border-cyan-500/30 bg-cyan-500/10 px-2 py-0.5 text-[10px] font-semibold text-cyan-700 dark:text-cyan-300 hover:bg-cyan-500/20 transition-colors"
+                            >
+                              Case Study: {p} →
+                            </Link>
+                          ) : (
+                            <span
+                              key={p}
+                              className="rounded-md bg-foreground/5 px-2 py-0.5 text-[10px] font-medium text-foreground/60 border border-foreground/5"
+                            >
+                              Ref: {p}
+                            </span>
+                          );
+                        })}
                       </div>
                     )}
                   </div>

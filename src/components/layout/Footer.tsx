@@ -33,6 +33,11 @@ export function Footer() {
             </p>
             <ul className="space-y-2 text-foreground/75">
               <li>
+                <Link href="/freelance" className="hover:text-cyan-500 transition-colors font-semibold text-cyan-600 dark:text-cyan-400">
+                  Freelance Services & Packages →
+                </Link>
+              </li>
+              <li>
                 <Link href="/#services" className="hover:text-cyan-500 transition-colors">
                   Starter Business Website (₹18k+)
                 </Link>

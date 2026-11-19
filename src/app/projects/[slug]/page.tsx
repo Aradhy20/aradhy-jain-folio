@@ -61,7 +61,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
           url: imageUrl,
           width: 1200,
           height: 630,
-          alt: `${project.title} Preview`,
+          alt: `${project.title} — ${project.category} Case Study Preview`,
         },
       ],
     },
@@ -97,10 +97,9 @@ export default function ProjectCaseStudyPage({ params }: PageProps) {
         description: project.shortOverview || project.description,
         url: `${siteUrl}/projects/${project.slug}`,
         image: `${siteUrl}${project.images[0] || "/project_saas_dashboard.png"}`,
-        datePublished: "2026-01-01T00:00:00.000Z",
-        dateModified: project.lastModified
-          ? `${project.lastModified}T00:00:00.000Z`
-          : "2026-11-19T00:00:00.000Z",
+        ...(project.lastModified
+          ? { dateModified: `${project.lastModified}T00:00:00.000Z` }
+          : {}),
         author: {
           "@type": "Person",
           name: "Aradhy Jain",
@@ -269,7 +268,7 @@ export default function ProjectCaseStudyPage({ params }: PageProps) {
           <div className="relative mt-8 aspect-[1.8] w-full overflow-hidden rounded-[2.5rem] border border-white/10 bg-slate-950/20 shadow-2xl">
             <Image
               src={project.images[0] || "/project_saas_dashboard.png"}
-              alt={`${project.title} Showcase Image`}
+              alt={`${project.title} — ${project.category} case study showcase overview`}
               fill
               sizes="(max-width: 1200px) 100vw, 1000px"
               className="object-cover"

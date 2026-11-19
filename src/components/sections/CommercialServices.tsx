@@ -3,6 +3,7 @@
 import { PORTFOLIO_DATA, ServicePackage } from "@/data";
 import { analytics } from "@/lib/analytics";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import {
   Globe,
   ShoppingBag,
@@ -272,6 +273,13 @@ export function CommercialServices() {
             </div>
 
             <div className="flex flex-col sm:flex-row md:flex-col gap-3 justify-center">
+              <Link
+                href="/freelance"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-5 py-3 text-xs font-bold text-cyan-700 dark:text-cyan-300 hover:bg-cyan-500/20 transition-colors text-center"
+              >
+                <span>View Full Freelance Services & Scope</span>
+                <ArrowRight size={14} />
+              </Link>
               <a
                 href="#audit-tool"
                 onClick={() => analytics.trackContactCtaClick("Open Interactive Proposal Builder", "services_cta")}

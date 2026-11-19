@@ -120,7 +120,7 @@ function FlagshipCaseStudyCard({
         >
           <Image
             src={thumbnail}
-            alt={`${project.title} Preview`}
+            alt={`${project.title} — ${project.category} case study preview`}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover transition-transform duration-700 ease-out group-hover/img:scale-105"
@@ -255,7 +255,7 @@ function TechnicalProjectCard({
         >
           <Image
             src={thumbnail}
-            alt={project.title}
+            alt={`${project.title} — ${project.category} technical interface preview`}
             fill
             sizes="(max-width: 768px) 100vw, 33vw"
             className="object-cover transition-transform duration-500 group-hover/img:scale-105"
