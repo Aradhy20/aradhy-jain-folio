@@ -65,9 +65,9 @@ export interface ServiceLandingPageData {
 export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
   "website-development": {
     slug: "website-development",
-    seoTitle: "Business Website Development India | Next.js Developer Aradhy Jain",
+    seoTitle: "Business Website Development India",
     metaDescription:
-      "Professional business website development in India. Next.js, React & Tailwind engineering for corporate sites with sub-second speeds, SEO, and inquiry pipelines.",
+      "Custom business website development in India by freelance developer Aradhy Jain. High-speed Next.js architecture, mobile-first design, and lead capture for SMBs.",
     primaryKeyword: "Business website development India",
     secondaryKeywords: [
       "Next.js developer India",
@@ -76,11 +76,11 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
       "responsive business portal development",
     ],
     badge: "Next.js Web Engineering",
-    h1: "Business Website Development in India: Next.js Engineering That Converts Visitors into Clients",
+    h1: "Business Website Development in India: Next.js Engineering for High-Converting Business Sites",
     tagline:
       "Transform your corporate presence with clean, modular Next.js architecture built for rapid load speeds, search engine visibility, and dependable lead generation.",
     heroSummary:
-      "I build custom corporate and business websites that replace bloated, slow WordPress templates with production-grade Next.js 14 and Tailwind CSS architecture. Every site is engineered from the ground up for sub-second page loads, mobile responsiveness, semantic SEO hierarchy, and direct client inquiry capture.",
+      "I am an independent freelance developer building custom business and corporate websites using Next.js 14, TypeScript, and Tailwind CSS. Every site is engineered for fast loading times, clean mobile responsiveness, semantic SEO hierarchy, and direct client inquiry capture without agency overhead.",
     targetAudience: {
       heading: "Who Benefits Most from This Service",
       description:
@@ -236,7 +236,7 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
           "Dedicated service landing pages and structured project case study templates",
           "Multi-step inquiry capture pipeline with lead qualification dropdowns and validation",
           "Advanced Schema.org structured data (WebSite, ProfilePage, Service Catalog, FAQs)",
-          "Performance budget guarantee: 90+ Lighthouse desktop score and sub-2s mobile LCP",
+          "Performance budget target: 90+ Lighthouse desktop score and fast mobile LCP",
           "30 days of post-launch technical warranty and minor adjustments included",
         ],
         exclusions: [
@@ -259,7 +259,7 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
       {
         question: "Will my website look great and load fast on budget smartphones?",
         answer:
-          "Yes. In India, over 75% of business website traffic originates from mobile devices on 4G networks. Every page is developed mobile-first, ensuring high visual contrast, touch-friendly navigation, responsive image scaling (using modern WebP/AVIF formats), and deferred execution of non-critical scripts so pages load in under two seconds even on budget phones.",
+          "Yes. Most web browsing across Indian businesses occurs on mobile devices over cellular connections. Every page is developed mobile-first, ensuring high visual contrast, touch-friendly navigation, responsive image scaling (using modern WebP/AVIF formats), and deferred execution of non-critical scripts so pages load efficiently on budget smartphones.",
       },
       {
         question: "What is your typical project timeline for a business website?",
@@ -278,10 +278,10 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
 
   "ecommerce-development": {
     slug: "ecommerce-development",
-    seoTitle: "E-commerce Website Development & Marketplace Support India | Aradhy Jain",
+    seoTitle: "E-commerce Website Development India",
     metaDescription:
-      "Custom e-commerce store development and multi-channel marketplace operations across Amazon, Flipkart, and Meesho. Catalog architecture, SEO & high conversion.",
-    primaryKeyword: "E-commerce website development",
+      "Custom e-commerce website development & marketplace operations in India. Independent online stores with payment gateways plus Amazon, Flipkart & Meesho cataloging.",
+    primaryKeyword: "E-commerce website development India",
     secondaryKeywords: [
       "online store development",
       "marketplace support",
@@ -294,7 +294,7 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
     tagline:
       "Scale your product sales with a high-converting digital storefront paired with structured catalog operations across Amazon, Flipkart, and Meesho.",
     heroSummary:
-      "I help manufacturers, artisans, and D2C brands build direct online storefronts while simultaneously capturing marketplace demand across Amazon, Flipkart, and Meesho. From standardized SKU hierarchies and compliant listing content to fast, mobile-friendly checkout experiences, I provide the end-to-end technical foundation for multichannel retail growth.",
+      "As an independent freelance specialist, I help manufacturers, artisans, and product brands build direct online storefronts while simultaneously organizing marketplace operations across Amazon, Flipkart, and Meesho. I clearly separate direct store engineering (payment gateways, product catalogs, customer checkout) from marketplace listing operations, delivering clean multichannel execution.",
     targetAudience: {
       heading: "Who Benefits Most from This Service",
       description:
@@ -319,7 +319,7 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
           "Custom Next.js / Shopify e-commerce storefront with instantaneous product browsing and filtering",
           "Mobile-optimized product detail pages with zoomable galleries, material callouts, and variant selectors",
           "Seamless checkout and inquiry pipelines integrated with Razorpay, Cashfree, or WhatsApp ordering",
-          "Sub-2s mobile loading speed guaranteeing low abandonment rates on 4G cellular connections",
+          "Fast mobile loading speeds to minimize cart abandonment on cellular connections",
         ],
       },
       {
@@ -443,10 +443,10 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
 
   "technical-seo": {
     slug: "technical-seo",
-    seoTitle: "Technical SEO Services & Next.js Website Optimization | Aradhy Jain",
+    seoTitle: "Technical SEO Services India",
     metaDescription:
-      "Comprehensive technical SEO services and Next.js website optimization. Fix indexing gaps, Core Web Vitals, Schema.org graphs, and crawl budget issues in India.",
-    primaryKeyword: "Technical SEO services",
+      "Technical SEO services for Next.js and React websites in India. Fix Google Search Console indexing issues, Core Web Vitals, canonical tags, and Schema.org graphs.",
+    primaryKeyword: "Technical SEO services India",
     secondaryKeywords: [
       "Next.js SEO",
       "website indexing and SEO audits",
@@ -603,7 +603,7 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
       {
         question: "Do you guarantee first-page Google rankings?",
         answer:
-          "No reputable engineer or SEO specialist guarantees specific ranking positions, as Google's algorithm evaluates hundreds of ever-changing factors. What I do guarantee is 100% technical excellence: eliminating all crawl errors, fixing Core Web Vitals to pass Google's thresholds, deploying valid Schema.org graphs, and ensuring search engines can read and index every page without obstruction.",
+          "No reputable engineer or SEO specialist promises specific ranking positions, as Google evaluates hundreds of external and competitive factors. What I deliver is rigorous technical execution: eliminating crawl barriers, optimizing Core Web Vitals, deploying valid Schema.org graphs, and ensuring search engines can discover and index your content without technical obstruction.",
       },
       {
         question: "Does Next.js need technical SEO if it's already fast?",
@@ -622,10 +622,10 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
 
   "ai-automation": {
     slug: "ai-automation",
-    seoTitle: "AI Automation Services & Python Automation for Businesses | Aradhy Jain",
+    seoTitle: "AI Automation Services for Business",
     metaDescription:
-      "Custom AI automation services and Python scripts for businesses. Automate data extraction, API pipelines, document processing, and customer inquiry triage.",
-    primaryKeyword: "AI automation services",
+      "Practical AI and Python automation services for businesses. Automated document extraction, inquiry routing, and custom ETL pipelines by freelance developer Aradhy Jain.",
+    primaryKeyword: "AI automation services for business",
     secondaryKeywords: [
       "Python automation",
       "AI integration for businesses",
@@ -634,7 +634,7 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
       "automated workflow scripts",
     ],
     badge: "AI & Python Automation",
-    h1: "AI Automation Services & Python Workflows Engineered for Business Operations",
+    h1: "AI & Python Automation Services for Business Workflows",
     tagline:
       "Eliminate repetitive manual tasks, connect fragmented software tools, and harness modern AI models to streamline business workflows.",
     heroSummary:
@@ -812,10 +812,10 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
 
   "data-analytics": {
     slug: "data-analytics",
-    seoTitle: "Power BI Dashboard Developer & Data Analytics Services | Aradhy Jain",
+    seoTitle: "Power BI Dashboard Developer India",
     metaDescription:
-      "Hire an expert Power BI dashboard developer in India. Transform messy operational spreadsheets into automated business intelligence and executive KPI dashboards.",
-    primaryKeyword: "Power BI dashboard developer",
+      "Power BI dashboard development and business intelligence reporting for Indian businesses. Turn messy Excel sheets into automated executive KPI dashboards.",
+    primaryKeyword: "Power BI dashboard developer India",
     secondaryKeywords: [
       "business intelligence and data analytics",
       "Power BI consultant India",
@@ -824,7 +824,7 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
       "interactive executive dashboard",
     ],
     badge: "Power BI & Data Analytics",
-    h1: "Power BI Dashboard Developer: Business Intelligence & Actionable Data Analytics",
+    h1: "Power BI Dashboard Development & Business Intelligence Reporting",
     tagline:
       "Turn scattered, messy operational spreadsheets into automated Power BI dashboards that give leadership instantaneous clarity on revenue, growth, and performance.",
     heroSummary:
@@ -1002,19 +1002,18 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
 
   "institutional-websites": {
     slug: "institutional-websites",
-    seoTitle: "College Website Development & Educational Portals India | Aradhy Jain",
+    seoTitle: "College Website Development India",
     metaDescription:
-      "Expert college website development and educational portal engineering in India. NCTE regulatory compliance, admission workflows, and academic prospectus portals.",
-    primaryKeyword: "College website development",
+      "Official college and institutional website development in India. Accessible academic portals with admission enquiry workflows, faculty directories, and notice boards.",
+    primaryKeyword: "College website development India",
     secondaryKeywords: [
       "educational portal development",
       "admission website development",
-      "NCTE compliance college website",
       "academic research journal web platform",
       "educational institution web developer",
     ],
     badge: "Institutional & Academic Portals",
-    h1: "Institutional Website Development: Educational Portals, Colleges & Academic Publishing",
+    h1: "College & Institutional Website Development in India",
     tagline:
       "Build authoritative, accessible institutional portals engineered for regulatory compliance (NCTE/UGC), seamless student admissions, and academic research dissemination.",
     heroSummary:
@@ -1133,7 +1132,7 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
         category: "Academic & Metadata Standards",
         tools: ["Highwire Press Tags", "Dublin Core Metadata", "CrossRef Schema", "PDF Embeds"],
         description:
-          "International metadata schemas guaranteeing complete academic discoverability on Google Scholar and institutional indexes.",
+          "International metadata schemas configured for academic discoverability on Google Scholar and institutional indexes.",
       },
       {
         category: "Lead & Communication Workflows",

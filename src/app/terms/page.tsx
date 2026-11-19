@@ -5,7 +5,7 @@ import { ArrowLeft, FileText, CheckCircle2, ShieldCheck, DollarSign } from "luci
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Aradhy Jain Freelance Services",
+  title: "Terms of Service & Engagement",
   description:
     "Terms of Service and commercial engagement standards for Aradhy Jain's web development, e-commerce, and digital consulting services.",
   alternates: {

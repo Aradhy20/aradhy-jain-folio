@@ -160,16 +160,16 @@ export default function FreelancePage() {
             >
               <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/25 bg-cyan-500/10 px-4 py-2 text-xs sm:text-sm font-semibold text-cyan-700 dark:text-cyan-300 shadow-md mb-6">
                 <Sparkles size={15} className="text-cyan-400" />
-                Freelance Client Acquisition & Services
+                Independent Freelance Developer · Direct Collaboration
               </div>
-              <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-                Web Development, E-commerce &{" "}
+              <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl leading-[1.12]">
+                Hire a Freelance Web Developer for Your{" "}
                 <span className="bg-[linear-gradient(120deg,#06b6d4,#3b82f6,#a855f7)] bg-clip-text text-transparent">
-                  Digital Growth Partner
+                  Business Website or Online Store
                 </span>
               </h1>
               <p className="mt-6 text-base sm:text-lg leading-relaxed text-foreground/75 max-w-xl">
-                I help businesses build their online presence, launch and improve e-commerce experiences, optimize marketplace listings (Amazon · Flipkart · Meesho), and strengthen digital visibility through development, SEO, content, and analytics.
+                I am an independent freelance web developer serving Noida, Delhi NCR, and remote clients across India. I build custom business websites, high-performance web applications, and e-commerce stores with clean Next.js architecture, verified search engine indexing, and direct milestone-based collaboration without agency overhead.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
@@ -207,12 +207,12 @@ export default function FreelancePage() {
               <div className="mt-6 flex flex-wrap items-center gap-y-2 gap-x-4 text-xs text-foreground/70">
                 <span className="inline-flex items-center gap-1.5 font-medium text-emerald-600 dark:text-emerald-400">
                   <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                  Guaranteed response within 24 hours (avg. &lt;2 hrs)
+                  Direct response within 24 hours (avg. &lt;2 hrs)
                 </span>
                 <span className="hidden sm:inline text-foreground/30">•</span>
                 <span>Transparent milestone billing</span>
                 <span className="hidden sm:inline text-foreground/30">•</span>
-                <span>Serving India, USA, UK &amp; Germany</span>
+                <span>Noida · Delhi NCR · Remote Across India</span>
               </div>
             </motion.div>
 
@@ -361,6 +361,108 @@ export default function FreelancePage() {
                   </div>
                 </motion.article>
               ))}
+            </div>
+          </div>
+
+          {/* Direct Freelance Engagement & Buyer Guide */}
+          <div className="mt-32 max-w-5xl mx-auto">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-300">
+                Direct Freelance Engagement
+              </span>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                What to Know Before Hiring
+              </h2>
+              <p className="text-foreground/70 mt-2 text-sm">
+                Clear answers about scope, working relationship, milestone pricing, and remote delivery.
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="rounded-2xl border border-border/70 bg-card/50 p-6 backdrop-blur-sm">
+                <h3 className="text-base font-bold text-foreground text-cyan-500 dark:text-cyan-400">
+                  1. What can I hire Aradhy to build?
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-foreground/75 leading-relaxed">
+                  Custom Next.js business websites, e-commerce storefronts, marketplace catalog operations (Amazon, Flipkart, Meesho), technical SEO audits, Python automation workflows, and Power BI reporting dashboards.
+                </p>
+                <div className="mt-3 flex flex-wrap gap-2 text-[11px] font-semibold text-cyan-600 dark:text-cyan-400">
+                  <Link href="/services/website-development" className="hover:underline">Business Websites →</Link>
+                  <Link href="/services/ecommerce-development" className="hover:underline">E-commerce →</Link>
+                  <Link href="/services/technical-seo" className="hover:underline">Technical SEO →</Link>
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-border/70 bg-card/50 p-6 backdrop-blur-sm">
+                <h3 className="text-base font-bold text-foreground text-cyan-500 dark:text-cyan-400">
+                  2. Is Aradhy a freelancer or an agency?
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-foreground/75 leading-relaxed">
+                  I am an independent freelance web developer. You communicate and collaborate directly with me—no account manager telephone games, no bloated agency retainers, and 100% direct accountability for code and deadlines.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-border/70 bg-card/50 p-6 backdrop-blur-sm">
+                <h3 className="text-base font-bold text-foreground text-cyan-500 dark:text-cyan-400">
+                  3. What type of clients and projects are a fit?
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-foreground/75 leading-relaxed">
+                  Small and medium business owners, manufacturing exporters, retail brands, startup founders, and educational institutions in Noida, Delhi NCR, and across India who value clean architecture and direct communication.
+                </p>
+                <p className="mt-2 text-xs text-foreground/60">
+                  Also serving local businesses: <Link href="/freelance-web-developer-noida" className="text-cyan-500 underline font-medium">Freelance Web Developer Noida Guide →</Link>
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-border/70 bg-card/50 p-6 backdrop-blur-sm">
+                <h3 className="text-base font-bold text-foreground text-cyan-500 dark:text-cyan-400">
+                  4. What is included in every website build?
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-foreground/75 leading-relaxed">
+                  Responsive mobile-first frontend, fast serverless edge deployment, working lead inquiry form with email/WhatsApp routing, XML sitemap, robots.txt, Schema.org entity metadata, and complete Git source code ownership.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-border/70 bg-card/50 p-6 backdrop-blur-sm">
+                <h3 className="text-base font-bold text-foreground text-cyan-500 dark:text-cyan-400">
+                  5. How does pricing and scope work?
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-foreground/75 leading-relaxed">
+                  All work is quoted on a transparent, milestone-based scope. Typical payment schedules: 40% advance deposit to commence development, 30% upon interactive staging review approval, and 30% upon final go-live and domain connection.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-border/70 bg-card/50 p-6 backdrop-blur-sm">
+                <h3 className="text-base font-bold text-foreground text-cyan-500 dark:text-cyan-400">
+                  6. What verified proof exists?
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-foreground/75 leading-relaxed">
+                  Real client projects shipped and operating live:
+                </p>
+                <div className="mt-2 space-y-1 text-xs">
+                  <p>• <Link href="/projects/paras-metal" className="text-cyan-500 font-semibold hover:underline">Paras Metal:</Link> Multi-channel e-commerce &amp; marketplace cataloging.</p>
+                  <p>• <Link href="/projects/dsr-college" className="text-cyan-500 font-semibold hover:underline">DSR College:</Link> High-trust institutional portal with admission workflows.</p>
+                  <p>• <Link href="/projects/sanmati-journal" className="text-cyan-500 font-semibold hover:underline">Sanmati Journal:</Link> Academic publishing portal with CrossRef DOI indexing.</p>
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-border/70 bg-card/50 p-6 backdrop-blur-sm">
+                <h3 className="text-base font-bold text-foreground text-cyan-500 dark:text-cyan-400">
+                  7. How does remote collaboration work?
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-foreground/75 leading-relaxed">
+                  We coordinate via Google Meet, email, and WhatsApp. You receive live preview URLs at every development phase so you can test on your phone and laptop before anything goes public.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-border/70 bg-card/50 p-6 backdrop-blur-sm">
+                <h3 className="text-base font-bold text-foreground text-cyan-500 dark:text-cyan-400">
+                  8. Business ke liye website banwani hai? Project start karne ke liye kya details chahiye?
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-foreground/75 leading-relaxed">
+                  Website start karne ke liye aapko primarily 3 cheezein chahiye: (1) Aapka business overview aur target audience, (2) Jo pages aapko chahiye (jaise Home, Services, About, Contact, Gallery), aur (3) Logo aur content agar available hai. Agar content ready nahi hai, toh planning phase mein structure hum finalize kar lenge. Aap niche form submit kar sakte hain ya WhatsApp par directly discuss kar sakte hain.
+                </p>
+              </div>
             </div>
           </div>
 

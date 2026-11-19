@@ -5,7 +5,7 @@ import { ArrowLeft, ShieldCheck, Mail, Lock, CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Aradhy Jain Freelance Services",
+  title: "Privacy Policy",
   description:
     "Privacy Policy for Aradhy Jain's web development, e-commerce, and digital growth services. Compliant with Indian DPDP guidelines and global best practices.",
   alternates: {

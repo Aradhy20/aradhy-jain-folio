@@ -19,7 +19,7 @@ import type { Metadata } from "next";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://aradhy-jain-portfolio.vercel.app";
 
 export const metadata: Metadata = {
-  title: "Professional Services | Web Development, E-commerce, SEO & Automation | Aradhy Jain",
+  title: "Professional Services | Web Development, E-commerce, SEO & Automation",
   description:
     "Explore Aradhy Jain's 6 core digital engineering services: Next.js business websites, e-commerce, technical SEO, AI automation, Power BI analytics, and institutional portals.",
   alternates: {

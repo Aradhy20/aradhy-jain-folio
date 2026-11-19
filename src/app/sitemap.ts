@@ -32,6 +32,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/freelance-web-developer-noida`,
+      lastModified: "2026-11-19T00:00:00.000Z",
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/privacy`,
       lastModified: "2026-10-18T00:00:00.000Z",
       changeFrequency: "monthly",

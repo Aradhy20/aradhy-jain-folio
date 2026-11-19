@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { serializeJsonLd } from "@/lib/jsonLd";
 
 export const metadata: Metadata = {
-  title: "Freelance Web Development & Digital Growth Services",
+  title: "Hire a Freelance Web Developer in India",
   description:
-    "Hire Aradhy Jain for custom Next.js websites, e-commerce stores, marketplace cataloging, technical SEO, and automation with transparent milestone pricing.",
+    "Hire Aradhy Jain, an independent freelance web developer based in Noida/Delhi NCR serving businesses across India and remotely. Custom Next.js websites, e-commerce, and technical SEO.",
   alternates: {
     canonical: "/freelance",
   },

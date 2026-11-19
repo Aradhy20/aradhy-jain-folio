@@ -73,7 +73,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
 
   if (!project) {
     return {
-      title: "Project Not Found | Aradhy Jain",
+      title: "Project Not Found",
     };
   }
 
@@ -83,7 +83,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
     PROJECT_META_DESCRIPTIONS[project.slug] || project.shortOverview || project.description;
 
   return {
-    title: `${project.title} | Case Study by Aradhy Jain`,
+    title: `${project.title} | Case Study`,
     description: metaDescription,
     alternates: {
       canonical: canonicalPath,
@@ -482,6 +482,38 @@ export default function ProjectCaseStudyPage({ params }: PageProps) {
                     className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
                   >
                     Commercial Services & Pricing
+                  </Link>
+
+                  {isParas && (
+                    <Link
+                      href="/services/ecommerce-development"
+                      className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
+                    >
+                      E-commerce Services
+                    </Link>
+                  )}
+                  {isDsr && (
+                    <Link
+                      href="/services/institutional-websites"
+                      className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
+                    >
+                      Institutional Website Services
+                    </Link>
+                  )}
+                  {isSanmati && (
+                    <Link
+                      href="/services/website-development"
+                      className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
+                    >
+                      Web Development Services
+                    </Link>
+                  )}
+
+                  <Link
+                    href="/freelance-web-developer-noida"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3.5 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
+                  >
+                    Noida Local Services
                   </Link>
 
                   <a

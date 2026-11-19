@@ -73,6 +73,15 @@
 * **Desktop TBT:** Deferred WebGL (Three.js) and particle canvas initialization to browser idle via `requestIdleCallback`. Reduced particle calculation workload by 85%. Disabled heavy WebGL execution on mobile viewports.
 * **Accessibility 100/100:** Injected explicit `aria-label` attributes on form inputs, tab controls, filter chips, and simulation buttons. Standardized heading hierarchies (`h1` -> `h2`). Enhanced color contrast to exceed WCAG AA requirements.
 
+### Phase 12: Organic Keyword Implementation, Local Noida Architecture & Metadata Deduplication
+* **Direct Freelance Positioning:** Overhauled `/freelance` with H1 *"Hire a Freelance Web Developer for Your Business Website or Online Store"*, answering 8 critical buyer questions upfront with indicative pricing, clear scope boundaries, and a natural bilingual FAQ.
+* **Local Noida SEO Landing Page:** Created `/freelance-web-developer-noida` with targeted content for B2B manufacturers, export houses, D2C retail, startups, and colleges across Noida & Delhi NCR. Zero thin or doorway pages.
+* **Title Template Deduplication:** Cleaned all child page `title` attributes across `/services/*`, `/projects/[slug]`, `/privacy`, `/terms`, and `/freelance` to avoid duplicate `| Aradhy Jain` appending from the root `%s | Aradhy Jain` template.
+* **Service Page Refinement:** Streamlined all 6 service definitions in `src/data/servicesData.ts` into single core search intents and removed unsubstantiated performance/ranking guarantees.
+* **Flagship Case Study Deep Linking:** Connected `paras-metal`, `dsr-college`, and `sanmati-journal` directly to relevant service pages, `/freelance`, and the Noida local landing page.
+* **Content Calendar Expansion:** Structured the 4 requested content calendar topics in `src/data/blogData.ts` for small business web development, e-commerce pre-launch, Next.js technical SEO, and college website portal compliance.
+* **Master Keyword Intent Map:** Authored [`SEO_KEYWORD_INTENT_MAP.md`](file:///Volumes/DevDrive/aradhy%20portfolio/SEO_KEYWORD_INTENT_MAP.md) detailing target URLs, primary/secondary keywords, search intents, H1s, and Google Search Console validation benchmarks.
+
 ---
 
 ## 2. Implementation Status Classification

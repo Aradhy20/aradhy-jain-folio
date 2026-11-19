@@ -34,7 +34,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
   const post = BLOG_POSTS[params.slug];
   if (!post) {
     return {
-      title: "Article Not Found | Aradhy Jain",
+      title: "Article Not Found",
     };
   }
 
