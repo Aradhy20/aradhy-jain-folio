@@ -124,6 +124,7 @@ export function ServiceInquiryForm({
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => analytics.trackWhatsAppClick("service_inquiry_confirmation")}
               className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-5 py-2.5 text-xs font-semibold text-white shadow-lg transition-transform hover:scale-[1.02]"
             >
               <MessageSquare className="h-4 w-4" />
@@ -131,6 +132,7 @@ export function ServiceInquiryForm({
             </a>
             <a
               href="mailto:jainaradhy123@gmail.com"
+              onClick={() => analytics.trackEmailClick("service_inquiry_confirmation")}
               className="inline-flex items-center gap-2 rounded-full border border-border bg-background/80 px-5 py-2.5 text-xs font-semibold text-foreground hover:bg-background"
             >
               <Mail className="h-4 w-4" />

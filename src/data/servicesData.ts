@@ -129,6 +129,34 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
     ],
     caseStudies: [
       {
+        slug: "dsr-college",
+        title: "DSR College — Institutional & Academic Portal",
+        client: "Dr. Sarvepalli Radhakrishnan College",
+        role: "Lead Web Developer & UI Architect",
+        image: "/project_dsr_college.jpg",
+        description:
+          "Designed and built the official institutional web portal for an accredited teacher education college, structuring academic programs, admission workflows, and mandatory regulatory disclosures.",
+        verifiedOutcome:
+          "Operating live at dsr.college with sub-second mobile page loads, serving prospective students and regulatory compliance needs.",
+        liveUrl: "https://dsr.college/",
+        caseStudyUrl: "/projects/dsr-college",
+        techStack: ["Next.js", "React", "Tailwind CSS", "Technical SEO", "Accessibility"],
+      },
+      {
+        slug: "sanmati-journal",
+        title: "Sanmati Journal — Digital Publishing Platform",
+        client: "Sanmati Research Foundation",
+        role: "Web Developer & Platform Manager",
+        image: "/project_digital_journal.png",
+        description:
+          "Architected the digital publishing platform for an international peer-reviewed multidisciplinary research journal (ISSN 3108-1819) with CrossRef DOI integration and academic SEO schemas.",
+        verifiedOutcome:
+          "Actively indexed in Google Scholar with automated volume archiving and distraction-free mobile reading typography.",
+        liveUrl: "https://sanmatijournal.in",
+        caseStudyUrl: "/projects/sanmati-journal",
+        techStack: ["Next.js", "React", "Tailwind CSS", "Academic SEO", "Information Architecture"],
+      },
+      {
         slug: "paras-metal",
         title: "Paras Metal — B2B Brass & Metal Manufacturing",
         client: "Paras Metal",
@@ -154,20 +182,6 @@ export const SERVICES_DATA: Record<string, ServiceLandingPageData> = {
         liveUrl: "https://pravaahupsc.com/",
         caseStudyUrl: "/projects/pravaah-upsc",
         techStack: ["Next.js 14", "TypeScript", "Tailwind CSS", "Vercel"],
-      },
-      {
-        slug: "jambudweep",
-        title: "Jambudweep Hastinapur — Cultural Heritage Portal",
-        client: "Jambudweep Sansthan",
-        role: "Web Developer & Digital Archivist",
-        image: "/project_heritage_platform.png",
-        description:
-          "Developed an authoritative cultural visitor platform featuring architectural archives, interactive temple sections, and visitor guide workflows.",
-        verifiedOutcome:
-          "Published an accessible, high-traffic cultural landmark portal serving thousands of devotees and researchers monthly.",
-        liveUrl: "https://jambudweephastinapur.com/",
-        caseStudyUrl: "/projects/jambudweep",
-        techStack: ["Next.js", "React", "Tailwind CSS", "Mobile UX"],
       },
     ],
     technologies: [

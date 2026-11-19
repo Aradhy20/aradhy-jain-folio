@@ -149,6 +149,25 @@ export const analytics = {
     });
   },
 
+  // 10. Service CTA Click (Request a Quote, Start a Project, Book Consultation)
+  trackServiceCtaClick: (
+    serviceName: string,
+    ctaLabel: string,
+    location: string
+  ) => {
+    trackEvent("service_cta_click", {
+      service_name: serviceName,
+      cta_label: ctaLabel,
+      click_location: location,
+    });
+    if (ctaLabel.toLowerCase().includes("consultation")) {
+      trackEvent("consultation_click", {
+        click_location: location,
+        cta_label: ctaLabel,
+      });
+    }
+  },
+
   // Backward compatibility alias methods
   trackContactFormSubmit: (metadata?: {
     serviceCategory?: string;

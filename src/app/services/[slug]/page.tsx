@@ -2,6 +2,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SERVICES_DATA, ServiceLandingPageData } from "@/data/servicesData";
 import { ServiceInquiryForm } from "@/components/services/ServiceInquiryForm";
+import { ServiceCtaButton } from "@/components/services/ServiceCtaButton";
 import {
   ArrowRight,
   CheckCircle2,
@@ -220,22 +221,28 @@ export default function ServicePage({ params }: PageProps) {
 
             {/* Quick Action CTAs */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
-              <a
+              <ServiceCtaButton
                 href="#inquiry"
+                serviceName={service.badge}
+                label="Request Project Scope & Quote"
+                location="service_page_hero"
                 className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 hover:scale-[1.02] transition-transform"
               >
                 <Zap className="h-4 w-4" />
                 Request Project Scope &amp; Quote
-              </a>
-              <a
+              </ServiceCtaButton>
+              <ServiceCtaButton
                 href={whatsappDirectUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                isExternal
+                isWhatsApp
+                serviceName={service.badge}
+                label="WhatsApp Direct Discussion"
+                location="service_page_hero"
                 className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-6 py-3.5 text-sm font-semibold text-emerald-400 hover:bg-emerald-500/20 transition-colors"
               >
                 <MessageSquare className="h-4 w-4" />
                 WhatsApp Direct Discussion
-              </a>
+              </ServiceCtaButton>
             </div>
 
             {/* Key Service Signals */}
@@ -541,12 +548,15 @@ export default function ServicePage({ params }: PageProps) {
                 </div>
 
                 <div className="pt-6 mt-6 border-t border-border/60">
-                  <a
+                  <ServiceCtaButton
                     href="#inquiry"
+                    serviceName={service.badge}
+                    label={`Select ${tier.name} Scope`}
+                    location="pricing_tiers"
                     className="block w-full text-center rounded-xl bg-cyan-500/10 border border-cyan-500/30 py-2.5 text-sm font-semibold text-cyan-400 hover:bg-cyan-500/20 transition-colors"
                   >
                     Select {tier.name} Scope
-                  </a>
+                  </ServiceCtaButton>
                 </div>
               </div>
             ))}

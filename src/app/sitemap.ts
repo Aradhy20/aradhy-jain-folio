@@ -59,14 +59,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  const projectRoutes: MetadataRoute.Sitemap = PORTFOLIO_DATA.projects.map((project) => ({
-    url: `${baseUrl}/projects/${project.slug}`,
-    lastModified: project.lastModified
-      ? `${project.lastModified}T00:00:00.000Z`
-      : "2026-11-19T00:00:00.000Z",
-    changeFrequency: "monthly",
-    priority: project.featured ? 0.85 : 0.75,
-  }));
+  const projectRoutes: MetadataRoute.Sitemap = PORTFOLIO_DATA.projects.map((project) => {
+    const entry: MetadataRoute.Sitemap[number] = {
+      url: `${baseUrl}/projects/${project.slug}`,
+      changeFrequency: "monthly",
+      priority: project.featured ? 0.85 : 0.75,
+    };
+    if (project.lastModified) {
+      entry.lastModified = `${project.lastModified}T00:00:00.000Z`;
+    }
+    return entry;
+  });
 
   return [...staticRoutes, ...serviceRoutes, ...blogRoutes, ...projectRoutes];
 }
