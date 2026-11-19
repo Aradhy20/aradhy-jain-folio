@@ -32,6 +32,41 @@ export function generateStaticParams() {
   }));
 }
 
+const PROJECT_META_DESCRIPTIONS: Record<string, string> = {
+  "paras-metal":
+    "E-commerce catalog and multi-channel marketplace operations for Paras Metal brass handicrafts across Amazon, Flipkart, and Meesho.",
+  "sanmati-journal":
+    "International peer-reviewed open-access academic publishing platform featuring automated manuscript indexing and CrossRef DOI integration.",
+  "dsr-college":
+    "Institutional web portal for DSR College of Education in Bihar, featuring NCTE regulatory disclosures, academic prospectus, and student inquiry workflows.",
+  "pravaah-upsc":
+    "Educational and mentorship platform for civil services aspirants, engineered with Next.js, structured syllabus roadmaps, and daily editorial study modules.",
+  jambudweep:
+    "Cultural and spiritual heritage visitor portal for Hastinapur Jambudweep, featuring interactive temple sections, architectural archives, and pilgrim guides.",
+  skypilot:
+    "Aviation training portal featuring an interactive Cadet Pilot Eligibility Quiz, DGCA flight hour requirement calculator, and flight course curriculum.",
+  "hr-salary-dashboard":
+    "A predictive compensation analytics engine trained on corporate payroll datasets to forecast salary benchmarks and equity.",
+  "team-task-manager":
+    "A real-time workspace for task coordination and team collaboration with interactive Kanban boards and live status tracking.",
+  "gym-management":
+    "Gym and fitness management web application featuring active membership tracking, workout schedule planners, and trainer booking with relational SQL models.",
+  "hospital-management":
+    "Hospital patient record management and appointment booking system built with Python and SQL to automate clinical workflow administration.",
+  "hr-talent-strategy":
+    "Workforce analytics study evaluating employee engagement, attrition drivers, and retention strategies for hybrid and distributed remote teams.",
+  "mental-health-ai":
+    "Clinical NLP sentiment analysis engine detecting linguistic indicators of emotional distress and sentiment shifts using machine learning pipelines.",
+  "virtual-counselor":
+    "Conversational AI assistant prototype utilizing transformer-based NLP architectures for context-aware counseling guidance and automated intent matching.",
+  "social-media-analytics":
+    "Multi-platform social media analytics dashboard analyzing 10,000+ engagement records using Python NLP and interactive KPI performance visualizers.",
+  "iris-classification":
+    "Supervised machine learning benchmark model evaluating scikit-learn classification algorithms against multivariate botanical feature measurements.",
+  "oasis-infobyte":
+    "Data analytics internship portfolio comprising exploratory data analysis, statistical modeling pipelines, and predictive business intelligence tasks.",
+};
+
 export function generateMetadata({ params }: PageProps): Metadata {
   const project = PORTFOLIO_DATA.projects.find((p) => p.slug === params.slug);
 
@@ -43,16 +78,18 @@ export function generateMetadata({ params }: PageProps): Metadata {
 
   const imageUrl = project.images[0] || "/project_saas_dashboard.png";
   const canonicalPath = `/projects/${project.slug}`;
+  const metaDescription =
+    PROJECT_META_DESCRIPTIONS[project.slug] || project.shortOverview || project.description;
 
   return {
     title: `${project.title} | Case Study by Aradhy Jain`,
-    description: project.shortOverview || project.description,
+    description: metaDescription,
     alternates: {
       canonical: canonicalPath,
     },
     openGraph: {
       title: `${project.title} — Case Study | Aradhy Jain`,
-      description: project.shortOverview || project.description,
+      description: metaDescription,
       url: canonicalPath,
       type: "article",
       siteName: "Aradhy Jain Portfolio",
@@ -68,7 +105,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
     twitter: {
       card: "summary_large_image",
       title: `${project.title} — Case Study | Aradhy Jain`,
-      description: project.shortOverview || project.description,
+      description: metaDescription,
       images: [imageUrl],
     },
   };

@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     template: "%s | Aradhy Jain",
   },
   description:
-    "Portfolio and verified engineering case studies of Aradhy Jain — Web Developer, E-commerce Specialist, and Digital Systems Consultant based in India. Engineering high-performance Next.js websites, multi-channel marketplace operations (Amazon, Flipkart, Meesho), technical SEO, and automation.",
+    "Aradhy Jain is a web developer in India building Next.js websites, e-commerce stores, marketplace solutions, and technical SEO and automation systems.",
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "https://aradhy-jain-portfolio.vercel.app"
   ),

@@ -3,14 +3,14 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Freelance Web Development & Digital Growth Services",
   description:
-    "Hire Aradhy Jain for custom website development, e-commerce storefronts, marketplace catalog optimization (Amazon, Flipkart, Meesho), technical SEO, and automated reporting. Transparent milestones & zero hosting markup.",
+    "Hire Aradhy Jain for custom Next.js websites, e-commerce stores, marketplace cataloging, technical SEO, and automation with transparent milestone pricing.",
   alternates: {
     canonical: "/freelance",
   },
   openGraph: {
     title: "Freelance Web Development & Digital Growth Services | Aradhy Jain",
     description:
-      "Custom responsive websites, e-commerce solutions, marketplace operations (Amazon, Flipkart, Meesho), and technical SEO. Transparent pricing and verified deliverables.",
+      "Hire Aradhy Jain for custom Next.js websites, e-commerce stores, marketplace cataloging, technical SEO, and automation with transparent milestone pricing.",
     url: "/freelance",
     type: "website",
     images: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Freelance Web Development & Digital Growth Services | Aradhy Jain",
     description:
-      "Custom responsive websites, e-commerce solutions, marketplace operations (Amazon, Flipkart, Meesho), and technical SEO. Transparent pricing and verified deliverables.",
+      "Hire Aradhy Jain for custom Next.js websites, e-commerce stores, marketplace cataloging, technical SEO, and automation with transparent milestone pricing.",
     images: ["/creator_card_portrait.jpg"],
   },
 };
