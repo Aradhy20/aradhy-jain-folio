@@ -34,9 +34,19 @@
 - **Pravaah UPSC (`/projects/pravaah-upsc`):** Distraction-free digital learning and mentorship platform for civil services aspirants, featuring structured GS subject modules and PYQ archives.
 - **Jambudweep Cultural Platform (`/projects/jambudweep`):** Heritage pilgrim web portal for the historical Hastinapur center, featuring architectural archives, facility guides, and mobile-friendly visitor information.
 
+## Dedicated Service Landing Pages
+- Services Directory: https://aradhy-jain-portfolio.vercel.app/services
+- Website Development India (Next.js): https://aradhy-jain-portfolio.vercel.app/services/website-development
+- E-commerce Development & Marketplaces: https://aradhy-jain-portfolio.vercel.app/services/ecommerce-development
+- Technical SEO & Next.js Optimization: https://aradhy-jain-portfolio.vercel.app/services/technical-seo
+- AI Automation & Python Workflows: https://aradhy-jain-portfolio.vercel.app/services/ai-automation
+- Power BI Dashboard Developer & Analytics: https://aradhy-jain-portfolio.vercel.app/services/data-analytics
+- Institutional & College Website Development: https://aradhy-jain-portfolio.vercel.app/services/institutional-websites
+
 ## Primary Canonical URLs
 - Homepage: https://aradhy-jain-portfolio.vercel.app/
 - Commercial Freelance Services: https://aradhy-jain-portfolio.vercel.app/freelance
+- Services Hub: https://aradhy-jain-portfolio.vercel.app/services
 - Privacy Policy (DPDP Compliant): https://aradhy-jain-portfolio.vercel.app/privacy
 - Terms of Service: https://aradhy-jain-portfolio.vercel.app/terms
 - XML Sitemap: https://aradhy-jain-portfolio.vercel.app/sitemap.xml

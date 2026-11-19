@@ -29,37 +29,42 @@ export function Footer() {
           {/* Column 2: Client Solutions & Packages */}
           <div className="space-y-2.5">
             <p className="text-xs font-bold uppercase tracking-wider text-foreground/50">
-              Services & Pricing
+              Services &amp; Architecture
             </p>
             <ul className="space-y-2 text-foreground/75">
               <li>
-                <Link href="/freelance" className="hover:text-cyan-500 transition-colors font-semibold text-cyan-600 dark:text-cyan-400">
-                  Freelance Services & Packages →
+                <Link href="/services" className="hover:text-cyan-500 transition-colors font-semibold text-cyan-600 dark:text-cyan-400">
+                  All Services Directory →
                 </Link>
               </li>
               <li>
-                <Link href="/#services" className="hover:text-cyan-500 transition-colors">
-                  Starter Business Website (₹18k+)
+                <Link href="/services/website-development" className="hover:text-cyan-500 transition-colors">
+                  Website Development (Next.js)
                 </Link>
               </li>
               <li>
-                <Link href="/#services" className="hover:text-cyan-500 transition-colors">
-                  Custom Business Portal (₹38k+)
+                <Link href="/services/ecommerce-development" className="hover:text-cyan-500 transition-colors">
+                  E-commerce &amp; Marketplaces
                 </Link>
               </li>
               <li>
-                <Link href="/#services" className="hover:text-cyan-500 transition-colors">
-                  E-commerce & Marketplace Storefronts
+                <Link href="/services/technical-seo" className="hover:text-cyan-500 transition-colors">
+                  Technical SEO &amp; Indexing
                 </Link>
               </li>
               <li>
-                <Link href="/#services" className="hover:text-cyan-500 transition-colors">
-                  Technical SEO & Optimization
+                <Link href="/services/ai-automation" className="hover:text-cyan-500 transition-colors">
+                  AI &amp; Python Automation
                 </Link>
               </li>
               <li>
-                <Link href="/#services" className="hover:text-cyan-500 transition-colors">
-                  Monthly Retainer & Maintenance
+                <Link href="/services/data-analytics" className="hover:text-cyan-500 transition-colors">
+                  Power BI &amp; Data Analytics
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/institutional-websites" className="hover:text-cyan-500 transition-colors">
+                  Institutional &amp; College Portals
                 </Link>
               </li>
             </ul>

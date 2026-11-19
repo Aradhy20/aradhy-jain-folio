@@ -276,10 +276,17 @@ export function CommercialServices() {
 
             <div className="flex flex-col sm:flex-row md:flex-col gap-3 justify-center">
               <Link
-                href="/freelance"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-5 py-3 text-xs font-bold text-cyan-700 dark:text-cyan-300 hover:bg-cyan-500/20 transition-colors text-center"
+                href="/services"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-500/40 bg-cyan-500/15 px-5 py-3 text-xs font-bold text-cyan-700 dark:text-cyan-300 hover:bg-cyan-500/25 transition-colors text-center"
               >
-                <span>View Full Freelance Services & Scope</span>
+                <span>Browse In-Depth Services Directory</span>
+                <ArrowRight size={14} />
+              </Link>
+              <Link
+                href="/freelance"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background/80 px-5 py-3 text-xs font-bold text-foreground hover:bg-background transition-colors text-center"
+              >
+                <span>View Full Freelance Packages & Scope</span>
                 <ArrowRight size={14} />
               </Link>
               <a
