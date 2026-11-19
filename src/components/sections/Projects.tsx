@@ -1,6 +1,7 @@
 "use client";
 
 import { PORTFOLIO_DATA, Project } from "@/data";
+import { analytics } from "@/lib/analytics";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowUpRight,
@@ -90,6 +91,7 @@ function FlagshipCaseStudyCard({
                 href={project.liveLink}
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => analytics.trackProjectClick(project.title, project.slug, "live_site")}
                 className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-700 dark:text-emerald-300 hover:bg-emerald-500/20 transition-colors"
                 aria-label={`Visit live website for ${project.title}`}
               >
@@ -142,7 +144,10 @@ function FlagshipCaseStudyCard({
 
         {/* Title & Short Overview */}
         <h3
-          onClick={() => onOpenModal(project)}
+          onClick={() => {
+            analytics.trackProjectClick(project.title, project.slug, "quick_view");
+            onOpenModal(project);
+          }}
           className="mt-6 text-2xl font-bold tracking-tight text-foreground cursor-pointer transition-colors group-hover:text-cyan-600 dark:group-hover:text-cyan-400"
         >
           {project.title}
@@ -181,13 +186,17 @@ function FlagshipCaseStudyCard({
 
         <div className="flex items-center gap-2">
           <button
-            onClick={() => onOpenModal(project)}
+            onClick={() => {
+              analytics.trackProjectClick(project.title, project.slug, "quick_view");
+              onOpenModal(project);
+            }}
             className="text-xs font-semibold text-foreground/60 hover:text-foreground transition-colors px-2 py-1"
           >
             Quick View
           </button>
           <Link
             href={`/projects/${project.slug}`}
+            onClick={() => analytics.trackProjectClick(project.title, project.slug, "view_case_study")}
             className="inline-flex items-center gap-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3.5 py-1.5 text-xs font-semibold text-cyan-700 dark:text-cyan-300 hover:bg-cyan-500/20 transition-colors"
           >
             <span>Case Study</span>
@@ -257,7 +266,10 @@ function TechnicalProjectCard({
         </div>
 
         <h4
-          onClick={() => onOpenModal(project)}
+          onClick={() => {
+            analytics.trackProjectClick(project.title, project.slug, "quick_view");
+            onOpenModal(project);
+          }}
           className="mt-4 text-lg font-bold text-foreground cursor-pointer transition-colors group-hover:text-cyan-600 dark:group-hover:text-cyan-400"
         >
           {project.title}
@@ -281,7 +293,10 @@ function TechnicalProjectCard({
         </div>
 
         <button
-          onClick={() => onOpenModal(project)}
+          onClick={() => {
+            analytics.trackProjectClick(project.title, project.slug, "quick_view");
+            onOpenModal(project);
+          }}
           className="inline-flex items-center gap-1 text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:underline"
         >
           Details <ArrowUpRight size={13} />
@@ -377,6 +392,7 @@ export function Projects() {
           </div>
           <a
             href="#contact"
+            onClick={() => analytics.trackCtaClick("Start Your Project", "projects_flagship_cta")}
             className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[linear-gradient(135deg,#06b6d4,#2563eb)] px-6 py-3 text-sm font-semibold text-white shadow-md hover:scale-[1.02] transition-transform"
           >
             Start Your Project

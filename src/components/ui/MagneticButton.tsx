@@ -65,6 +65,7 @@ export function MagneticButton({
           download={download}
           target={target}
           rel={rel}
+          onClick={onClick}
           className="block h-full w-full"
         >
           {content}

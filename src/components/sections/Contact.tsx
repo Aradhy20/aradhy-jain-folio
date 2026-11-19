@@ -1,6 +1,7 @@
 "use client";
 
 import { PORTFOLIO_DATA } from "@/data";
+import { analytics } from "@/lib/analytics";
 import { motion } from "framer-motion";
 import { Mail, Phone, Send, ShieldCheck, Check, Loader2, MessageSquare } from "lucide-react";
 import Link from "next/link";
@@ -82,6 +83,11 @@ export function Contact() {
       }
 
       setSubmittedResponse(data);
+      analytics.trackContactFormSubmit({
+        serviceCategory: form.service,
+        budgetRange: form.budgetRange,
+        timeline: form.timeline,
+      });
     } catch (err: unknown) {
       setErrorMsg(
         err instanceof Error ? err.message : "Failed to submit. Please reach out directly via Email or WhatsApp."
@@ -129,6 +135,7 @@ export function Contact() {
             <div className="mt-8 space-y-3.5">
               <a
                 href={`mailto:${PORTFOLIO_DATA.personalInfo.email}`}
+                onClick={() => analytics.trackEmailClick("contact_section")}
                 className="flex items-center gap-4 rounded-2xl border border-border/70 bg-background/65 p-4 transition-transform hover:-translate-y-0.5 dark:bg-slate-950/40"
               >
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-700 dark:text-cyan-300">
@@ -157,6 +164,7 @@ export function Contact() {
                 href={`https://wa.me/${PORTFOLIO_DATA.personalInfo.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => analytics.trackWhatsAppClick("contact_section")}
                 className="flex items-center gap-4 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-4 transition-transform hover:-translate-y-0.5"
               >
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#25D366] text-white">
@@ -199,6 +207,7 @@ export function Contact() {
                       href={submittedResponse.directChannels.whatsappUrl}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => analytics.trackWhatsAppClick("contact_post_submit")}
                       className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-xs font-semibold text-white shadow-md hover:scale-105 transition-transform"
                     >
                       <MessageSquare size={14} />
@@ -206,6 +215,7 @@ export function Contact() {
                     </a>
                     <a
                       href={submittedResponse.directChannels.mailtoUrl}
+                      onClick={() => analytics.trackEmailClick("contact_post_submit")}
                       className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-white/60 px-5 py-2.5 text-xs font-semibold text-foreground shadow-sm hover:bg-white dark:bg-white/10"
                     >
                       <Mail size={14} />

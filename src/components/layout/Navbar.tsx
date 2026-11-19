@@ -1,6 +1,7 @@
 "use client";
 
 import { NAV_LINKS, PORTFOLIO_DATA } from "@/data";
+import { analytics } from "@/lib/analytics";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -72,6 +73,7 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <a
             href="/#contact"
+            onClick={() => analytics.trackCtaClick("Discuss Your Project", "navbar")}
             className="hidden sm:inline-flex items-center gap-2 rounded-full bg-[linear-gradient(135deg,#06b6d4,#2563eb)] px-4 py-2 text-xs font-semibold text-white shadow-md shadow-cyan-500/20 hover:scale-[1.02] transition-transform"
           >
             Discuss Your Project

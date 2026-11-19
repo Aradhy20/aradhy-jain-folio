@@ -1,4 +1,7 @@
+"use client";
+
 import { PORTFOLIO_DATA } from "@/data";
+import { analytics } from "@/lib/analytics";
 import { FileText, Mail, MessageSquare } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import Link from "next/link";
@@ -112,6 +115,7 @@ export function Footer() {
                   href={`https://wa.me/${PORTFOLIO_DATA.personalInfo.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => analytics.trackWhatsAppClick("footer")}
                   className="hover:text-emerald-500 transition-colors flex items-center gap-1.5"
                 >
                   <MessageSquare size={13} className="text-emerald-500" />
@@ -121,6 +125,7 @@ export function Footer() {
               <li>
                 <a
                   href={`mailto:${PORTFOLIO_DATA.personalInfo.email}`}
+                  onClick={() => analytics.trackEmailClick("footer")}
                   className="hover:text-cyan-500 transition-colors flex items-center gap-1.5"
                 >
                   <Mail size={13} className="text-cyan-500" />
@@ -131,6 +136,7 @@ export function Footer() {
                 <a
                   href={PORTFOLIO_DATA.personalInfo.resume}
                   download="Aradhy_Jain_Resume.pdf"
+                  onClick={() => analytics.trackResumeDownload("footer")}
                   className="hover:text-cyan-500 transition-colors flex items-center gap-1.5"
                 >
                   <FileText size={13} className="text-cyan-500" />
@@ -168,6 +174,7 @@ export function Footer() {
             </a>
             <a
               href={`mailto:${PORTFOLIO_DATA.personalInfo.email}`}
+              onClick={() => analytics.trackEmailClick("footer_social")}
               className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/70 bg-white/40 text-foreground/70 transition-all hover:-translate-y-0.5 hover:text-cyan-600 dark:bg-white/5"
             >
               <Mail size={15} />

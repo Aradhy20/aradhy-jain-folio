@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquare, X, Send } from "lucide-react";
+import { analytics } from "@/lib/analytics";
 
 export function WhatsAppPopup() {
   const [open, setOpen] = useState(false);
@@ -88,6 +89,7 @@ export function WhatsAppPopup() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => analytics.trackWhatsAppClick("whatsapp_popup")}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] py-3 text-xs font-bold text-white shadow-lg shadow-green-500/20 transition-all duration-200 hover:scale-[1.02]"
               >
                 <Send size={12} />

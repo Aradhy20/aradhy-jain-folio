@@ -7,6 +7,7 @@ import { ArrowRight, Download, MapPin, Sparkles, Briefcase, ChevronDown } from "
 import { useState, useEffect } from "react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { MagneticButton } from "@/components/ui/MagneticButton";
+import { analytics } from "@/lib/analytics";
 import dynamic from "next/dynamic";
 
 const ThreeCanvas = dynamic(
@@ -110,21 +111,30 @@ export function Hero() {
 
           {/* Primary Action Buttons */}
           <div className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
-            <MagneticButton href="#contact">
+            <MagneticButton
+              href="#contact"
+              onClick={() => analytics.trackCtaClick("Start a Project", "hero")}
+            >
               <span className="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#06b6d4,#2563eb)] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-cyan-500/25 transition-transform hover:scale-[1.02]">
                 Start a Project
                 <ArrowRight size={18} />
               </span>
             </MagneticButton>
 
-            <MagneticButton href="#projects">
+            <MagneticButton
+              href="#projects"
+              onClick={() => analytics.trackCtaClick("View My Work", "hero")}
+            >
               <span className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-6 py-3.5 text-sm font-semibold text-cyan-700 dark:text-cyan-300 backdrop-blur-xl transition-all hover:bg-cyan-500/20">
                 <Briefcase size={16} />
                 View My Work
               </span>
             </MagneticButton>
 
-            <MagneticButton href="#audit-tool">
+            <MagneticButton
+              href="#audit-tool"
+              onClick={() => analytics.trackCtaClick("Free Website Audit", "hero")}
+            >
               <span className="inline-flex items-center justify-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-5 py-3.5 text-sm font-semibold text-purple-700 dark:text-purple-300 backdrop-blur-xl hover:bg-purple-500/20 transition-all">
                 <Sparkles size={16} />
                 Free Website Audit
@@ -165,6 +175,7 @@ export function Hero() {
               <MagneticButton
                 href={PORTFOLIO_DATA.personalInfo.resume}
                 download="Aradhy_Jain_Resume.pdf"
+                onClick={() => analytics.trackResumeDownload("hero")}
               >
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-white/40 px-3 py-1.5 text-xs font-medium text-foreground/70 hover:text-foreground dark:bg-white/5 transition-colors">
                   <Download size={13} />
