@@ -574,6 +574,7 @@ export const PORTFOLIO_DATA = {
       images: ["/project_heritage_platform.png", "/project_saas_dashboard.png"],
       featured: false,
       githubLink: "https://github.com/Aradhy20/jain-mandir-website",
+      liveLink: "https://jambudweephastinapur.com/",
       challengesSolutions: {
         challenge:
           "Presenting extensive cultural photography and complex temple architectural details without causing high latency or data consumption for visitors on mobile networks.",

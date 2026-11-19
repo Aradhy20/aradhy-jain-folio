@@ -235,17 +235,32 @@ function TechnicalProjectCard({
           <span className="rounded-lg border border-border/60 bg-foreground/5 px-2.5 py-1 text-[11px] font-semibold text-foreground/70">
             {project.category}
           </span>
-          {project.githubLink && (
-            <a
-              href={project.githubLink}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/70 bg-background/80 text-foreground/60 hover:text-foreground transition-colors"
-              aria-label={`${project.title} GitHub repo`}
-            >
-              <FaGithub size={13} />
-            </a>
-          )}
+          <div className="flex items-center gap-1.5">
+            {project.liveLink && (
+              <a
+                href={project.liveLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => analytics.trackProjectView(project.title, project.slug, "live_site")}
+                className="inline-flex h-8 items-center gap-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 text-[11px] font-semibold text-emerald-700 dark:text-emerald-300 hover:bg-emerald-500/20 transition-colors"
+                aria-label={`Visit live website for ${project.title}`}
+              >
+                <span>Live</span>
+                <ExternalLink size={11} />
+              </a>
+            )}
+            {project.githubLink && (
+              <a
+                href={project.githubLink}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/70 bg-background/80 text-foreground/60 hover:text-foreground transition-colors"
+                aria-label={`${project.title} GitHub repo`}
+              >
+                <FaGithub size={13} />
+              </a>
+            )}
+          </div>
         </div>
 
         <div
